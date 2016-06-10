@@ -1,0 +1,60 @@
+#environment {
+  .content-container {
+    .environment-text {
+      border: none !important;
+      padding: 0 !important;
+    }
+    .content {
+      margin-top: 30px;
+      padding: 15px;
+      border: solid 1px #aaa;
+      border-radius: 4px;
+      h3 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      a {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+.fa,
+i {
+  margin-right: 15px;
+}
+
+.fa-skype {
+  color: #12a5f4;
+}
+
+
+@media (min-width: 992px) {
+  #environment {
+    .content-container {
+      max-width: 768px;
+      .content {
+        padding: 30px;
+        margin-top: 60px;
+        h3 {
+          margin-bottom: 30px;
+        }
+        a {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 1200px) {
+  #environment {
+    .content-container {
+      .content {
+        margin-top: 60px;
+      }
+    }
+  }
+}

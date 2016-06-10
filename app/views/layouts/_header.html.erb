@@ -1,0 +1,142 @@
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-inner">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1 class="logo">
+            <%= link_to "Studish", root_path, class: "navbar-brand" %>
+          </h1>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <% if current_page?(root_path) %>
+                <%= link_to "#inquiry" do %>
+                  Free Trial
+                <% end %>
+              <% else %>
+                <%= link_to "/#inquiry" do %>
+                  Free Trial
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to inquiry_path do %>
+                Contact
+              <% end %>
+            </li>
+            <li>
+              <% if current_page?(root_path) %>
+                <%= link_to "#line" do %>
+                  Line
+                <% end %>
+              <% else %>
+                <%= link_to "/#line" do %>
+                  Line
+                <% end %>
+              <% end %>
+            </li>
+            
+            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                The Others
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" >
+                <li>
+                  <%= link_to "introduction/intro" do %>
+                    Introduction
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <% if current_page?(root_path) %>
+                    <%= link_to "#about" do %>
+                      About
+                    <% end %>
+                  <% else %>
+                    <%= link_to "/#about" do %>
+                      About
+                    <% end %>
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <% if current_page?(root_path) %>
+                    <%= link_to "#merit" do %>
+                      Merit
+                    <% end %>
+                  <% else %>
+                    <%= link_to "/#merit" do %>
+                      Merit
+                    <% end %>
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <% if current_page?(root_path) %>
+                    <%= link_to "#fit" do %>
+                      Fit
+                    <% end %>
+                  <% else %>
+                    <%= link_to "/#fit" do %>
+                      Fit
+                    <% end %>
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <% if current_page?(root_path) %>
+                    <%= link_to "#flowchart" do %>
+                      Flowchart
+                    <% end %>
+                  <% else %>
+                    <%= link_to "/#flowchart" do %>
+                      Flowchart
+                    <% end %>
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <% if current_page?(root_path) %>
+                    <%= link_to "#environment" do %>
+                      Environment
+                    <% end %>
+                  <% else %>
+                    <%= link_to "/#environment" do %>
+                      Environment
+                    <% end %>
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <% if current_page?(root_path) %>
+                    <%= link_to "#plan" do %>
+                      Plan
+                    <% end %>
+                  <% else %>
+                    <%= link_to "/#plan" do %>
+                      Plan
+                    <% end %>
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</header>

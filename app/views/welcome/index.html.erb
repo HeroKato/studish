@@ -1,0 +1,21 @@
+<% content_for :head do %>
+<title>Studish | コーチングとティーチングによるオンライン指導</title>
+<meta name="description" content="Studishは日々の学習にコーチングを取り入れた完全１対１のオンライン指導サービスです。コーチングとティーチングで、中学生や高校生の成績向上、志望校合格、自学能力の強化、自立学習のサポートをおこなっています。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上、マインドの改善、実行力の向上">
+<% end %>
+
+<div class="wrapper">
+  <div class="copy">
+    <%= render partial: "copy" %>
+  </div>
+  <div class="main-contents">
+    <%= render :template => "share/line" %>
+    <%= render partial: "about" %>
+    <%= render partial: "merit" %>
+    <%= render partial: "fit" %>
+    <%= render partial: "flowchart" %>
+    <%= render partial: "environment" %>
+    <%= render partial: "plan" %>
+    <%= render :template => "inquiry/index" %>
+  </div>
+</div>

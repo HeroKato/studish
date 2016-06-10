@@ -1,0 +1,76 @@
+<div id="inquiry-thanks" class="content-wrapper">
+  <div id="inquiry-thanks-content-container" class="content-container">
+    <div class="content-header">
+      <% if @inquiry.skype %>
+      <h2>無料体験の申し込み完了</h2>
+      <% else %>
+      <h2>お問い合わせ完了</h2>
+      <% end %>
+    </div>
+    <div class="content">
+      <% if @inquiry.skype %>
+      <p>無料体験のお申し込みありがとうございます。<br>以下の内容で承りました。<br>返信まで少々お待ちください。</p>
+      <% else %>
+      <p class="confirm-text">お問い合わせありがとうございます。<br>以下の内容で承りました。返信まで少々お待ちください。</p>
+      <% end %>
+      <table id="inquiry-table-1" class="table table-bordered">
+        <% if @inquiry.category %>
+        <tr>
+          <th>区分</th>
+          <td>
+            <%= @inquiry.category %>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>学年</th>
+          <td>
+            <%= @inquiry.grade %>
+          </td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td>
+            <%= @inquiry.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td>
+            <%= @inquiry.email %>
+          </td>
+        </tr>
+        <% if @inquiry.skype %>
+        <tr>
+          <th>Skype名</th>
+          <td>
+            <%= @inquiry.skype %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      
+      <table id="inquiry-table-2" class="table table-bordered">
+        <tr>
+          <th id="inquiry-content-header">ご質問・ご相談内容</th>
+        </tr>
+        <tr>
+          <td id="inquiry-content">
+            <%= simple_format(@inquiry.message) %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <% if @inquiry.skype %>
+    <p class="below-thanks">体験指導の前に生徒様の現状をヒアリングするためのSkype面談を行いたいと思います。面談の日程調整の案内を数日以内にメールにて送りますので少々お待ち下さい。</p>
+    <p class="below-thanks">Skypeアカウントをお持ちでない場合は事前にご用意ください。Skypeはこちらからダウンロードできます。</span>
+    <%= link_to "Skype", "https://www.skype.com/ja/" %>
+    <% end %>
+    
+    <div class="to-top">
+      <%= link_to "トップページへ戻る", root_path %>
+    </div>
+
+  </div>
+</div>

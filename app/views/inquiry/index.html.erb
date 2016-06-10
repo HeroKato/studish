@@ -1,0 +1,68 @@
+<% unless current_page?(root_path) %>
+  <% content_for :head do %>
+  <title>Studish | Contact</title>
+  <meta name="description" content="Studishのお問い合わせフォームページです。">
+  <% end %>
+<% end %>
+
+<div id="inquiry" class="content-wrapper">
+  <div id="inquiry-content-container" class="content-container">
+    <div class="content-header">
+      <% if current_page?(root_path) || @inquiry.skype %>
+        <h2>体験指導申込</h2>
+      <% else %>
+        <h2>お問い合わせフォーム</h2>
+      <% end %>
+      <p class="inquiry-discription"><a href="#line">LINE</a>でのお問い合わせにも対応しております。みなさまからのご質問をお待ちしております！</p>
+    </div>
+    <div class="content">
+
+      <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+      
+        <% if @inquiry.errors.any? %>
+          <div class="alert alert-danger" role="alert">
+            <strong>入力内容にエラーがあります</strong>
+            <ul>
+              <% @inquiry.errors.each do |attr, msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+        <% unless current_page?(root_path) %>
+        <div class="form-group">
+          <%= f.label "区分" %>
+          <%= f.select :category, [["指導申込"], ["質問・相談"], ["その他"]], :prompt => "お問い合わせの区分を選択してください（必須）", class: "form-control text-denger" %>
+        </div>
+        <% end %>
+        <div class="form-group">
+          <%= f.label "学年" %>
+          <%= f.select :grade, [["小1〜3"], ["小4〜6"], ["中1"], ["中2"], ["中3"], ["高1"], ["高2"], ["高3"], ["その他"]], :prompt => "学年を選択してください（必須）", class: "form-control text-denger" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "お名前" %>
+          <%= f.text_field :name, class: "form-control text-danger", placeholder: "お名前（必須）" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "メールアドレス" %>
+          <%= f.email_field :email, class: "form-control text-danger", placeholder: "メールアドレス（必須）" %>
+        </div>
+        <% if current_page?(root_path) || @inquiry.skype%>
+        <div class="form-group">
+          <%= f.label "Skype" %>
+          <%= f.text_field :skype, class: "form-control text-danger", placeholder: "Skype名（Sykpeアカウントをお持ちの場合）" %>
+        </div>
+        <% end %>
+        <div class="form-group">
+          <%= f.label "ご質問・ご相談内容" %>
+          <%= f.text_area :message, :maxlength => "1000", class: "form-control text-danger", placeholder: "ご質問・ご相談などがあればご自由にお書きください（1000文字以内)" %>
+        </div>
+        <div class="submit-group">
+          <%= f.submit "送信", class: "submit btn btn-primary" %>
+        </div>
+          
+      <% end %>
+    </div>
+  </div>
+</div>

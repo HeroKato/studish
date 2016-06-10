@@ -1,0 +1,132 @@
+#flowchart {
+  padding: 0;
+  .content-container {
+    padding: 0;
+    .content-header {
+      margin: 0;
+      padding: 123px 0;
+      background-color: #eee;
+    }
+    #flowchart-1 {
+      background-color: #fff;
+    }
+    .content {
+      padding: 75px 15px 60px;
+    }
+    #flowchart-1 {
+      background-color: #ddd;
+    }
+    #flowchart-2 {
+      background-color: #ccc;
+    }
+    #flowchart-3 {
+      background-color: #bbb;
+    }
+    #flowchart-4 {
+      background-color: #aaa;
+    }
+  }
+}
+
+.flowchart-arrow-box-0 {
+  position: relative;
+  z-index: 10;
+}
+
+.flowchart-arrow-box-1 {
+  position: relative;
+  z-index: 9;
+}
+
+.flowchart-arrow-box-2 {
+  position: relative;
+  z-index: 8;
+}
+
+.flowchart-arrow-box-3 {
+  position: relative;
+  z-index: 7;
+}
+
+.flowchart-arrow-box-0:after,
+.flowchart-arrow-box-1:after,
+.flowchart-arrow-box-2:after,
+.flowchart-arrow-box-3:after {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-width: 30px;
+	margin-left: -30px;
+}
+
+.flowchart-arrow-box-0:after {
+  border-color: rgba(0, 0, 0, 0);
+	border-top-color: #eee;
+}
+
+.flowchart-arrow-box-1:after {
+  border-color: rgba(238, 238, 238, 0);
+	border-top-color: #ddd;
+}
+
+.flowchart-arrow-box-2:after {
+  border-color: rgba(221, 221, 221, 0);
+	border-top-color: #ccc;
+}
+
+.flowchart-arrow-box-3:after {
+  border-color: rgba(204, 204, 204, 0);
+	border-top-color: #bbb;
+}
+
+
+@media (min-width: 768px) {
+  #flowchart {
+    .content-container {
+      max-width: 100%;
+      .content-header {
+        padding: 115px 0;
+      }
+      .content {
+        h3 {
+          margin-bottom: 24px;
+        }
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 992px) {
+  #flowchart {
+    .content-container {
+      .content-header {
+        padding: 186px 0;
+      }
+      .content {
+        padding-top: 150px;
+        padding-bottom: 90px;
+        h3 {
+          font-size: 28px;
+          margin-bottom: 28px;
+        }
+      }
+    }
+  }
+  
+  .flowchart-arrow-box-0:after,
+  .flowchart-arrow-box-1:after,
+  .flowchart-arrow-box-2:after,
+  .flowchart-arrow-box-3:after {
+  	border-width: 60px;
+  	margin-left: -60px;
+  }
+}
