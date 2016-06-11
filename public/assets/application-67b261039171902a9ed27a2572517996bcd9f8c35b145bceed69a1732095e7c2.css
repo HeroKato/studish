@@ -11,7 +11,7 @@
 .copy .copy-image {
   width: 100%;
   height: 250px;
-  background: url(/assets/copy-back-85d8042c50212facfcdc3ff43cd963c37251bde08b33a6369da756228aaf2001.jpg);
+  background: url(/assets/copy-back_828-36989cfea0c87c4f14fe22cc5ced16b1c6761301bd1cfda218629210a32a57e4.jpg);
   background-size: 100%;
   opacity: 0.5;
 }
@@ -42,34 +42,35 @@
   /* line 32, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-image {
     height: 450px;
+    background: url(/assets/copy-back-85d8042c50212facfcdc3ff43cd963c37251bde08b33a6369da756228aaf2001.jpg);
   }
-  /* line 35, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 36, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text {
     top: 171px;
   }
-  /* line 37, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 38, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text h2 {
     font-size: 40px;
   }
-  /* line 40, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 41, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text p {
     font-size: 20px;
   }
 }
 @media (min-width: 992px) {
-  /* line 49, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 50, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy {
     height: 600px;
   }
-  /* line 51, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 52, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-image {
     height: 600px;
   }
-  /* line 54, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 55, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text {
     top: 236px;
   }
-  /* line 56, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 57, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text h2 {
     font-size: 50px;
   }
@@ -445,38 +446,57 @@ header .navbar .navbar-inner .navbar-nav li a .gravatar {
 header .navbar .navbar-inner .navbar-nav li a .gravatar img {
   border-radius: 100%;
 }
-/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle {
+  padding: 10px;
+  color: #777;
+}
+/* line 60, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle span {
+  font-size: 8px;
+}
+/* line 64, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:hover,
+header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:focus {
+  color: #333;
+}
+/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown-menu {
   padding: 0;
 }
-/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 72, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown-menu li.divider {
   margin: 0;
 }
-/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 75, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown-menu li a {
   padding: 10px 30px;
 }
 
 @media (min-width: 768px) {
-  /* line 79, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 92, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  header .navbar .navbar-inner .navbar-collapse .navbar-nav .dropdown .dropdown-toggle {
+    padding: 20px;
+    color: #777;
+  }
+  /* line 98, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav li a {
     padding: 20px;
   }
 }
 @media (max-width: 768px) {
-  /* line 91, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 110, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-toggle {
     margin-top: 11px;
   }
 
-  /* line 94, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-collapse {
     margin-top: 10px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 102, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 121, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner {
     margin: 0 auto;
   }
