@@ -55,6 +55,7 @@ header {
         }
         .dropdown-menu {
           padding: 0;
+          overflow-y: scroll;
           li {
             &.divider {
               margin: 0;
