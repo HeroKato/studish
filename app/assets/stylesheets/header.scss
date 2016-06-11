@@ -57,6 +57,9 @@ header {
           .dropdown-toggle {
             padding: 10px;
             color: #777;
+            span {
+              font-size: 8px;
+            }
           }
           .dropdown-toggle:hover,
           .dropdown-toggle:focus {
