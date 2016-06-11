@@ -37,14 +37,14 @@ header {
       .navbar-collapse.collapse,
       .navbar-collapse.collapsing {
         margin-top: 0;
-        max-height: 527px;
+        max-height: 350px;
       }
       .navbar-nav {
         margin-top: 0;
         margin-bottom: 0;
         li {
           a {
-            padding: 20px;
+            padding: 10px;
             .gravatar {
               margin-right: 2px;
               img {
@@ -55,13 +55,30 @@ header {
         }
         .dropdown-menu {
           padding: 0;
-          overflow-y: scroll;
           li {
             &.divider {
               margin: 0;
             }
             a {
               padding: 10px 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    .navbar {
+      .navbar-inner {
+        .navbar-collapse{
+          .navbar-nav {
+            li {
+              a {
+                padding: 20px;
+              }
             }
           }
         }
