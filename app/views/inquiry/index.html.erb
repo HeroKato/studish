@@ -13,7 +13,13 @@
       <% else %>
         <h2>お問い合わせフォーム</h2>
       <% end %>
-      <p class="inquiry-discription"><a href="#line">LINE</a>でのお問い合わせにも対応しております。みなさまからのご質問をお待ちしております！</p>
+      <p class="inquiry-discription">
+        <% if current_page?(root_path) %>
+        <a href="#line">LINE</a>でのお問い合わせにも対応しております。みなさまからのご質問をお待ちしております！
+        <% else %>
+        <a href="/#line">LINE</a>でのお問い合わせにも対応しております。みなさまからのご質問をお待ちしております！
+        <% end %>
+      </p>
     </div>
     <div class="content">
 
@@ -33,7 +39,7 @@
         <% unless current_page?(root_path) %>
         <div class="form-group">
           <%= f.label "区分" %>
-          <%= f.select :category, [["指導申込"], ["質問・相談"], ["その他"]], :prompt => "お問い合わせの区分を選択してください（必須）", class: "form-control text-denger" %>
+          <%= f.select :category, [["指導申込"], ["質問・相談"], ["その他"]], :prompt => "お問い合わせの区分を選択してください", class: "form-control text-denger" %>
         </div>
         <% end %>
         <div class="form-group">
