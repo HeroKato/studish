@@ -4,7 +4,7 @@
   .copy-image {
     width: 100%;
     height: 250px;
-    background: image-url("copy-back_828.jpg") no-repeat center;
+    background: image-url("copy-back_414.jpg") no-repeat center;
     background-size: cover;
     opacity: 0.5;
   }
@@ -31,6 +31,7 @@
     height: 450px;
     .copy-image {
       height: 450px;
+      background: image-url("copy-back_768.jpg") no-repeat center;
       background-size: cover;
     }
     .copy-text {
@@ -51,6 +52,7 @@
     height: 600px;
     .copy-image {
       height: 600px;
+      background: image-url("copy-back_1920.jpg") no-repeat center;
     }
     .copy-text {
       top: 236px;
