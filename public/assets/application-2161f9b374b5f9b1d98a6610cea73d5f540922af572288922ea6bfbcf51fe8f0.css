@@ -11,8 +11,8 @@
 .copy .copy-image {
   width: 100%;
   height: 250px;
-  background: url(/assets/copy-back_828-36989cfea0c87c4f14fe22cc5ced16b1c6761301bd1cfda218629210a32a57e4.jpg);
-  background-size: 100%;
+  background: url(/assets/copy-back_414-135f8e0b1f2bf929ee4f7c5cc99b58d8806049229c560f882f85a3ab8968e62e.jpg) no-repeat center;
+  background-size: cover;
   opacity: 0.5;
 }
 /* line 11, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
@@ -42,35 +42,38 @@
   /* line 32, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-image {
     height: 450px;
-    background: url(/assets/copy-back-85d8042c50212facfcdc3ff43cd963c37251bde08b33a6369da756228aaf2001.jpg);
+    background: url(/assets/copy-back_768-b48f180ff77ef4301521e95f8940212b2c74fc6d019e3e4ba71e8fab34df9205.jpg) no-repeat center;
+    background-size: cover;
   }
-  /* line 36, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 37, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text {
     top: 171px;
   }
-  /* line 38, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 39, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text h2 {
     font-size: 40px;
   }
-  /* line 41, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 42, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text p {
     font-size: 20px;
   }
 }
 @media (min-width: 992px) {
-  /* line 50, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 51, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy {
     height: 600px;
   }
-  /* line 52, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 53, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-image {
     height: 600px;
+    background: url(/assets/copy-back_1920-3a4e5687bb3f3f2ba33e87486a71b0d52e42a621ce8c81d87c325e34609781ce.jpg) no-repeat center;
+    background-size: cover;
   }
-  /* line 55, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 58, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text {
     top: 236px;
   }
-  /* line 57, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 60, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text h2 {
     font-size: 50px;
   }
