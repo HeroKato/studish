@@ -1,7 +1,9 @@
 #line {
-  padding-bottom: 0;
-  .content-container {
-    .content {
-    }
+  padding-top: 0;
+}
+
+@media(min-width: 996px) {
+  #line {
+    padding-top: 60px;
   }
 }

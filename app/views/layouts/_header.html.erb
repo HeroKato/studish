@@ -18,29 +18,34 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
+              <%= link_to root_path do %>
+                HOME
+              <% end %>
+            </li>
+            <li>
               <% if current_page?(root_path) %>
                 <%= link_to "#inquiry" do %>
-                  Free Trial
+                  無料体験
                 <% end %>
               <% else %>
                 <%= link_to "/#inquiry" do %>
-                  Free Trial
+                  無料体験
                 <% end %>
               <% end %>
             </li>
             <li>
               <%= link_to inquiry_path do %>
-                Contact
+                お問い合わせ
               <% end %>
             </li>
             <li>
               <% if current_page?(root_path) %>
                 <%= link_to "#line" do %>
-                  Line
+                  LINE
                 <% end %>
               <% else %>
                 <%= link_to "/#line" do %>
-                  Line
+                  LINE
                 <% end %>
               <% end %>
             </li>
@@ -48,60 +53,18 @@
             
             <li class="dropdown">
               <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                The Others
+                その他
                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
               </div>
               <ul class="dropdown-menu" >
                 <li>
-                  <%= link_to "introduction/intro" do %>
-                    Introduction
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <% if current_page?(root_path) %>
-                    <%= link_to "#about" do %>
-                      About
-                    <% end %>
-                  <% else %>
-                    <%= link_to "/#about" do %>
-                      About
-                    <% end %>
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <% if current_page?(root_path) %>
-                    <%= link_to "#merit" do %>
-                      Merit
-                    <% end %>
-                  <% else %>
-                    <%= link_to "/#merit" do %>
-                      Merit
-                    <% end %>
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <% if current_page?(root_path) %>
-                    <%= link_to "#fit" do %>
-                      Fit
-                    <% end %>
-                  <% else %>
-                    <%= link_to "/#fit" do %>
-                      Fit
-                    <% end %>
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
                   <% if current_page?(root_path) %>
                     <%= link_to "#flowchart" do %>
-                      Flowchart
+                      受講開始までの流れ
                     <% end %>
                   <% else %>
                     <%= link_to "/#flowchart" do %>
-                      Flowchart
+                      受講開始までの流れ
                     <% end %>
                   <% end %>
                 </li>
@@ -109,11 +72,11 @@
                 <li>
                   <% if current_page?(root_path) %>
                     <%= link_to "#environment" do %>
-                      Environment
+                      必要環境
                     <% end %>
                   <% else %>
                     <%= link_to "/#environment" do %>
-                      Environment
+                      必要環境
                     <% end %>
                   <% end %>
                 </li>
@@ -121,11 +84,11 @@
                 <li>
                   <% if current_page?(root_path) %>
                     <%= link_to "#plan" do %>
-                      Plan
+                      料金
                     <% end %>
                   <% else %>
                     <%= link_to "/#plan" do %>
-                      Plan
+                      料金
                     <% end %>
                   <% end %>
                 </li>

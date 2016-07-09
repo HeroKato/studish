@@ -1,0 +1,144 @@
+#style {
+  background-color: #f5f5f5;
+  .content {
+    padding: 20px;
+    margin-bottom: 30px;
+    border: solid 1px #aaa;
+    border-radius: 4px;
+    text-align: center;
+    #style-header-1{
+      width: 195px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #style-header-2{
+      width: 273px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #style-header-3{
+      width: 135px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #style-header-4{
+      width: 273px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .style-header {
+      margin-bottom: 20px;
+      .icon {
+        font-size: 20px;
+        line-height: 1;
+        float: left;
+      }
+      h3 {
+        margin: 0 0 0 15px;
+        float: left;
+        line-height: 1;
+      }
+      #style-icon-1 {
+        color: #0cab0c;
+      }
+      #style-icon-2 {
+        color: #ef1414;
+      }
+      #style-icon-3 {
+        color: #ffb6c1;
+          span {
+          margin: 0;
+        }
+      }
+      #style-icon-4 {
+        color: #daa520;
+        span {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+
+@media(min-width: 768px) {
+  #style {
+    .content-container {
+      max-width: 600px;
+      .content {
+        padding: 30px;
+      }
+      #style-header-1 {
+        width: 231px;
+      }
+      #style-header-2 {
+        width: 325px;
+      }
+      #style-header-3 {
+        width: 159px;
+      }
+      #style-header-4 {
+        width: 325px;
+      }
+      .style-header {
+        margin-bottom: 20px;
+        .icon {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+
+@media(min-width: 996px) {
+  #style {
+    .content-container {
+      max-width: 996px;
+      .content-header {
+        margin: 0 0 60px;
+      }
+      .content {
+        width: 450px;
+        padding: 30px;
+        margin-bottom: 60px;
+      }
+      #style-1 {
+        float: left;
+      }
+      #style-2 {
+        float: left;
+        margin-left: 60px;
+      }
+      #style-3 {
+        float: left;
+      }
+      #style-4 {
+        float: left;
+        margin-left: 60px;
+      }
+      .style-header {
+        margin-top: 10px;
+        margin-bottom: 40px;
+      }
+      #style-header-1 {
+        width: 267px;
+      }
+      #style-header-2 {
+        width: 378px;
+      }
+      #style-header-3 {
+        width: 183px;
+      }
+      #style-header-4 {
+        width: 378px;
+      }
+      .style-header {
+        margin-bottom: 20px;
+        .icon {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}
