@@ -6,8 +6,17 @@ Rails.application.routes.draw do
   post 'inquiry/confirm' => 'inquiry#confirm'
   post 'inquiry/thanks'  => 'inquiry#thanks'
   
-  # introduction
-  get 'introduction/intro' => 'introduction#intro'
+  # 新規講師登録
+  get 'signup', to: 'coach#new'
+  
+  # ログイン
+  get    'login' , to: 'sessions#new'
+  post   'login' , to: 'sessions#create'
+  delete 'logout' , to: 'sessions#destroy'
+  
+  resources :coaches
+  resources :sessions, only: [:new, :create, :destroy]
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

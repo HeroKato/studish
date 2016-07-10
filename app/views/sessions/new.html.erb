@@ -1,0 +1,27 @@
+<% content_for :head do %>
+<title>ログイン（講師用） | Studish</title>
+<meta name="description" content="Studishの講師用ログインページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="login-coach">
+  <dev class="content-container">
+    <div class="content-header">
+      <h2>ログイン（講師用）</h2>
+    </div>
+    
+    <div class="content">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+        </div>
+        <div class="submit-group">
+          <%= f.submit "ログイン", method: "post", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

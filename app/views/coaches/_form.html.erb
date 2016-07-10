@@ -1,0 +1,51 @@
+<%= render "shared/errors", object: form.object %>
+
+<div>
+  <%= form.fields_for :image do |imgf| %>
+    <%= imgf.label :uploaded_image %>
+    <%= imgf.file_field :uploaded_image %>
+    <% if !imgf.object.new_record? && imgf.object.errors.empty? %>
+      <div>
+        <%= coach_image_tag @coach %>
+        <%= imgf.check_box :_destroy %>
+        <%= imgf.label :_destroy %>
+        <%= imgf.hidden_field :id %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="form-group">
+  <%= form.text_field :name, class: "form-control", placeholder: "ユーザ名（表示名）" %>
+</div>
+<div class="form-group">
+  <%= form.text_field :full_name, class: "form-control", placeholder: "お名前（本名）" %>
+</div>
+<div class="form-group">
+  <%= form.text_field :email, class: "form-control", placeholder: "メールアドレス" %>
+</div>
+<div class="form-group">
+  <%= form.label :birthday %>
+  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control", placeholder: "生年月日" %>
+</div>
+<div class="form-group">
+  <%= form.text_field :university, class: "form-control", placeholder: "大学名" %>
+</div>
+<div class="form-group">
+  <%= form.text_field :major, class: "form-control", placeholder: "学部学科" %>
+</div>
+<div class="form-group">
+  <%= form.text_field :school_year, class: "form-control", placeholder: "学年" %>
+</div>
+<div class="form-group">
+  <%= form.text_field :subject, class: "form-control", placeholder: "指導科目（例：英語、数学）" %>
+</div>
+<div class="form-group">
+  <%= form.text_area :self_introduction, class: "form-control", placeholder: "自己紹介" %>
+</div>
+<div class="form-group">
+  <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
+</div>
+<div class="form-group">
+  <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
+</div>

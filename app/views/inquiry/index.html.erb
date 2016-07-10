@@ -1,6 +1,6 @@
 <% unless current_page?(root_path) %>
   <% content_for :head do %>
-  <title>Studish | Contact</title>
+  <title>Contact | Studish</title>
   <meta name="description" content="Studishのお問い合わせフォームページです。">
   <% end %>
 <% end %>
@@ -41,7 +41,7 @@
         </div>
         <% end %>
         <div class="form-group">
-          <%= f.label "学年" %>
+          <%= f.label "grade" %>
           <%= f.select :grade, [["小1〜3"], ["小4〜6"], ["中1"], ["中2"], ["中3"], ["高1"], ["高2"], ["高3"], ["その他"]], :prompt => "学年を選択してください（必須）", class: "form-control text-denger" %>
         </div>
         <div class="form-group">

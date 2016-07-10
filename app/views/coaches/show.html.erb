@@ -1,0 +1,62 @@
+<% content_for :head do %>
+<title>講師プロフィール < Studish</title>
+<meta name="description" content="Studish講師のプロフィールページです。指導科目や自己紹介などを見て自分に合う講師を見つけましょう。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="coach-profile">
+  <div class="content-container">
+    <div class="content-header">
+      <h2><%= @coach.name %>さんのプロフィール</h2>
+    </div>
+    <div class="content">
+      <% if flash.notice %>
+        <p class="notice"><%= flash.notice %></p>
+      <% end %>
+    </div>
+    <div class="content">
+      <div class="coach-image">
+        <%= coach_image_tag @coach, oncontextmenu: "return false;" %>
+      </div>
+      <div class="content profile">
+        <table class="attr">
+          <tr>
+            <th>名前</th>
+            <td><%= @coach.name %></td>
+          </tr>
+          <tr>
+            <th>大学</th>
+            <td><%= @coach.university %></td>
+          </tr>
+          <tr>
+            <th>学部学科</th>
+            <td><%= @coach.major %></td>
+          </tr>
+          <tr>
+            <th>学年</th>
+            <td><%= @coach.school_year %></td>
+          </tr>
+          <tr>
+            <th>指導科目</th>
+            <td><%= @coach.subject %></td>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <td><%= @coach.self_introduction %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="content administrator-check">
+        <%= @coach.administrator? ? "Yes" : "No" %>
+      </div>
+      <% if current_coach == @coach %>
+        <div class="content">
+          <%= link_to "プロフィールを編集する", edit_coach_path %>
+        </div>
+        <div class="content">
+          <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
