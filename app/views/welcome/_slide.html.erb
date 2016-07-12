@@ -5,55 +5,23 @@
     </div>
     <div class="content">
       <ul class="single-item">
-        <li>
-          <div class="profile-cover">
-            <%= image_tag "myface.jpg", class: "coach-profile", id: "coach-profile-1", oncontextmenu: "return false;" %>
-            <div class="coach-name">
-              <span>name</span>
+        <% @slide.each do |slide| %>
+          <li>
+            <div class="profile-cover">
+              <%= coach_image_tag slide, class: "coach-profile", id: "coach-profile-1", oncontextmenu: "return false;" %>
+              <div class="coach-name">
+                <span><%= slide.name %></span>
+              </div>
+              <%= link_to slide do %>
+                <%= slide.name %>さんの詳細プロフィール
+              <% end %>
             </div>
-            <%= link_to "nameさんの詳細プロフィール", root_path %>
-          </div>
-        </li>
-        <li>
-          <div class="profile-cover">
-            <%= image_tag "no_image.png", class: "coach-profile", id: "coach-profile-2" %>
-            <div class="coach-name">
-              <span>name</span>
-            </div>
-            <%= link_to "nameさんの詳細プロフィール", root_path %>
-          </div>
-        </li>
-        <li>
-          <div class="profile-cover">
-            <%= image_tag "no_image.png", class: "coach-profile", id: "coach-profile-3" %>
-            <div class="coach-name">
-              <span>name</span>
-            </div>
-            <%= link_to "nameさんの詳細プロフィール", root_path %>
-          </div>
-        </li>
-        <li>
-          <div class="profile-cover">
-            <%= image_tag "no_image.png", class: "coach-profile", id: "coach-profile-1" %>
-            <div class="coach-name">
-              <span>name</span>
-            </div>
-            <%= link_to "nameさんの詳細プロフィール", root_path %>
-          </div>
-        </li>
-        <li>
-          <div class="profile-cover">
-            <%= image_tag "no_image.png", class: "coach-profile", id: "coach-profile-1" %>
-            <div class="coach-name">
-              <span>name</span>
-            </div>
-            <%= link_to "nameさんの詳細プロフィール", root_path %>
-          </div>
-        </li>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class="content" id="coaches-link">
-      <%= link_to "他の講師をチェック！", root_path, class: "btn btn-primary" %> 
+      <%= link_to "他の講師をチェック！", coaches_path , class: "btn btn-primary" %> 
     </div>
   </div>
 </div>

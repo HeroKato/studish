@@ -39,4 +39,6 @@ ActiveRecord::Schema.define(version: 20160710131502) do
     t.string   "password_digest",                   null: false
   end
 
+  add_index "coaches", ["email"], name: "index_coaches_on_email", unique: true
+
 end

@@ -17,11 +17,13 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
-              <li><%= current_coach.name %>さん|<%= link_to "Log out", logout_path, method: "delete" %></li>
-            <% else %>
-              <li><%= link_to "Log in", login_path %></li>
-            <% end %>
+            <li>
+              <% if logged_in? %>
+                <%= link_to logout_path, method: "delete" do %>
+                  Log out | <%= current_coach.name %>
+                <% end %>
+              <% end %>
+            </li>
             <li>
               <%= link_to root_path do %>
                 HOME
@@ -39,11 +41,6 @@
               <% end %>
             </li>
             <li>
-              <%= link_to inquiry_path do %>
-                お問い合わせ
-              <% end %>
-            </li>
-            <li>
               <% if current_page?(root_path) %>
                 <%= link_to "#line" do %>
                   LINE
@@ -55,37 +52,12 @@
               <% end %>
             </li>
             
-            
             <li class="dropdown">
               <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                 その他
                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
               </div>
               <ul class="dropdown-menu" >
-                <li>
-                  <% if current_page?(root_path) %>
-                    <%= link_to "#flowchart" do %>
-                      受講開始までの流れ
-                    <% end %>
-                  <% else %>
-                    <%= link_to "/#flowchart" do %>
-                      受講開始までの流れ
-                    <% end %>
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <% if current_page?(root_path) %>
-                    <%= link_to "#environment" do %>
-                      必要環境
-                    <% end %>
-                  <% else %>
-                    <%= link_to "/#environment" do %>
-                      必要環境
-                    <% end %>
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
                 <li>
                   <% if current_page?(root_path) %>
                     <%= link_to "#plan" do %>
@@ -102,6 +74,18 @@
                   <%= link_to "講師一覧", :coaches %>
                 </li>
                 <li role="separator" class="divider"></li>
+                <li>
+                  <%= link_to inquiry_path do %>
+                    お問い合わせ
+                  <% end %>
+                </li>
+                <li>
+                  <% unless logged_in? %>
+                    <%= link_to login_path do %>
+                      Log in | 講師用
+                    <% end %>
+                  <% end %>
+                </li>
               </ul>
             </li>
             

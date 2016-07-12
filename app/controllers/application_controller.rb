@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   private
+  # ログインしている講師かどうか確認
   def logged_in_coach
     unless logged_in?
       store_location

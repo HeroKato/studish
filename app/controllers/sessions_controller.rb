@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def new
   end
   
@@ -16,6 +17,8 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:coach_id] = nil
+    flash[:info] = "logged out!"
     redirect_to root_path
   end
+  
 end

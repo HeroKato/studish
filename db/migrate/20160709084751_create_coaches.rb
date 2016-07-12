@@ -11,10 +11,12 @@ class CreateCoaches < ActiveRecord::Migration
       t.string  :subject,           null: false                  #指導科目
       t.string  :self_introduction, null: false                  #自己紹介
       t.boolean :administrator,     null: false, default: false  #管理者フラグ
-
+      
       t.timestamps null: false
       
       t.string :password_digest,    null: false
+      
+      t.index [:email], unique: true
       
     end
   end

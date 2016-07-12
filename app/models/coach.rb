@@ -17,6 +17,9 @@ class Coach < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   
   has_secure_password
+  validates :password,
+    :length => { :minimum => 8, :if => :validate_password? },
+    :confirmation => { :if => :validate_password? }
   
   validates :university,        presence: true, length: { minimum: 2, maximum: 30 }
   validates :major,             presence: true, length: { minimum: 2, maximum: 50 }
@@ -24,5 +27,10 @@ class Coach < ActiveRecord::Base
   validates :subject,           presence: true, length: { minimum: 1, maximum: 100 }
   validates :self_introduction, presence: true, length: { minimum: 1, maximum: 400 }
   
+  
+  private
+  def validate_password?
+    password.present? || password_confirmation.present?
+  end
   
 end

@@ -16,8 +16,13 @@ class CoachesController < ApplicationController
   end
   
   def new
-    @coach = Coach.new(birthday: Date.new(1997, 1, 1))
-    @coach.build_image
+    unless logged_in?
+      @coach = Coach.new(birthday: Date.new(1997, 1, 1))
+      @coach.build_image
+    else
+      flash[:alert] = "Please log out before creating a new coach account."
+      redirect_to root_path
+    end
   end
   
   def edit
@@ -28,6 +33,7 @@ class CoachesController < ApplicationController
   def create
     @coach = Coach.new(coach_params)
     if @coach.save
+      log_in @coach
       flash[:success] = "Welcome to Studish! Resistration Success!"
       redirect_to @coach
     else
