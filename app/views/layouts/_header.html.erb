@@ -19,8 +19,20 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <% if logged_in? %>
+                <a><%= current_coach.name %>さん</a>
+              <% end %>
+            </li>
+            <li>
+              <% if logged_in? %>
                 <%= link_to logout_path, method: "delete" do %>
-                  Log out | <%= current_coach.name %>
+                  Log out
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if logged_in? %>
+                <%= link_to current_coach do %>
+                  My profile
                 <% end %>
               <% end %>
             </li>
@@ -29,6 +41,7 @@
                 HOME
               <% end %>
             </li>
+            <% unless logged_in? %>
             <li>
               <% if current_page?(root_path) %>
                 <%= link_to "#inquiry" do %>
@@ -51,7 +64,9 @@
                 <% end %>
               <% end %>
             </li>
+            <% end %>
             
+            <% unless logged_in? %>
             <li class="dropdown">
               <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                 その他
@@ -89,6 +104,7 @@
                 </li>
               </ul>
             </li>
+            <% end %>
             
           </ul>
         </div>

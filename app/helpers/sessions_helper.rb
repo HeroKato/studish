@@ -1,16 +1,17 @@
 module SessionsHelper
-  # 講師としてログインする
+  # 渡されたユーザーでログインする
   def log_in(user)
     session[:coach_id] = @coach.id
   end
   
+  # 現在のユーザーをログアウトする
   def log_out
     forget(current_coach)
     session[:coach_id] = nil
     @current_coach = nil
   end
   
-  # 現在の講師
+  # 記憶トークンcookieに対応するユーザーを返す
   def current_coach
     if (coach_id = session[:coach_id])
       @current_coach ||= Coach.find_by(id: coach_id)
@@ -23,7 +24,7 @@ module SessionsHelper
     end
   end
   
-  # ログインしているかどうか確認
+   # ユーザーがログインしていればtrue、その他ならfalseを返す
   def logged_in?
     !!current_coach
   end
@@ -42,6 +43,13 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
   
+  # 記憶したURL (もしくはデフォルト値) にリダイレクト
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+  
+  # アクセスしようとしたURLを覚えておく
   def store_location
     session[:forwarding_url] = request.url if request.get?
   end

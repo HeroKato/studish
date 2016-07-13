@@ -11,3 +11,13 @@
   width: auto;
   margin-left: 0;
 }
+
+.coach_image_form {
+  img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 100px;
+    margin-bottom: 15px;
+  }
+}

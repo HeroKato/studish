@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       remember @coach
       redirect_to @coach
     else
-      flash[:denger] = 'invalid email/password combination'
+      flash[:danger] = 'invalid email/password combination'
       render 'new'
     end
   end

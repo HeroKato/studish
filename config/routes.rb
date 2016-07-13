@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   post 'inquiry/confirm' => 'inquiry#confirm'
   post 'inquiry/thanks'  => 'inquiry#thanks'
   
-  # 新規講師登録
-  get 'signup', to: 'coaches#new'
-  
   # ログイン
   get    'login' , to: 'sessions#new'
   post   'login' , to: 'sessions#create'

@@ -55,7 +55,7 @@
       </div>
       <% if current_coach == @coach %>
         <div class="content">
-          <%= link_to "プロフィールを編集する", edit_coach_path %>
+          <%= link_to "プロフィールを編集する", edit_coach_path(current_coach) %>
         </div>
         <div class="content">
           <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>

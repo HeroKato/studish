@@ -20,7 +20,7 @@ class CoachesController < ApplicationController
       @coach = Coach.new(birthday: Date.new(1997, 1, 1))
       @coach.build_image
     else
-      flash[:alert] = "Please log out before creating a new coach account."
+      flash[:danger] = "Please log out before creating a new coach account."
       redirect_to root_path
     end
   end
@@ -45,7 +45,8 @@ class CoachesController < ApplicationController
     @coach = Coach.find(params[:id])
     @coach.assign_attributes(coach_params)
     if @coach.save
-      redirect_to @coach, notice: "プロフィールを更新しました！"
+      flash[:success] = "Profile Edit Success!"
+      redirect_to @coach
     else
       render "edit"
     end
@@ -54,7 +55,8 @@ class CoachesController < ApplicationController
   def destroy
     @coach = Coach.find(params[:id])
     @coach.destroy
-    redirect_to :coaches, notice: "アカウントを削除しました。"
+    flash[:success] = "Deleted Your Account."
+    redirect_to :coaches
   end
   
   private
@@ -74,6 +76,24 @@ class CoachesController < ApplicationController
         type: @coach.image.content_type, disposition: "inline"
     else
       raise NotFound
+    end
+  end
+  
+  # 正しいユーザーかどうか確認
+  def correct_coach
+    @coach = Coach.find(params[:id])
+    unless current_coach?(@coach)
+      flash[:danger] = "Please log in correct coach."
+      redirect_to(root_url)
+    end
+  end
+  
+  # ログイン済みユーザーかどうか確認
+  def logged_in_coach
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
     end
   end
   

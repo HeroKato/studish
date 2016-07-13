@@ -29,7 +29,6 @@ class Coach < ActiveRecord::Base
   validates :subject,           presence: true, length: { minimum: 1, maximum: 100 }
   validates :self_introduction, presence: true, length: { minimum: 1, maximum: 400 }
   
-  
   # 与えられた文字列のハッシュ値を返す
   def Coach.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
