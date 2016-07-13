@@ -32,6 +32,6 @@
 <% end %>
 <%= yield %>
 <%= render partial: "layouts/footer" %>
-
+<%= debug(params) if Rails.env.development? %>
 </body>
 </html>

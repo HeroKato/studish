@@ -28,7 +28,7 @@ class Coach < ActiveRecord::Base
   validates :school_year,       presence: true, length: { minimum: 1, maximum: 20 }
   validates :subject,           presence: true, length: { minimum: 1, maximum: 100 }
   validates :self_introduction, presence: true, length: { minimum: 1, maximum: 400 }
-  validates :coach_images,      presence: true
+  
   
   # 与えられた文字列のハッシュ値を返す
   def Coach.digest(string)
