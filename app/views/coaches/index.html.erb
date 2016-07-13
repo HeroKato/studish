@@ -22,7 +22,11 @@
               <%= link_to(coach) do %>
                 <div class="coach-card-inner">
                   <div class="coach-image">
-                    <%= coach_image_tag coach, oncontextmenu: "return false;" %>
+                    <% if coach.image %>
+                      <%= coach_image_tag coach, oncontextmenu: "return false;" %>
+                    <% else %>
+                      <%= image_tag("no_image.png") %>
+                    <% end %>
                   </div>
                   <div class="coach-name">
                     <%= coach.name %>

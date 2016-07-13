@@ -8,7 +8,11 @@
         <% @slide.each do |slide| %>
           <li>
             <div class="profile-cover">
-              <%= coach_image_tag slide, class: "coach-profile", id: "coach-profile-1", oncontextmenu: "return false;" %>
+              <% if slide.image %>
+                <%= coach_image_tag slide, class: "coach-profile", oncontextmenu: "return false;" %>
+              <% else %>
+                <%= image_tag("no_image.png") %>
+              <% end %>
               <div class="coach-name">
                 <span><%= slide.name %></span>
               </div>
