@@ -11593,6 +11593,26 @@ $(function(){
         $("html, body").animate({scrollTop:position}, speed, "swing");
         return false;
     });
+    
+});
+$(function(){
+  $('.nav a').on('click', function(){
+  	if (window.innerWidth <= 768) {
+  		$('.navbar-toggle').click();
+  	}
+  });
+});
+(function() {
+
+
+}).call(this);
+$(function(){
+  $('.single-item').slick({
+    autoplay:false,
+    autoplaySpeed:2000,
+    dots:true,
+    pauseOnHover:true
+  });
 });
 (function() {
 

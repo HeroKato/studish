@@ -1,6 +1,178 @@
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/about.scss */
-#about .content-container .more-info {
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content-header {
+  width: 183px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content-header .icon {
+  font-size: 28px;
+  float: left;
+  line-height: 1;
+  color: #9370db;
+}
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content-header .icon span {
+  margin: 0;
+}
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content-header h2 {
+  float: left;
+  margin-left: 15px;
+}
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content {
+  margin-bottom: 30px;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content .challenge-1-header {
+  margin-bottom: 30px;
+  width: 195px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content .icon {
+  font-size: 20px;
+  float: left;
+  color: #90ee90;
+  line-height: 1;
+}
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content .icon span {
+  margin: 0;
+}
+/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+#challenge .content-container .content h3 {
+  float: left;
+  margin: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  /* line 51, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content-header {
+    width: 231px;
+  }
+  /* line 53, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content-header .icon {
+    font-size: 36px;
+  }
+  /* line 59, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content {
+    margin-bottom: 60px;
+  }
+  /* line 61, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content .challenge-1-header {
+    margin-bottom: 30px;
+    width: 231px;
+  }
+  /* line 65, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content .icon {
+    font-size: 24px;
+  }
+}
+@media (min-width: 996px) {
+  /* line 77, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content-header {
+    width: 255px;
+  }
+  /* line 79, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content-header .icon {
+    font-size: 40px;
+  }
+  /* line 85, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content {
+    margin-bottom: 60px;
+  }
+  /* line 87, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content .challenge-1-header {
+    margin-bottom: 30px;
+    width: 267px;
+  }
+  /* line 91, /home/ubuntu/workspace/app/assets/stylesheets/challenge.scss */
+  #challenge .content-container .content .icon {
+    font-size: 28px;
+  }
+}
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach.scss */
+#coach-profile .content-container .content .coach-image {
+  margin-bottom: 60px;
+}
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach.scss */
+#coach-profile .content-container .content .coach-image img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #333;
+  border-radius: 100px;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+#coach-list .content-container .content .coach-card-wrapper {
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+#coach-list .content-container .content .coach-card-wrapper .coach-card {
+  width: 160px;
+  float: left;
+}
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+#coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner {
+  padding: 10px;
+  margin: 10px;
+  background-color: #aaa;
+  border: 1px solid #333;
+  width: 142px;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+#coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .coach-image {
+  width: 120px;
+  margin-bottom: 10px;
+}
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+#coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .coach-image img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #333;
+  border-radius: 60px;
+}
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+#coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .coach-name {
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  /* line 48, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+  #coach-list .content-container .content .coach-card-wrapper {
+    width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 52, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+  #coach-list .content-container .content .coach-card-wrapper .coach-card {
+    width: 160px;
+    float: left;
+  }
+  /* line 56, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+  #coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner {
+    padding: 10px;
+    margin: 10px;
+    background-color: #aaa;
+    border: 1px solid #333;
+    width: 142px;
+  }
+  /* line 62, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+  #coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .coach-image {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+  /* line 65, /home/ubuntu/workspace/app/assets/stylesheets/coaches.scss */
+  #coach-list .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .coach-image img {
+    width: 120px;
+    border: 1px solid #333;
+    border-radius: 60px;
+  }
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
 .copy {
@@ -11,8 +183,8 @@
 .copy .copy-image {
   width: 100%;
   height: 250px;
-  background: url(/assets/copy-back_828-36989cfea0c87c4f14fe22cc5ced16b1c6761301bd1cfda218629210a32a57e4.jpg);
-  background-size: 100%;
+  background: url(/assets/copy-back_414-135f8e0b1f2bf929ee4f7c5cc99b58d8806049229c560f882f85a3ab8968e62e.jpg) no-repeat center;
+  background-size: cover;
   opacity: 0.5;
 }
 /* line 11, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
@@ -42,8 +214,8 @@
   /* line 32, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-image {
     height: 450px;
-    background: url(/assets/copy-back-85d8042c50212facfcdc3ff43cd963c37251bde08b33a6369da756228aaf2001.jpg);
-    background-size: 100%;
+    background: url(/assets/copy-back_768-b48f180ff77ef4301521e95f8940212b2c74fc6d019e3e4ba71e8fab34df9205.jpg) no-repeat center;
+    background-size: cover;
   }
   /* line 37, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text {
@@ -66,15 +238,28 @@
   /* line 53, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-image {
     height: 600px;
+    background: url(/assets/copy-back_1920-3a4e5687bb3f3f2ba33e87486a71b0d52e42a621ce8c81d87c325e34609781ce.jpg) no-repeat center;
+    background-size: cover;
   }
-  /* line 56, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 58, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text {
     top: 236px;
   }
-  /* line 58, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
+  /* line 60, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
   .copy .copy-text h2 {
     font-size: 50px;
   }
+}
+/* miscellaneous */
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/debug.scss */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/environment.scss */
 #environment .content-container .environment-text {
@@ -137,33 +322,34 @@ i {
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit {
   padding-bottom: 0;
+  background-color: #fff;
 }
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container {
   padding: 0;
 }
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .fit-text {
   padding: 0 15px;
   margin-bottom: 30px;
 }
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .fit-content {
   border-top: solid 1px #eee;
 }
-/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container #fit-content-3 {
   border-bottom: solid 1px #eee;
 }
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .content .fit-card #fit-icon-2 {
   color: #666;
 }
-/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .content .fit-card #fit-icon-3 {
   color: #aaa;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .content .fit-card .icon {
   font-size: 60px;
   width: 20%;
@@ -171,56 +357,62 @@ i {
   text-align: center;
   float: left;
 }
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .content .fit-card .fit-hp-wrapper {
   float: left;
   width: 80%;
   padding: 27px 15px;
   text-align: center;
 }
-/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .content .fit-card .fit-hp-wrapper h3 {
   margin: 10px 0 20px 0;
 }
 
 @media (min-width: 768px) {
-  /* line 46, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 47, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit {
     padding-bottom: 0;
   }
-  /* line 49, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 50, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .fit-text {
     padding: 0 15px;
     margin-bottom: 30px;
   }
-  /* line 55, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 56, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .content .fit-card .icon {
     font-size: 60px;
     width: 20%;
     padding: 40px 0;
   }
-  /* line 60, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 61, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .content .fit-card .fit-hp-wrapper {
     padding: 27px 15px;
   }
-  /* line 62, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 63, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .content .fit-card .fit-hp-wrapper h3 {
     margin: 24px 0 34px 0;
   }
 }
 @media (min-width: 992px) {
-  /* line 78, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 79, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .content .fit-card .icon {
     padding-top: auto;
   }
-  /* line 81, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 82, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .content .fit-card .fit-hp-wrapper {
     padding: 45px 0;
   }
-  /* line 83, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
+  /* line 84, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
   #fit .content-container .content .fit-card .fit-hp-wrapper h3 {
     font-size: 28px;
   }
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/flash.scss */
+p.notice {
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: #ccf;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/flowchart.scss */
 #flowchart {
@@ -378,6 +570,22 @@ footer {
 footer .copyright {
   text-align: center;
   color: #aaa;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+.checkbox span {
+  margin-left: 20px;
+  font-weight: normal;
+}
+
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header {
@@ -844,166 +1052,15 @@ header .navbar .navbar-inner .navbar-nav .dropdown-menu li a {
     text-align: left;
   }
 }
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro {
-  padding: 0;
-}
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container {
-  max-width: 600px !important;
-  margin: 0 auto;
-}
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container .content-header {
-  padding: 60px 0;
-  margin: 0;
-}
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container #contents {
-  margin-bottom: 120px;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container .content {
-  margin-bottom: 90px;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container .content ul {
-  list-style-type: none;
-  padding: 0;
-}
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container .content h3 {
-  margin-top: 0;
-  margin-bottom: 45px;
-}
-/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container .content p {
-  text-align: left;
-  margin-bottom: 20px;
-}
-/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-#intro .content-container .content span br {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  /* line 43, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container {
-    max-width: 600px !important;
-    margin: 0 auto;
-  }
-  /* line 46, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content-header {
-    padding: 90px 0;
-    margin: 0;
-  }
-  /* line 50, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container #contents {
-    margin-bottom: 150px;
-  }
-  /* line 52, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container #contents a {
-    font-size: 16px;
-  }
-  /* line 56, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content {
-    margin-bottom: 90px;
-  }
-  /* line 58, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  /* line 62, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content h3 {
-    margin-bottom: 30px;
-  }
-  /* line 65, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content p {
-    text-align: left;
-    margin-bottom: 20px;
-    font-size: 16px;
-  }
-  /* line 71, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content span br {
-    display: block;
-  }
-}
-@media (min-width: 992px) {
-  /* line 83, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content {
-    margin-bottom: 150px;
-  }
-  /* line 85, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content h3 {
-    margin-bottom: 50px;
-  }
-  /* line 88, /home/ubuntu/workspace/app/assets/stylesheets/introduction.scss */
-  #intro .content-container .content p {
-    text-align: left;
-    margin-bottom: 40px;
-    font-size: 18px;
-  }
-}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/line.scss */
 #line {
-  padding-bottom: 0;
-}
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit {
-  background-color: #f5f5f5;
-}
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit .content {
-  padding: 30px;
-  margin-bottom: 30px;
-  border: solid 1px #aaa;
-  border-radius: 4px;
-  text-align: center;
-}
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit .content .icon {
-  font-size: 42px;
-  line-height: 1.5;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit .content #merit-icon-1 {
-  color: #0cab0c;
-}
-/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit .content #merit-icon-2 {
-  color: #ef1414;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit .content #merit-icon-3 {
-  color: #0d0dc4;
-}
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-#merit .content #merit-icon-3 span {
-  margin: 0;
+  padding-top: 0;
 }
 
-@media (min-width: 992px) {
-  /* line 31, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-  #merit .content-container {
-    max-width: 992px;
-  }
-  /* line 33, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-  #merit .content-container .content {
-    margin-bottom: 0;
-  }
-  /* line 36, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-  #merit .content-container #merit-1 {
-    margin-left: -15px;
-    margin-right: 15px;
-  }
-  /* line 40, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-  #merit .content-container #merit-2 {
-    margin-right: 15px;
-  }
-  /* line 43, /home/ubuntu/workspace/app/assets/stylesheets/merit.scss */
-  #merit .content-container #merit-3 {
-    margin-right: -15px;
+@media (min-width: 996px) {
+  /* line 6, /home/ubuntu/workspace/app/assets/stylesheets/line.scss */
+  #line {
+    padding-top: 60px;
   }
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
@@ -1012,34 +1069,38 @@ header .navbar .navbar-inner .navbar-nav .dropdown-menu li a {
   color: #fff;
 }
 /* line 5, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+#plan .content-container #plan-text {
+  border: none;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 #plan .content-container .content {
   border: solid 1px #fff;
   text-align: center;
   padding: 15px;
   margin-top: 30px;
 }
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 #plan .content-container .content h3 {
   margin: 20px 0;
 }
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 #plan .content-container .content p {
   margin: 0;
 }
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 #plan .content-container .free-ex {
   font-size: 20px;
   margin-top: 40px;
   text-align: center;
 }
 
-/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 .plan-arrow-box {
   position: relative;
   background: #aab8b9;
 }
 
-/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 .plan-arrow-box:after {
   top: 100%;
   left: 50%;
@@ -1056,27 +1117,27 @@ header .navbar .navbar-inner .navbar-nav .dropdown-menu li a {
 }
 
 @media (min-width: 768px) {
-  /* line 48, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+  /* line 51, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
   #plan .content-container .content {
     padding: 30px;
   }
 }
 @media (min-width: 992px) {
-  /* line 58, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+  /* line 61, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
   #plan .content-container {
     max-width: 768px;
   }
-  /* line 60, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+  /* line 63, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
   #plan .content-container .content {
     margin-top: 60px;
   }
-  /* line 63, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+  /* line 66, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
   #plan .content-container .free-ex {
     font-size: 28px;
     margin-top: 60px;
   }
 
-  /* line 70, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
+  /* line 73, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
   .plan-arrow-box:after {
     border-width: 60px;
     margin-left: -60px;
@@ -1176,6 +1237,234 @@ header .navbar .navbar-inner .navbar-nav .dropdown-menu li a {
   .share-btn {
     border-radius: 30px;
   }
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+.slick-slider {
+  padding: 0;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+.slick-slider .slick-prev:before, .slick-slider .slick-next:before {
+  color: #000;
+}
+
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+#slide {
+  background-color: #f5f5f5;
+}
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+#slide .content-container .content ul li .profile-cover {
+  padding: 15px;
+  width: 230px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+#slide .content-container .content ul li .profile-cover img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+  border-radius: 100px;
+  margin-bottom: 15px;
+}
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+#slide .content-container .content ul li .profile-cover .coach-name {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+#slide .content-container .content ul li .profile-cover a {
+  width: 200px;
+  text-align: center;
+}
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/slide.scss */
+#slide .content-container #coaches-link {
+  margin-top: 60px;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style {
+  background-color: #f5f5f5;
+}
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content {
+  padding: 20px;
+  margin-bottom: 30px;
+  border: solid 1px #aaa;
+  border-radius: 4px;
+  text-align: center;
+}
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content #style-header-1 {
+  width: 195px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content #style-header-2 {
+  width: 273px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content #style-header-3 {
+  width: 135px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content #style-header-4 {
+  width: 273px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header {
+  margin-bottom: 20px;
+}
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header .icon {
+  font-size: 20px;
+  line-height: 1;
+  float: left;
+}
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header h3 {
+  margin: 0 0 0 15px;
+  float: left;
+  line-height: 1;
+}
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header #style-icon-1 {
+  color: #0cab0c;
+}
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header #style-icon-2 {
+  color: #ef1414;
+}
+/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header #style-icon-3 {
+  color: #ffb6c1;
+}
+/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header #style-icon-3 span {
+  margin: 0;
+}
+/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header #style-icon-4 {
+  color: #daa520;
+}
+/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+#style .content .style-header #style-icon-4 span {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  /* line 66, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container {
+    max-width: 600px;
+  }
+  /* line 68, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .content {
+    padding: 30px;
+  }
+  /* line 71, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-1 {
+    width: 231px;
+  }
+  /* line 74, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-2 {
+    width: 325px;
+  }
+  /* line 77, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-3 {
+    width: 159px;
+  }
+  /* line 80, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-4 {
+    width: 325px;
+  }
+  /* line 83, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .style-header {
+    margin-bottom: 20px;
+  }
+  /* line 85, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .style-header .icon {
+    font-size: 24px;
+  }
+}
+@media (min-width: 996px) {
+  /* line 96, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container {
+    max-width: 996px;
+  }
+  /* line 98, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .content-header {
+    margin: 0 0 60px;
+  }
+  /* line 101, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .content {
+    width: 450px;
+    padding: 30px;
+    margin-bottom: 60px;
+  }
+  /* line 106, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-1 {
+    float: left;
+  }
+  /* line 109, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-2 {
+    float: left;
+    margin-left: 60px;
+  }
+  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-3 {
+    float: left;
+  }
+  /* line 116, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-4 {
+    float: left;
+    margin-left: 60px;
+  }
+  /* line 120, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .style-header {
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+  /* line 124, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-1 {
+    width: 267px;
+  }
+  /* line 127, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-2 {
+    width: 378px;
+  }
+  /* line 130, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-3 {
+    width: 183px;
+  }
+  /* line 133, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container #style-header-4 {
+    width: 378px;
+  }
+  /* line 136, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .style-header {
+    margin-bottom: 20px;
+  }
+  /* line 138, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
+  #style .content-container .style-header .icon {
+    font-size: 28px;
+  }
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/table.scss */
+table.attr {
+  width: 100%;
+}
+
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/table.scss */
+table.attr td {
+  text-align: left;
 }
 @charset "UTF-8";
 /* トップページへのリンク */
