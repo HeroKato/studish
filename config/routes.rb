@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'inquiry/thanks'  => 'inquiry#thanks'
   
   # 新規講師登録
-  get 'signup', to: 'coach#new'
+  get 'signup', to: 'coaches#new'
   
   # ログイン
   get    'login' , to: 'sessions#new'

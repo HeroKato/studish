@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
     if @coach && @coach.authenticate(params[:session][:password])
       session[:coach_id] = @coach.id
       flash[:info] = "logged in as #{@coach.name}"
+      params[:session][:remember_me] == '1' ? remember(@coach):forget(@coach)
+      remember @coach
       redirect_to @coach
     else
       flash[:denger] = 'invalid email/password combination'
@@ -16,7 +18,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:coach_id] = nil
+    log_out if logged_in?
     flash[:info] = "logged out!"
     redirect_to root_path
   end
