@@ -1,25 +1,25 @@
 <div id="slide" class="content-wrapper">
   <div class="content-container">
     <div class="content-header">
-      <h2>講師</h2>
+      <h2>講師紹介</h2>
     </div>
     <div class="content">
       <ul class="single-item">
-        <% @slide.each do |slide| %>
+        <% @coach.each do |coach| %>
           <li>
-            <div class="profile-cover">
-              <% if slide.image %>
-                <%= coach_image_tag slide, class: "coach-profile", oncontextmenu: "return false;" %>
-              <% else %>
-                <%= image_tag("no_image.png") %>
-              <% end %>
-              <div class="coach-name">
-                <span><%= slide.name %></span>
+            <%= link_to coach do %>
+              <div class="profile-cover">
+                <% if coach.image %>
+                  <%= coach_image_tag coach, class: "coach-profile", oncontextmenu: "return false;" %>
+                <% else %>
+                  <%= image_tag("no_image.png") %>
+                <% end %>
+                <div class="coach-name">
+                  <span><%= coach.name %>さん</span>
+                </div>
+                <span>詳細プロフィールを見る</span>
               </div>
-              <%= link_to slide do %>
-                <%= slide.name %>さんの詳細プロフィール
-              <% end %>
-            </div>
+            <% end %>
           </li>
         <% end %>
       </ul>

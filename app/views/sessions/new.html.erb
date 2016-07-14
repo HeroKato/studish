@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="content-wrapper" id="login-coach">
-  <dev class="content-container">
+  <div class="content-container">
     <div class="content-header">
       <h2>ログイン（講師用）</h2>
     </div>
@@ -23,10 +23,10 @@
           <% end %>
         </div>
         <div class="submit-group">
-          <%= f.submit "ログイン", method: "post", class: "btn btn-success" %>
+          <%= f.submit "ログイン", method: "post", class: "btn btn-primary" %>
         </div>
-        <p>New user? <%= link_to "Creat my account", new_coach_path %></p>
       <% end %>
+      <span>New user? <%= link_to "Create my account", new_coach_path %></span>
     </div>
   </div>
 </div>

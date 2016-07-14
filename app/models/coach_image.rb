@@ -29,15 +29,13 @@ class CoachImage < ActiveRecord::Base
   end
   
   def check_image
-    if @uploaded_image.present?
+    if @uploaded_image
       if data.size > 100.kilobytes
         errors.add(:uploaded_image, :too_big_image)
       end
       unless IMAGE_TYPES.has_key?(content_type)
         errors.add(:uploaded_image, :invalid_image)
       end
-    else
-      errors.add(:uploaded_image, :need_image)
     end
   end
 end

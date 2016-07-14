@@ -1,18 +1,21 @@
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
+#coach-new,
+#coach-edit {
+  .content-container {
+    .content {
+        .coach_image_form, 
+        .form-group {
+          text-align: left;
+        }
+    }
+    .alert {
+      color: #ff3434;
+    }
   }
 }
 
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-
 .coach_image_form {
+  margin-top: 60px;
+  margin-bottom: 60px;
   img {
     width: 200px;
     height: 200px;
@@ -20,4 +23,13 @@
     border-radius: 100px;
     margin-bottom: 15px;
   }
+}
+
+.public:after {
+  content: " *";
+  color: #ff3434;
+}
+
+textarea {
+  resize: vertical;
 }

@@ -1,4 +1,20 @@
 ja:
+  coaches:
+    show:
+      labels:
+        name: ユーザ名
+      name: ユーザ名
+      full_name: 氏名
+      birthday: 生年月日
+      email: メールアドレス
+      university: 大学
+      major: 学部学科
+      school_year: 学年
+      subject: 指導科目
+      self_introduction: 自己紹介
+      administrator: 管理者
+      password: パスワード
+      password_confirmation: パスワードの確認
   activerecord:
     models:
       coach: 講師情報
@@ -17,6 +33,11 @@ ja:
         administrator: 管理者
         password: パスワード
         password_confirmation: パスワードの確認
+      coach_image:
+        uploaded_image: プロフィール画像
+        _destroy: 削除する
+      image:
+      uploaded_image: プロフィール画像
     errors:
       messages:
         invalid_email: "は〇〇@〇〇の形で入力してください"

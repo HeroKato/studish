@@ -1,1 +1,24 @@
 $navbar-height: 60px !important;
+
+
+/* ログイン（講師用） */
+#login-coach {
+  .checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    span {
+      margin-left: 20px;
+      font-weight: normal;
+    }
+  }
+  
+  #session_remember_me {
+    width: auto;
+    margin-top: 8px;
+    margin-left: 0;
+  }
+  
+  .submit-group {
+    margin: 20px 0;
+  }
+}

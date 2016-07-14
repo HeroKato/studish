@@ -1,4 +1,5 @@
 <%= render "shared/errors", object: @coach %>
+<p><span class="public"></span>印がついている項目以外は公開されません。</p>
 
 <div class="coach_image_form">
   <%= form.fields_for :image do |imgf| %>
@@ -10,48 +11,60 @@
         <%= imgf.hidden_field :id %>
       </div>
     <% end %>
-    <%= imgf.label :uploaded_image %>
+    <%= imgf.label :uploaded_image, class: "public" %>
     <%= imgf.file_field :uploaded_image %>
+    <P>＊プロフィール画像は登録後でも追加・変更できます。</P>
   <% end %>
 </div>
 
+<p class="alert">＊以下の項目は全て入力必須項目です。</p>
 <div class="form-group">
-  <%= form.text_field :name, class: "form-control", placeholder: "ユーザ名（表示名）" %>
+  <%= form.label :birthday, class: "no-public" %>
+  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= form.text_field :full_name, class: "form-control", placeholder: "お名前（本名）" %>
+  <%= form.label :name, class: "public" %>
+  <%= form.text_field :name, class: "form-control", placeholder: "公開される名前です。後で変更可。" %>
 </div>
 <div class="form-group">
-  <%= form.text_field :email, class: "form-control", placeholder: "メールアドレス" %>
+  <%= form.label :full_name, class: "no-public" %>
+  <%= form.text_field :full_name, class: "form-control", placeholder: "本名を入力してください。非公開。" %>
 </div>
 <div class="form-group">
-  <%= form.label :birthday %>
-  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control", placeholder: "生年月日" %>
+  <%= form.label :email, class: "no-public" %>
+  <%= form.text_field :email, class: "form-control", placeholder: "非公開。" %>
 </div>
 <div class="form-group">
-  <%= form.text_field :university, class: "form-control", placeholder: "大学名" %>
+  <%= form.label :university, class: "public" %>
+  <%= form.text_field :university, class: "form-control", placeholder: "例：〇〇大学/大学院" %>
 </div>
 <div class="form-group">
-  <%= form.text_field :major, class: "form-control", placeholder: "学部学科" %>
+  <%= form.label :major, class: "public" %>
+  <%= form.text_field :major, class: "form-control", placeholder: "例：〇〇学部〇〇学科" %>
 </div>
 <div class="form-group">
-  <%= form.text_field :school_year, class: "form-control", placeholder: "学年" %>
+  <%= form.label :school_year, class: "public" %>
+  <%= form.text_field :school_year, class: "form-control", placeholder: "例：1年/院1年" %>
 </div>
 <div class="form-group">
-  <%= form.text_field :subject, class: "form-control", placeholder: "指導科目（例：英語、数学）" %>
+  <%= form.label :subject, class: "public" %>
+  <%= form.text_field :subject, class: "form-control", placeholder: "例：英語、数学" %>
 </div>
 <div class="form-group">
-  <%= form.text_area :self_introduction, class: "form-control", placeholder: "自己紹介" %>
+  <%= form.label :self_introduction, class: "public" %>
+  <%= form.text_area :self_introduction, class: "form-control", placeholder: "生徒に向けたメッセージをお願いします（最大400字）。" %>
 </div>
 <div class="form-group">
-  <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
+  <%= form.label :password, class: "no-public" %>
+  <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
 </div>
 <div class="form-group">
+  <%= form.label :password_confirmation, class: "no-public" %>
   <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
 </div>
 <div class="submit-group">
   <% if logged_in? %>
-    <%= form.submit "更新する", class: "btn btn-success" %>
+    <%= form.submit "更新する", class: "btn btn-primary" %>
   <% else %>
     <%= form.submit "Create my account", class: "btn btn-primary" %>
   <% end %>
