@@ -36,8 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'google-analytics-rails'
-
 gem 'rails-i18n'
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.8.0'
+gem 'fog', '1.36.0'
 
 group :test do
   gem 'factory_girl_rails', '~> 4.4.0'
