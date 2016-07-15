@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160714233354) do
 
-  create_table "coach_images", force: :cascade do |t|
-    t.integer  "coach_id",     null: false
-    t.binary   "data"
-    t.string   "content_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "coach_images", ["coach_id"], name: "index_coach_images_on_coach_id"
-
   create_table "coaches", force: :cascade do |t|
     t.string   "name",                              null: false
     t.string   "full_name",                         null: false

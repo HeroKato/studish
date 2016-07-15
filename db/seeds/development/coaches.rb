@@ -17,10 +17,4 @@ gnames = ["啓明", "太郎", "次郎"]
     password_confirmation: "password",
     password_digest: "password_digest"
   )
-  path = Rails.root.join("db/seeds/development", "coach#{idx % 3 + 1}.jpg")
-  file = Rack::Test::UploadedFile.new(path, "image/jpeg", true)
-  CoachImage.create(
-    coach: coach,
-    uploaded_image: file
-  )
 end

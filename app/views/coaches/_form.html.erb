@@ -1,23 +1,17 @@
 <%= render "shared/errors", object: @coach %>
-<p><span class="public"></span>印がついている項目以外は公開されません。</p>
+<p class="caution">パスワード以外は入力必須項目です。</p>
+<p class="info"><span class="public"></span>印がついている項目以外は公開されません。</p>
 
-<div class="coach_image_form">
-  <%= form.fields_for :image do |imgf| %>
-    <% if !imgf.object.new_record? && imgf.object.errors.empty? %>
-      <div>
-        <%= coach_image_tag @coach %>
-        <%= imgf.label :_destroy %>
-        <%= imgf.check_box :_destroy %>
-        <%= imgf.hidden_field :id %>
-      </div>
-    <% end %>
-    <%= imgf.label :uploaded_image, class: "public" %>
-    <%= imgf.file_field :uploaded_image %>
-    <P>＊プロフィール画像は登録後でも追加・変更できます。</P>
-  <% end %>
-</div>
+<div class="coach-picture">
+<div><%= form.label :picture, class: "public"%></div>
 <%= image_tag @coach.picture.url if @coach.picture? %>
+<div class="file">
 <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+</div>
+<% unless logged_in? %>
+<P>プロフィール画像は登録後でも追加・変更できます。</P>
+<% end %>
+</div>
 
 <script type="text/javascript">
   $('#coach_picture').bind('change', function() {
@@ -28,7 +22,6 @@
   });
 </script>
 
-<p class="alert">＊以下の項目は全て入力必須項目です。</p>
 <div class="form-group">
   <%= form.label :birthday, class: "no-public" %>
   <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
@@ -61,10 +54,13 @@
   <%= form.label :subject, class: "public" %>
   <%= form.text_field :subject, class: "form-control", placeholder: "例：英語、数学" %>
 </div>
-<div class="form-group">
+<div class="form-group self_introduction">
   <%= form.label :self_introduction, class: "public" %>
   <%= form.text_area :self_introduction, class: "form-control", placeholder: "生徒に向けたメッセージをお願いします（最大400字）。" %>
 </div>
+<% if logged_in? %>
+<p class="caution">以下の項目はパスワードを変更する場合のみ入力してください。</p>
+<% end %>
 <div class="form-group">
   <%= form.label :password, class: "no-public" %>
   <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>

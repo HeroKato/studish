@@ -8,17 +8,11 @@ class CoachesController < ApplicationController
   
   def show
     @coach = Coach.find(params[:id])
-    if params[:format].in?(["jpg", "png", "gif"])
-      send_image
-    else
-      render "show"
-    end
   end
   
   def new
     unless logged_in?
       @coach = Coach.new(birthday: Date.new(1997, 1, 1))
-      @coach.build_image
     else
       flash[:danger] = "Please log out before creating a new coach account."
       redirect_to root_path
@@ -27,7 +21,6 @@ class CoachesController < ApplicationController
   
   def edit
     @coach = Coach.find(params[:id])
-    @coach.build_image unless @coach.image
   end
   
   def create
@@ -66,18 +59,9 @@ class CoachesController < ApplicationController
               :university, :major, :school_year, :subject,
               :self_introduction, :administrator,
               :password, :password_confirmation, :picture]
-    attrs << { image_attributes: [:_destroy, :id, :uploaded_image] }
     params.require(:coach).permit(attrs)
   end
   
-  def send_image
-    if @coach.image.present?
-      send_data @coach.image.data,
-        type: @coach.image.content_type, disposition: "inline"
-    else
-      raise NotFound
-    end
-  end
   
   # 正しいユーザーかどうか確認
   def correct_coach

@@ -1,6 +1,0 @@
-<% if current_coach %>
-  <p class="coach">
-    <%= current_coach.name %>さん |
-    <%= link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" } %>
-  </p>
-<% end %>

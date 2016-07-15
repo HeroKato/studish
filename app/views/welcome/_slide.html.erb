@@ -9,8 +9,8 @@
           <li>
             <%= link_to coach do %>
               <div class="profile-cover">
-                <% if coach.image %>
-                  <%= coach_image_tag coach, class: "coach-profile", oncontextmenu: "return false;" %>
+                <% if coach.picture.present? %>
+                  <%= image_tag coach.picture.url, class: "coach-profile", oncontextmenu: "return false;" %>
                 <% else %>
                   <%= image_tag("no_image.png") %>
                 <% end %>

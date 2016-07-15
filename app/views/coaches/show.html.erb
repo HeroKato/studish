@@ -15,10 +15,9 @@
       <% end %>
     </div>
     <div class="content">
-      <div class="coach-image">
-        <%= image_tag @coach.picture.url if @coach.picture? %>
-        <% if @coach.image %>
-          <%= coach_image_tag @coach, oncontextmenu: "return false;" %>
+      <div class="coach-picture">
+        <% if @coach.picture.present? %>
+          <%= image_tag @coach.picture.url, oncontextmenu: "return false;" %>
         <% else %>
           <%= image_tag("no_image.png") %>
         <% end %>
@@ -83,6 +82,9 @@
           <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
         </div>
       <% end %>
+      <div class="content back-to-coaches">
+        <%= link_to "講師一覧へ", coaches_path, class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,12 +2,10 @@ class Coach < ActiveRecord::Base
   attr_accessor :remember_token
   mount_uploader :picture, PictureUploader
   
+  validates :picture, presence: true
   validate :picture_size
   
   before_save { self.email = self.email.downcase }
-  
-  has_one :image, class_name: "CoachImage", dependent: :destroy
-  accepts_nested_attributes_for :image, allow_destroy: true
   
   validates :name, presence: true,
             format: { with: /\A[A-Za-z]\w*\z/, allow_blank: false, message: :invalid_coach_name },

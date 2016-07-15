@@ -17,93 +17,59 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <% if logged_in? %>
-                <a><%= current_coach.name %>さん</a>
-              <% end %>
-            </li>
-            <li>
-              <% if logged_in? %>
-                <%= link_to logout_path, method: "delete" do %>
-                  Log out
+            <% if logged_in? %>
+              <li>
+                <%= link_to logout_path, method: "delete" do  %>
+                  ログアウト | <%= current_coach.name %>
                 <% end %>
-              <% end %>
-            </li>
-            <li>
-              <% if logged_in? %>
-                <%= link_to current_coach do %>
-                  My profile
-                <% end %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to root_path do %>
-                HOME
-              <% end %>
-            </li>
+              </li>
+              <li><%= link_to "マイプロフィール", current_coach %></li>
+              <li><%= link_to "講師一覧", :coaches %></li>
+            <% end %>
+            <li><%= link_to "HOME", root_path %></li>
             <% unless logged_in? %>
-            <li>
-              <% if current_page?(root_path) %>
-                <%= link_to "#inquiry" do %>
-                  無料体験
+              <li>
+                <% if current_page?(root_path) %>
+                  <%= link_to "無料体験", "#inquiry" %>
+                <% else %>
+                  <%= link_to "無料体験", "/#inquiry" %>
                 <% end %>
-              <% else %>
-                <%= link_to "/#inquiry" do %>
-                  無料体験
+              </li>
+              <li>
+                <% if current_page?(root_path) %>
+                  <%= link_to "LINE", "#line" %>
+                <% else %>
+                  <%= link_to "LINE", "/#line" %>
                 <% end %>
-              <% end %>
-            </li>
-            <li>
-              <% if current_page?(root_path) %>
-                <%= link_to "#line" do %>
-                  LINE
-                <% end %>
-              <% else %>
-                <%= link_to "/#line" do %>
-                  LINE
-                <% end %>
-              <% end %>
-            </li>
+              </li>
             <% end %>
             
             <% unless logged_in? %>
-            <li class="dropdown">
-              <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                その他
-                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-              </div>
-              <ul class="dropdown-menu" >
-                <li>
-                  <% if current_page?(root_path) %>
-                    <%= link_to "#plan" do %>
-                      料金
+              <li class="dropdown">
+                <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                  その他
+                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </div>
+                <ul class="dropdown-menu" >
+                  <li>
+                    <% if current_page?(root_path) %>
+                      <%= link_to "料金", "#plan" %>
+                    <% else %>
+                      <%= link_to "料金", "/#plan" %>
                     <% end %>
-                  <% else %>
-                    <%= link_to "/#plan" do %>
-                      料金
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "講師一覧", :coaches %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <% unless logged_in? %>
+                      <%= link_to "ログイン（講師用）", login_path %>
                     <% end %>
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <%= link_to "講師一覧", :coaches %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <%= link_to inquiry_path do %>
-                    お問い合わせ
-                  <% end %>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <% unless logged_in? %>
-                    <%= link_to login_path do %>
-                      Log in | 講師用
-                    <% end %>
-                  <% end %>
-                </li>
-              </ul>
-            </li>
+                  </li>
+                </ul>
+              </li>
             <% end %>
             
           </ul>

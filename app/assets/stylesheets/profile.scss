@@ -1,13 +1,32 @@
-#coach-profile {
+#coach-new,
+#coach-profile,
+#coach-edit {
   .content-container {
     .content {
-      .coach-image {
+      p.info {
         margin-bottom: 60px;
+      }
+      p.caution {
+        margin: 0;
+        padding: 0;
+        color: #ff3434;
+      }
+      .coach-picture {
+        margin-bottom: 60px;
+        text-align: center;
         img {
+          margin-bottom: 30px;
           width: 200px;
           height: 200px;
           border: 1px solid #333;
           border-radius: 100px;
+        }
+        input {
+          width: 220px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 20px;
+          line-height: 1;
         }
       }
       .coach-profile {
@@ -23,6 +42,9 @@
           padding-left: 15px;
         }
       }
+      .self_introduction {
+        margin-bottom: 30px;
+      }
     }
   }
 }
@@ -32,13 +54,9 @@
   #coach-profile {
     .content-container {
       .content {
-        .coach-image {
+        .coach-picture {
           margin-bottom: 60px;
           img {
-            width: 200px;
-            height: 200px;
-            border: 1px solid #333;
-            border-radius: 100px;
           }
         }
         .coach-profile {
