@@ -16,6 +16,7 @@
     </div>
     <div class="content">
       <div class="coach-image">
+        <%= image_tag @coach.picture.url if @coach.picture? %>
         <% if @coach.image %>
           <%= coach_image_tag @coach, oncontextmenu: "return false;" %>
         <% else %>

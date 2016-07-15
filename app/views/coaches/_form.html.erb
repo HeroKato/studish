@@ -16,6 +16,17 @@
     <P>＊プロフィール画像は登録後でも追加・変更できます。</P>
   <% end %>
 </div>
+<%= image_tag @coach.picture.url if @coach.picture? %>
+<%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+
+<script type="text/javascript">
+  $('#coach_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
 
 <p class="alert">＊以下の項目は全て入力必須項目です。</p>
 <div class="form-group">

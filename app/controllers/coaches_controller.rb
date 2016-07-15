@@ -65,7 +65,7 @@ class CoachesController < ApplicationController
     attrs = [:name, :full_name, :email, :birthday,
               :university, :major, :school_year, :subject,
               :self_introduction, :administrator,
-              :password, :password_confirmation]
+              :password, :password_confirmation, :picture]
     attrs << { image_attributes: [:_destroy, :id, :uploaded_image] }
     params.require(:coach).permit(attrs)
   end

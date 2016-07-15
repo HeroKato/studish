@@ -1,5 +1,8 @@
 class Coach < ActiveRecord::Base
   attr_accessor :remember_token
+  mount_uploader :picture, PictureUploader
+  
+  validate :picture_size
   
   before_save { self.email = self.email.downcase }
   
@@ -63,4 +66,9 @@ class Coach < ActiveRecord::Base
     password.present? || password_confirmation.present?
   end
   
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB")
+    end
+  end
 end

@@ -10,7 +10,7 @@
       <h2>新規講師登録</h2>
     </div>
     <div class="content">
-      <%= form_for @coach do |form| %>
+      <%= form_for(@coach, html: { multipart: true}) do |form| %>
         <%= render "form", form: form %>
       <% end %>
     </div>
