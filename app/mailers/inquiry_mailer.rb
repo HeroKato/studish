@@ -4,7 +4,7 @@ class InquiryMailer < ActionMailer::Base
 
   def received_email(inquiry)
     @inquiry = inquiry
-    mail(:subject => '無料体験申込みフォームから申込がありました。')
+    mail(:subject => '質問フォームからメールがありました。')
   end
 
 end

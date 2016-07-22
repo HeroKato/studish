@@ -1,5 +1,5 @@
 class Coach < ActiveRecord::Base
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :picture
   mount_uploader :picture, PictureUploader
   
   validates :picture, presence: true
