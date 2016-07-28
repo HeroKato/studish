@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
+  before_action :basic_auth if Rails.env.staging?
+  
   private
   # ログインしている講師かどうか確認
   def logged_in_coach
@@ -20,6 +22,12 @@ class ApplicationController < ActionController::Base
     unless current_coach?(@coach)
       redirect_to(login_url)
       flash[:danger] = "Please log in as correct user."
+    end
+  end
+  
+  def basic_auth
+    authenticate_or_request_with_http_basic do |coach, pass|
+      coach == ENV['BASIC_AUTH_ADMINNAME'] && pass == ENV['BASIC_AUTH_PASSWORD']
     end
   end
   
