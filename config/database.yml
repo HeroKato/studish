@@ -25,3 +25,9 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+
+staging:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
