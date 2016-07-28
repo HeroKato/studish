@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
-  before_action :basic_auth if Rack.env.staging?
+  before_action :basic_auth if Rails.env.staging?
   
   private
   # ログインしている講師かどうか確認
