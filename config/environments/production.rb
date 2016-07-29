@@ -80,9 +80,11 @@ Rails.application.configure do
   # メールの設定
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+  host = 'studish-stg.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
       :address               => "smtp.gmail.com",
-      :port                  => 587,
+      :port                  => '587',
       :authentication        => "plain",
       :user_name             => ENV['MAIL_USER_NAME'],
       :password              => ENV['MAIL_PASSWORD'],
