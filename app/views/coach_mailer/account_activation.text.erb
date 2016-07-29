@@ -1,0 +1,5 @@
+Hi <%= @coach.name %>,
+
+Welcome to the Studish! Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@coach.activation_token, email: @coach.email) %>

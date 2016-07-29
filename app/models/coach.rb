@@ -1,11 +1,11 @@
 class Coach < ActiveRecord::Base
-  attr_accessor :remember_token, :picture
+  attr_accessor :remember_token, :activation_token, :picture
+  before_save { self.email = self.email.downcase }
+  before_create :create_activation_digest
   mount_uploader :picture, PictureUploader
   
   validates :picture, presence: true
   validate :picture_size
-  
-  before_save { self.email = self.email.downcase }
   
   validates :name, presence: true,
             format: { with: /\A[A-Za-z]\w*\z/, allow_blank: false, message: :invalid_coach_name },
@@ -49,14 +49,26 @@ class Coach < ActiveRecord::Base
   end
   
   # 渡されたトークンがダイジェストと一致したらtureを返す
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
   
   # ユーザーログインを破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  # アカウントを有効にする
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+  
+  # アカウント有効化のためのメールを送信する
+  def send_activation_email
+    CoachMailer.account_activation(self).deliver_now
   end
   
   private
@@ -68,5 +80,11 @@ class Coach < ActiveRecord::Base
     if picture.size > 5.megabytes
       errors.add(:picture, "should be less than 5MB")
     end
+  end
+  
+  # 有効化トークンとダイジェストを作成および代入する
+  def create_activation_digest
+    self.activation_token = Coach.new_token
+    self.activation_digest = Coach.digest(activation_token)
   end
 end

@@ -26,9 +26,9 @@ class CoachesController < ApplicationController
   def create
     @coach = Coach.new(coach_params)
     if @coach.save
-      log_in @coach
-      flash[:success] = "Welcome to Studish! Resistration Success!"
-      redirect_to @coach
+      @coach.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render "new"
     end

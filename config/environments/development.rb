@@ -15,7 +15,8 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  host = "studish-herokato.c9users.io"
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     #:enable_starttls_auto => true

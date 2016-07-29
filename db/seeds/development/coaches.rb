@@ -2,6 +2,7 @@ names = %w(Hiro Ichiro Jiro Saburo Shiro Goro Rokuro Nanaro Hachiro Kuro)
 fnames = ["加藤", "鈴木", "高橋", "田中"]
 gnames = ["啓明", "太郎", "次郎"]
 0.upto(9) do |idx|
+  path = Rails.root.join("db/seeds/development/coach#{idx % 3 + 1}.jpg")
   coach = Coach.create!(
     name: names[idx],
     full_name: "#{fnames[idx % 4]} #{gnames[idx % 3]}",
@@ -15,6 +16,9 @@ gnames = ["啓明", "太郎", "次郎"]
     administrator: (idx == 0),
     password: "password",
     password_confirmation: "password",
-    password_digest: "password_digest"
+    password_digest: "password_digest",
+    activated: true,
+    activated_at: Time.zone.now,
+    picture: open("#{path}")
   )
 end

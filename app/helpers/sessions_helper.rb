@@ -1,7 +1,7 @@
 module SessionsHelper
   # 渡されたユーザーでログインする
-  def log_in(user)
-    session[:coach_id] = @coach.id
+  def log_in(coach)
+    session[:coach_id] = coach.id
   end
   
   # 現在のユーザーをログアウトする
@@ -11,13 +11,13 @@ module SessionsHelper
     @current_coach = nil
   end
   
-  # 記憶トークンcookieに対応するユーザーを返す
+  # 現在ログイン中のコーチを返す（いる場合）
   def current_coach
     if (coach_id = session[:coach_id])
       @current_coach ||= Coach.find_by(id: coach_id)
     elsif (coach_id = cookies.signed[:coach_id])
       coach = Coach.find_by(id: coach_id)
-      if coach && coach.authenticated?(cookies[:remember_token])
+      if coach && coach.authenticated?(:remember, cookies[:remember_token])
         log_in coach
         @current_coach = coach
       end
