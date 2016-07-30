@@ -65,13 +65,7 @@ group :development do
   gem 'spring'
 end
   
-group :production do
-  gem 'puma'
-  gem 'pg'
-  gem 'rails_12factor'
-end
-
-group :staging do
+group :production, :staging do
   gem 'puma'
   gem 'pg'
   gem 'rails_12factor'
