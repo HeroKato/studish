@@ -3,11 +3,12 @@ class CoachesController < ApplicationController
   before_action :correct_coach, only:[:edit, :update, :destroy]
   
   def index
-    @coaches = Coach.order("id")
+    @coaches = Coach.where(activated: true).order("id")
   end
   
   def show
-    @coach = Coach.find(params[:id])
+    coach = Coach.where(activated: true)
+    @coach = coach.find(params[:id])
   end
   
   def new
