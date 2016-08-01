@@ -29,8 +29,6 @@ class InquiryController < ApplicationController
     else
     @inquiry = Inquiry.new(inquiry_params)
     InquiryMailer.received_email(@inquiry).deliver
-
-    flash[:notice] = "お問い合わせ頂き、ありがとうございました。"
     render :action => 'thanks'
     end
   end
