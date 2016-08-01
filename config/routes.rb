@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'inquiry/confirm' => 'inquiry#confirm'
   post 'inquiry/thanks'  => 'inquiry#thanks'
   
-  # ログイン
+  # ログイン/ログアウト
   get    'login' , to: 'sessions#new'
   post   'login' , to: 'sessions#create'
   delete 'logout' , to: 'sessions#destroy'

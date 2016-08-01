@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CoachTest < ActiveSupport::TestCase
   test "factory girl" do
-    coach = FactoryGirl.create(:coach)
+    @coach = FactoryGirl.create(:coach)
     assert_equal "Leo Messi", coach.full_name
     assert_equal "アルゼンチン大学", coach.university
     assert_equal "フットボール学部サッカー学科", coach.major
