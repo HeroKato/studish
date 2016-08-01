@@ -11,6 +11,6 @@ FactoryGirl.define do
     self_introduction "Hi, I'm Messi. I'm a professional football player. I'm playing in FC Barcelona. I was very short when I was young."
     password "password"
     password_confirmation "password"
-    picture "coach1.jpg"
+    picture Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   end
 end
