@@ -14,7 +14,7 @@ class Coach < ActiveRecord::Base
             
   validates :full_name, presence: true, length: { maximum: 30 }
   
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX, :allow_blank => false, message: :invalid_email },
                     uniqueness: { case_sensitive: false }

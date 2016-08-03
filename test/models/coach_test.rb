@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CoachTest < ActiveSupport::TestCase
+  
   test "factory girl" do
     coach = FactoryGirl.create(:coach)
     assert_equal "Leo Messi", coach.full_name
@@ -14,7 +15,13 @@ class CoachTest < ActiveSupport::TestCase
   
   def setup
     @coach = Coach.new(name: "Example Coach",
+                      full_name: "full name",
                       email: "coach@example.com",
+                      university: "example university",
+                      major: "example major",
+                      subject: "example subject",
+                      school_year: "1年",
+                      self_introduction: "Hi.",
                       password: "foobar",
                       password_confirmation: "foobar"
                       )
@@ -66,6 +73,13 @@ class CoachTest < ActiveSupport::TestCase
     duplicate_coach.email = @coach.email.upcase
     @coach.save
     assert_not duplicate_coach.valid?
+  end
+  
+  test "email addresses should be saved as lower-case" do
+    mixed_case_email = "coAch@ExAmplE.CoM"
+    @coach.email = mixed_case_email
+    @coach.save
+    assert_equal mixed_case_email.downcase, @coach.reload.email
   end
   
   test "password should be present(nonblank)" do

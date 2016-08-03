@@ -46,6 +46,7 @@ group :test do
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
   gem 'factory_girl_rails', '~> 4.4.0'
+  gem 'pry-byebug', '3.3.0'
 end
 
 group :development do
