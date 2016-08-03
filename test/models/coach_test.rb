@@ -14,16 +14,18 @@ class CoachTest < ActiveSupport::TestCase
   end
   
   def setup
-    @coach = Coach.new(name: "Example Coach",
-                      full_name: "full name",
-                      email: "coach@example.com",
+    @coach = Coach.new(name: "test",
+                      full_name: "test",
+                      birthday: "1997-1-1",
+                      email: "test@test.com",
                       university: "example university",
                       major: "example major",
                       subject: "example subject",
                       school_year: "1年",
                       self_introduction: "Hi.",
-                      password: "foobar",
-                      password_confirmation: "foobar"
+                      password: "testpass",
+                      password_confirmation: "testpass",
+                      password_digest: "password_digest"
                       )
   end
   
@@ -88,7 +90,7 @@ class CoachTest < ActiveSupport::TestCase
   end
   
   test "password should have a minimum length" do
-    @coach.password = @coach.password_confirmation = "a" *8
+    @coach.password = @coach.password_confirmation = "a" *7
     assert_not @coach.valid?
   end
                     

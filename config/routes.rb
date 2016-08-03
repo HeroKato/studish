@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post   'login' , to: 'sessions#create'
   delete 'logout' , to: 'sessions#destroy'
   
+  # 新規登録
+  get 'signup' => 'coaches#new'
+  
   resources :coaches
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]

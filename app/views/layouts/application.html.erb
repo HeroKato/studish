@@ -28,7 +28,7 @@
 
 <%= render partial: "layouts/header" %>
 <% flash.each do |message_type, message| %>
-  <div class="flash alert alert-<%= message_type %>"><%= message %></div>
+  <%= content_tag(:div, message, class: "flash alert alert-#{message_type}") %></div>
 <% end %>
 <%= yield %>
 <%= render partial: "layouts/footer" %>

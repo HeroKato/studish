@@ -4,7 +4,8 @@ class Coach < ActiveRecord::Base
   before_create :create_activation_digest
   mount_uploader :picture, PictureUploader
   
-  validates :picture, presence: true
+  # validates :picture, presence: true
+  # validates :picture presence: true テストのために一時的にコメントアウト
   validate :picture_size
   
   validates :name, presence: true,
@@ -20,7 +21,7 @@ class Coach < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   
   has_secure_password
-  validates :password,
+  validates :password, presence: true,
     :length => { :minimum => 8, :if => :validate_password? },
     :confirmation => { :if => :validate_password? }
   
