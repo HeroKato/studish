@@ -25,7 +25,8 @@ class CoachTest < ActiveSupport::TestCase
                       self_introduction: "Hi.",
                       password: "testpass",
                       password_confirmation: "testpass",
-                      password_digest: "password_digest"
+                      password_digest: "password_digest",
+                      picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
                       )
   end
   

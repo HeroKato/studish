@@ -5,7 +5,7 @@ class Coach < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   
   # validates :picture, presence: true
-  # validates :picture presence: true テストのために一時的にコメントアウト
+  validates :picture, presence: true
   validate :picture_size
   
   validates :name, presence: true,

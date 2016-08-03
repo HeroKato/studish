@@ -42,4 +42,5 @@ Rails.application.configure do
   
   host = 'studish.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
+  
 end
