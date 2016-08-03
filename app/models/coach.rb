@@ -1,6 +1,6 @@
 class Coach < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :picture
-  before_save { self.email = self.email.downcase }
+  before_save { self.email = email.downcase }
   before_create :create_activation_digest
   mount_uploader :picture, PictureUploader
   
