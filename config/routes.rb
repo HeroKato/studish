@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get 'welcome/contact'
   
   # お問い合わせフォーム
   get  'inquiry'   => 'inquiry#index'
