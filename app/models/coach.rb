@@ -2,6 +2,7 @@ class Coach < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :picture
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
+  after_save :remove_picture_folder if Rails.env.test? #テスト時に生成される画像フォルダをsave後に消去
   mount_uploader :picture, PictureUploader
   
   # validates :picture, presence: true
@@ -70,6 +71,11 @@ class Coach < ActiveRecord::Base
   # アカウント有効化のためのメールを送信する
   def send_activation_email
     CoachMailer.account_activation(self).deliver_now
+  end
+  
+  # テスト時に生成される画像フォルダをsave後に消去
+  def remove_picture_folder
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads/tmp"])
   end
   
   private
