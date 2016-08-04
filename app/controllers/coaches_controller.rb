@@ -36,9 +36,7 @@ class CoachesController < ApplicationController
   end
   
   def update
-    @coach = Coach.find(params[:id])
-    @coach.assign_attributes(coach_params)
-    if @coach.save
+    if @coach.update_attributes(coach_params)
       flash[:success] = "Profile Edit Success!"
       redirect_to @coach
     else

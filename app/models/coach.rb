@@ -5,7 +5,6 @@ class Coach < ActiveRecord::Base
   after_save :remove_picture_folder if Rails.env.test? #テスト時に生成される画像フォルダをsave後に消去
   mount_uploader :picture, PictureUploader
   
-  # validates :picture, presence: true
   validates :picture, presence: true
   validate :picture_size
   
@@ -22,7 +21,7 @@ class Coach < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   
   has_secure_password
-  validates :password, presence: true,
+  validates :password, presence: true, allow_nil: true,
     :length => { :minimum => 8, :if => :validate_password? },
     :confirmation => { :if => :validate_password? }
   
