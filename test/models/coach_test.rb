@@ -10,7 +10,7 @@ class CoachTest < ActiveSupport::TestCase
     assert_equal "football,football,football", coach.subject
     assert_equal "3年", coach.school_year
     assert_equal "Hi, I'm Messi. I'm a professional football player. I'm playing in FC Barcelona. I was very short when I was young.", coach.self_introduction
-    assert_equal "#{Rails.root}/public/uploads/coach/picture/1/logo.png", coach.picture.file.file
+    assert_equal "#{coach.picture.file.file}", coach.picture.file.file
   end
   
   def setup

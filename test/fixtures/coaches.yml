@@ -1,1 +1,13 @@
-# empty
+axwell:
+  name: Axwell Example
+  full_name: Axwell full
+  email: axwell@example.com
+  birthday: "1997-1-1"
+  university: test university
+  major: test major
+  school_year: "1年"
+  subject: test subject
+  self_introduction: "hi."
+  picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
+  password_digest: <%= Coach.digest('password') %>
+  activated: true
