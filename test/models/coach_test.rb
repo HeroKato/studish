@@ -94,6 +94,9 @@ class CoachTest < ActiveSupport::TestCase
     @coach.password = @coach.password_confirmation = "a" *7
     assert_not @coach.valid?
   end
-                    
+  
+  #test "authenticated? should return false for a coach will nil digest" do
+  #  assert_not @coach.authenticated?('')
+  #end
 
 end

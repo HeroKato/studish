@@ -35,5 +35,6 @@ class CoachesSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'welcome/index'
     assert_not_nil flash[:info]
+    # assert is_logged_in? ログイン前にアクティベーションが入る
   end
 end

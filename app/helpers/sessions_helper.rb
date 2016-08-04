@@ -32,8 +32,8 @@ module SessionsHelper
   #ユーザーを永続的セッションに記憶する
   def remember(coach)
     coach.remember
-    cookies.permanent.signed[:coach_id] = @coach.id
-    cookies.permanent[:remember_token] = @coach.remember_token
+    cookies.permanent.signed[:coach_id] = coach.id
+    cookies.permanent[:remember_token] = coach.remember_token
   end
   
   # 永続的セッションを破棄する

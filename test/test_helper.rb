@@ -15,4 +15,25 @@ class ActiveSupport::TestCase
     !session[:coach_id].nil?
   end
   
+  # テストコーチとしてログインする
+  def log_in_as(coach, options = {})
+    password = options[:password]||'password'
+    remember_me = options[:remember_me]||'1'
+    if integration_test?
+      post login_path, session: { email: coach.email,
+                                  password: password,
+                                  remember_me: remember_me }
+    else
+      session[:coach_id] = coach.id
+    end
+  end
+  
+  
+  private
+  
+  # 統合テスト内ではtrueを返す
+  def integration_test?
+    defined?(post_via_redirect)
+  end
+  
 end
