@@ -8,7 +8,8 @@
 <div><%= form.label :picture, class: "public"%></div>
 <%= image_tag @coach.picture.url if @coach.picture? %>
 <div class="file">
-<%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+<%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
+<%= form.hidden_field :picture_cache %>
 </div>
 <% unless logged_in? %>
 <P>プロフィール画像は登録後でも追加・変更できます。</P>

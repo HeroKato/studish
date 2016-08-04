@@ -59,7 +59,7 @@ class CoachesController < ApplicationController
     attrs = [:name, :full_name, :email, :birthday,
               :university, :major, :school_year, :subject,
               :self_introduction, :administrator,
-              :password, :password_confirmation, :picture]
+              :password, :password_confirmation, :picture, :picture_cache]
     params.require(:coach).permit(attrs)
   end
   
