@@ -24,17 +24,9 @@ class CoachesEditTest < ActionDispatch::IntegrationTest
     name = "Foo Bar"
     email = "foo@bar.com"
     patch coach_path(@coach), coach: { name: name,
-                                      full_name: "Foo Bar Full",
                                       email: email,
-                                      birthday: "1997-1-1",
-                                      university: "university",
-                                      major: "major",
-                                      school_year: "1年",
-                                      subject: "subject",
-                                      self_introduction: "hihi.",
-                                      picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png"),
-                                      password: "password",
-                                      password_confirmation: "password" }
+                                      password: "",
+                                      password_confirmation: "" }
     assert_not flash.empty?
     assert_redirected_to @coach
     @coach.reload

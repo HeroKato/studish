@@ -20,7 +20,7 @@ class CoachesLoginTest < ActionDispatch::IntegrationTest
     get login_path
     assert_template 'sessions/new'
     post login_path, session: { email: @coach.email, password: "password" }
-    assert is_logged_in? #
+    assert is_logged_in?
     assert_redirected_to @coach
     follow_redirect!
     assert_template 'coaches/show'
@@ -34,7 +34,7 @@ class CoachesLoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path, count: 0
-    assert_select "a[href=?]", coach_path(@coach)
+    assert_select "a[href=?]", coaches_path
   end
   
   test "login with remembering" do

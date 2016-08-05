@@ -3,7 +3,7 @@ class CoachesController < ApplicationController
   before_action :correct_coach, only:[:edit, :update, :destroy]
   
   def index
-    @coaches = Coach.where(activated: true).order("id")
+    @coaches = Coach.where(activated: true).order("id").paginate(page: params[:page])
   end
   
   def show
@@ -56,7 +56,7 @@ class CoachesController < ApplicationController
   def coach_params
     attrs = [:name, :full_name, :email, :birthday,
               :university, :major, :school_year, :subject,
-              :self_introduction, :administrator,
+              :self_introduction,
               :password, :password_confirmation, :picture, :picture_cache]
     params.require(:coach).permit(attrs)
   end
@@ -65,7 +65,7 @@ class CoachesController < ApplicationController
   # 正しいユーザーかどうか確認
   def correct_coach
     @coach = Coach.find(params[:id])
-    unless current_coach?(@coach)
+    unless current_coach?(@coach) || current_coach.administrator?
       flash[:danger] = "Please log in correct coach."
       redirect_to(root_url)
     end

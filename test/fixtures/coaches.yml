@@ -11,6 +11,7 @@ axwell:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  administrator: true
   
 ingrosso:
   name: Ingrosso Example
@@ -25,3 +26,47 @@ ingrosso:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  
+Dyro:
+  name: Dyro Example
+  full_name: Dyro full
+  email: dyro@example.gov
+  birthday: "1997-1-1"
+  university: test university
+  major: test major
+  school_year: "1年"
+  subject: test subject
+  self_introduction: "hi."
+  picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
+  password_digest: <%= Coach.digest('password') %>
+  activated: true
+  
+YellowClaw:
+  name: Yellow Claw Example
+  full_name: Yellow Claw full
+  email: yellowclaw@example.com
+  birthday: "1997-1-1"
+  university: test university
+  major: test major
+  school_year: "1年"
+  subject: test subject
+  self_introduction: "hi."
+  picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
+  password_digest: <%= Coach.digest('password') %>
+  activated: true
+  
+<% 30.times do |n| %>
+coach_<%= n %>:
+  name: <%= "Coach #{n}" %>
+  full_name: <%= "Coach#{n} Full" %>
+  email: <%= "coach#{n}@example.com" %>
+  birthday: "1997-1-1"
+  university: test university
+  major: test major
+  school_year: "1年"
+  subject: test subject
+  self_introduction: "hi."
+  picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
+  password_digest: <%= Coach.digest('password') %>
+  activated: true
+<% end %>
