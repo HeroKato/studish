@@ -11,6 +11,7 @@ axwell:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  activated_at: <%= Time.zone.now %>
   administrator: true
   
 ingrosso:
@@ -26,6 +27,7 @@ ingrosso:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  activated_at: <%= Time.zone.now %>
   
 Dyro:
   name: Dyro Example
@@ -40,6 +42,7 @@ Dyro:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  activated_at: <%= Time.zone.now %>
   
 YellowClaw:
   name: Yellow Claw Example
@@ -54,6 +57,7 @@ YellowClaw:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  activated_at: <%= Time.zone.now %>
   
 <% 30.times do |n| %>
 coach_<%= n %>:
@@ -69,4 +73,5 @@ coach_<%= n %>:
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
   activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
