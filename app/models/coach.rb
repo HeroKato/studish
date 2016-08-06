@@ -1,5 +1,5 @@
 class Coach < ActiveRecord::Base
-  attr_accessor :remember_token, :activation_token, :picture
+  attr_accessor :remember_token, :activation_token, :picture, :reset_token
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
   after_save :remove_picture_folder if Rails.env.test? #テスト時に生成される画像フォルダをsave後に消去
@@ -77,7 +77,25 @@ class Coach < ActiveRecord::Base
     FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads/tmp"])
   end
   
+  # パスワード再設定の属性を設定する
+  def create_reset_digest
+    self.reset_token = Coach.new_token
+    update_attribute(:reset_digest, Coach.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+  
+  # パスワード再設定のメールを送信する
+  def send_password_reset_email
+    CoachMailer.password_reset(self).deliver_now
+  end
+  
+  # パスワード再設定の期限が切れている場合はtrueを返す
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+  
   private
+  
   def validate_password?
     password.present? || password_confirmation.present?
   end

@@ -1,0 +1,31 @@
+<% content_for :head do %>
+<title>パスワードの再設定（講師用） | Studish</title>
+<meta name="description" content="Studishのパスワード再設定（講師用)ページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="password-resets-coach">
+  <div class="content-container">
+    <div class="content-header">
+      <h2>パスワードの再設定（講師用）</h2>
+    </div>
+    
+    <div class="content">
+      <%= form_for(@coach, url: password_reset_path(params[:id])) do |f| %>
+        <%= render 'shared/errors' %>
+        
+        <%= hidden_field_tag :email, @coach.email %>
+        
+        <div class="form-group">
+          <%= f.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワードの確認" %>
+        </div>
+        <div class="submit-group">
+          <%= f.submit "Update password", class: "btn btn-primary", method: "patch" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

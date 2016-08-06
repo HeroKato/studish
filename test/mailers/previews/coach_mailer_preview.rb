@@ -8,9 +8,11 @@ class CoachMailerPreview < ActionMailer::Preview
     CoachMailer.account_activation(coach)
   end
 
-  # Preview this email at http://localhost:3000/rails/mailers/coach_mailer/password_reset
+  # Preview this email at http://studish-herokato.c9users.io/rails/mailers/coach_mailer/password_reset
   def password_reset
-    CoachMailer.password_reset
+    coach = Coach.first
+    coach.reset_token = Coach.new_token
+    CoachMailer.password_reset(coach)
   end
 
 end

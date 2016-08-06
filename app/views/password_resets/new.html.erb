@@ -1,0 +1,24 @@
+<% content_for :head do %>
+<title>パスワード再設定用のメール送信（講師用） | Studish</title>
+<meta name="description" content="Studishのパスワード再設定（講師用)のメール送信ページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="password-resets-coach">
+  <div class="content-container">
+    <div class="content-header">
+      <h2>パスワード再設定用のメールを送信する（講師用）</h2>
+    </div>
+    
+    <div class="content">
+      <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        </div>
+        <div class="submit-group">
+          <%= f.submit "送信", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
