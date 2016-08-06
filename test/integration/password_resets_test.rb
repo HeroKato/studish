@@ -50,12 +50,11 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     assert_template 'password_resets/edit'
     # 有効な新しいパスワードと新しいパスワードの確認
-    patch password_reset_path(coach.reset_token,
+    patch password_reset_path(coach.reset_token),
       email: coach.email,
-      coach: { password: "newtestpass", password_confirmation: "newtestpass" })
-    assert_template 'coaches/show'
-    assert is_logged_in?
-    #assert_not flash.empty?
-    #assert_redirected_to coach
+      coach: { password: "newtestpass", password_confirmation: "newtestpass" }
+    assert is_logged_in? # なぞのfailuer
+    assert_not flash.empty? # なぞのfailuer
+    assert_redirected_to coach # なぞのfailuer
   end
 end
