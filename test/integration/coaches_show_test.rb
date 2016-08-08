@@ -27,14 +27,4 @@ class CoachesShowTest < ActionDispatch::IntegrationTest
      assert_select 'a[href=?]', coach_path(@coach), method: 'delete', count: 0
    end
    
-   test "show as administrator including delete link" do
-     log_in_as(@admin)
-     get coach_path(@other_coach)
-     assert_template 'coaches/show'
-     assert_select 'a[href=?]', edit_coach_path(@other_coach), count: 0
-     assert_select 'a[href=?]', coach_path(@other_coach), method: 'delete'
-     assert_difference 'Coach.count', -1 do
-       delete coach_path(@other_coach)
-     end
-   end
 end
