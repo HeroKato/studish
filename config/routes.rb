@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+  get 'top/index'
+  end
+
   get 'password_resets/new'
   get 'password_resets/edit'
 
@@ -24,6 +28,13 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  
+  namespace :admin do
+    root to: "top#index"
+    resources :coaches do
+      collection { get "search" }
+    end
+  end
 
   
   # The priority is based upon order of creation: first created -> highest priority.

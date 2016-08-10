@@ -22,19 +22,20 @@ class CoachesSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information with account activation" do
     get signup_path
     assert_difference 'Coach.count', 1 do
-      post coaches_path, coach: { name: "test",
-                                  full_name: "test",
+      post coaches_path, coach: { name: "test2",
+                                  full_name: "test2",
                                   birthday: "1997-1-1",
-                                  email: "test@test.com",
+                                  email: "test2@test.com",
                                   university: "example university",
                                   major: "example major",
                                   subject: "example subject",
                                   school_year: "1年",
                                   self_introduction: "Hi.",
-                                  password: "testpass",
-                                  password_confirmation: "testpass",
-                                  password_digest: "password_digest",
-                                  picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png") }
+                                  password: "test2pass",
+                                  password_confirmation: "test2pass",
+                                  picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png"),
+                                  skype: "skypetest2",
+                                  phone: "080-1234-9876"}
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
     coach = assigns(:coach)

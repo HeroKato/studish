@@ -48,6 +48,18 @@
           <span><%= @coach.email %></span>
         </div>
         <% end %>
+        <% if current_coach == @coach %>
+        <div class="">
+          <%= label_tag :skype, t('.skype') %>
+          <span><%= @coach.skype %></span>
+        </div>
+        <% end %>
+        <% if current_coach == @coach %>
+        <div class="">
+          <%= label_tag :phone, t('phone') %>
+          <span><%= @coach.phone %></span>
+        </div>
+        <% end %>
         <div class="">
           <%= label_tag :university, t('.university'), class: "public" %>
           <span><%= @coach.university %></span>

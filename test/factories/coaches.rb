@@ -12,5 +12,7 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
     picture Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
+    sequence(:skype) { |n| "skype#{n}" }
+    sequence(:phone) { |n| "080-#{n + 1000}-#{n + 1000}" }
   end
 end

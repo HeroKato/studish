@@ -18,6 +18,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
+              <% if current_coach.administrator? %>
+                <li><%= link_to "管理トップ", :admin_root %></li>
+              <% end %>
               <li>
                 <%= link_to logout_path, method: "delete" do  %>
                   ログアウト | <%= current_coach.name %>

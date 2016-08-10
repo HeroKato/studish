@@ -15,9 +15,10 @@ gnames = ["啓明", "太郎", "次郎"]
     administrator: (idx == 1),
     password: "password",
     password_confirmation: "password",
-    password_digest: "password_digest",
     activated: true,
     activated_at: Time.zone.now,
-    picture: open("#{path}")
+    picture: open("#{path}"),
+    skype: "skype#{idx}",
+    phone: "080-#{idx + 1000}-#{idx + 1000}"
   )
 end

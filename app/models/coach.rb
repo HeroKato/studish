@@ -31,6 +31,16 @@ class Coach < ActiveRecord::Base
   validates :subject,           presence: true, length: { minimum: 1, maximum: 100 }
   validates :self_introduction, presence: true, length: { minimum: 1, maximum: 400 }
   
+  VALID_SKYPE_REGEX = /\A[a-z\d]+[\w+\-.,]+\z/i
+  validates :skype, format: { with: VALID_SKYPE_REGEX, :allow_blank => false, message: :invalid_skype },
+                    length: { minimum: 6, maximum: 32 },
+                    uniqueness: { case_sensitive: false }
+                    
+  VALID_PHONE_REGEX = /\A[0-9]+[0-9\-]+\z/
+  validates :phone, format: { with: VALID_PHONE_REGEX, :allow_blank => false, message: :invalid_phone },
+                    length: { minimum: 10, maximum: 13 },
+                    uniqueness: true
+  
   # 与えられた文字列のハッシュ値を返す
   def Coach.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:

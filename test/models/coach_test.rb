@@ -16,8 +16,9 @@ class CoachTest < ActiveSupport::TestCase
                       self_introduction: "Hi.",
                       password: "testpass",
                       password_confirmation: "testpass",
-                      password_digest: "password_digest",
-                      picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
+                      picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png"),
+                      skype: "skypetest",
+                      phone: "000-0000-0000"
                       )
   end
   
@@ -86,7 +87,7 @@ class CoachTest < ActiveSupport::TestCase
     assert_not @coach.valid?
   end
   
-  test "authenticated? should return false for a coach will nil digest" do
+  test "authenticated? should return false for a coach with nil digest" do
     assert_not @coach.authenticated?(:remember,'')
   end
 

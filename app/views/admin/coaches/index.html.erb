@@ -1,0 +1,68 @@
+<% content_for :head do %>
+<title>講師一覧（管理） | Studish</title>
+<meta name="description" content="Studishの管理用講師一覧ページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper", id="coach-list">
+  <div class="content-container">
+    <div class="content-header">
+      <h2>講師一覧</h2>
+    </div>
+    <div class="content">
+      <% if flash.notice %>
+        <p class="notice"><%= flash.notice %></p>
+      <% end %>
+    </div>
+    <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
+    <div class="content">
+      <div class="listwrapper">
+        <% if @coaches.present? %>
+          <table class="list">
+            <tr>
+              <th>picture</th>
+              <th>id</th>
+              <th>name</th>
+              <th>full_name</th>
+              <th>email</th>
+              <th>skype</th>
+              <th>phone</th>
+              <th>university</th>
+              <th>major</th>
+              <th>school_year</th>
+              <th>subject</th>
+            </tr>
+          <% @coaches.each do |coach| %>
+            <tr>
+              <td>
+                <% if coach.picture.present? %>
+                  <%= image_tag coach.picture.url, oncontextmenu: "return false;" %>
+                <% else %>
+                  <%= image_tag("no_image.png") %>
+                <% end %>
+              </td>
+              <td style="text-align: right"><%= coach.id %></td>
+              <td>
+                <%= link_to coach_path(coach) do %>
+                  <%= coach.name %>
+                <% end %>
+              </td>
+              <td><%= coach.full_name %></td>
+              <td><%= coach.email %></td>
+              <td><%= coach.skype %></td>
+              <td><%= coach.phone %></td>
+              <td><%= coach.university %></td>
+              <td><%= coach.major %></td>
+              <td><%= coach.school_year %></td>
+              <td><%= coach.subject %></td>
+            </tr>
+          <% end %>
+          </table>
+        <% else %>
+          <P>講師が一人もいません</P>
+        <% end %>
+      </div>
+    </div>
+    <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
+  </div>
+</div>

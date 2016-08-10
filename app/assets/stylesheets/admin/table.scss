@@ -1,0 +1,29 @@
+table.list {
+  font-size: 90%;
+  width: 100%;
+  img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 25px;
+  }
+}
+
+table.list th {
+  background-color: #499;
+  color: #fff;
+  font-weight: normal;
+}
+
+table.list th,
+table.list td {
+  padding: 4px;
+}
+
+table.list th {
+  text-align: center;
+}
+
+table.list td {
+  background-color: #cee;
+}

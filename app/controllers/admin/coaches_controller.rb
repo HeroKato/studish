@@ -1,4 +1,4 @@
-class CoachesController < ApplicationController
+class Admin::CoachesController < Admin::Base
   before_action :logged_in_coach, only: [:edit, :update, :destroy]
   before_action :correct_coach, only:[:edit, :update, :destroy]
   
@@ -38,7 +38,7 @@ class CoachesController < ApplicationController
   def update
     if @coach.update_attributes(coach_params)
       flash[:success] = "Profile Edit Success!"
-      redirect_to @coach
+      redirect_to [:admin, @coach]
     else
       render "edit"
     end
@@ -47,8 +47,8 @@ class CoachesController < ApplicationController
   def destroy
     @coach = Coach.find(params[:id])
     @coach.destroy
-    flash[:success] = "Deleted Your Account."
-    redirect_to :coaches
+    flash[:success] = "Deleted Account."
+    redirect_to :admin_coaches
   end
   
   private
@@ -58,6 +58,7 @@ class CoachesController < ApplicationController
               :university, :major, :school_year, :subject,
               :self_introduction,
               :password, :password_confirmation, :picture, :picture_cache,
+              :administrator,
               :skype, :phone]
     params.require(:coach).permit(attrs)
   end
