@@ -13,7 +13,7 @@ Coach.create!(
   password_confirmation: "adminpass",
   activated: true,
   activated_at: Time.zone.now,
-  picture: open("#{path}"),
+  picture: "",
   skype: "adminskype",
   phone: "123-1234-5678"
 )
