@@ -31,6 +31,7 @@
               <th>major</th>
               <th>school_year</th>
               <th>subject</th>
+              <th>activated</th>
             </tr>
           <% @coaches.each do |coach| %>
             <tr>
@@ -55,6 +56,7 @@
               <td><%= coach.major %></td>
               <td><%= coach.school_year %></td>
               <td><%= coach.subject %></td>
+              <td><%= coach.activated %></td>
             </tr>
           <% end %>
           </table>

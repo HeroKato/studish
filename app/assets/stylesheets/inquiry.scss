@@ -108,6 +108,10 @@
       }
       .content {
         text-align: left;
+        .form-group,
+        .submit-group {
+          text-align: center;
+        }
         #inquiry_message {
           height: 200px;
         }

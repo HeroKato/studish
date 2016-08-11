@@ -28,10 +28,17 @@
               border-radius: 100px;
               margin-bottom: 15px;
             }
-            .coach-name {
+            .coach-info {
               width: 200px;
               text-align: center;
               margin-bottom: 10px;
+              line-height: 1;
+              i.fa-coffee {
+                color: #ff8c00;
+              }
+              i.fa-graduation-cap {
+                color: #29b864;
+              }
             }
             a {
               width: 200px;

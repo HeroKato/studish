@@ -5,21 +5,26 @@
     </div>
     <div class="content">
       <ul class="single-item">
-        <% @coach.each do |coach| %>
+        <% @slide_coaches.each do |coach| %>
           <li>
-            <%= link_to coach do %>
-              <div class="profile-cover">
-                <% if coach.picture.present? %>
-                  <%= image_tag coach.picture.url, class: "coach-profile", oncontextmenu: "return false;" %>
-                <% else %>
-                  <%= image_tag("no_image.png") %>
-                <% end %>
-                <div class="coach-name">
-                  <span><%= coach.name %>さん</span>
-                </div>
-                <span>詳細プロフィールを見る</span>
+            <div class="profile-cover">
+              <% if coach.picture.present? %>
+                <%= image_tag coach.picture.url, class: "coach-profile", oncontextmenu: "return false;" %>
+              <% else %>
+                <%= image_tag("no_image.png") %>
+              <% end %>
+              <div class="coach-name coach-info">
+                <i class="fa fa-coffee" aria-hidden="true"></i>
+                <span><%= coach.name %></span>
               </div>
-            <% end %>
+              <div class="coach-university coach-info">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <span><%= coach.university %></span>
+              </div>
+              <%= link_to coach do %>
+              <span>プロフィール詳細</span>
+              <% end %>
+            </div>
           </li>
         <% end %>
       </ul>
