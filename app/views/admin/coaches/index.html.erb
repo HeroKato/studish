@@ -30,6 +30,7 @@
               <th>university</th>
               <th>major</th>
               <th>school_year</th>
+              <th>activated</th>
             </tr>
           <% @coaches.each do |coach| %>
             <tr>
@@ -53,9 +54,7 @@
               <td><%= coach.university %></td>
               <td><%= coach.major %></td>
               <td><%= coach.school_year %></td>
-<<<<<<< HE              <td><%= coach.activated %></td>
-=======
->>>>>>> feature-coaching-subjects
+              <td><%= coach.activated %></td>
             </tr>
           <% end %>
           </table>
