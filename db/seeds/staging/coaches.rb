@@ -1,4 +1,4 @@
-path = Rails.root.join("db/seeds/development/coach1.jpg")
+path = Rails.root.join("db/seeds/staging/coach1.jpg")
 coach = Coach.create!(
   name: "admin",
   full_name: "admin",
