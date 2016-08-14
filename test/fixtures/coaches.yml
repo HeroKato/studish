@@ -6,7 +6,6 @@ axwell:
   university: test university
   major: test major
   school_year: "1年"
-  subject: test subject
   self_introduction: "hi."
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
@@ -24,7 +23,6 @@ ingrosso:
   university: test university
   major: test major
   school_year: "1年"
-  subject: test subject
   self_introduction: "hi."
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
@@ -41,7 +39,6 @@ Dyro:
   university: test university
   major: test major
   school_year: "1年"
-  subject: test subject
   self_introduction: "hi."
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
@@ -58,7 +55,6 @@ YellowClaw:
   university: test university
   major: test major
   school_year: "1年"
-  subject: test subject
   self_introduction: "hi."
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>
@@ -77,7 +73,6 @@ coach_<%= n %>:
   university: test university
   major: test major
   school_year: "1年"
-  subject: test subject
   self_introduction: "hi."
   picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png")
   password_digest: <%= Coach.digest('password') %>

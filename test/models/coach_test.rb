@@ -11,7 +11,6 @@ class CoachTest < ActiveSupport::TestCase
                       email: "test@test.com",
                       university: "example university",
                       major: "example major",
-                      subject: "example subject",
                       school_year: "1年",
                       self_introduction: "Hi.",
                       password: "testpass",

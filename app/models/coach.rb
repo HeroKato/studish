@@ -5,6 +5,9 @@ class Coach < ActiveRecord::Base
   after_save :remove_picture_folder if Rails.env.test? #テスト時に生成される画像フォルダをsave後に消去
   mount_uploader :picture, PictureUploader
   
+  has_one :subjects, class_name: "CoachingSubject", dependent: :destroy
+  accepts_nested_attributes_for :subjects, allow_destroy: true
+  
   validates :picture, presence: true
   validate :picture_size
   
@@ -28,7 +31,6 @@ class Coach < ActiveRecord::Base
   validates :university,        presence: true, length: { minimum: 2, maximum: 30 }
   validates :major,             presence: true, length: { minimum: 2, maximum: 50 }
   validates :school_year,       presence: true, length: { minimum: 1, maximum: 20 }
-  validates :subject,           presence: true, length: { minimum: 1, maximum: 100 }
   validates :self_introduction, presence: true, length: { minimum: 1, maximum: 400 }
   
   VALID_SKYPE_REGEX = /\A[a-z\d]+[\w+\-.,]+\z/i

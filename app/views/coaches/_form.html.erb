@@ -61,15 +61,48 @@
   <%= form.label :school_year, class: "public" %>
   <%= form.text_field :school_year, class: "form-control", placeholder: "例：1年/院1年" %>
 </div>
-<div class="form-group">
-  <%= form.label :subject, class: "public" %>
-  <%= form.text_field :subject, class: "form-control", placeholder: "例：英語、数学" %>
-</div>
-<div class="form-group">
-</div>
 <div class="form-group self_introduction">
   <%= form.label :self_introduction, class: "public" %>
   <%= form.text_area :self_introduction, class: "form-control", placeholder: "生徒に向けたメッセージをお願いします（最大400字）。" %>
+</div>
+<div class="form-group">
+  <%= form.fields_for :subjects do |subsf| %>
+    <div class="">
+      <%= subsf.label :jr_subjects, class: "public" %>
+      <%= subsf.check_box :jr_english, {}, '英語' %>jr_english
+      <%= subsf.check_box :jr_japanese, {}, '国語' %>jr_japanese
+      <%= subsf.check_box :jr_math, {}, '数学' %>jr_math
+      <%= subsf.check_box :jr_science, {}, '理科' %>jr_science
+      <%= subsf.check_box :jr_social, {}, '社会' %>jr_social
+    </div>
+    <div class="">
+      <%= subsf.label :high_subjects, class: "public" %>
+      <%= subsf.check_box :high_english, {}, '英語' %>high_english
+      <%= subsf.check_box :modern_japanese, {}, '現代文' %>modern_japanese
+      <%= subsf.check_box :classical_japanese, {}, '古文' %>classical_japanese
+      <%= subsf.check_box :classical_chinese, {}, '漢文' %>classical_chinese
+      <%= subsf.check_box :world_history_a, {}, '世界史A' %>world_history_a
+      <%= subsf.check_box :world_history_b, {}, '世界史B' %>world_history_b
+      <%= subsf.check_box :japanese_history_a, {}, '日本史A' %>japanese_history_a
+      <%= subsf.check_box :japanese_history_b, {}, '日本史B' %>japanese_history_b
+      <%= subsf.check_box :geography_a, {}, '地理A' %>geography_a
+      <%= subsf.check_box :geography_b, {}, '地理B' %>geography_b
+      <%= subsf.check_box :contemporary_society, {}, '現代社会' %>contemporary_society
+      <%= subsf.check_box :ethics, {}, '倫理' %>ethics
+      <%= subsf.check_box :politics_economics, {}, '政治経済' %>politics_economics
+      <%= subsf.check_box :math_1a, {}, '数学ⅠA' %>math_1a
+      <%= subsf.check_box :math_2b, {}, '数学ⅡB' %>math_2b
+      <%= subsf.check_box :math_3, {}, '数学Ⅲ' %>math_3
+      <%= subsf.check_box :basic_physics, {}, '物理基礎' %>basic_physics
+      <%= subsf.check_box :physics, {}, '物理' %>physics
+      <%= subsf.check_box :basic_chemistry, {}, '化学基礎' %>basic_chemistry
+      <%= subsf.check_box :chemistry, {}, '化学' %>chemistry
+      <%= subsf.check_box :basic_biology, {}, '生物基礎' %>basic_biology
+      <%= subsf.check_box :biology, {}, '生物' %>biology
+      <%= subsf.check_box :basic_earth_science, {}, '地学基礎' %>basic_earth_science
+      <%= subsf.check_box :earth_science, {}, '地学' %>earth_science
+    </div>
+  <% end %>
 </div>
 <% if logged_in? %>
 <p class="caution">以下の項目はパスワードを変更する場合のみ入力してください。</p>
