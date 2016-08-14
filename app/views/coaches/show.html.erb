@@ -72,9 +72,17 @@
           <%= label_tag :school_year, t('.school_year'), class: "public" %>
           <span><%= @coach.school_year %></span>
         </div>
-        <div class="">
-          <%= label_tag :subject, t('.subject'), class: "public" %>
-          <span><%= @coach.subject %></span>
+        <div class="subjects">
+          <%= label_tag :jr_subjects, t('.jr_subjects'), class: "public" %>
+          <% @jr_subjects.each_value do |jr_subs| %>
+            <span><%= jr_subs unless jr_subs == '0' %></span>
+          <% end %>
+        </div>
+        <div class="subjects">
+          <%= label_tag :high_subjects, t('.high_subjects'), class: "public" %>
+          <% @high_subjects.each_value do |high_subs| %>
+            <span><%= high_subs unless high_subs == '0' %></span>
+          <% end %>
         </div>
         <div class="">
           <%= label_tag :self_introduction, t('.self_introduction'), class: "public" %>

@@ -9,6 +9,12 @@ class CoachesController < ApplicationController
   def show
     coach = Coach.where(activated: true)
     @coach = coach.find(params[:id])
+    @jr_subjects = @coach.subjects.slice(:jr_english, :jr_japanese, :jr_math, :jr_science, :jr_social)
+    @high_subjects = @coach.subjects.slice(:high_english, :modern_japanese, :classical_japanese, :classical_chinese,
+                                           :world_history_a, :world_history_b, :japanese_history_a, :japanese_history_b,
+                                           :geography_a, :geography_b, :contemporary_society, :ethics, :politics_economics,
+                                           :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
+                                           :basic_biology, :biology, :basic_earth_science, :earth_science)
   end
   
   def new
@@ -55,10 +61,15 @@ class CoachesController < ApplicationController
   
   def coach_params
     attrs = [:name, :full_name, :email, :birthday,
-              :university, :major, :school_year, :subject,
-              :self_introduction,
+              :university, :major, :school_year,:self_introduction,
               :password, :password_confirmation, :picture, :picture_cache,
-              :skype, :phone]
+              :skype, :phone ]
+    attrs << { subjects_attributes: [:id, :jr_english, :jr_japanese, :jr_math, :jr_science, :jr_social,
+                                     :high_english, :modern_japanese, :classical_japanese, :classical_chinese,
+                                     :world_history_a, :world_history_b, :japanese_history_a, :japanese_history_b,
+                                     :geography_a, :geography_b, :contemporary_society, :ethics, :politics_economics,
+                                     :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
+                                     :basic_biology, :biology, :basic_earth_science, :earth_science ] }
     params.require(:coach).permit(attrs)
   end
   

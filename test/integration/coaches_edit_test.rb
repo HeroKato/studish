@@ -38,7 +38,6 @@ class CoachesEditTest < ActionDispatch::IntegrationTest
                                       university: "test university",
                                       major: "test major",
                                       school_year: "1年",
-                                      subject: "test subject",
                                       self_introduction: "hi.",
                                       picture: Rack::Test::UploadedFile.new("app/assets/images/logo.png", "image/png"),
                                       password: "",
