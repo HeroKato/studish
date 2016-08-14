@@ -1,3 +1,4 @@
+path = Rails.root.join("db/seeds/development/coach#{idx % 3 + 1}.jpg")
 coach = Coach.create!(
   name: "admin",
   full_name: "admin",
@@ -12,7 +13,7 @@ coach = Coach.create!(
   password_confirmation: "adminpass",
   activated: true,
   activated_at: Time.zone.now,
-  picture: "app/assets/images/logo.png",
+  picture: open("#{path}"),
   skype: "adminskype",
   phone: "123-1234-5678"
 )
