@@ -84,6 +84,13 @@
             <span><%= high_subs unless high_subs == '0' %></span>
           <% end %>
         </div>
+        <div class="subjects">
+          <%= label_tag :certifications, t('.certifications'), class: "public" %>
+          <% @certifications.each do |key, certs| %>
+            <%= label_tag key %>
+            <span><%= certs unless certs == nil %></span>
+          <% end %>
+        </div>
         <div class="">
           <%= label_tag :self_introduction, t('.self_introduction'), class: "public" %>
           <p><%= @coach.self_introduction %></p>

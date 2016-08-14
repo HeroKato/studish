@@ -8,6 +8,9 @@ class Coach < ActiveRecord::Base
   has_one :subjects, class_name: "CoachingSubject", dependent: :destroy
   accepts_nested_attributes_for :subjects, allow_destroy: true
   
+  has_one :certifications, class_name: "CoachCertification", dependent: :destroy
+  accepts_nested_attributes_for :certifications, allow_destroy: true
+  
   validates :picture, presence: true
   validate :picture_size
   

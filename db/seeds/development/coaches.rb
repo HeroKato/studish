@@ -28,4 +28,13 @@ gnames = ["啓明", "太郎", "次郎"]
     jr_science: '',
     jr_social: ''
   )
+  CoachCertification.create!(
+    coach: coach,
+    eiken: '2級',
+    toeic: '500',
+    toefl: '60',
+    ielts: '5.5',
+    kanken: '2級',
+    suuken: '2級'
+  )
 end

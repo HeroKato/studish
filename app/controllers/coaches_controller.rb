@@ -15,6 +15,7 @@ class CoachesController < ApplicationController
                                            :geography_a, :geography_b, :contemporary_society, :ethics, :politics_economics,
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
+    @certifications = @coach.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
   end
   
   def new
@@ -70,6 +71,7 @@ class CoachesController < ApplicationController
                                      :geography_a, :geography_b, :contemporary_society, :ethics, :politics_economics,
                                      :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                      :basic_biology, :biology, :basic_earth_science, :earth_science ] }
+    attrs << { certifications_attributes: [:id, :eiken, :toeic, :toefl, :ielts, :kanken, :suuken ] }
     params.require(:coach).permit(attrs)
   end
   

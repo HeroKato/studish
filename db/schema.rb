@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812082715) do
+ActiveRecord::Schema.define(version: 20160814162609) do
+
+  create_table "coach_certifications", force: :cascade do |t|
+    t.integer  "coach_id",   null: false
+    t.string   "eiken"
+    t.integer  "toeic"
+    t.integer  "toefl"
+    t.float    "ielts"
+    t.string   "kanken"
+    t.string   "suuken"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "coach_certifications", ["coach_id"], name: "index_coach_certifications_on_coach_id"
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name",                              null: false

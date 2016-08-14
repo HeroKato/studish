@@ -104,6 +104,19 @@
     </div>
   <% end %>
 </div>
+<div class="form-group">
+  <%= form.fields_for :certifications do |certf| %>
+    <div class="">
+      <%= certf.label :certifications, class: "public" %>
+      eiken<%= certf.text_field :eiken %>
+      toeic<%= certf.text_field :toeic %>
+      toefl<%= certf.text_field :toefl %>
+      ielts<%= certf.text_field :ielts %>
+      kanken<%= certf.text_field :kanken %>
+      suuken<%= certf.text_field :suuken %>
+    </div>
+  <% end %>
+</div>
 <% if logged_in? %>
 <p class="caution">以下の項目はパスワードを変更する場合のみ入力してください。</p>
 <% end %>
