@@ -98,33 +98,34 @@
     <%= form.fields_for :certifications do |certf| %>
       <div class="">
         <%= certf.label t(".certifications"), class: "public" %>
-        <%= t(".eiken") %><%= certf.text_field :eiken %>
-        <%= t(".toeic") %><%= certf.text_field :toeic %>
-        <%= t(".toefl") %><%= certf.text_field :toefl %>
-        <%= t(".ielts") %><%= certf.text_field :ielts %>
-        <%= t(".kanken") %><%= certf.text_field :kanken %>
-        <%= t(".suuken") %><%= certf.text_field :suuken %>
+        <table>
+          <tr>
+            <th><%= t(".toeic") %></th>
+            <td><%= certf.text_field :toeic %></td>
+          </tr>
+          <tr>
+            <th><%= t(".toefl") %></th>
+            <td><%= certf.text_field :toefl %></td>
+          </tr>
+          <tr>
+            <th><%= t(".ielts") %></th>
+            <td><%= certf.text_field :ielts %></td>
+          </tr>
+          <tr>
+            <th><%= t(".eiken") %></th>
+            <td><%= certf.text_field :eiken %></td>
+          </tr>
+          <tr>
+            <th><%= t(".kanken") %></th>
+            <td><%= certf.text_field :kanken %></td>
+          </tr>
+          <tr>
+            <th><%= t(".suuken") %></th>
+            <td><%= certf.text_field :suuken %></td>
+          </tr>
+        </table>
       </div>
     <% end %>
-  </div>
-  
-  
-  <div class="form-group">
-    <%= form.label :birthday, class: "no-public" %>
-    <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :full_name, class: "no-public" %>
-    <%= form.text_field :full_name, class: "form-control", placeholder: "本名を入力してください。非公開。" %>
-  </div>
-  
-  <div class="form-group">
-    <%= form.label :skype, class: "no-public" %>
-    <%= form.text_field :skype, class: "form-control", placeholder: "非公開。" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :phone, class: "no-public" %>
-    <%= form.telephone_field :phone, class: "form-control", placeholder: "非公開。" %>
   </div>
 <% end %>
 

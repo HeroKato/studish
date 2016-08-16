@@ -23,7 +23,7 @@
         padding-left: 10px;
         float: left;
         div {
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 900;
           line-height: 1;
           margin-bottom: 10px;
@@ -39,7 +39,7 @@
           background-color: #fff;
           border: solid 2px #ebd8a9;
           border-radius: 2px;
-          padding: 2px;
+          padding: 4px;
         }
       }
       .certifications {
@@ -49,11 +49,12 @@
           background-color: #fff;
           border: solid 2px #ebd8a9;
           border-radius: 2px;
-          padding: 2px;
+          padding: 4px;
           margin-right: 4px;
           margin-bottom: 4px;
           display: inline;
           float: left;
+          line-height: 1;
         }
       }
     }

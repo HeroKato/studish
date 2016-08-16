@@ -18,16 +18,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
-              <% if current_coach.administrator? %>
-                <li><%= link_to "管理トップ", :admin_root %></li>
-              <% end %>
               <li>
                 <%= link_to logout_path, method: "delete" do  %>
                   ログアウト | <%= current_coach.name %>
                 <% end %>
               </li>
-              <li><%= link_to "マイプロフィール", current_coach %></li>
-              <li><%= link_to "アカウント情報", :account %></li>
               <li><%= link_to "講師一覧", :coaches %></li>
             <% end %>
             <li><%= link_to "HOME", root_path %></li>
@@ -48,13 +43,22 @@
               </li>
             <% end %>
             
-            <% unless logged_in? %>
-              <li class="dropdown">
-                <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                  その他
-                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                </div>
-                <ul class="dropdown-menu" >
+            <li class="dropdown">
+              <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                その他
+                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+              </div>
+              <ul class="dropdown-menu" >
+                <% if logged_in? %>
+                  <% if current_coach.administrator? %>
+                    <li><%= link_to "管理トップ", :admin_root %></li>
+                  <% end %>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "マイプロフィール", current_coach %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "アカウント情報", :account %></li>
+                <% end %>
+                <% unless logged_in? %>
                   <li>
                     <% if current_page?(root_path) %>
                       <%= link_to "料金", "#plan" %>
@@ -72,9 +76,9 @@
                       <%= link_to "ログイン（講師用）", login_path %>
                     <% end %>
                   </li>
-                </ul>
-              </li>
-            <% end %>
+                <% end %>
+              </ul>
+            </li>
             
           </ul>
         </div>

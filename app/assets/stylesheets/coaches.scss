@@ -1,53 +1,51 @@
 #coach-list {
+  padding-top: 15px;
   .content-container {
+    .pagination {
+      ul {
+        margin: 0;
+      }
+    }
     .content-header {
+      margin: 15px 0;
     }
     .content {
       .coach-card-wrapper {
-        width: 280px;
-        margin-right: auto;
-        margin-left:auto;
         .coach-card {
-          width: 140px;
-          float: left;
-          .coach-card-inner {
-            padding: 8px;
-            margin: 10px;
-            background-color: #fff;
-            border: 1px solid #aaa;
-            border-radius: 3px;
-            width: 122px;
-            box-shadow: 1px 1px 1px 0px #aaa;
-            -moz-box-shadow: 1px 1px 1px 0px #aaa;
-            -webkit-box-shadow: 1px 1px 1px 0px #aaa;
-            .coach-image {
-              width: 80px;
-              margin-bottom: 10px;
-              margin-right: auto;
-              margin-left: auto;
-              img {
-                width: 80px;
-                height: 80px;
-                border: 1px solid #aaa;
-                border-radius: 40px;
-              }
+          max-width: 320px;
+          padding: 8px;
+          margin-bottom: 15px;
+          margin-left: auto;
+          margin-right: auto;
+          background-color: #fff;
+          opacity: 0.9;
+          border: 1px solid #aaa;
+          border-radius: 3px;
+          box-shadow: 1px 1px 1px 0px #aaa;
+          -moz-box-shadow: 1px 1px 1px 0px #aaa;
+          -webkit-box-shadow: 1px 1px 1px 0px #aaa;
+          .img-wrapper {
+            float: left;
+            width: 100px;
+            img {
+              width: 100px;
+              height: 100px;
+              border: 1px solid #aaa;
             }
-            .coach-info {
-              line-height: 1;
-              margin-bottom: 4px;
-              font-size: 12px;
-              i {
-                margin-right: 4px;
-              }
-              i.fa-coffee {
-                color:#ff8c00;
-              }
-              i.fa-graduation-cap {
-                color:#29b864;
-              }
+          }
+          .profs {
+            float: left;
+            line-height: 1;
+            margin-left: 10px;
+            text-align: left;
+            div {
+              font-size: 14px;
+              color: #333;
             }
-            a {
-              font-size: 12px;
+            .coach-name,
+            .coach-univ,
+            .coach-major {
+              margin-bottom: 14px;
             }
           }
         }

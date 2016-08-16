@@ -15,32 +15,27 @@
       <% end %>
     </div>
     <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
-    <div class="content clearfix">
+    <div class="content">
       <div class="coach-card-wrapper">
         <% if @coaches.present? %>
           <% @coaches.each do |coach| %>
-            <div class="coach-card">
-              <div class="coach-card-inner">
-                <div class="coach-image">
+            <%= link_to coach do %>
+              <div class="coach-card clearfix">
+                <div class="img-wrapper">
                   <% if coach.picture.present? %>
                     <%= image_tag coach.picture, oncontextmenu: "return false;" %>
                   <% else %>
                     <%= image_tag("no_image.png") %>
                   <% end %>
                 </div>
-                <div class="coach-name coach-info">
-                  <i class="fa fa-coffee" aria-hidden="true"></i>
-                  <span><%= coach.name %></span>
+                <div class="profs">
+                  <div class="coach-name"><%= coach.name %></div>
+                  <div class="coach-univ"><%= coach.university %></div>
+                  <div class="coach-major"><%= coach.major %></div>
+                  <div class="coach-schlyr"><%= coach.school_year %></div>
                 </div>
-                <div class="coach-university coach-info">
-                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                  <span><%= coach.university %></span>
-                </div>
-                <%= link_to coach do %>
-                <span>プロフィール詳細</span>
-                <% end %>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% else %>
           <P>講師が一人もいません</P>
