@@ -20,17 +20,10 @@ coach = Coach.create!(
 CoachingSubject.create!(
   coach: coach,
   jr_english: '英語',
-  jr_japanese: '国語',
-  jr_math: '',
-  jr_science: '',
-  jr_social: ''
+  jr_japanese: '国語'
 )
 CoachCertification.create!(
   coach: coach,
   eiken: '2級',
-  toeic: '500',
-  toefl: '60',
-  ielts: '5.5',
-  kanken: '2級',
-  suuken: '2級'
+  toeic: '500'
 )
