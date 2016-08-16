@@ -107,7 +107,8 @@
       </div>
     <% end %>
   </div>
-
+  
+  
   <div class="form-group">
     <%= form.label :birthday, class: "no-public" %>
     <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
@@ -127,17 +128,6 @@
   </div>
 <% end %>
 
-<% if logged_in? %>
-<p class="caution">以下の項目はパスワードを変更する場合のみ入力してください。</p>
-<% end %>
-<div class="form-group">
-  <%= form.label :password, class: "no-public" %>
-  <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
-</div>
-<div class="form-group">
-  <%= form.label :password_confirmation, class: "no-public" %>
-  <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
-</div>
 <div class="submit-group">
   <% if logged_in? %>
     <%= form.submit "更新する", class: "btn btn-primary" %>

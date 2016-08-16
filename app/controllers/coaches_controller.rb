@@ -60,6 +60,10 @@ class CoachesController < ApplicationController
     redirect_to :coaches
   end
   
+  def account
+    @coach = Coach.find(params[:id])
+  end
+  
   private
   
   def coach_params

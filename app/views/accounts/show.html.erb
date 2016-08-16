@@ -1,0 +1,35 @@
+<div class="content-wrapper" id="coach-account">
+  <div class="content-container">
+    <div class="content-header">
+      <h2><%= @coach.name %>さんのアカウント情報</h2>
+    </div>
+    <table class="content">
+      <tr>
+        <th><%= t('.full_name') %></th>
+        <td><%= @coach.full_name %></td>
+      </tr>
+      <tr>
+        <th><%= t('.birthday') %></th>
+        <td><%= @coach.birthday %></td>
+      </tr>
+      <tr>
+        <th><%= t('.email') %></th>
+        <td><%= @coach.email %></td>
+      </tr>
+      <tr>
+        <th><%= t('.phone') %></th>
+        <td><%= @coach.phone %></td>
+      </tr>
+      <tr>
+        <th><%= t('.skype') %></th>
+        <td><%= @coach.skype %></td>
+      </tr>
+    </table>
+      <% if current_coach == @coach %>
+        <div class="content">
+          <%= link_to "アカウントを編集する", :edit_account %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

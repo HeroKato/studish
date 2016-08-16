@@ -61,42 +61,15 @@
         <% end %>
       </div>
     </div>
-    <% if current_coach == @coach %>
-    <div class="profile-non-public">
-      <p>非公開項目（以下の情報は他のユーザーからは見ることができません。）</p>
-      <div class="">
-        <%= label_tag :fullname, t('.full_name') %>
-        <span><%= @coach.full_name %></span>
+    <% if current_coach.administrator? %>
+      <div class="content administrator-check">
+        <%= @coach.administrator? ? "Yes" : "No" %>
       </div>
-      <div class="">
-        <%= label_tag :birthday, t('.birthday') %>
-        <span><%= @coach.birthday %></span>
-      </div>
-      <div class="">
-        <%= label_tag :email, t('.email') %>
-        <span><%= @coach.email %></span>
-      </div>
-      <div class="">
-        <%= label_tag :phone, t('phone') %>
-        <span><%= @coach.phone %></span>
-      </div>
-      <div class="">
-        <%= label_tag :skype, t('.skype') %>
-        <span><%= @coach.skype %></span>
-      </div>
-    </div>
-    <% end %>
-    <% if logged_in? %>
-    <div class="content administrator-check">
-      <%= @coach.administrator? ? "Yes" : "No" %>
-    </div>
     <% end %>
     <% if current_coach == @coach %>
       <div class="content">
         <%= link_to "プロフィールを編集する", edit_coach_path(current_coach) %>
       </div>
-    <% end %>
-    <% if current_coach == @coach %>
       <div class="content">
         <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
       </div>

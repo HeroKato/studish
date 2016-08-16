@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'accounts/ahow'
+
+  get 'accounts/edit'
+
   namespace :admin do
   get 'top/index'
   end
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resource :account, only: [:show, :edit, :update]
   
   namespace :admin do
     root to: "top#index"
