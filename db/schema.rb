@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(version: 20160814162609) do
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name",                              null: false
-    t.string   "full_name",                         null: false
+    t.string   "full_name"
     t.string   "email",                             null: false
-    t.date     "birthday",                          null: false
-    t.string   "university",                        null: false
-    t.string   "major",                             null: false
-    t.string   "school_year",                       null: false
-    t.string   "self_introduction",                 null: false
+    t.date     "birthday"
+    t.string   "university"
+    t.string   "major"
+    t.string   "school_year"
+    t.string   "self_introduction"
     t.boolean  "administrator",     default: false, null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false

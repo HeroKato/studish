@@ -11,7 +11,6 @@ class Coach < ActiveRecord::Base
   has_one :certifications, class_name: "CoachCertification", dependent: :destroy
   accepts_nested_attributes_for :certifications, allow_destroy: true
   
-  validates :picture, presence: true
   validate :picture_size
   
   validates :name, presence: true,
@@ -19,7 +18,7 @@ class Coach < ActiveRecord::Base
             length: { minimum: 2, maximum: 30, allow_blank: false },
             uniqueness: { case_sensitive: true }
             
-  validates :full_name, presence: true, length: { maximum: 30 }
+  validates :full_name, length: { maximum: 30 }, allow_blank: true
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -31,20 +30,22 @@ class Coach < ActiveRecord::Base
     :length => { :minimum => 8, :if => :validate_password? },
     :confirmation => { :if => :validate_password? }
   
-  validates :university,        presence: true, length: { minimum: 2, maximum: 30 }
-  validates :major,             presence: true, length: { minimum: 2, maximum: 50 }
-  validates :school_year,       presence: true, length: { minimum: 1, maximum: 20 }
-  validates :self_introduction, presence: true, length: { minimum: 1, maximum: 400 }
+  validates :university, length: { minimum: 2, maximum: 30 }, allow_blank: true
+  validates :major, length: { minimum: 2, maximum: 50 }, allow_blank: true
+  validates :school_year, length: { minimum: 1, maximum: 20 }, allow_blank: true
+  validates :self_introduction, length: { minimum: 1, maximum: 1200 }, allow_blank: true
   
   VALID_SKYPE_REGEX = /\A[a-z\d]+[\w+\-.,]+\z/i
-  validates :skype, format: { with: VALID_SKYPE_REGEX, :allow_blank => false, message: :invalid_skype },
+  validates :skype, format: { with: VALID_SKYPE_REGEX, message: :invalid_skype },
                     length: { minimum: 6, maximum: 32 },
-                    uniqueness: { case_sensitive: false }
+                    uniqueness: { case_sensitive: false },
+                    allow_blank: true
                     
   VALID_PHONE_REGEX = /\A[0-9]+[0-9\-]+\z/
-  validates :phone, format: { with: VALID_PHONE_REGEX, :allow_blank => false, message: :invalid_phone },
+  validates :phone, format: { with: VALID_PHONE_REGEX, message: :invalid_phone },
                     length: { minimum: 10, maximum: 13 },
-                    uniqueness: true
+                    uniqueness: true,
+                    allow_blank: true
   
   # 与えられた文字列のハッシュ値を返す
   def Coach.digest(string)

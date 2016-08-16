@@ -6,114 +6,103 @@
 
 <div class="content-wrapper" id="coach-profile">
   <div class="content-container">
-    <div class="content-header">
-      <h2><%= @coach.name %>さんのプロフィール</h2>
-    </div>
     <div class="content">
       <% if flash.notice %>
         <p class="notice"><%= flash.notice %></p>
       <% end %>
     </div>
-    <div class="content">
-      <div class="coach-picture">
+    <div class= "coach-prof-1 clearfix">
+      <div class="img-wrapper">
         <% if @coach.picture.present? %>
           <%= image_tag @coach.picture.url, oncontextmenu: "return false;" %>
         <% else %>
           <%= image_tag("no_image.png") %>
         <% end %>
       </div>
-      <div class="coach-profile">
-        <% if current_coach == @coach %>
-        <p><span class="public"></span>印がついている項目以外は公開されません。</p>
-        <% end %>
-        <% if current_coach == @coach %>
-        <div class="">
-          <%= label_tag :birthday, t('.birthday') %>
-          <span><%= @coach.birthday %></span>
-        </div>
-        <% end %>
-        <div class="">
-          <%= label_tag :name, t('.name'), class: "public" %>
-          <span><%= @coach.name %></span>
-        </div>
-        <% if current_coach == @coach %>
-        <div class="">
-          <%= label_tag :fullname, t('.full_name') %>
-          <span><%= @coach.full_name %></span>
-        </div>
-        <% end %>
-        <% if current_coach == @coach %>
-        <div class="">
-          <%= label_tag :email, t('.email') %>
-          <span><%= @coach.email %></span>
-        </div>
-        <% end %>
-        <% if current_coach == @coach %>
-        <div class="">
-          <%= label_tag :skype, t('.skype') %>
-          <span><%= @coach.skype %></span>
-        </div>
-        <% end %>
-        <% if current_coach == @coach %>
-        <div class="">
-          <%= label_tag :phone, t('phone') %>
-          <span><%= @coach.phone %></span>
-        </div>
-        <% end %>
-        <div class="">
-          <%= label_tag :university, t('.university'), class: "public" %>
-          <span><%= @coach.university %></span>
-        </div>
-        <div class="">
-          <%= label_tag :major, t('.major'), class: "public" %>
-          <span><%= @coach.major %></span>
-        </div>
-        <div class="">
-          <%= label_tag :school_year, t('.school_year'), class: "public" %>
-          <span><%= @coach.school_year %></span>
-        </div>
-        <div class="subjects">
-          <%= label_tag :jr_subjects, t('.jr_subjects'), class: "public" %>
+      <div class="profs">
+        <div class="coach-name"><%= @coach.name %></div>
+        <div class="coach-univ"><%= @coach.university %></div>
+        <div class="coach-major"><%= @coach.major %></div>
+        <div class="coach-schlyr"><%= @coach.school_year %></div>
+      </div>
+    </div>
+    <div class="coach-prof-2">
+      <div class="prof-content self-introduction">
+        <div class="label-self-introduction"><%= label_tag :self_introduction, t('.self_introduction') %></div>
+        <p><%= simple_format(@coach.self_introduction) %></p>
+      </div>
+      <div class="prof-content subjects">
+        <div class="label-subjects"><%= label_tag :jr_subjects, t('.jr_subjects') %></div>
           <% @jr_subjects.each_value do |jr_subs| %>
-            <span><%= jr_subs unless jr_subs == '0' %></span>
+            <% unless (jr_subs == nil) || (jr_subs == '0') %>
+              <span class="subject-wrapper"><%= jr_subs %></span>
+            <% end %>
           <% end %>
-        </div>
-        <div class="subjects">
-          <%= label_tag :high_subjects, t('.high_subjects'), class: "public" %>
+      </div>
+      <div class="prof-content subjects">
+        <div class="label-subjects"><%= label_tag :high_subjects, t('.high_subjects') %></div>
           <% @high_subjects.each_value do |high_subs| %>
-            <span><%= high_subs unless high_subs == '0' %></span>
+            <% unless (high_subs == nil) || (high_subs == '0' ) %>
+              <span class="subject-wrapper"><%= high_subs %></span>
+            <% end %>
           <% end %>
-        </div>
-        <div class="subjects">
-          <%= label_tag :certifications, t('.certifications'), class: "public" %>
+      </div>
+      <div class="prof-content certifications clearfix">
+        <div class="label-certifications"><%= label_tag :certifications, t('.certifications') %></div>
+        <% if @certifications.present? %>
           <% @certifications.each do |key, certs| %>
-            <%= label_tag key %>
-            <span><%= certs unless certs == nil %></span>
+              <% unless (certs ==  nil) || (certs == "" ) %>
+                <div class="certification">
+                  <span><%= t(key) %></span>
+                  <span><%= certs %></span>
+                </div>
+              <% end %>
           <% end %>
-        </div>
-        <div class="">
-          <%= label_tag :self_introduction, t('.self_introduction'), class: "public" %>
-          <p><%= @coach.self_introduction %></p>
-        </div>
+        <% end %>
       </div>
-      <% if logged_in? %>
-      <div class="content administrator-check">
-        <%= @coach.administrator? ? "Yes" : "No" %>
+    </div>
+    <% if current_coach == @coach %>
+    <div class="profile-non-public">
+      <p>非公開項目（以下の情報は他のユーザーからは見ることができません。）</p>
+      <div class="">
+        <%= label_tag :fullname, t('.full_name') %>
+        <span><%= @coach.full_name %></span>
       </div>
-      <% end %>
-      <% if current_coach == @coach %>
-        <div class="content">
-          <%= link_to "プロフィールを編集する", edit_coach_path(current_coach) %>
-        </div>
-      <% end %>
-      <% if current_coach == @coach %>
-        <div class="content">
-          <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-        </div>
-      <% end %>
-      <div class="content back-to-coaches">
-        <%= link_to "講師一覧へ", coaches_path, class: "btn btn-primary" %>
+      <div class="">
+        <%= label_tag :birthday, t('.birthday') %>
+        <span><%= @coach.birthday %></span>
       </div>
+      <div class="">
+        <%= label_tag :email, t('.email') %>
+        <span><%= @coach.email %></span>
+      </div>
+      <div class="">
+        <%= label_tag :phone, t('phone') %>
+        <span><%= @coach.phone %></span>
+      </div>
+      <div class="">
+        <%= label_tag :skype, t('.skype') %>
+        <span><%= @coach.skype %></span>
+      </div>
+    </div>
+    <% end %>
+    <% if logged_in? %>
+    <div class="content administrator-check">
+      <%= @coach.administrator? ? "Yes" : "No" %>
+    </div>
+    <% end %>
+    <% if current_coach == @coach %>
+      <div class="content">
+        <%= link_to "プロフィールを編集する", edit_coach_path(current_coach) %>
+      </div>
+    <% end %>
+    <% if current_coach == @coach %>
+      <div class="content">
+        <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      </div>
+    <% end %>
+    <div class="content back-to-coaches">
+      <%= link_to "講師一覧へ", coaches_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>

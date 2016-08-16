@@ -33,6 +33,8 @@ class CoachesController < ApplicationController
   
   def create
     @coach = Coach.new(coach_params)
+    @coach.subjects = CoachingSubject.new(subjects_params)
+    @coach.certifications = CoachCertification.new(certifications_params)
     if @coach.save
       @coach.send_activation_email
       flash[:info] = "Please check your email to activate your account."
@@ -73,6 +75,19 @@ class CoachesController < ApplicationController
                                      :basic_biology, :biology, :basic_earth_science, :earth_science ] }
     attrs << { certifications_attributes: [:id, :eiken, :toeic, :toefl, :ielts, :kanken, :suuken ] }
     params.require(:coach).permit(attrs)
+  end
+  
+  def subjects_params
+    params.require(:coach).permit(:jr_english, :jr_japanese, :jr_math, :jr_science, :jr_social,
+                                     :high_english, :modern_japanese, :classical_japanese, :classical_chinese,
+                                     :world_history_a, :world_history_b, :japanese_history_a, :japanese_history_b,
+                                     :geography_a, :geography_b, :contemporary_society, :ethics, :politics_economics,
+                                     :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
+                                     :basic_biology, :biology, :basic_earth_science, :earth_science)
+  end
+  
+  def certifications_params
+    params.require(:coach).permit(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
   end
   
   

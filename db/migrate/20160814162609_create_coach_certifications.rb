@@ -4,9 +4,9 @@ class CreateCoachCertifications < ActiveRecord::Migration
       t.references :coach, null: false          # 外部キー
       
       t.string :eiken
-      t.integer :toeic
-      t.integer :toefl
-      t.float :ielts
+      t.integer :toeic, default: nil
+      t.integer :toefl, default: nil
+      t.float :ielts, default: nil
       t.string :kanken
       t.string :suuken
 

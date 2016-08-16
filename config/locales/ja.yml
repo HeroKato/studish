@@ -1,4 +1,10 @@
 ja:
+  eiken: 英検
+  toeic: TOEIC
+  toefl: TOEFL
+  ielts: IELTS
+  kanken: 漢検
+  suuken: 数検
   coaches:
     show:
       name: ユーザ名
@@ -13,6 +19,48 @@ ja:
       administrator: 管理者
       password: パスワード
       password_confirmation: パスワードの確認
+      jr_subjects: 指導科目(中学)
+      high_subjects: 指導科目(高校)
+      certifications: 資格・検定
+    form:
+      jr_subjects: 指導科目(中学)
+      high_subjects: 指導科目(高校)
+      certifications: 資格・検定
+      eiken: 英検
+      toeic: TOEIC
+      toefl: TOEFL
+      ielts: IELTS
+      kanken: 漢検
+      suuken: 数検
+      jr_english: 英語
+      jr_japanese: 国語
+      jr_math: 数学
+      jr_science: 理科
+      jr_social: 社会
+      high_english: 英語
+      modern_japanese: 現代文
+      classical_japanese: 古文
+      classical_chinese: 漢文
+      world_history_a: 世界史A
+      world_history_b: 世界史B
+      japanese_history_a: 日本史A
+      japanese_history_b: 日本史B
+      geography_a: 地理A
+      geography_b: 地理B
+      contemporary_society: 現代社会
+      ethics: 倫理
+      politics_economics: 政治経済
+      math_1a: 数学ⅠA
+      math_2b: 数学ⅡB
+      math_3: 数学Ⅲ
+      basic_physics: 物理基礎
+      physics: 物理
+      basic_chemistry: 化学基礎
+      chemistry: 化学
+      basic_biology: 生物基礎
+      biology: 生物
+      basic_earth_science: 地学基礎
+      earth_science: 地学
   activerecord:
     models:
       coach: 講師情報

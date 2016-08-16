@@ -4,119 +4,129 @@
 <% end %>
 <p class="info"><span class="public"></span>印がついている項目以外は公開されません。</p>
 
-<div class="coach-picture">
-<div><%= form.label :picture, class: "public"%></div>
-<%= image_tag @coach.picture.url if @coach.picture? %>
-<div class="file">
-<%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
-<%= form.hidden_field :picture_cache %>
-</div>
-<% unless logged_in? %>
-<P>プロフィール画像は登録後でも追加・変更できます。</P>
+
+<% if logged_in? %>
+  <div class="coach-picture">
+  <div><%= form.label :picture, class: "public"%></div>
+  <%= image_tag @coach.picture.url if @coach.picture? %>
+  <div class="file">
+  <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
+  <%= form.hidden_field :picture_cache %>
+  </div>
+  <% unless logged_in? %>
+  <P>プロフィール画像は登録後でも追加・変更できます。</P>
+  <% end %>
+  </div>
+  <script type="text/javascript">
+    $('#coach_picture').bind('change', function() {
+      var size_in_megabytes = this.files[0].size/1024/1024;
+      if (size_in_megabytes > 5) {
+        alert('Maximum file size is 5MB. Please choose a smaller file.');
+      }
+    });
+  </script>
 <% end %>
-</div>
 
-<script type="text/javascript">
-  $('#coach_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('Maximum file size is 5MB. Please choose a smaller file.');
-    }
-  });
-</script>
-
-<div class="form-group">
-  <%= form.label :birthday, class: "no-public" %>
-  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
-</div>
 <div class="form-group">
   <%= form.label :name, class: "public" %>
   <%= form.text_field :name, class: "form-control", placeholder: "公開される名前です。後で変更可。" %>
 </div>
 <div class="form-group">
-  <%= form.label :full_name, class: "no-public" %>
-  <%= form.text_field :full_name, class: "form-control", placeholder: "本名を入力してください。非公開。" %>
-</div>
-<div class="form-group">
   <%= form.label :email, class: "no-public" %>
   <%= form.text_field :email, class: "form-control", placeholder: "非公開。" %>
 </div>
-<div class="form-group">
-  <%= form.label :skype, class: "no-public" %>
-  <%= form.text_field :skype, class: "form-control", placeholder: "非公開。" %>
-</div>
-<div class="form-group">
-  <%= form.label :phone, class: "no-public" %>
-  <%= form.telephone_field :phone, class: "form-control", placeholder: "非公開。" %>
-</div>
-<div class="form-group">
-  <%= form.label :university, class: "public" %>
-  <%= form.text_field :university, class: "form-control", placeholder: "例：〇〇大学/大学院" %>
-</div>
-<div class="form-group">
-  <%= form.label :major, class: "public" %>
-  <%= form.text_field :major, class: "form-control", placeholder: "例：〇〇学部〇〇学科" %>
-</div>
-<div class="form-group">
-  <%= form.label :school_year, class: "public" %>
-  <%= form.text_field :school_year, class: "form-control", placeholder: "例：1年/院1年" %>
-</div>
-<div class="form-group self_introduction">
-  <%= form.label :self_introduction, class: "public" %>
-  <%= form.text_area :self_introduction, class: "form-control", placeholder: "生徒に向けたメッセージをお願いします（最大400字）。" %>
-</div>
-<div class="form-group">
-  <%= form.fields_for :subjects do |subsf| %>
-    <div class="">
-      <%= subsf.label :jr_subjects, class: "public" %>
-      <%= subsf.check_box :jr_english, {}, '英語' %>jr_english
-      <%= subsf.check_box :jr_japanese, {}, '国語' %>jr_japanese
-      <%= subsf.check_box :jr_math, {}, '数学' %>jr_math
-      <%= subsf.check_box :jr_science, {}, '理科' %>jr_science
-      <%= subsf.check_box :jr_social, {}, '社会' %>jr_social
-    </div>
-    <div class="">
-      <%= subsf.label :high_subjects, class: "public" %>
-      <%= subsf.check_box :high_english, {}, '英語' %>high_english
-      <%= subsf.check_box :modern_japanese, {}, '現代文' %>modern_japanese
-      <%= subsf.check_box :classical_japanese, {}, '古文' %>classical_japanese
-      <%= subsf.check_box :classical_chinese, {}, '漢文' %>classical_chinese
-      <%= subsf.check_box :world_history_a, {}, '世界史A' %>world_history_a
-      <%= subsf.check_box :world_history_b, {}, '世界史B' %>world_history_b
-      <%= subsf.check_box :japanese_history_a, {}, '日本史A' %>japanese_history_a
-      <%= subsf.check_box :japanese_history_b, {}, '日本史B' %>japanese_history_b
-      <%= subsf.check_box :geography_a, {}, '地理A' %>geography_a
-      <%= subsf.check_box :geography_b, {}, '地理B' %>geography_b
-      <%= subsf.check_box :contemporary_society, {}, '現代社会' %>contemporary_society
-      <%= subsf.check_box :ethics, {}, '倫理' %>ethics
-      <%= subsf.check_box :politics_economics, {}, '政治経済' %>politics_economics
-      <%= subsf.check_box :math_1a, {}, '数学ⅠA' %>math_1a
-      <%= subsf.check_box :math_2b, {}, '数学ⅡB' %>math_2b
-      <%= subsf.check_box :math_3, {}, '数学Ⅲ' %>math_3
-      <%= subsf.check_box :basic_physics, {}, '物理基礎' %>basic_physics
-      <%= subsf.check_box :physics, {}, '物理' %>physics
-      <%= subsf.check_box :basic_chemistry, {}, '化学基礎' %>basic_chemistry
-      <%= subsf.check_box :chemistry, {}, '化学' %>chemistry
-      <%= subsf.check_box :basic_biology, {}, '生物基礎' %>basic_biology
-      <%= subsf.check_box :biology, {}, '生物' %>biology
-      <%= subsf.check_box :basic_earth_science, {}, '地学基礎' %>basic_earth_science
-      <%= subsf.check_box :earth_science, {}, '地学' %>earth_science
-    </div>
-  <% end %>
-</div>
-<div class="form-group">
-  <%= form.fields_for :certifications do |certf| %>
-    <div class="">
-      <%= certf.label :certifications, class: "public" %>
-      eiken<%= certf.text_field :eiken %>
-      toeic<%= certf.text_field :toeic %>
-      toefl<%= certf.text_field :toefl %>
-      ielts<%= certf.text_field :ielts %>
-      kanken<%= certf.text_field :kanken %>
-      suuken<%= certf.text_field :suuken %>
-    </div>
-  <% end %>
-</div>
+
+
+<% if logged_in? %>
+  <div class="form-group">
+    <%= form.label :university, class: "public" %>
+    <%= form.text_field :university, class: "form-control", placeholder: "例：〇〇大学/大学院" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :major, class: "public" %>
+    <%= form.text_field :major, class: "form-control", placeholder: "例：〇〇学部〇〇学科" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :school_year, class: "public" %>
+    <%= form.text_field :school_year, class: "form-control", placeholder: "例：1年/院1年" %>
+  </div>
+  <div class="form-group self_introduction">
+    <%= form.label :self_introduction, class: "public" %>
+    <%= form.text_area :self_introduction, rows: "10", class: "form-control", placeholder: "生徒に向けたメッセージをお願いします（最大400字）。" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.fields_for :subjects do |subsf| %>
+      <div class="">
+        <%= subsf.label  t(".jr_subjects"), class: "public" %>
+        <%= subsf.check_box :jr_english, {}, '英語' %><%= t(".jr_english") %>
+        <%= subsf.check_box :jr_japanese, {}, '国語' %><%= t(".jr_japanese") %>
+        <%= subsf.check_box :jr_math, {}, '数学' %><%= t(".jr_math") %>
+        <%= subsf.check_box :jr_science, {}, '理科' %><%= t(".jr_science") %>
+        <%= subsf.check_box :jr_social, {}, '社会' %><%= t(".jr_social") %>
+      </div>
+      <div class="">
+        <%= subsf.label t(".high_subjects"), class: "public" %>
+        <%= subsf.check_box :high_english, {}, '英語' %><%= t(".high_english") %>
+        <%= subsf.check_box :modern_japanese, {}, '現代文' %> <%= t(".modern_japanese") %>
+        <%= subsf.check_box :classical_japanese, {}, '古文' %><%= t(".classical_japanese") %>
+        <%= subsf.check_box :classical_chinese, {}, '漢文' %><%= t(".classical_chinese") %>
+        <%= subsf.check_box :world_history_a, {}, '世界史A' %><%= t(".world_history_a") %>
+        <%= subsf.check_box :world_history_b, {}, '世界史B' %><%= t(".world_history_b") %>
+        <%= subsf.check_box :japanese_history_a, {}, '日本史A' %><%= t(".japanese_history_a") %>
+        <%= subsf.check_box :japanese_history_b, {}, '日本史B' %><%= t(".japanese_history_b") %>
+        <%= subsf.check_box :geography_a, {}, '地理A' %><%= t(".geography_a") %>
+        <%= subsf.check_box :geography_b, {}, '地理B' %><%= t(".geography_b") %>
+        <%= subsf.check_box :contemporary_society, {}, '現代社会' %><%= t(".contemporary_society") %>
+        <%= subsf.check_box :ethics, {}, '倫理' %><%= t(".ethics") %>
+        <%= subsf.check_box :politics_economics, {}, '政治経済' %><%= t(".politics_economics") %>
+        <%= subsf.check_box :math_1a, {}, '数学ⅠA' %><%= t(".math_1a") %>
+        <%= subsf.check_box :math_2b, {}, '数学ⅡB' %><%= t(".math_2b") %>
+        <%= subsf.check_box :math_3, {}, '数学Ⅲ' %><%= t(".math_3") %>
+        <%= subsf.check_box :basic_physics, {}, '物理基礎' %><%= t(".basic_physics") %>
+        <%= subsf.check_box :physics, {}, '物理' %><%= t(".physics") %>
+        <%= subsf.check_box :basic_chemistry, {}, '化学基礎' %><%= t(".basic_chemistry") %>
+        <%= subsf.check_box :chemistry, {}, '化学' %><%= t(".chemistry") %>
+        <%= subsf.check_box :basic_biology, {}, '生物基礎' %><%= t(".basic_biology") %>
+        <%= subsf.check_box :biology, {}, '生物' %><%= t(".biology") %>
+        <%= subsf.check_box :basic_earth_science, {}, '地学基礎' %><%= t(".basic_earth_science") %>
+        <%= subsf.check_box :earth_science, {}, '地学' %><%= t(".earth_science") %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= form.fields_for :certifications do |certf| %>
+      <div class="">
+        <%= certf.label t(".certifications"), class: "public" %>
+        <%= t(".eiken") %><%= certf.text_field :eiken %>
+        <%= t(".toeic") %><%= certf.text_field :toeic %>
+        <%= t(".toefl") %><%= certf.text_field :toefl %>
+        <%= t(".ielts") %><%= certf.text_field :ielts %>
+        <%= t(".kanken") %><%= certf.text_field :kanken %>
+        <%= t(".suuken") %><%= certf.text_field :suuken %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :birthday, class: "no-public" %>
+    <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :full_name, class: "no-public" %>
+    <%= form.text_field :full_name, class: "form-control", placeholder: "本名を入力してください。非公開。" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :skype, class: "no-public" %>
+    <%= form.text_field :skype, class: "form-control", placeholder: "非公開。" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :phone, class: "no-public" %>
+    <%= form.telephone_field :phone, class: "form-control", placeholder: "非公開。" %>
+  </div>
+<% end %>
+
 <% if logged_in? %>
 <p class="caution">以下の項目はパスワードを変更する場合のみ入力してください。</p>
 <% end %>

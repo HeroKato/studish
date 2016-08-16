@@ -1,0 +1,61 @@
+#coach-profile {
+  padding: 0;
+  .content-container {
+    padding: 15px 10px;
+    .coach-prof-1 {
+      margin-bottom: 15px;
+      .img-wrapper {
+        width: 120px;
+        height: 120px;
+        padding: 2px;
+        padding-bottom: 3px;
+        background-color: #eee;
+        border: solid 1px #ccc;
+        border-bottom: solid 2px #bbb;
+        float: left;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .profs {
+        width: auto;
+        padding-left: 10px;
+        float: left;
+        div {
+          font-size: 14px;
+          font-weight: 900;
+          line-height: 1;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .coach-prof-2 {
+      .prof-content {
+        margin-bottom: 15px;
+      }
+      .subjects {
+        .subject-wrapper {
+          background-color: #fff;
+          border: solid 2px #ebd8a9;
+          border-radius: 2px;
+          padding: 2px;
+        }
+      }
+      .certifications {
+        .label-certifications {
+        }
+        .certification {
+          background-color: #fff;
+          border: solid 2px #ebd8a9;
+          border-radius: 2px;
+          padding: 2px;
+          margin-right: 4px;
+          margin-bottom: 4px;
+          display: inline;
+          float: left;
+        }
+      }
+    }
+  }
+}
