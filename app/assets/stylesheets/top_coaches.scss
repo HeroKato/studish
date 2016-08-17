@@ -1,11 +1,6 @@
-#coach-list {
+#top-coaches {
   padding-top: 15px;
   .content-container {
-    .pagination {
-      ul {
-        margin: 0;
-      }
-    }
     .content-header {
       margin: 15px 0;
     }
@@ -22,6 +17,7 @@
             padding: 8px;
             margin-bottom: 15px;
             background-color: #fff;
+            opacity: 0.9;
             border: 1px solid #ebd8a9;
             border-radius: 3px;
             box-shadow: 1px 1px 1px 0px #cfc7b3;
@@ -42,7 +38,7 @@
               margin-left: 10px;
               text-align: left;
               div {
-                font-size: 14px;
+                font-size: 12px;
                 color: #333;
                 width: 160px;
                 word-wrap: break-word;
@@ -50,12 +46,16 @@
               .coach-name,
               .coach-univ,
               .coach-major {
-                margin-bottom: 10px;
+                margin-bottom: 12px;
               }
             }
           }
         }
       }
+    }
+    .link {
+      margin-top: 30px;
+      text-align: center;
     }
   }
 }
@@ -63,16 +63,16 @@
 
 @media (min-width: 768px) {
   
-#coach-list {
+#top-coaches {
   padding-top: 45px;
   .content-container {
-    .pagination {
-      margin-bottom: 30px;
-    }
     .content-header {
+      margin-bottom: 30px;
     }
     .content {
       .coach-card-wrapper {
+        margin-left: auto;
+        margin-right: auto;
         width: 600px;
         .coach-card:nth-child(odd){
           margin-right: 20px;
@@ -85,17 +85,31 @@
           a {
             float: left;
             .coach-card-inner {
+              max-width: 290px;
+              padding: 8px;
               margin-bottom: 20px;
               .img-wrapper {
+                float: left;
+                width: 100px;
                 img {
+                  width: 100px;
+                  height: 100px;
+                  border: 1px solid #ebd8a9;
                 }
               }
               .profs {
+                float: left;
+                line-height: 1;
+                margin-left: 10px;
+                text-align: left;
                 div {
+                  font-size: 14px;
+                  color: #333;
                 }
                 .coach-name,
                 .coach-univ,
                 .coach-major {
+                  margin-bottom: 14px;
                 }
               }
             }

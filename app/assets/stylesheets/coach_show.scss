@@ -7,11 +7,10 @@
       .img-wrapper {
         width: 120px;
         height: 120px;
-        padding: 2px;
-        padding-bottom: 3px;
-        background-color: #eee;
-        border: solid 1px #ccc;
-        border-bottom: solid 2px #bbb;
+        border: solid 1px #ebd8a9;
+        box-shadow: 1px 1px 1px 0px #cfc7b3;
+        -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
+        -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
         float: left;
         img {
           width: 100%;
@@ -19,14 +18,15 @@
         }
       }
       .profs {
-        width: auto;
-        padding-left: 10px;
+        margin-left: 10px;
         float: left;
         div {
           font-size: 16px;
           font-weight: 900;
           line-height: 1;
           margin-bottom: 10px;
+          width: 160px;
+          word-wrap: break-word;
         }
       }
     }
@@ -36,10 +36,12 @@
       }
       .subjects {
         .subject-wrapper {
+          display: inline-block;
           background-color: #fff;
           border: solid 2px #ebd8a9;
           border-radius: 2px;
           padding: 4px;
+          margin-bottom: 4px;
         }
       }
       .certifications {
@@ -59,4 +61,85 @@
       }
     }
   }
+}
+
+@media (min-width: 375px) {
+  
+#coach-profile {
+  .content-container {
+    .coach-prof-1 {
+      .img-wrapper {
+        img {
+        }
+      }
+      .profs {
+        div {
+          width: 200px;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+}  
+  
+}
+
+@media (min-width: 450px) {
+  
+#coach-profile {
+  .content-container {
+    .coach-prof-1 {
+      .img-wrapper {
+        img {
+        }
+      }
+      .profs {
+        div {
+          width: auto;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+}  
+  
+}
+
+
+@media (min-width: 768px) {
+  
+#coach-profile {
+  padding-top: 45px;
+  .content-container {
+    max-width: 600px;
+    .coach-prof-1 {
+      margin-bottom: 30px;
+      .img-wrapper {
+        img {
+        }
+      }
+      .profs {
+        margin-left: 20px;
+        div {
+        }
+      }
+    }
+    .coach-prof-2 {
+      .prof-content {
+        margin-bottom: 30px;
+      }
+      .subjects {
+        .subject-wrapper {
+        }
+      }
+      .certifications {
+        .label-certifications {
+        }
+        .certification {
+        }
+      }
+    }
+  }
+}
+
 }
