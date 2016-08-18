@@ -6,12 +6,16 @@
 
 <div class="content-wrapper" id="coaching-reports">
   <div class="content-container">
-    <div class="content-header">
-      <h2>レポートタイムライン</h2>
-    </div>
+    <% if @reports.present? %>
+      <div class="content-header">
+        <% if @coach %>
+          <h2><%= @coach.name %>さんのレポート</h2>
+        <% else %>
+          <h2>レポートタイムライン</h2>
+        <% end %>
+      </div>
     
-    <div class="content">
-      <% if @reports.present? %>
+      <div class="content">
         <% @reports.each do |report| %>
           <div class="report-card clearfix">
             <div class="coach-img">
@@ -37,10 +41,10 @@
           </div>
         <% end %>
         <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
-      <% else %>
+        <% else %>
         <p>レポートがありません。</p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     
   </div>
 </div>

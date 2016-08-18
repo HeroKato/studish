@@ -4,9 +4,17 @@
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<h1>レポートの作成</h1>
+<div class="content-wrapper" id="report-new">
+  <div class="content-container">
+    <div class="content-header">
+      <h2>レポートの作成</h2>
+    </div>
+    <div class="content">
+      <%= form_for @report do |form| %>
+      <%= render "form", form: form %>
+      <p><%= form.submit class: "btn btn-primary" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= form_for @report do |form| %>
-<%= render "form", form: form %>
-<p><%= form.submit class: "btn btn-primary" %></p>
-<% end %>

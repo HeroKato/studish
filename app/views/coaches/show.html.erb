@@ -61,6 +61,11 @@
         <% end %>
       </div>
     </div>
+    <div class="content">
+      <%= link_to coach_coaching_reports_path(@coach) do %>
+        <%= @coach.name %>さんのレポートを見る
+      <% end %>
+    </div>
     <% if current_coach.administrator? %>
       <div class="content administrator-check">
         <%= @coach.administrator? ? "Yes" : "No" %>

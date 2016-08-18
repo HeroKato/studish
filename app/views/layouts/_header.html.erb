@@ -49,6 +49,7 @@
                 <% if logged_in? %>
                   <% if current_coach.administrator? %>
                     <li><%= link_to "管理トップ", :admin_root %></li>
+                    <li role="separator" class="divider"></li>
                   <% end %>
                   <li>
                     <%= link_to logout_path, method: "delete" do  %>

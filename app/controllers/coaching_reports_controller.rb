@@ -5,10 +5,11 @@ class CoachingReportsController < ApplicationController
     if params[:coach_id]
       @coach = Coach.find(params[:coach_id])
       @reports = @coach.coaching_reports
+      @reports = @reports.readable_for(current_coach).order(posted_at: :desc).paginate(page: params[:page], per_page: 30)
     else
       @reports = CoachingReport.all
+      @reports = @reports.common.order(posted_at: :desc).paginate(page: params[:page], per_page: 30)
     end
-    @reports = @reports.common.order(posted_at: :desc).paginate(page: params[:page], per_page: 30)
   end
 
   def show
@@ -27,7 +28,8 @@ class CoachingReportsController < ApplicationController
     @report = CoachingReport.new(report_params)
     @report.author = current_coach
     if @report.save
-      redirect_to @report, notice: "レポートを作成しました。"
+      flash[:success] = "レポートを作成しました!"
+      redirect_to :coaching_report
     else
       render 'new'
     end
@@ -37,7 +39,8 @@ class CoachingReportsController < ApplicationController
     @report = current_coach.coaching_reports.find(params[:id])
     @report.assign_attributes(report_params)
     if @report.save
-      redirect_to @report, notice: "レポートを更新しました。"
+      flash[:success] = "レポートを更新しました。"
+      redirect_to @report
     else
       render 'edit'
     end
@@ -46,7 +49,8 @@ class CoachingReportsController < ApplicationController
   def destroy
     @report = current_coach.coaching_reports.find(params[:id])
     @report.destroy
-    redirect_to :coaching_reports, notice: "レポートを削除しました。"
+    flash[:success] = "レポートを削除しました。"
+    redirect_to :coaching_reports
   end
   
   private
