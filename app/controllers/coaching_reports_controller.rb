@@ -13,7 +13,7 @@ class CoachingReportsController < ApplicationController
   end
 
   def show
-    @report = CoachingReport.common.find(params[:id])
+    @report = CoachingReport.readable_for(current_coach).find(params[:id])
   end
 
   def new
@@ -29,7 +29,7 @@ class CoachingReportsController < ApplicationController
     @report.author = current_coach
     if @report.save
       flash[:success] = "レポートを作成しました!"
-      redirect_to :coaching_report
+      redirect_to @report
     else
       render 'new'
     end
