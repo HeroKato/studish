@@ -1,0 +1,46 @@
+<% content_for :head do %>
+<title>レポートタイムライン | Studish</title>
+<meta name="description" content="Studishのレポートタイムラインです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="coaching-reports">
+  <div class="content-container">
+    <div class="content-header">
+      <h2>レポートタイムライン</h2>
+    </div>
+    
+    <div class="content">
+      <% if @reports.present? %>
+        <% @reports.each do |report| %>
+          <div class="report-card clearfix">
+            <div class="coach-img">
+              <%= link_to report.author do %>
+                <% if report.author.picture.present? %>
+                  <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
+                <% else %>
+                  <%= image_tag("no_image.png") %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="report-abst">
+              <span class="coach-name"><%= link_to report.author.name, report.author %></span>
+              <span class="report-title"><%= truncate(report.title, length: 50 ) %></span>
+              <p class="report-body">
+                <%= truncate(report.body, length: 400) %>
+              </p>
+              <%= link_to "もっと読む", report, class: "more" %>
+              <div class="report-card-footer">
+                <%= render "footer", report: report %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
+      <% else %>
+        <p>レポートがありません。</p>
+      <% end %>
+    </div>
+    
+  </div>
+</div>

@@ -64,6 +64,7 @@ ja:
   activerecord:
     models:
       coach: 講師情報
+      coaching_report: レポート
     attributes:
       coach:
         name: ユーザ名
@@ -81,6 +82,14 @@ ja:
         password_confirmation: パスワードの確認
         skype: スカイプ
         phone: 電話番号
+      coaching_report:
+        title: タイトル
+        body: 本文
+        posted_at: 投稿日
+        status: 状態
+        status_draft: 下書き
+        status_public_for_coaches: 公開
+        status_unpublic_for_coaches: 非公開
     errors:
       messages:
         invalid_email: "は〇〇@〇〇の形で入力してください"

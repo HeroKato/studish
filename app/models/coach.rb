@@ -11,6 +11,8 @@ class Coach < ActiveRecord::Base
   has_one :certifications, class_name: "CoachCertification", dependent: :destroy
   accepts_nested_attributes_for :certifications, allow_destroy: true
   
+  has_many :coaching_reports, dependent: :destroy
+  
   validate :picture_size
   
   validates :name, presence: true,

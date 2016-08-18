@@ -1,0 +1,228 @@
+#coaching-reports,
+#coaching-report {
+  padding-top: 0;
+  .content-container {
+    .content-header {
+      margin: 0;
+      padding: 20px 0;
+      h2 {
+        font-size: 20px;
+      }
+    }
+    .content {
+      .report-card {
+        max-width: 450px;
+        padding: 7px;
+        background-color: #fff;
+        border: 1px solid #ebd8a9;
+        margin-bottom: 10px;
+        box-shadow: 1px 1px 1px 0px #cfc7b3;
+        -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
+        -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+        .coach-img {
+          float: left;
+          width: 50px;
+          img {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ebd8a9;
+            border-radius: 3px;
+          }
+        }
+        .report-abst {
+          float: left;
+          width: 220px;
+          padding-left: 7px;
+          .coach-name {
+            display: block;
+            text-align: left;
+            line-height: 1;
+            margin-bottom: 7px;
+            a {
+              color: #aaa;
+            }
+          }
+          .report-title {
+            display: block;
+            text-align: left;
+            font-weight: 800;
+          }
+          .report-body {
+            text-align: left;
+            line-height: 1.4;
+          }
+          .more {
+            text-align: right;
+            display: block;
+            line-height: 1.4;
+          }
+          .report-card-footer {
+            text-align: right;
+            p {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) {
+
+#coaching-reports,
+#coaching-report {
+  .content-container {
+    .content-header {
+      
+    }
+    .content {
+      .report-card {
+        .coach-img {
+          img {
+          }
+        }
+        .report-abst {
+          width: 260px;
+          .coach-name {
+            a {
+            }
+          }
+          .report-title {
+          }
+          .report-body {
+          }
+          .more {
+          }
+          .report-card-footer {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+}
+
+
+
+@media (min-width: 400px) {
+  
+#coaching-reports,
+#coaching-report {
+  .content-container {
+    .content-header {
+      
+    }
+    .content {
+      .report-card {
+        .coach-img {
+          img {
+          }
+        }
+        .report-abst {
+          width: 290px;
+          .coach-name {
+            a {
+            }
+          }
+          .report-title {
+          }
+          .report-body {
+          }
+          .more {
+          }
+          .report-card-footer {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  
+}
+
+
+@media (min-width: 430px) {
+
+#coaching-reports,
+#coaching-report {
+  .content-container {
+    max-width: 450px;
+    .content-header {
+      
+    }
+    .content {
+      .report-card {
+        .coach-img {
+          img {
+          }
+        }
+        .report-abst {
+          width: 350px;
+          .coach-name {
+            a {
+            }
+          }
+          .report-title {
+          }
+          .report-body {
+          }
+          .more {
+          }
+          .report-card-footer {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+}
+
+
+@media (min-width: 430px) {
+
+#coaching-reports,
+#coaching-report {
+  padding-top: 45px;
+  .content-container {
+    .content-header {
+      
+    }
+    .content {
+      .report-card {
+        margin-bottom: 20px;
+        .coach-img {
+          img {
+          }
+        }
+        .report-abst {
+          width: 350px;
+          .coach-name {
+            a {
+            }
+          }
+          .report-title {
+          }
+          .report-body {
+          }
+          .more {
+          }
+          .report-card-footer {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+}

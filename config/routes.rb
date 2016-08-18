@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'coaching_reports/index'
+
+  get 'coaching_reports/show'
+
+  get 'coaching_reports/new'
+
+  get 'coaching_reports/edit'
+
   get 'accounts/ahow'
 
   get 'accounts/edit'
@@ -40,6 +48,12 @@ Rails.application.routes.draw do
       collection { get "search" }
     end
   end
+  
+  resources :coaches do
+    resources :coaching_reports, only: [:index]
+  end
+  
+  resources :coaching_reports
 
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,9 +1,9 @@
-<% if @coach.errors.any? %>
+<% if obj.errors.present? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      <h3>The form contains <%= pluralize(@coach.errors.count, "error") %>.</h3>
+      <h3>The form contains <%= pluralize(obj.errors.count, "error") %>.</h3>
     <ul>
-    <% @coach.errors.full_messages.each do |msg| %>
+    <% obj.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>

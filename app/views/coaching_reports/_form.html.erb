@@ -1,0 +1,21 @@
+<%= render "shared/errors", obj: @report %>
+
+<div class="form-group">
+  <%= form.label :title %>
+  <%= form.text_field :title, class: "form-control", placeholder: "なんかしら" %>
+</div>
+<div class="form-group">
+  <%= form.label :body %>
+  <%= form.text_area :body, rows: 20, cols: 45, class: "form-control", placeholder: "なんかしら" %>
+</div>
+<div class="form-group">
+  <%= form.label :posted_at %>
+  <%= form.datetime_select :posted_at,
+            start_year: 2016, end_year: Time.now.year + 1,
+            use_month_numbers: true,
+            class: "form-control", placeholder: "なんかしら" %>
+</div>
+<div class="form-group">
+  <%= form.label :status %>
+  <%= form.select :status, CoachingReport.status_options, class: "form-control" %>
+</div>

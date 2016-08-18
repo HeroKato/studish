@@ -17,15 +17,12 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
-              <li>
-                <%= link_to logout_path, method: "delete" do  %>
-                  ログアウト | <%= current_coach.name %>
-                <% end %>
-              </li>
-              <li><%= link_to "講師一覧", :coaches %></li>
-            <% end %>
             <li><%= link_to "HOME", root_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to "レポート作成", :new_coaching_report %></li>
+              <li><%= link_to "マイレポート", coach_coaching_reports_path(current_coach) %></li>
+              <li><%= link_to "レポートTL", :coaching_reports %></li>
+            <% end %>
             <% unless logged_in? %>
               <li>
                 <% if current_page?(root_path) %>
@@ -53,10 +50,17 @@
                   <% if current_coach.administrator? %>
                     <li><%= link_to "管理トップ", :admin_root %></li>
                   <% end %>
+                  <li>
+                    <%= link_to logout_path, method: "delete" do  %>
+                      ログアウト | <%= current_coach.name %>
+                    <% end %>
+                  </li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "マイプロフィール", current_coach %></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "アカウント情報", :account %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "講師一覧", :coaches %></li>
                 <% end %>
                 <% unless logged_in? %>
                   <li>

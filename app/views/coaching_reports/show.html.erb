@@ -1,0 +1,35 @@
+<% content_for :head do %>
+<title><%= @report.title %> | Studish</title>
+<meta name="description" content="<%= @report.author.name %>さんのレポートページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="coaching-report">
+  <div class="content-container">
+    <div class="content">
+      <div class="report-card clearfix">
+        <div class="coach-img">
+          <%= link_to @report.author do %>
+            <% if @report.author.picture.present? %>
+              <%= image_tag @report.author.picture.url, oncontextmenu: "return false;" %>
+            <% else %>
+              <%= image_tag("no_image.png") %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="report-abst">
+          <span class="coach-name"><%= link_to @report.author.name, @report.author %></span>
+          <span class="report-title"><%= @report.title %></span>
+          <%= simple_format(@report.body, class: "report-body") %>
+          <div class="report-card-footer">
+            <%= render "footer", report: @report %>
+          </div>
+        </div>
+      </div>
+      <div class="back">
+        <%= link_to "戻る", :coaching_reports %>
+      </div>
+    </div>
+  </div>
+
+</div>
