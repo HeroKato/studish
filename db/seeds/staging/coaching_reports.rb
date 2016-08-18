@@ -10,7 +10,7 @@ body =
   "でもまだ仕事中で観れないので、予選は我慢して準決勝あたりから観ようと思う。"+
   "決勝は早朝なので観ないかもしれない。"+
   "最後はめんどくさかったので日本語で書いちゃいました。"
-%w(example1 example2 example3).each do |name|
+%w(admin).each do |name|
   coach = Coach.find_by(name: name)
   0.upto(100) do |idx|
     CoachingReport.create(
