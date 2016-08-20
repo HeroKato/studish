@@ -7,29 +7,36 @@
 <div class="content-wrapper" id="coaching-report">
   <div class="content-container">
     <div class="content">
-      <div class="report-card clearfix">
-        <div class="coach-img">
-          <%= link_to @report.author do %>
-            <% if @report.author.picture.present? %>
-              <%= image_tag @report.author.picture.url, oncontextmenu: "return false;" %>
-            <% else %>
-              <%= image_tag("no_image.png") %>
+      <div class="report-card">
+        <div class="report-header clearfix">
+          <div class="coach-img">
+            <%= link_to @report.author do %>
+              <% if @report.author.picture.present? %>
+                <%= image_tag @report.author.picture.url, oncontextmenu: "return false;" %>
+              <% else %>
+                <%= image_tag("no_image.png") %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <div class="coach-info">
+            <span class="coach-name"><%= link_to @report.author.name, @report.author %></span>
+          </div>
         </div>
         <div class="report-abst">
-          <span class="coach-name"><%= link_to @report.author.name, @report.author %></span>
           <span class="report-title"><%= @report.title %></span>
           <%= simple_format(@report.body, class: "report-body") %>
-          <div class="report-card-footer">
+          <div class="report-footer">
             <%= render "footer", report: @report %>
           </div>
         </div>
       </div>
+      <hr class="horizontal-line">
+      <%= render "comments/form" %>
+      <hr class="horizontal-line">
+      <%= render "comments/index" %>
       <div class="back">
-        <%= link_to "戻る", :coaching_reports %>
-      </div>
+      <%= link_to "戻る", :coaching_reports %>
+    </div>
     </div>
   </div>
-
 </div>

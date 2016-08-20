@@ -14,6 +14,9 @@ class CoachingReportsController < ApplicationController
 
   def show
     @report = CoachingReport.readable_for(current_coach).find(params[:id])
+    if params[:coaching_report_id]
+      @comments = Comment.find(params[:coaching_report_id])
+    end
   end
 
   def new

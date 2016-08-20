@@ -49,11 +49,17 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :coaching_reports
+  resources :comments
+  
   resources :coaches do
     resources :coaching_reports, only: [:index]
   end
   
-  resources :coaching_reports
+  resources :coaching_reports do
+    resources :comments
+  end
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.

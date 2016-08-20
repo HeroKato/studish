@@ -1,6 +1,9 @@
 class CoachingReport < ActiveRecord::Base
   belongs_to :author, class_name: "Coach", foreign_key: "coach_id"
   
+  has_many :comments, dependent: :destroy
+  has_many :commenters, through: :comments, source: :coach
+  
   STATUS_VALUES = %w(draft public_for_coaches unpublic_for_coaches)
   
   validates :title, presence: true, length: { maximum: 200 }

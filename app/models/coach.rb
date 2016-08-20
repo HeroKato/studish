@@ -13,6 +13,9 @@ class Coach < ActiveRecord::Base
   
   has_many :coaching_reports, dependent: :destroy
   
+  has_many :comments, dependent: :destroy
+  has_many :commented_reports, through: :comments, source: :coaching_report
+  
   validate :picture_size
   
   validates :name, presence: true,

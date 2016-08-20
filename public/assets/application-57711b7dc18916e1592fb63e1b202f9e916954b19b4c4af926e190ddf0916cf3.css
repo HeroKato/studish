@@ -337,6 +337,302 @@ table.list td {
     margin-bottom: 20px;
   }
 }
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report {
+  padding-top: 15px;
+}
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content-header {
+  margin: 0;
+  padding: 20px 0;
+}
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content-header h2 {
+  font-size: 20px;
+}
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content {
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 7px;
+  background-color: #fff;
+  border: 1px solid #ebd8a9;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 1px 0px #cfc7b3;
+  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
+  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+}
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card {
+  max-width: 450px;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header {
+  width: 100%;
+}
+/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-img {
+  float: left;
+}
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ebd8a9;
+  border-radius: 3px;
+}
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-info {
+  float: left;
+  text-align: left;
+  margin-left: 7px;
+}
+/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-info .coach-name {
+  display: block;
+  line-height: 1;
+}
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-info .coach-name a {
+  color: #aaa;
+}
+/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-abst .report-title {
+  display: block;
+  text-align: left;
+  font-weight: 800;
+}
+/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-abst .report-body {
+  text-align: left;
+  line-height: 1.4;
+}
+/* line 58, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-abst .more {
+  text-align: right;
+  display: block;
+  line-height: 1.4;
+}
+/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-abst .report-footer {
+  text-align: right;
+}
+/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-abst .report-footer p {
+  margin-bottom: 0;
+}
+/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comment-form .new_comment .form-group {
+  text-align: left;
+}
+/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comment-form .new_comment .comment {
+  width: 100%;
+}
+/* line 87, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-img {
+  float: left;
+}
+/* line 89, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ebd8a9;
+  border-radius: 3px;
+}
+/* line 96, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info {
+  margin-left: 7px;
+  float: left;
+}
+/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name {
+  text-align: left;
+  line-height: 1;
+}
+/* line 102, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a {
+  color: #aaa;
+}
+/* line 108, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-content {
+  margin-left: 5px;
+}
+/* line 110, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-body {
+  text-align: left;
+}
+/* line 113, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-footer {
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  /* line 131, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content {
+    max-width: 500px;
+    padding: 15px;
+  }
+  /* line 134, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .report-card {
+    max-width: 500px;
+  }
+  /* line 141, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .report-card .report-header .coach-info {
+    margin-left: 15px;
+  }
+  /* line 143, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .report-card .report-header .coach-info .coach-name {
+    font-size: 16px;
+  }
+  /* line 151, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .report-card .report-abst .report-title {
+    font-size: 16px;
+  }
+  /* line 154, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .report-card .report-abst .report-body {
+    font-size: 16px;
+  }
+  /* line 157, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .report-card .report-abst .more {
+    font-size: 16px;
+  }
+  /* line 168, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .comment-form .new_comment .form-group {
+    text-align: left;
+  }
+  /* line 171, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .comment-form .new_comment .comment {
+    width: 100%;
+  }
+  /* line 185, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info {
+    margin-left: 15px;
+  }
+  /* line 188, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a {
+    font-size: 16px;
+  }
+  /* line 195, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-body {
+    font-size: 16px;
+  }
+  /* line 198, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-footer {
+    font-size: 16px;
+  }
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports {
+  padding-top: 15px;
+}
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content-header {
+  margin: 0;
+  padding: 20px 0;
+}
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content-header h2 {
+  font-size: 20px;
+}
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content {
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card {
+  max-width: 450px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ebd8a9;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 1px 0px #cfc7b3;
+  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
+  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+}
+/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-img {
+  float: left;
+}
+/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ebd8a9;
+  border-radius: 3px;
+}
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info {
+  float: left;
+  margin-left: 10px;
+}
+/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name {
+  display: block;
+  text-align: left;
+  line-height: 1;
+}
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name a {
+  color: #aaa;
+}
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-abst .report-title {
+  display: block;
+  text-align: left;
+  font-weight: 800;
+}
+/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-abst .report-body {
+  text-align: left;
+  line-height: 1.4;
+}
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-abst .more {
+  text-align: right;
+  display: block;
+  line-height: 1.4;
+}
+/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-abst .report-footer {
+  text-align: right;
+}
+/* line 64, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-abst .report-footer p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  /* line 84, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  #coaching-reports .content-container .content .report-card {
+    max-width: 500px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  /* line 93, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  #coaching-reports .content-container .content .report-card .report-header .coach-info {
+    margin-left: 15px;
+  }
+  /* line 95, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  #coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name {
+    font-size: 16px;
+  }
+  /* line 103, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  #coaching-reports .content-container .content .report-card .report-abst .report-title {
+    font-size: 16px;
+  }
+  /* line 106, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  #coaching-reports .content-container .content .report-card .report-abst .report-body {
+    font-size: 16px;
+  }
+  /* line 109, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  #coaching-reports .content-container .content .report-card .report-abst .more {
+    font-size: 16px;
+  }
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
 .copy {
   height: 250px;
@@ -825,7 +1121,7 @@ header .navbar .navbar-inner .navbar-header button.navbar-toggle {
 header .navbar .navbar-inner .navbar-collapse.collapse,
 header .navbar .navbar-inner .navbar-collapse.collapsing {
   margin-top: 0;
-  max-height: 350px;
+  max-height: 470px;
 }
 /* line 42, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav {

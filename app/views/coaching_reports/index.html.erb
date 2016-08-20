@@ -17,32 +17,34 @@
     
       <div class="content">
         <% @reports.each do |report| %>
-          <div class="report-card clearfix">
-            <div class="coach-img">
-              <%= link_to report.author do %>
-                <% if report.author.picture.present? %>
-                  <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
-                <% else %>
-                  <%= image_tag("no_image.png") %>
+          <div class="report-card">
+            <div class="report-header clearfix">
+              <div class="coach-img">
+                <%= link_to report.author do %>
+                  <% if report.author.picture.present? %>
+                    <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
+                  <% else %>
+                    <%= image_tag("no_image.png") %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+              <div class="coach-info">
+                <span class="coach-name"><%= link_to report.author.name, report.author %></span>
+              </div>
             </div>
             <div class="report-abst">
-              <span class="coach-name"><%= link_to report.author.name, report.author %></span>
               <span class="report-title"><%= truncate(report.title, length: 50 ) %></span>
               <p class="report-body">
                 <%= truncate(report.body, length: 400) %>
               </p>
               <%= link_to "もっと読む", report, class: "more" %>
-              <div class="report-card-footer">
+              <div class="report-footer">
                 <%= render "footer", report: report %>
               </div>
             </div>
           </div>
         <% end %>
         <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
-        <% else %>
-        <p>レポートがありません。</p>
       </div>
     <% end %>
     

@@ -1,0 +1,121 @@
+#coaching-reports {
+  padding-top: 15px;
+  .content-container {
+    .content-header {
+      margin: 0;
+      padding: 20px 0;
+      h2 {
+        font-size: 20px;
+      }
+    }
+    .content {
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+      .report-card {
+        max-width: 450px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ebd8a9;
+        margin-bottom: 10px;
+        box-shadow: 1px 1px 1px 0px #cfc7b3;
+        -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
+        -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+        .report-header {
+          .coach-img {
+            float: left;
+            img {
+              width: 50px;
+              height: 50px;
+              border: 1px solid #ebd8a9;
+              border-radius: 3px;
+            }
+          }
+          .coach-info {
+            float: left;
+            margin-left: 10px;
+            .coach-name {
+              display: block;
+              text-align: left;
+              line-height: 1;
+              a {
+                color: #aaa;
+              }
+            }
+          }
+        }
+        .report-abst {
+          .report-title {
+            display: block;
+            text-align: left;
+            font-weight: 800;
+          }
+          .report-body {
+            text-align: left;
+            line-height: 1.4;
+          }
+          .more {
+            text-align: right;
+            display: block;
+            line-height: 1.4;
+          }
+          .report-footer {
+            text-align: right;
+            p {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (min-width: 768px) {
+#coaching-reports {
+  .content-container {
+    .content-header {
+      h2 {
+      }
+    }
+    .content {
+      .report-card {
+        max-width: 500px;
+        padding: 15px;
+        margin-bottom: 15px;
+        .report-header {
+          .coach-img {
+            img {
+            }
+          }
+          .coach-info {
+            margin-left: 15px;
+            .coach-name {
+              font-size: 16px;
+              a {
+              }
+            }
+          }
+        }
+        .report-abst {
+          .report-title {
+            font-size: 16px;
+          }
+          .report-body {
+            font-size: 16px;
+          }
+          .more {
+            font-size: 16px;
+          }
+          .report-footer {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}

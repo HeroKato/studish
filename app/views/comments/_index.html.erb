@@ -1,0 +1,29 @@
+<div class="comments-wrapper">
+<% @report.comments.each do |comment| %>
+  <% if comment.body.present? %>
+  <div class="comment">
+    <div class="comment-header clearfix">
+      <div class="commenter-img">
+        <%= link_to comment.coach do %>
+          <% if comment.coach.picture.present? %>
+            <%= image_tag comment.coach.picture.url, oncontextmenu: "return false;" %>
+          <% else %>
+            <%= image_tag("no_image.png") %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="commenter-info">
+        <span class="commenter-name"><%= link_to comment.commenter, comment.commenter %>さんのコメント</span>
+      </div>
+    </div>
+    <div class="comment-content">
+      <%= simple_format(comment.body, class: "comment-body") %>
+      <div class="comment-footer">
+        <%= link_to "削除", [comment.coaching_report, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+  <hr class="horizontal-line clearfix">
+  <% end %>
+<% end %>
+</div>

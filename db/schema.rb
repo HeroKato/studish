@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818072557) do
+ActiveRecord::Schema.define(version: 20160819051819) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -103,5 +103,17 @@ ActiveRecord::Schema.define(version: 20160818072557) do
   end
 
   add_index "coaching_subjects", ["coach_id"], name: "index_coaching_subjects_on_coach_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "coaching_report_id", null: false
+    t.integer  "coach_id",           null: false
+    t.string   "commenter"
+    t.text     "body"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "comments", ["coach_id"], name: "index_comments_on_coach_id"
+  add_index "comments", ["coaching_report_id"], name: "index_comments_on_coaching_report_id"
 
 end
