@@ -1,4 +1,4 @@
-body =
+report =
   "This is a test report.\n" +
   "I'm listening to Andrew Rayel" +
   "and eating cookies." +
@@ -18,9 +18,10 @@ comment =
     report = CoachingReport.create(
       author: coach,
       title: "coaching_report#{idx}",
-      body: body,
+      body: report,
       posted_at: 10.days.ago.advance(days: idx),
-      status: %w(draft public_for_coaches unpublic_for_coaches)[idx % 3])
+      status: %w(draft public_for_coaches unpublic_for_coaches)[idx % 3]
+    )
     if idx == 7 || idx == 8
       %w(example4 example5 example6).each do |name2|
         commenter = Coach.find_by(name: name2)

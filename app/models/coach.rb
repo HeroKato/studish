@@ -18,12 +18,16 @@ class Coach < ActiveRecord::Base
   
   validate :picture_size
   
+  VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :name, presence: true,
-            format: { with: /\A[A-Za-z]\w*\z/, allow_blank: false, message: :invalid_coach_name },
-            length: { minimum: 2, maximum: 30, allow_blank: false },
+            format: { with: VALID_NAME_REGEX, allow_blank: false, message: :invalid_name },
+            length: { minimum: 2, maximum: 30 },
             uniqueness: { case_sensitive: true }
             
-  validates :full_name, length: { maximum: 30 }, allow_blank: true
+  VALID_FULLNAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
+  validates :full_name,
+            format: { with: VALID_FULLNAME_REGEX, allow_blank: true, message: :invalid_full_name },
+            length: { maximum: 30 }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -35,9 +39,17 @@ class Coach < ActiveRecord::Base
     :length => { :minimum => 8, :if => :validate_password? },
     :confirmation => { :if => :validate_password? }
   
-  validates :university, length: { minimum: 2, maximum: 30 }, allow_blank: true
-  validates :major, length: { minimum: 2, maximum: 50 }, allow_blank: true
+  VALID_UNIV = /\A(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
+  validates :university, format: { with: VALID_UNIV },
+                         length: { minimum: 2, maximum: 30 }, allow_blank: true
+                         
+  VALID_MAJOR = /\A(?:[\w]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
+  validates :major, format: { with: VALID_MAJOR },
+                    length: { minimum: 2, maximum: 50 }, allow_blank: true
+                    
+  VALID_SCHOOL_YEAR = /\A([院]|[M]|[m])[0-9\d][年]\z/
   validates :school_year, length: { minimum: 1, maximum: 20 }, allow_blank: true
+  
   validates :self_introduction, length: { minimum: 1, maximum: 1200 }, allow_blank: true
   
   VALID_SKYPE_REGEX = /\A[a-z\d]+[\w+\-.,]+\z/i
@@ -51,6 +63,7 @@ class Coach < ActiveRecord::Base
                     length: { minimum: 10, maximum: 13 },
                     uniqueness: true,
                     allow_blank: true
+
   
   # 与えられた文字列のハッシュ値を返す
   def Coach.digest(string)

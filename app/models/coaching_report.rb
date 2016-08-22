@@ -6,8 +6,9 @@ class CoachingReport < ActiveRecord::Base
   
   STATUS_VALUES = %w(draft public_for_coaches unpublic_for_coaches)
   
-  validates :title, presence: true, length: { maximum: 200 }
-  validates :body, :posted_at, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :body, presence: true, length: { maximum: 1200 }
+  validates :posted_at, presence: true
   validates :status, inclusion: { in: STATUS_VALUES }
   
   scope :common, -> { where(status: "public_for_coaches") }

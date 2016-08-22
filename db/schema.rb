@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160819051819) do
     t.string   "university"
     t.string   "major"
     t.string   "school_year"
-    t.string   "self_introduction"
+    t.text     "self_introduction"
     t.boolean  "administrator",     default: false, null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false

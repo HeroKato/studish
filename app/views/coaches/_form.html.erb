@@ -40,7 +40,7 @@
 <% if logged_in? %>
   <div class="form-group">
     <%= form.label :university, class: "public" %>
-    <%= form.text_field :university, class: "form-control", placeholder: "例：〇〇大学/大学院" %>
+    <%= form.text_field :university, class: "form-control", placeholder: "例：〇〇大学(大学院)" %>
   </div>
   <div class="form-group">
     <%= form.label :major, class: "public" %>
@@ -101,27 +101,27 @@
         <table>
           <tr>
             <th><%= t(".toeic") %></th>
-            <td><%= certf.text_field :toeic %></td>
+            <td><%= certf.text_field :toeic, placeholder: "数値のみ入力" %></td>
           </tr>
           <tr>
             <th><%= t(".toefl") %></th>
-            <td><%= certf.text_field :toefl %></td>
+            <td><%= certf.text_field :toefl, placeholder: "数値のみ入力" %></td>
           </tr>
           <tr>
             <th><%= t(".ielts") %></th>
-            <td><%= certf.text_field :ielts %></td>
+            <td><%= certf.text_field :ielts, placeholder: "数値のみ入力" %></td>
           </tr>
           <tr>
             <th><%= t(".eiken") %></th>
-            <td><%= certf.text_field :eiken %></td>
+            <td><%= certf.text_field :eiken, placeholder: "例:2級" %></td>
           </tr>
           <tr>
             <th><%= t(".kanken") %></th>
-            <td><%= certf.text_field :kanken %></td>
+            <td><%= certf.text_field :kanken, placeholder: "例:2級" %></td>
           </tr>
           <tr>
             <th><%= t(".suuken") %></th>
-            <td><%= certf.text_field :suuken %></td>
+            <td><%= certf.text_field :suuken, placeholder: "例:2級" %></td>
           </tr>
         </table>
       </div>

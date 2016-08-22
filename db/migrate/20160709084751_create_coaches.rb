@@ -8,7 +8,7 @@ class CreateCoaches < ActiveRecord::Migration
       t.string  :university                                      #大学
       t.string  :major                                           #学部学科
       t.string  :school_year                                     #学年
-      t.string  :self_introduction                               #自己紹介
+      t.text  :self_introduction                               #自己紹介
       t.boolean :administrator,     null: false, default: false  #管理者フラグ
       
       t.timestamps null: false

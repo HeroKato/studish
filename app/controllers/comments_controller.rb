@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントしました。"
       redirect_to coaching_report_path(@report)
     else
+      flash[:danger] = "コメントを正しく入力してください。"
       redirect_to coaching_report_path(@report)
     end
   end
