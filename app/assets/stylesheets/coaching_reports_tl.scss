@@ -61,8 +61,12 @@
           }
           .report-footer {
             text-align: right;
+            color: #aaa;
             p {
               margin-bottom: 0;
+            }
+            i {
+              margin-right: 3px;
             }
           }
         }
