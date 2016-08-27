@@ -16,6 +16,7 @@ class CoachesController < ApplicationController
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
     @certifications = @coach.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
+    @reports_count = @coach.coaching_reports.count
   end
   
   def new

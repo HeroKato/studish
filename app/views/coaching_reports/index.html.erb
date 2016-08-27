@@ -16,6 +16,13 @@
       </div>
     
       <div class="content">
+        <% if @coach %>
+          <div class="coach-reports-info">
+            <% if ( count = @reports.count ) > 0 %>
+            <span class="reports-count"><i class="fa fa-book"></i><%= @reports.count %></span>
+            <% end %>
+          </div>
+        <% end %>
         <% @reports.each do |report| %>
           <div class="report-card">
             <div class="report-header clearfix">

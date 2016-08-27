@@ -12,6 +12,14 @@
       max-width: 450px;
       margin-left: auto;
       margin-right: auto;
+      .coach-reports-info {
+        text-align: right;
+        .reports-count {
+          i.fa-book {
+            margin-right: 3px;
+          }
+        }
+      }
       .report-card {
         max-width: 450px;
         padding: 10px;
@@ -65,7 +73,7 @@
             p {
               margin-bottom: 0;
             }
-            i {
+            i.fa-commenting-o {
               margin-right: 3px;
             }
           }

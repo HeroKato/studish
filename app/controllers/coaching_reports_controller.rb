@@ -5,10 +5,10 @@ class CoachingReportsController < ApplicationController
     if params[:coach_id]
       @coach = Coach.find(params[:coach_id])
       @reports = @coach.coaching_reports
-      @reports = @reports.readable_for(current_coach).order(posted_at: :desc).paginate(page: params[:page], per_page: 30)
+      @reports = @reports.readable_for(current_coach).order(created_at: :desc).paginate(page: params[:page], per_page: 30)
     else
       @reports = CoachingReport.all
-      @reports = @reports.common.order(posted_at: :desc).paginate(page: params[:page], per_page: 30)
+      @reports = @reports.common.order(created_at: :desc).paginate(page: params[:page], per_page: 30)
     end
   end
 
@@ -20,7 +20,7 @@ class CoachingReportsController < ApplicationController
   end
 
   def new
-    @report = CoachingReport.new(posted_at: Time.current)
+    @report = CoachingReport.new
   end
 
   def edit
@@ -59,6 +59,6 @@ class CoachingReportsController < ApplicationController
   private
   
   def report_params
-    params.require(:coaching_report).permit(:title, :body, :posted_at, :status)
+    params.require(:coaching_report).permit(:title, :body, :status)
   end
 end

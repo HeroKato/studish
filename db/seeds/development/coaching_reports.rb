@@ -17,7 +17,6 @@ body =
       author: coach,
       title: "coaching_report#{idx}",
       body: body,
-      posted_at: 100.days.ago.advance(days: idx),
       status: %w(draft public_for_coaches unpublic_for_coaches)[idx % 3])
     report_id = report.id
     if idx == 7 || idx == 8

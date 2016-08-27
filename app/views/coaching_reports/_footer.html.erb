@@ -9,5 +9,5 @@
   <% if (count = report.comments.count) > 0 %>
   <span class="comment"><i class="fa fa-commenting-o"></i><%= count %></span> |
   <% end %>
-  <%= report.posted_at.strftime("%Y/%m/%d %H:%M") %>
+  <%= report.created_at.strftime("%Y/%m/%d %H:%M") %>
 </p>
