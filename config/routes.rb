@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'notifications/index'
+
   get 'coaching_reports/index'
 
   get 'coaching_reports/show'

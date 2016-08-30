@@ -13,6 +13,9 @@
         <% end %>
       </div>
       <div class="commenter-info">
+        <% if comment.read_flag == false %>
+        <span id="new">NEW!</span>
+        <% end %>
         <span class="commenter-name"><%= link_to comment.coach.name, comment.coach %>さんのコメント</span>
       </div>
     </div>

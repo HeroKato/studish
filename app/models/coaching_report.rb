@@ -11,9 +11,8 @@ class CoachingReport < ActiveRecord::Base
   validates :status, inclusion: { in: STATUS_VALUES }
   
   scope :common, -> { where(status: "public_for_coaches") }
-  scope :published, -> { where("status <> ?", "draft") }
   scope :full, -> (coach) { where("status <> ? OR coach_id = ?", "draft", coach.id) }
-  scope :readable_for, -> (coach) { coach ? full(coach) : common }
+  scope :readable_for, -> (coach) { where("status = ? OR coach_id = ?", "public_for_coaches", coach.id) }
   
   class << self
     def status_text(status)

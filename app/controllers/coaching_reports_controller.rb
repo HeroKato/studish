@@ -1,5 +1,6 @@
 class CoachingReportsController < ApplicationController
   before_action :logged_in?
+  after_action :save_read_flag, only: [:show]
   
   def index
     if params[:coach_id]
@@ -14,6 +15,7 @@ class CoachingReportsController < ApplicationController
 
   def show
     @report = CoachingReport.readable_for(current_coach).find(params[:id])
+    @comments = @report.comments
     if params[:coaching_report_id]
       @comments = Comment.find(params[:coaching_report_id])
     end
@@ -61,4 +63,5 @@ class CoachingReportsController < ApplicationController
   def report_params
     params.require(:coaching_report).permit(:title, :body, :status)
   end
+  
 end
