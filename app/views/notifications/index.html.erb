@@ -1,0 +1,60 @@
+<% content_for :head do %>
+<title>新着通知 | Studish</title>
+<meta name="description" content="Studishの新着通知ページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="new-notifications">
+  <div class="content-container">
+    <% if @reports.present? %>
+      <div class="content-header">
+          <h2><%= current_coach.name %>さんの新着通知</h2>
+      </div>
+    
+      <% @reports.each do |report| %>
+        <div class="content">
+          <div class="commented-report">
+            <span class="report-title"><%= truncate(report.title, length: 50 ) %></span>
+            <p class="report-body">
+              <%= truncate(report.body, length: 400) %>
+            </p>
+            <%= link_to "もっと読む", report, class: "more" %>
+            <div class="report-footer">
+              <%= report.created_at.strftime("%Y/%m/%d %H:%M") %>
+            </div>
+          </div>
+          <hr class="horizontal-line">
+          <% report.comments.each do |comment| %>
+          <div class="new-comment-card">
+            <div class="new-comment-header clearfix">
+              <div class="coach-img">
+                <%= link_to comment.coach do %>
+                  <% if comment.coach.picture.present? %>
+                    <%= image_tag comment.coach.picture.url, oncontextmenu: "return false;" %>
+                  <% else %>
+                    <%= image_tag("no_image.png") %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="new-comment-info">
+                <span class="new" id="new">NEW!</span>
+                <span class="notice-sentence"><%= link_to comment.coach.name, comment.coach %>さんがコメントしました。</span>
+              </div>
+            </div>
+            <div class="new-comment">
+              <%= simple_format(comment.body, class: "new-comment-body") %>
+              <div class="new-comment-footer">
+                <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
+              </div>
+            </div>
+          </div>
+          <hr class="horizontal-line">
+          <% end %>
+        </div>
+      <% end %>
+      
+    <% else %>
+    <P>新着通知はありません。</P>
+    <% end %>
+  </div>
+</div>

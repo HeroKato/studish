@@ -1,6 +1,13 @@
-// Place all the styles related to the admin/top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#admin {
+  padding-top: 20px;
+  .content-container {
+    .content-header {
+      }
+    .content {
+    }
+  }
+}
+
 
 #coach-list .content-container {
   max-width: 1080px;

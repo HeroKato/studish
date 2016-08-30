@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @report = CoachingReport.find(params[:coaching_report_id])
     @comment = Comment.new(comment_params)
     @comment.coaching_report_id = @report.id
+    @comment.commented_coach_id = @report.coach_id
     @comment.coach_id = current_coach.id
     @comment.commenter = current_coach.name
     if @comment.save
@@ -53,7 +54,7 @@ class CommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:comment).permit(:commenter, :body, :coach_id, :coaching_report_id)
+    params.require(:comment).permit(:commenter, :body, :coach_id, :coaching_report_id, :commented_coach_id)
   end
   
   def correct_comment_coach?

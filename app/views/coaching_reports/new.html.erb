@@ -12,9 +12,9 @@
     <div class="content">
       <%= form_for @report do |form| %>
       <%= render "form", form: form %>
-      <p><%= form.submit class: "btn btn-primary" %></p>
+      <%= form.submit "作成する", class: "btn btn-primary" %>
+      <%= link_to '戻る', :back, class: "btn btn-success"%>
       <% end %>
     </div>
   </div>
 </div>
-

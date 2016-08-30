@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827055304) do
+ActiveRecord::Schema.define(version: 20160827134444) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -104,12 +104,14 @@ ActiveRecord::Schema.define(version: 20160827055304) do
   add_index "coaching_subjects", ["coach_id"], name: "index_coaching_subjects_on_coach_id"
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "coaching_report_id", null: false
-    t.integer  "coach_id",           null: false
+    t.integer  "coaching_report_id",                 null: false
+    t.integer  "coach_id",                           null: false
     t.string   "commenter"
     t.text     "body"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.boolean  "read_flag",          default: false
+    t.integer  "commented_coach_id"
   end
 
   add_index "comments", ["coach_id"], name: "index_comments_on_coach_id"

@@ -11596,6 +11596,14 @@ return jQuery;
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
+(function() {
+
+
+}).call(this);
 $(function(){
     $('a[href^=#]').click(function(){ 
         var speed = 1500; //移動完了までの時間(sec)を指定
@@ -11614,6 +11622,10 @@ $(function(){
   	}
   });
 });
+(function() {
+
+
+}).call(this);
 (function() {
 
 

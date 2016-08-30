@@ -12,20 +12,23 @@ body =
   "最後はめんどくさかったので日本語で書いちゃいました。"
 %w(example1 example2 example3).each do |name|
   coach = Coach.find_by(name: name)
-  0.upto(100) do |idx|
+  1.upto(100) do |idx|
     report = CoachingReport.create(
       author: coach,
       title: "coaching_report#{idx}",
       body: body,
       status: %w(draft public_for_coaches unpublic_for_coaches)[idx % 3])
     report_id = report.id
-    if idx == 7 || idx == 8
-      %w(example4 example5 example6).each do |name2|
+    coach_id = coach.id
+    if (idx == 1) || (idx == 2)
+      %w(example4 example5 example6 example7 example8 example9 example10).each do |name2|
         commenter = Coach.find_by(name: name2)
         Comment.create(
           coach: commenter,
           coaching_report_id: report_id,
+          commented_coach_id: coach_id,
           commenter: name2,
+          read_flag: false,
           body: 'this is a test comment.')
       end
     end

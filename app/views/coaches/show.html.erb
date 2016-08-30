@@ -66,7 +66,9 @@
     </div>
     <div class="content link-to-reports">
       <%= link_to coach_coaching_reports_path(@coach) do %>
-        <%= @coach.name %>さんのレポートを見る
+        <% unless current_coach %>
+          <%= @coach.name %>さんのレポートを見る
+        <% end %>
         <% if @reports_count > 0 %>
         <span class="reports-count"><i class="fa fa-book"></i><%= @reports_count %></span>
         <% end %>

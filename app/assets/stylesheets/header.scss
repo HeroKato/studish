@@ -1,6 +1,6 @@
 header {
   z-index: 9999;
-  height: 60px;
+  height: 40px;
   .navbar {
     width: 100%;
     margin: 0;
@@ -20,9 +20,9 @@ header {
           margin: 0 !important;
           /* padding: 10px 0 0 0 !important; */
           a {
-            width: 200px;
-            height: 40px !important;
-            margin: 10px 15px;
+            width: 120px;
+            height: 30px !important;
+            margin: 5px 10px;
             background: image-url("logo.png") no-repeat 0 0;
             background-size: contain;
             display: block;
@@ -31,13 +31,28 @@ header {
           }
         }
         button.navbar-toggle {
-          margin: 13px;
+          margin: 0;
+          padding: 13px 10px;
+          border: none;
+          background-color: #fff;
         }
       }
       .navbar-collapse.collapse,
       .navbar-collapse.collapsing {
         margin-top: 0;
         max-height: 470px;
+        ul {
+          li {
+            a {
+              padding: 10px;
+            }
+          }
+          .dropdown {
+            .dropdown-toggle {
+              padding: 10px 20px 10px 10px;
+            }
+          }
+        }
       }
       .navbar-nav {
         margin-top: 0;
@@ -53,6 +68,10 @@ header {
             }
           }
         }
+        .divider {
+          height: 1px;
+          background-color: #e5e5e5;
+        }
         .dropdown {
           .dropdown-toggle {
             padding: 10px;
@@ -66,14 +85,14 @@ header {
             color: #333;
           }
         }
-        .dropdown-menu {
+        ul.dropdown-menu {
           padding: 0;
           li {
             &.divider {
               margin: 0;
             }
             a {
-              padding: 10px 30px;
+              padding: 10px 20px ;
             }
           }
         }
