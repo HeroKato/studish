@@ -135,7 +135,7 @@ class Coach < ActiveRecord::Base
   end
   
   # プロフィール情報を入力済みのコーチのみを対象とするためのスコープ
-  scope :full_profile, -> { where("picture not ?", nil).where("name != ''").where("university != ''").where("major != ''").where("school_year != ''").where("self_introduction != ''") }
+  scope :full_profile, -> { where("picture != ''").where("name != ''").where("university != ''").where("major != ''").where("school_year != ''").where("self_introduction != ''") }
   
   private
   
