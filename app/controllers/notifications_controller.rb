@@ -9,6 +9,4 @@ class NotificationsController < ApplicationController
     @reports = CoachingReport.where(id: comment_ids)
   end
   
-  
-  
 end

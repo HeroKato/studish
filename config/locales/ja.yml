@@ -68,7 +68,7 @@ ja:
     attributes:
       coach:
         name: ユーザ名
-        full_name: 氏名
+        account_name: アカウント名
         picture: プロフィール画像
         birthday: 生年月日
         email: メールアドレス

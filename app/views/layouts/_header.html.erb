@@ -53,6 +53,7 @@
                   <%= link_to "LINE", "/#line" %>
                 <% end %>
               </li>
+              <li role="separator" class="divider"></li>
             <% end %>
             
             <li class="dropdown">
@@ -80,6 +81,7 @@
                   <li><%= link_to "講師一覧", :coaches %></li>
                 <% end %>
                 <% unless logged_in? %>
+                  <li role="separator" class="divider"></li>  
                   <li>
                     <% if current_page?(root_path) %>
                       <%= link_to "料金", "#plan" %>

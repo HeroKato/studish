@@ -27,9 +27,6 @@
       </div>
     </div>
     <div class="coach-prof-2">
-      <div class="coach-status">
-        <%= @reports_count %>
-      </div>
       <div class="prof-content self-introduction">
         <div class="label-self-introduction"><%= label_tag :self_introduction, t('.self_introduction') %></div>
         <p><%= simple_format(@coach.self_introduction) %></p>
@@ -64,27 +61,24 @@
         <% end %>
       </div>
     </div>
+    <% if current_coach != nil && current_coach.administrator == true %>
+      <div class="content administrator-check">
+        <%= @coach.administrator? ? "Yes" : "No" %>
+      </div>
+    <% end %>
+    <% if logged_in? %>
     <div class="content link-to-reports">
       <%= link_to coach_coaching_reports_path(@coach) do %>
         <% unless current_coach %>
           <%= @coach.name %>さんのレポートを見る
         <% end %>
-        <% if @reports_count > 0 %>
         <span class="reports-count"><i class="fa fa-book"></i><%= @reports_count %></span>
-        <% end %>
       <% end %>
     </div>
-    <% if current_coach.administrator? %>
-      <div class="content administrator-check">
-        <%= @coach.administrator? ? "Yes" : "No" %>
-      </div>
     <% end %>
     <% if current_coach == @coach %>
       <div class="content">
         <%= link_to "プロフィールを編集する", edit_coach_path(current_coach) %>
-      </div>
-      <div class="content">
-        <%= link_to "アカウントを削除", :coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
       </div>
     <% end %>
     <div class="content back-to-coaches">

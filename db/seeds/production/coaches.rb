@@ -1,7 +1,7 @@
 path = Rails.root.join("db/seeds/production/coach1.jpg")
 coach = Coach.create!(
   name: "admin",
-  full_name: "admin",
+  account_name: "admin_account",
   email: "admin@studish.com",
   birthday: "2016-7-9",
   university: "バカ田大学",

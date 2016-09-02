@@ -53,6 +53,10 @@
         <% end %>
         <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
       </div>
+    <% else %>
+      <div class="content">
+        <p><%= @coach.name %>さんのレポートはまだありません。</p>
+      </div>
     <% end %>
     
   </div>

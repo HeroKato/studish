@@ -5,29 +5,32 @@
     </div>
     <table class="content">
       <tr>
-        <th><%= t('.full_name') %></th>
-        <td><%= @coach.full_name %></td>
-      </tr>
-      <tr>
-        <th><%= t('.birthday') %></th>
-        <td><%= @coach.birthday %></td>
+        <th><%= t('.account_name') %></th>
+        <td><%= @coach.account_name %></td>
       </tr>
       <tr>
         <th><%= t('.email') %></th>
         <td><%= @coach.email %></td>
       </tr>
       <tr>
+        <th><%= t('.skype') %></th>
+        <td><%= @coach.skype %></td>
+      </tr>
+      <tr>
         <th><%= t('.phone') %></th>
         <td><%= @coach.phone %></td>
       </tr>
       <tr>
-        <th><%= t('.skype') %></th>
-        <td><%= @coach.skype %></td>
+        <th><%= t('.birthday') %></th>
+        <td><%= @coach.birthday %></td>
       </tr>
     </table>
       <% if current_coach == @coach %>
         <div class="content">
           <%= link_to "アカウントを編集する", :edit_account %>
+        </div>
+        <div class="content">
+          <%= link_to "アカウントを削除する", @coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
         </div>
       <% end %>
     </div>

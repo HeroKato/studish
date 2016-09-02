@@ -3,7 +3,7 @@ class CoachesController < ApplicationController
   before_action :correct_coach, only:[:edit, :update, :destroy]
   
   def index
-    @coaches = Coach.where(activated: true).order("id").paginate(page: params[:page])
+    @coaches = Coach.where(activated: true).full_profile.order("id").paginate(page: params[:page])
   end
   
   def show
@@ -68,7 +68,7 @@ class CoachesController < ApplicationController
   private
   
   def coach_params
-    attrs = [:name, :full_name, :email, :birthday,
+    attrs = [:name, :account_name, :email, :birthday,
               :university, :major, :school_year,:self_introduction,
               :password, :password_confirmation, :picture, :picture_cache,
               :skype, :phone ]

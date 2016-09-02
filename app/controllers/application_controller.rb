@@ -48,4 +48,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def profile_checker
+    
+  end
+  
 end

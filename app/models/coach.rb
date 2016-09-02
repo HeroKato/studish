@@ -19,15 +19,17 @@ class Coach < ActiveRecord::Base
   validate :picture_size
   
   VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
-  validates :name, presence: true,
-            format: { with: VALID_NAME_REGEX, allow_blank: false, message: :invalid_name },
+  validates :name, allow_blank: true,
+            format: { with: VALID_NAME_REGEX, message: :invalid_name },
             length: { minimum: 2, maximum: 30 },
             uniqueness: { case_sensitive: true }
+  validates :name, presence: true, on: :update
             
   VALID_FULLNAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
-  validates :full_name,
-            format: { with: VALID_FULLNAME_REGEX, allow_blank: true, message: :invalid_full_name },
-            length: { maximum: 30 }
+  validates :account_name, presence: true,
+            format: { with: VALID_FULLNAME_REGEX, allow_blank: false, message: :invalid_full_name },
+            length: { minimum: 6, maximum: 30 },
+            uniqueness: { case_sensitive: true }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -42,15 +44,19 @@ class Coach < ActiveRecord::Base
   VALID_UNIV = /\A(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :university, format: { with: VALID_UNIV },
                          length: { minimum: 2, maximum: 30 }, allow_blank: true
+  validates :university, presence: true, on: :update
                          
   VALID_MAJOR = /\A(?:[\w]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :major, format: { with: VALID_MAJOR },
                     length: { minimum: 2, maximum: 50 }, allow_blank: true
+  validates :major, presence: true, on: :update
                     
   VALID_SCHOOL_YEAR = /\A([院]|[M]|[m])[0-9\d][年]\z/
   validates :school_year, length: { minimum: 1, maximum: 20 }, allow_blank: true
+  validates :school_year, presence: true, on: :update
   
   validates :self_introduction, length: { minimum: 1, maximum: 1200 }, allow_blank: true
+  validates :self_introduction, presence: true, on: :update
   
   VALID_SKYPE_REGEX = /\A[a-z\d]+[\w+\-.,]+\z/i
   validates :skype, format: { with: VALID_SKYPE_REGEX, message: :invalid_skype },
@@ -127,6 +133,9 @@ class Coach < ActiveRecord::Base
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
+  
+  # プロフィール情報を入力済みのコーチのみを対象とするためのスコープ
+  scope :full_profile, -> { where("picture not ?", nil).where("name != ''").where("university != ''").where("major != ''").where("school_year != ''").where("self_introduction != ''") }
   
   private
   

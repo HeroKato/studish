@@ -27,17 +27,11 @@
   </script>
 <% end %>
 
-<div class="form-group">
-  <%= form.label :name, class: "public" %>
-  <%= form.text_field :name, class: "form-control", placeholder: "公開される名前です。後で変更可。" %>
-</div>
-<div class="form-group">
-  <%= form.label :email, class: "no-public" %>
-  <%= form.text_field :email, class: "form-control", placeholder: "非公開。" %>
-</div>
-
-
 <% if logged_in? %>
+  <div class="form-group">
+    <%= form.label :name, class: "public" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "公開されるユーザ名です。" %>
+  </div>
   <div class="form-group">
     <%= form.label :university, class: "public" %>
     <%= form.text_field :university, class: "form-control", placeholder: "例：〇〇大学(大学院)" %>
@@ -52,7 +46,7 @@
   </div>
   <div class="form-group self_introduction">
     <%= form.label :self_introduction, class: "public" %>
-    <%= form.text_area :self_introduction, rows: "10", class: "form-control", placeholder: "生徒に向けたメッセージをお願いします（最大400字）。" %>
+    <%= form.text_area :self_introduction, rows: "10", class: "form-control", placeholder: "生徒に向けたメッセージを書こう！（最大1200字）。" %>
   </div>
 
   <div class="form-group">
@@ -128,6 +122,15 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="form-group">
+  <%= form.label :password, class: "no-public" %>
+  <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
+</div>
+<div class="form-group">
+  <%= form.label :password_confirmation, class: "no-public" %>
+  <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
+</div>
 
 <div class="submit-group">
   <% if logged_in? %>

@@ -5,7 +5,7 @@ class AccountActivationsController < ApplicationController
     if coach && !coach.activated? && coach.authenticated?(:activation, params[:id])
       coach.activate
       log_in coach
-      flash[:success] = "Account Activated!"
+      flash[:success] = "Account Activated! Please Update Your Profile and Account imformation."
       redirect_to coach
     else
       flash[:danger] = "Invalid Activation Link"

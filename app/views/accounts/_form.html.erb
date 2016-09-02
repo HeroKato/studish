@@ -1,10 +1,5 @@
 <div class="form-group">
-  <%= form.label :birthday, class: "no-public" %>
-  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
-</div>
-<div class="form-group">
-  <%= form.label :full_name, class: "no-public" %>
-  <%= form.text_field :full_name, class: "form-control", placeholder: "本名を入力してください。非公開。" %>
+  <span>アカウント名:<%= @coach.account_name %></span>
 </div>
 <div class="form-group">
   <%= form.label :email, class: "no-public" %>
@@ -12,13 +7,17 @@
 </div>
 <div class="form-group">
   <%= form.label :skype, class: "no-public" %>
-  <%= form.text_field :skype, class: "form-control", placeholder: "非公開。" %>
+  <%= form.text_field :skype, class: "form-control", placeholder: "非公開" %>
 </div>
 <div class="form-group">
   <%= form.label :phone, class: "no-public" %>
-  <%= form.telephone_field :phone, class: "form-control", placeholder: "非公開。" %>
+  <%= form.telephone_field :phone, class: "form-control", placeholder: "非公開" %>
 </div>
-<p>パスワードとパスワードの確認は変更したい場合のみ入力してください。</p>
+<div class="form-group">
+  <%= form.label :birthday, class: "no-public" %>
+  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
+</div>
+<p>パスワードは変更したい場合のみ入力してください。</p>
 <div class="form-group">
   <%= form.label :password, class: "no-public" %>
   <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
