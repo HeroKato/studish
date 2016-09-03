@@ -55,7 +55,11 @@
       </div>
     <% else %>
       <div class="content">
+        <% if params[:coach_id] %>
         <p><%= @coach.name %>さんのレポートはまだありません。</p>
+        <% else %>
+        <p>まだレポートはありません。</p>
+        <% end %>
       </div>
     <% end %>
     

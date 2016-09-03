@@ -8,6 +8,7 @@ class CoachingReportsController < ApplicationController
       @reports = @coach.coaching_reports
       @reports = @reports.readable_for(current_coach).order(created_at: :desc).paginate(page: params[:page], per_page: 30)
     else
+      @coach = current_coach
       @reports = CoachingReport.all
       @reports = @reports.common.order(created_at: :desc).paginate(page: params[:page], per_page: 30)
     end

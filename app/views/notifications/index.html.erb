@@ -6,7 +6,7 @@
 
 <div class="content-wrapper" id="new-notifications">
   <div class="content-container">
-    <% if @reports.present? %>
+    <% if @comments.present? %>
       <div class="content-header">
           <h2><%= current_coach.name %>さんの通知</h2>
       </div>
@@ -56,7 +56,7 @@
       <% end %>
       
     <% else %>
-    <P>新着通知はありません。</P>
+    <P>通知はありません。</P>
     <% end %>
   </div>
 </div>
