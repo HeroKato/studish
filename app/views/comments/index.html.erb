@@ -1,14 +1,14 @@
 <% content_for :head do %>
 <title>新着通知 | Studish</title>
-<meta name="description" content="Studishの新着通知ページです。">
+<meta name="description" content="<%= current_coach.name %>さんのコメントページです。">
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="new-notifications">
+<div class="content-wrapper" id="my-comments">
   <div class="content-container">
     <% if @reports.present? %>
       <div class="content-header">
-          <h2><%= current_coach.name %>さんの通知</h2>
+          <h2><%= current_coach.name %>さんのコメント</h2>
       </div>
     
       <% @reports.each do |report| %>

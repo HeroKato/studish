@@ -23,4 +23,13 @@ class CoachingReport < ActiveRecord::Base
       STATUS_VALUES.map { |status| [status_text(status), status] }
     end
   end
+  
+  def self.order_by_ids(comment_ids)
+    order_by = ["case"]
+    comment_ids.each_with_index.map do |id, index|
+      order_by << "WHEN id='#{id}' THEN #{index}"
+    end
+    order_by << "end"
+    order(order_by.join(" "))
+  end
 end

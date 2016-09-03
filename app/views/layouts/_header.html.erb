@@ -28,11 +28,13 @@
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
+              <li><%= link_to "レポートTL", :coaching_reports %></li>
+              <li role="separator" class="divider"></li>
               <li><%= link_to "レポート作成", :new_coaching_report %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "マイレポート", coach_coaching_reports_path(current_coach) %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "レポートTL", :coaching_reports %></li>
+              <li><%= link_to "マイコメント", comments_path(current_coach) %></li>
               <li role="separator" class="divider"></li>
             <% end %>
             <% unless logged_in? %>
