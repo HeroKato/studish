@@ -16,9 +16,11 @@ class CoachesController < ApplicationController
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
     @certifications = @coach.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
-    @reports_count = @coach.coaching_reports.readable_for(current_coach).count
-    @comments_count = @coach.comments.count
-    @favorites_count = @coach.favorites.count
+    if logged_in?
+      @reports_count = @coach.coaching_reports.readable_for(current_coach).count
+      @comments_count = @coach.comments.count
+      @favorites_count = @coach.favorites.count
+    end
     @template = "show"
   end
   
