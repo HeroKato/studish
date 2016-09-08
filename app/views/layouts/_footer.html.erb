@@ -1,29 +1,2 @@
 <footer>
-  <% if logged_in? %>
-  <div class="footer-inner clearfix">
-    <span class="footer-content" id="content1">
-      <%= link_to :coaching_reports do %>
-        <i class="fa fa-home"></i>
-        <p class="timeline">タイムライン</p>
-      <% end %>
-    </span>
-    <span class="footer-content" id="content2">
-      <%= link_to notifications_index_path(current_coach) do %>
-        <% if @notificaitions_count > 0 %>
-          <span class="notification bell-red"><i class="fa fa-bell-o"></i><%= @notificaitions_count %></span>
-          <p class="bell-red">通知</p>
-        <% else %>
-          <span class="notification"><i class="fa fa-bell-o" id="bell"></i><%= @notificaitions_count %></span>
-          <p>通知</p>
-        <% end %>
-      <% end %>
-    </span>
-    <span class="footer-content" id="content3">
-      <%= link_to current_coach do %>
-        <i class="fa fa-user"></i>
-        <p class="profile">プロフィール</p>
-      <% end %>
-    </span>
-  </div>
-  <% end %>
 </footer>

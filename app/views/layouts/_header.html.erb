@@ -25,8 +25,18 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <%= link_to :account do %>
-                <i class="fa fa-cog"></i><span>アカウント</span>
+                <%= link_to :coaching_reports do %>
+                  <i class="fa fa-home"></i><span>タイムライン</span>
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to notifications_index_path(current_coach) do %>
+                  <% if @notificaitions_count > 0 %>
+                    <span class="notification bell-red"><i class="fa fa-bell-o"></i><%= @notificaitions_count %></span><span class="bell-red">通知</span>
+                  <% else %>
+                    <span class="notification"><i class="fa fa-bell-o" id="bell"></i><%= @notificaitions_count %></span><span>通知</span>
+                  <% end %>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
@@ -67,6 +77,18 @@
                   <li>
                     <%= link_to logout_path, method: "delete" do  %>
                       ログアウト | <% if current_coach.name.present? %><%= current_coach.name %><% else %>名前が未入力です<% end %>
+                    <% end %>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <%= link_to current_coach do %>
+                      <i class="fa fa-user"></i><span class="profile">プロフィール</span>
+                    <% end %>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <%= link_to :account do %>
+                    <i class="fa fa-cog"></i><span>アカウント</span>
                     <% end %>
                   </li>
                   <li role="separator" class="divider"></li>
