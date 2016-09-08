@@ -139,69 +139,78 @@ table.list td {
     font-size: 28px;
   }
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile {
   padding: 0;
 }
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container {
   padding: 15px 10px;
 }
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-1 {
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 {
   margin-bottom: 15px;
 }
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-1 .img-wrapper {
-  width: 120px;
-  height: 120px;
-  border: solid 1px #ebd8a9;
-  box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 .img-wrapper {
   float: left;
 }
-/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-1 .img-wrapper img {
-  width: 100%;
-  height: 100%;
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 .img-wrapper img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px;
+  border-color: #898989;
+  border-radius: 3px;
 }
-/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-1 .profs {
-  margin-left: 10px;
-  float: left;
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 .profs {
+  margin-left: 110px;
+  text-align: left;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-1 .profs div {
-  font-size: 16px;
-  font-weight: 900;
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 .profs div.prof {
+  font-size: 14px;
   line-height: 1;
-  margin-bottom: 10px;
-  width: 160px;
+  margin-bottom: 5px;
   word-wrap: break-word;
 }
-/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .content.link-to-reports .reports-count i.fa-book {
-  margin-right: 3px;
+/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 .profs div.prof span.name {
+  line-height: 1;
 }
-/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-2 .prof-content {
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-1 .profs div.prof span.account_name {
+  line-height: 1;
+  margin-left: 5px;
+  color: #d3d3d3;
+}
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-2 {
+  text-align: left;
+}
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-2 .prof2-content {
   margin-bottom: 15px;
 }
-/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-2 .subjects .subject-wrapper {
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.coach-prof-2 .prof2-content.subjects .subject-wrapper {
   display: inline-block;
   background-color: #fff;
-  border: solid 2px #ebd8a9;
+  border: solid 2px #898989;
   border-radius: 2px;
   padding: 4px;
   margin-bottom: 4px;
   line-height: 1;
+  color: #898989;
 }
 /* line 58, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
-#coach-profile .content-container .coach-prof-2 .certifications .certification {
+#coach-profile .content-container .content.coach-prof-2 .prof2-content.certifications .certification {
   background-color: #fff;
-  border: solid 2px #ebd8a9;
+  border: solid 2px #898989;
   border-radius: 2px;
   padding: 4px;
   margin-right: 4px;
@@ -209,40 +218,57 @@ table.list td {
   display: inline;
   float: left;
   line-height: 1;
+  color: #898989;
+}
+/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.edit-link a {
+  display: inline-block;
+  border: 1px solid #898989;
+  border-radius: 3px;
+  background-color: #fff;
+  line-height: 1;
+  padding: 5px;
+  color: #898989;
+  text-decoration: none;
+}
+/* line 83, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+#coach-profile .content-container .content.edit-link a:hover {
+  background-color: #898989;
+  color: #fff;
 }
 
 @media (min-width: 375px) {
-  /* line 84, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 101, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile .content-container .coach-prof-1 .profs div {
     width: 200px;
     word-wrap: break-word;
   }
 }
 @media (min-width: 450px) {
-  /* line 105, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 122, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile .content-container .coach-prof-1 .profs div {
     width: auto;
     word-wrap: break-word;
   }
 }
 @media (min-width: 768px) {
-  /* line 119, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 136, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile {
     padding-top: 45px;
   }
-  /* line 121, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 138, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile .content-container {
     max-width: 600px;
   }
-  /* line 123, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 140, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile .content-container .coach-prof-1 {
     margin-bottom: 30px;
   }
-  /* line 129, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 146, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile .content-container .coach-prof-1 .profs {
     margin-left: 20px;
   }
-  /* line 136, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+  /* line 153, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
   #coach-profile .content-container .coach-prof-2 .prof-content {
     margin-bottom: 30px;
   }
@@ -348,201 +374,217 @@ table.list td {
     margin-bottom: 0;
   }
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report {
   padding-top: 15px;
 }
-/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content-header {
   margin: 0;
   padding: 20px 0;
 }
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content-header h2 {
   font-size: 20px;
 }
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content {
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
   padding: 7px;
   background-color: #fff;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   margin-bottom: 10px;
   box-shadow: 1px 1px 1px 0px #cfc7b3;
   -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
   -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
 }
-/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card {
   max-width: 450px;
 }
-/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-header {
   width: 100%;
 }
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-header .coach-img {
   float: left;
 }
-/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-header .coach-img img {
   width: 50px;
   height: 50px;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   border-radius: 3px;
 }
-/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-header .coach-info {
-  float: left;
+  float: none;
   text-align: left;
-  margin-left: 7px;
+  margin-left: 57px;
 }
-/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-header .coach-info .coach-name {
   display: block;
   line-height: 1;
 }
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-header .coach-info .coach-name a {
-  color: #aaa;
+  display: inline-block;
 }
-/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-info .coach-name a span.name {
+  display: inline-block;
+  color: #333;
+  font-weight: 800;
+}
+/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .report-card .report-header .coach-info .coach-name a span.account_name {
+  display: inline-block;
+  color: #d3d3d3;
+  margin-left: 5px;
+}
+/* line 61, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-abst .report-title {
   display: block;
   text-align: left;
   font-weight: 800;
 }
-/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 66, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .report-card .report-abst .report-body {
   text-align: left;
-  line-height: 1.4;
+  line-height: 1.7;
 }
-/* line 58, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
-#coaching-report .content-container .content .report-card .report-abst .more {
-  text-align: right;
-  display: block;
-  line-height: 1.4;
-}
-/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
-#coaching-report .content-container .content .report-card .report-abst .report-footer {
-  text-align: right;
-  color: #aaa;
-}
-/* line 66, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
-#coaching-report .content-container .content .report-card .report-abst .report-footer p {
-  margin-bottom: 0;
-}
-/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
-#coaching-report .content-container .content .report-card .report-abst .report-footer i.fa-commenting-o {
-  margin-right: 3px;
-}
-/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 74, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comment-form .new_comment .form-group {
   text-align: left;
 }
-/* line 80, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comment-form .new_comment .comment {
   width: 100%;
 }
-/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 82, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comment-form .new_comment .submit {
   text-align: center;
 }
-/* line 93, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 90, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-img {
   float: left;
 }
-/* line 95, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 92, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-img img {
   width: 50px;
   height: 50px;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   border-radius: 3px;
 }
-/* line 102, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info {
-  margin-left: 7px;
-  float: left;
+  margin-left: 57px;
+  margin-top: -5px;
 }
-/* line 105, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 102, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name {
   text-align: left;
+  line-height: 1.4;
+}
+/* line 105, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a {
+  display: inline-block;
+  color: #aaa;
+  line-height: 1.4;
+}
+/* line 109, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a span.name {
+  display: inline-block;
+  color: #333;
+}
+/* line 113, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a span.account_name {
+  display: inline-block;
+  color: #d3d3d3;
+  margin-left: 5px;
+}
+/* line 120, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info div.time {
+  text-align: right;
+  color: #d3d3d3;
   line-height: 1;
 }
-/* line 108, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a {
-  color: #aaa;
-}
-/* line 114, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 127, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-content {
   margin-left: 5px;
 }
-/* line 116, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 129, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-body {
   text-align: left;
+  line-height: 1.7;
 }
-/* line 119, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+/* line 133, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
 #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-footer {
   text-align: right;
 }
 
 @media (min-width: 768px) {
-  /* line 137, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 151, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content {
     max-width: 500px;
     padding: 15px;
   }
-  /* line 140, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 154, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .report-card {
     max-width: 500px;
   }
-  /* line 147, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 161, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .report-card .report-header .coach-info {
     margin-left: 15px;
   }
-  /* line 149, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 163, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .report-card .report-header .coach-info .coach-name {
     font-size: 16px;
   }
-  /* line 157, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 171, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .report-card .report-abst .report-title {
     font-size: 16px;
   }
-  /* line 160, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 174, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .report-card .report-abst .report-body {
     font-size: 16px;
   }
-  /* line 163, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 177, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .report-card .report-abst .more {
     font-size: 16px;
   }
-  /* line 174, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 188, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comment-form .new_comment .form-group {
     text-align: left;
   }
-  /* line 177, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 191, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comment-form .new_comment .comment {
     width: 100%;
   }
-  /* line 182, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 196, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comment-form .new_comment .submit {
     text-align: center;
   }
-  /* line 194, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 208, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info {
     margin-left: 15px;
   }
-  /* line 197, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 211, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a {
     font-size: 16px;
   }
-  /* line 204, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 218, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-body {
     font-size: 16px;
   }
-  /* line 207, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
+  /* line 221, /home/ubuntu/workspace/app/assets/stylesheets/coaching_report.scss */
   #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-footer {
     font-size: 16px;
   }
@@ -556,132 +598,155 @@ table.list td {
 .btn-primary {
   margin-right: 15px;
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports {
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports,
+#favorites {
   padding-top: 15px;
 }
-/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content-header {
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content-header,
+#favorites .content-container .content-header {
   margin: 0;
   padding: 20px 0;
 }
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content-header h2 {
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content-header h2,
+#favorites .content-container .content-header h2 {
   font-size: 20px;
 }
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content {
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content,
+#favorites .content-container .content {
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .coach-reports-info {
+/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .coach-reports-info,
+#favorites .content-container .content .coach-reports-info {
   text-align: right;
 }
-/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .coach-reports-info .reports-count i.fa-book {
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .coach-reports-info .reports-count i.fa-book,
+#favorites .content-container .content .coach-reports-info .reports-count i.fa-book {
   margin-right: 3px;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card {
+/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card,
+#favorites .content-container .content .report-card {
   max-width: 450px;
   padding: 10px;
   background-color: #fff;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   margin-bottom: 10px;
   box-shadow: 1px 1px 1px 0px #cfc7b3;
   -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
   -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
 }
-/* line 33, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-header .coach-img {
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-img,
+#favorites .content-container .content .report-card .report-header .coach-img {
   float: left;
 }
-/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-header .coach-img img {
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-img img,
+#favorites .content-container .content .report-card .report-header .coach-img img {
   width: 50px;
   height: 50px;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   border-radius: 3px;
 }
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-header .coach-info {
-  float: left;
-  margin-left: 10px;
-}
 /* line 45, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name {
+#coaching-reports .content-container .content .report-card .report-header .coach-info,
+#favorites .content-container .content .report-card .report-header .coach-info {
+  float: none;
+  margin-left: 57px;
+}
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name,
+#favorites .content-container .content .report-card .report-header .coach-info .coach-name {
   display: block;
   text-align: left;
   line-height: 1;
 }
-/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name a {
-  color: #aaa;
+/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name a,
+#favorites .content-container .content .report-card .report-header .coach-info .coach-name a {
+  display: inline-block;
+  color: #333;
 }
-/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-abst .report-title {
+/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name a span.name,
+#favorites .content-container .content .report-card .report-header .coach-info .coach-name a span.name {
+  display: inline-block;
+}
+/* line 58, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name a span.account_name,
+#favorites .content-container .content .report-card .report-header .coach-info .coach-name a span.account_name {
+  display: inline-block;
+  color: #d3d3d3;
+  margin-left: 5px;
+}
+/* line 68, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+#coaching-reports .content-container .content .report-card .report-abst .report-title,
+#favorites .content-container .content .report-card .report-abst .report-title {
   display: block;
   text-align: left;
   font-weight: 800;
 }
-/* line 61, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-abst .report-body {
-  text-align: left;
-  line-height: 1.4;
-}
-/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-abst .more {
-  text-align: right;
-  display: block;
-  line-height: 1.4;
-}
-/* line 70, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-abst .report-footer {
-  text-align: right;
-  color: #aaa;
-}
 /* line 73, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-abst .report-footer p {
-  margin-bottom: 0;
-}
-/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card .report-abst .report-footer i.fa-commenting-o {
-  margin-right: 3px;
+#coaching-reports .content-container .content .report-card .report-abst .report-body,
+#favorites .content-container .content .report-card .report-abst .report-body {
+  text-align: left;
+  line-height: 1.7;
 }
 
 @media (min-width: 768px) {
-  /* line 96, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  /* line 93, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
   #coaching-reports .content-container .content .report-card {
     max-width: 500px;
     padding: 15px;
     margin-bottom: 15px;
   }
-  /* line 105, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  /* line 102, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
   #coaching-reports .content-container .content .report-card .report-header .coach-info {
     margin-left: 15px;
   }
-  /* line 107, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  /* line 104, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
   #coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name {
     font-size: 16px;
   }
-  /* line 115, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  /* line 112, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
   #coaching-reports .content-container .content .report-card .report-abst .report-title {
     font-size: 16px;
   }
-  /* line 118, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  /* line 115, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
   #coaching-reports .content-container .content .report-card .report-abst .report-body {
     font-size: 16px;
   }
-  /* line 121, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
+  /* line 118, /home/ubuntu/workspace/app/assets/stylesheets/coaching_reports_tl.scss */
   #coaching-reports .content-container .content .report-card .report-abst .more {
     font-size: 16px;
   }
 }
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/comments.scss */
 #new {
   color: #ff3b3b;
+}
+
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/comments.scss */
+span.comments {
+  margin-right: 3px;
+}
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/comments.scss */
+span.comments i {
+  margin-right: 2px;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
 .copy {
@@ -833,6 +898,65 @@ div.field_with_errors {
   background-color: #fcc;
   padding: 2px;
 }
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features {
+  padding: 0;
+  margin-bottom: 10px;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span {
+  float: left;
+  text-align: center;
+  width: 33.3333%;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span a {
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+  padding: 5px;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #898989;
+  border-bottom: 1px solid #898989;
+  border-left: 1px solid #898989;
+  color: #898989;
+}
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span a p i {
+  margin-right: 5px;
+}
+/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span a .p1 {
+  margin-bottom: 5px;
+}
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span a .p2 {
+  margin: 0;
+}
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span #feature3 {
+  border-right: 1px solid #898989;
+  border-radius: 0 3px 3px 0;
+}
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span #feature1 {
+  border-radius: 3px 0 0 3px;
+}
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span a:hover {
+  background-color: #898989;
+  color: #fff;
+}
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+div.features span a:active {
+  background-color: #898989;
+  color: #fff;
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit {
   padding-bottom: 0;
@@ -849,11 +973,11 @@ div.field_with_errors {
 }
 /* line 10, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .fit-content {
-  border-top: solid 1px #eee;
+  border-top: solid 1px #e5e5e5;
 }
 /* line 13, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container #fit-content-3 {
-  border-bottom: solid 1px #eee;
+  border-bottom: solid 1px #e5e5e5;
 }
 /* line 18, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit .content-container .content .fit-card #fit-icon-2 {
@@ -1075,15 +1199,109 @@ p.notice {
     margin-left: -60px;
   }
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
 footer {
-  padding: 40px 0;
-  font-size: 13px;
+  z-index: 9999;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
-/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .copyright {
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner {
+  border-top: solid 1px #898989;
+  height: 40px;
+  background-color: #fff;
+}
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content {
+  float: left;
+  width: 33.3333%;
   text-align: center;
-  color: #aaa;
+}
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a {
+  display: inline-block;
+  color: #898989;
+  width: 100%;
+  line-height: 1;
+  padding: 5px;
+}
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a .bell-red {
+  color: #ff3b3b;
+}
+/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a i.fa-home,
+footer .footer-inner span.footer-content a i.fa-user {
+  margin-right: 0;
+  display: inline-block;
+  width: 100%;
+}
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a p {
+  display: inline-block;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 0;
+  font-size: 8px;
+}
+/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a span.notification {
+  display: inline-block;
+  width: 100%;
+}
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a span.notification i {
+  margin-right: 0;
+}
+/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a:hover {
+  background-color: #898989;
+  color: #fff;
+}
+/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a:hover .bell-red {
+  color: #ffd8d8;
+}
+/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a:active {
+  background-color: #898989;
+  color: #fff;
+}
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
+footer .footer-inner span.footer-content a:active .bell-red {
+  color: #ffd8d8;
+}
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
+#report-footer {
+  line-height: 1;
+  color: #d3d3d3 !important;
+  text-align: right;
+}
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
+#report-footer a {
+  display: inline-block;
+  color: #d3d3d3;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
+#report-footer a .favorites {
+  margin-right: 3px;
+  display: inline-block;
+}
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
+#report-footer a .favorites i {
+  margin-right: 2px;
+}
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
+#report-footer a .favorited {
+  color: #ff4a6a;
 }
 /* line 5, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
 #coach-new .content-container .content .coach_image_form,
@@ -1196,76 +1414,72 @@ header .navbar .navbar-inner .navbar-nav li a {
   padding: 10px;
 }
 /* line 63, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
-header .navbar .navbar-inner .navbar-nav li a .gravatar {
-  margin-right: 2px;
+header .navbar .navbar-inner .navbar-nav li a i {
+  margin-right: 5px;
 }
-/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
-header .navbar .navbar-inner .navbar-nav li a .gravatar img {
-  border-radius: 100%;
-}
-/* line 71, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 68, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .divider {
   height: 1px;
   background-color: #e5e5e5;
 }
-/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle {
   padding: 10px;
   color: #777;
 }
-/* line 79, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle span {
   font-size: 8px;
 }
-/* line 83, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 80, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:hover,
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:focus {
   color: #333;
 }
-/* line 88, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu {
   padding: 0;
 }
-/* line 91, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 88, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li.divider {
   margin: 0;
 }
-/* line 94, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 91, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   padding: 10px 20px;
 }
 
 @media (min-width: 768px) {
-  /* line 111, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 108, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav .dropdown .dropdown-toggle {
     padding: 20px;
     color: #777;
   }
-  /* line 117, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 114, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav li a {
     padding: 20px;
   }
 }
 @media (max-width: 768px) {
-  /* line 129, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 126, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-toggle {
     margin-top: 11px;
   }
 
-  /* line 132, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 129, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-collapse {
     margin-top: 10px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 140, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 137, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner {
     margin: 0 auto;
   }
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry {
-  padding: 90px 0;
+  padding: 15px 0;
 }
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry .content-container {
@@ -1274,7 +1488,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
 }
 /* line 6, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry .content-container .content-header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 /* line 8, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry .content-container .content-header p {
@@ -1308,7 +1522,12 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   padding-left: 33px;
 }
 
-/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+#inquiry-confirm,
+#inquiry-thanks {
+  padding-top: 15px;
+}
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container,
 #inquiry-confirm #inquiry-thanks-content-container,
 #inquiry-thanks #inquiry-confirm-content-container,
@@ -1316,49 +1535,50 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   max-width: 600px;
   margin: auto;
 }
-/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .content table,
 #inquiry-confirm #inquiry-thanks-content-container .content table,
 #inquiry-thanks #inquiry-confirm-content-container .content table,
 #inquiry-thanks #inquiry-thanks-content-container .content table {
   margin-top: 30px;
 }
-/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .content table tbody tr th,
 #inquiry-confirm #inquiry-thanks-content-container .content table tbody tr th,
 #inquiry-thanks #inquiry-confirm-content-container .content table tbody tr th,
 #inquiry-thanks #inquiry-thanks-content-container .content table tbody tr th {
-  width: 150px;
+  width: 60px;
 }
-/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 60, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .content table tbody tr #inquiry-content-header,
 #inquiry-confirm #inquiry-thanks-content-container .content table tbody tr #inquiry-content-header,
 #inquiry-thanks #inquiry-confirm-content-container .content table tbody tr #inquiry-content-header,
 #inquiry-thanks #inquiry-thanks-content-container .content table tbody tr #inquiry-content-header {
   width: 100%;
+  text-align: left;
 }
-/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 64, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .content table tbody tr td,
 #inquiry-confirm #inquiry-thanks-content-container .content table tbody tr td,
 #inquiry-thanks #inquiry-confirm-content-container .content table tbody tr td,
 #inquiry-thanks #inquiry-thanks-content-container .content table tbody tr td {
   word-break: break-all;
 }
-/* line 66, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 68, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .content table tbody tr #inquiry-content p,
 #inquiry-confirm #inquiry-thanks-content-container .content table tbody tr #inquiry-content p,
 #inquiry-thanks #inquiry-confirm-content-container .content table tbody tr #inquiry-content p,
 #inquiry-thanks #inquiry-thanks-content-container .content table tbody tr #inquiry-content p {
   text-align: left;
 }
-/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 75, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .content #inquiry-table-2,
 #inquiry-confirm #inquiry-thanks-content-container .content #inquiry-table-2,
 #inquiry-thanks #inquiry-confirm-content-container .content #inquiry-table-2,
 #inquiry-thanks #inquiry-thanks-content-container .content #inquiry-table-2 {
   margin-bottom: 30px;
 }
-/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 79, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .submit,
 #inquiry-confirm #inquiry-thanks-content-container .submit,
 #inquiry-thanks #inquiry-confirm-content-container .submit,
@@ -1367,14 +1587,14 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   padding-left: 33px;
   margin-right: 30px;
 }
-/* line 82, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 84, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container p,
 #inquiry-confirm #inquiry-thanks-content-container p,
 #inquiry-thanks #inquiry-confirm-content-container p,
 #inquiry-thanks #inquiry-thanks-content-container p {
   text-align: center;
 }
-/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 87, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry-confirm #inquiry-confirm-content-container .below-thanks,
 #inquiry-confirm #inquiry-thanks-content-container .below-thanks,
 #inquiry-thanks #inquiry-confirm-content-container .below-thanks,
@@ -1382,41 +1602,41 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   text-align: left;
 }
 
-/* line 92, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+/* line 94, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 .inquiry-discription {
   text-align: center;
   margin: 20px 0;
 }
 
 @media (min-width: 768px) {
-  /* line 99, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 101, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry {
     padding-top: 90px;
   }
-  /* line 101, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 103, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container {
     max-width: 600px;
   }
-  /* line 104, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 106, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container .content-header p {
     margin: 60px;
     font-size: 18px;
   }
-  /* line 109, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 111, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container .content {
     text-align: left;
   }
-  /* line 111, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container .content .form-group,
   #inquiry .content-container .content .submit-group {
     text-align: center;
   }
-  /* line 115, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 117, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container .content #inquiry_message {
     height: 200px;
   }
 
-  /* line 127, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 129, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container p,
   #inquiry-confirm #inquiry-thanks-content-container p,
   #inquiry-confirm .content-container p,
@@ -1425,7 +1645,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container p {
     font-size: 18px;
   }
-  /* line 130, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 132, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .confirm-text,
   #inquiry-confirm #inquiry-confirm-content-container .thanks-text,
   #inquiry-confirm #inquiry-thanks-content-container .confirm-text,
@@ -1441,7 +1661,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     margin-top: 45px;
     margin-bottom: 45px;
   }
-  /* line 136, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 138, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .content table,
   #inquiry-confirm #inquiry-thanks-content-container .content table,
   #inquiry-confirm .content-container .content table,
@@ -1450,7 +1670,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container .content table {
     margin-top: 30px;
   }
-  /* line 138, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 140, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .content table th,
   #inquiry-confirm #inquiry-confirm-content-container .content table td,
   #inquiry-confirm #inquiry-thanks-content-container .content table th,
@@ -1465,7 +1685,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container .content table td {
     font-size: 18px;
   }
-  /* line 143, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 145, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .content #inquiry-table-2,
   #inquiry-confirm #inquiry-thanks-content-container .content #inquiry-table-2,
   #inquiry-confirm .content-container .content #inquiry-table-2,
@@ -1474,7 +1694,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container .content #inquiry-table-2 {
     margin-bottom: 60px;
   }
-  /* line 148, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 150, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container #inquiry-content p,
   #inquiry-confirm #inquiry-thanks-content-container #inquiry-content p,
   #inquiry-confirm .content-container #inquiry-content p,
@@ -1484,7 +1704,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     text-align: left;
     padding: 20px;
   }
-  /* line 153, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 155, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container p.below-thanks,
   #inquiry-confirm #inquiry-thanks-content-container p.below-thanks,
   #inquiry-confirm .content-container p.below-thanks,
@@ -1493,7 +1713,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container p.below-thanks {
     margin-bottom: 30px;
   }
-  /* line 156, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 158, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container a,
   #inquiry-confirm #inquiry-thanks-content-container a,
   #inquiry-confirm .content-container a,
@@ -1505,24 +1725,24 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   }
 }
 @media (min-width: 992px) {
-  /* line 166, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 168, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry {
     padding-top: 120px;
   }
-  /* line 168, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 170, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container {
     max-width: 600px;
   }
-  /* line 170, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 172, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container .content-header {
     margin-bottom: 90px;
   }
-  /* line 172, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 174, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry .content-container .content-header h2 {
     margin-bottom: 30px;
   }
 
-  /* line 184, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 186, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container p,
   #inquiry-confirm #inquiry-thanks-content-container p,
   #inquiry-confirm .content-container p,
@@ -1531,7 +1751,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container p {
     font-size: 18px;
   }
-  /* line 187, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 189, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .confirm-text,
   #inquiry-confirm #inquiry-confirm-content-container .tahnks-text,
   #inquiry-confirm #inquiry-thanks-content-container .confirm-text,
@@ -1547,7 +1767,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     margin-top: 60px;
     margin-bottom: 60px;
   }
-  /* line 193, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 195, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .content table,
   #inquiry-confirm #inquiry-thanks-content-container .content table,
   #inquiry-confirm .content-container .content table,
@@ -1556,7 +1776,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container .content table {
     margin-top: 30px;
   }
-  /* line 195, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 197, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .content table th,
   #inquiry-confirm #inquiry-confirm-content-container .content table td,
   #inquiry-confirm #inquiry-thanks-content-container .content table th,
@@ -1571,7 +1791,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container .content table td {
     font-size: 18px;
   }
-  /* line 200, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 202, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container .content #inquiry-table-2,
   #inquiry-confirm #inquiry-thanks-content-container .content #inquiry-table-2,
   #inquiry-confirm .content-container .content #inquiry-table-2,
@@ -1580,7 +1800,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container .content #inquiry-table-2 {
     margin-bottom: 60px;
   }
-  /* line 205, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 207, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container #inquiry-content p,
   #inquiry-confirm #inquiry-thanks-content-container #inquiry-content p,
   #inquiry-confirm .content-container #inquiry-content p,
@@ -1590,7 +1810,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     text-align: left;
     padding: 20px;
   }
-  /* line 210, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 212, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container p.below-thanks,
   #inquiry-confirm #inquiry-thanks-content-container p.below-thanks,
   #inquiry-confirm .content-container p.below-thanks,
@@ -1599,7 +1819,7 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   #inquiry-thanks .content-container p.below-thanks {
     margin-bottom: 45px;
   }
-  /* line 213, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
+  /* line 215, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
   #inquiry-confirm #inquiry-confirm-content-container a,
   #inquiry-confirm #inquiry-thanks-content-container a,
   #inquiry-confirm .content-container a,
@@ -1621,116 +1841,281 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     padding-top: 60px;
   }
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#bell,
-#red-bell {
-  margin-right: 3px;
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/more.scss */
+a.more {
+  float: right;
+  display: inline-block;
+  text-decoration: none;
 }
-
-/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#red-bell,
-#some-counts {
-  color: #ff3b3b;
-}
-
-/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications {
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications,
+#my-comments {
   padding-top: 20px;
 }
-/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content {
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content,
+#my-comments .content-container .content {
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
   padding: 7px;
   background-color: #fff;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   box-shadow: 1px 1px 1px 0px #cfc7b3;
   -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
   -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
 }
-/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .commented-report {
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report,
+#my-comments .content-container .content .commented-report {
   margin-bottom: 20px;
 }
-/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .commented-report .report-title {
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header,
+#my-comments .content-container .content .commented-report .report-header {
+  width: 100%;
+}
+/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-img,
+#my-comments .content-container .content .commented-report .report-header .coach-img {
+  float: left;
+}
+/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-img img,
+#my-comments .content-container .content .commented-report .report-header .coach-img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #898989;
+  border-radius: 3px;
+}
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-info,
+#my-comments .content-container .content .commented-report .report-header .coach-info {
+  float: none;
+  text-align: left;
+  margin-left: 57px;
+}
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name,
+#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name {
+  display: block;
+  line-height: 1;
+}
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name a,
+#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name a {
+  display: inline-block;
+}
+/* line 43, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name a span.name,
+#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name a span.name {
+  display: inline-block;
+  color: #333;
+  font-weight: 800;
+}
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name a span.account_name,
+#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name a span.account_name {
+  display: inline-block;
+  color: #d3d3d3;
+  margin-left: 5px;
+}
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-title,
+#my-comments .content-container .content .commented-report .report-title {
   width: 100%;
   text-align: left;
   display: block;
   font-weight: 800;
 }
-/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .commented-report .report-body {
+/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-body,
+#my-comments .content-container .content .commented-report .report-body {
   text-align: left;
+  line-height: 1.7;
 }
-/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .commented-report .more {
-  width: 100%;
+/* line 67, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .commented-report .report-footer,
+#my-comments .content-container .content .commented-report .report-footer {
   text-align: right;
-  display: block;
+  color: #d3d3d3;
 }
-/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .commented-report .report-footer {
-  text-align: right;
-  color: #aaa;
-}
-/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header {
+/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header,
+#my-comments .content-container .content .new-comment-card .new-comment-header {
   width: 100%;
   margin-bottom: 7px;
 }
-/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .coach-img {
+/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .coach-img,
+#my-comments .content-container .content .new-comment-card .new-comment-header .coach-img {
   float: left;
 }
-/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .coach-img img {
+/* line 78, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .coach-img img,
+#my-comments .content-container .content .new-comment-card .new-comment-header .coach-img img {
   width: 50px;
   height: 50px;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #898989;
   border-radius: 3px;
 }
-/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info {
-  float: left;
+/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info,
+#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info {
+  float: none;
   text-align: left;
-  margin-left: 7px;
+  margin-left: 57px;
 }
-/* line 67, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .new {
+/* line 89, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .new,
+#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .new {
   display: block;
   line-height: 1;
   margin-bottom: 7px;
 }
-/* line 72, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence {
+/* line 94, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence,
+#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence {
   display: block;
   line-height: 1;
   margin-bottom: 7px;
+  word-wrap: break-word;
 }
-/* line 83, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment .new-comment-body {
+/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a,
+#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a {
+  display: inline-block;
+}
+/* line 101, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.name,
+#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.name {
+  display: inline-block;
+  color: #333;
+  font-weight: 800;
+}
+/* line 106, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.account_name,
+#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.account_name {
+  display: inline-block;
+  margin-left: 5px;
+  color: #d3d3d3;
+}
+/* line 116, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment .new-comment-body,
+#my-comments .content-container .content .new-comment-card .new-comment .new-comment-body {
   display: block;
   width: 100%;
   text-align: left;
   line-height: 1.4;
 }
-/* line 89, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment .new-comment-footer {
+/* line 122, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
+#new-notifications .content-container .content .new-comment-card .new-comment .new-comment-footer,
+#my-comments .content-container .content .new-comment-card .new-comment .new-comment-footer {
   display: block;
   width: 100%;
   text-align: right;
   width: 100%;
-  color: #aaa;
+  color: #d3d3d3;
 }
 
 @media (min-width: 768px) {
-  /* line 111, /home/ubuntu/workspace/app/assets/stylesheets/notification.scss */
+  /* line 144, /home/ubuntu/workspace/app/assets/stylesheets/my_comments.scss */
   #new-notifications .content-container .content .commented-report .report-title {
     font-size: 18px;
   }
+}
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .coach-img {
+  float: left;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .coach-img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #898989;
+  border-radius: 3px;
+}
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper {
+  margin-left: 57px;
+  width: auto;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info {
+  text-align: left;
+  margin-top: -5px;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info i {
+  margin-right: 5px;
+}
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info i.fav-pink {
+  color: #ff4a6a;
+}
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info i.comment-blue {
+  color: #1e90ff;
+}
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info a {
+  display: inline-block;
+}
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info a span.name {
+  display: inline-block;
+  font-weight: 800;
+  margin-right: 5px;
+  color: #333;
+  line-height: 1;
+}
+/* line 43, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.info a span.account_name {
+  display: inline-block;
+  color: #d3d3d3;
+  line-height: 1;
+}
+/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper div.time {
+  width: 100%;
+  text-align: right;
+  color: #d3d3d3;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.report-title {
+  color: #afafaf;
+  text-align: left;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+/* line 64, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper p.report-body {
+  color: #afafaf;
+  text-align: left;
+  line-height: 1.4;
+}
+/* line 70, /home/ubuntu/workspace/app/assets/stylesheets/notifications.scss */
+#notifications .content-container .content .infos-wrapper span.more a.more {
+  display: inline-block;
+  float: right;
+  line-height: 1;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/paginate.scss */
 .content-container > div.pagination {
@@ -1738,6 +2123,18 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   width: 100%;
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/paginate.scss */
+div.pagination {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/paginate.scss */
+ul.pagination {
+  margin: 0;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 #plan {
@@ -1819,66 +2216,86 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     margin-left: -60px;
   }
 }
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content p.info,
-#coach-edit .content-container .content p.info {
-  margin-bottom: 60px;
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new,
+#coach-edit {
+  padding-top: 15px;
 }
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content p.caution,
-#coach-edit .content-container .content p.caution {
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form p.caution,
+#coach-edit .content-container .content form p.caution {
   margin: 0;
   padding: 0;
   color: #ff3434;
 }
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-picture,
-#coach-edit .content-container .content .coach-picture {
-  margin-bottom: 60px;
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form p.info,
+#coach-edit .content-container .content form p.info {
+  margin-bottom: 20px;
+}
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .coach-picture,
+#coach-edit .content-container .content form .coach-picture {
+  margin-bottom: 20px;
   text-align: center;
 }
-/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-picture img,
-#coach-edit .content-container .content .coach-picture img {
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .coach-picture img,
+#coach-edit .content-container .content form .coach-picture img {
   margin-bottom: 30px;
   width: 200px;
   height: 200px;
   border: 1px solid #333;
   border-radius: 100px;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-picture input,
-#coach-edit .content-container .content .coach-picture input {
+/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .coach-picture input,
+#coach-edit .content-container .content form .coach-picture input {
   width: 220px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   line-height: 1;
 }
-/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-profile,
-#coach-edit .content-container .content .coach-profile {
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .form-group,
+#coach-edit .content-container .content form .form-group {
   text-align: left;
 }
-/* line 33, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-profile label,
-#coach-edit .content-container .content .coach-profile label {
-  width: 30%;
+/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .form-group div,
+#coach-edit .content-container .content form .form-group div {
+  margin-bottom: 15px;
 }
-/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-profile label.public:after,
-#coach-edit .content-container .content .coach-profile label.public:after {
+/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .form-group div label,
+#coach-edit .content-container .content form .form-group div label {
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .form-group div label.public:after,
+#coach-edit .content-container .content form .form-group div label.public:after {
   content: " *";
   color: #ff3434;
 }
-/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .coach-profile p,
-#coach-edit .content-container .content .coach-profile p {
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .form-group div span,
+#coach-edit .content-container .content form .form-group div span {
+  margin-right: 5px;
+}
+/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .form-group div p,
+#coach-edit .content-container .content form .form-group div p {
   padding-left: 15px;
 }
-/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
-#coach-new .content-container .content .self_introduction,
-#coach-edit .content-container .content .self_introduction {
+/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/profile.scss */
+#coach-new .content-container .content form .self_introduction,
+#coach-edit .content-container .content form .self_introduction {
   margin-bottom: 30px;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/share.scss */
@@ -2171,145 +2588,84 @@ table td {
   text-align: left;
   padding: 4px;
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
 #top-coaches {
   padding-top: 15px;
 }
-/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container {
+  padding: 0;
+}
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
 #top-coaches .content-container .content-header {
   margin: 15px 0;
 }
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
 #top-coaches .content-container .content {
-  display: block;
-}
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper {
+  max-width: 450px;
   margin-left: auto;
   margin-right: auto;
-  width: 290px;
 }
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner {
-  float: left;
-  width: 290px;
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content #coach-card-1 {
+  border-top: 1px solid;
+  border-color: #e5e5e5;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content .coach-card {
   padding: 8px;
-  margin-bottom: 15px;
   background-color: #fff;
-  opacity: 0.9;
-  border: 1px solid #ebd8a9;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+  border-bottom: 1px solid;
+  border-color: #e5e5e5;
+  max-width: 450px;
 }
 /* line 26, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .img-wrapper {
+#top-coaches .content-container .content .coach-card .img-wrapper {
   float: left;
-  width: 100px;
 }
-/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .img-wrapper img {
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content .coach-card .img-wrapper img {
   width: 100px;
   height: 100px;
-  border: 1px solid #ebd8a9;
+  border: 1px solid #afafaf;
 }
-/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .profs {
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content .coach-card .profs {
   float: left;
   line-height: 1;
   margin-left: 10px;
   text-align: left;
+  height: 100px;
 }
 /* line 40, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .profs div {
+#top-coaches .content-container .content .coach-card .profs div {
   font-size: 12px;
   color: #333;
-  width: 160px;
   word-wrap: break-word;
 }
-/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .profs .coach-name,
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .profs .coach-univ,
-#top-coaches .content-container .content .coach-card-wrapper .coach-card .coach-card-inner .profs .coach-major {
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content .coach-card .profs .coach-name,
+#top-coaches .content-container .content .coach-card .profs .coach-univ,
+#top-coaches .content-container .content .coach-card .profs .coach-major {
   margin-bottom: 12px;
 }
-/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content .coach-card .profs .coach-name .name {
+  margin-right: 5px;
+}
+/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container .content .coach-card .profs .coach-name .account_name {
+  color: #afafaf;
+}
+/* line 61, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
 #top-coaches .content-container .link {
   margin-top: 30px;
   text-align: center;
 }
-
-@media (min-width: 768px) {
-  /* line 66, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches {
-    padding-top: 45px;
-  }
-  /* line 69, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content-header {
-    margin-bottom: 30px;
-  }
-  /* line 73, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 600px;
-  }
-  /* line 77, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card:nth-child(odd) {
-    margin-right: 20px;
-  }
-  /* line 80, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card {
-    margin-left: 0;
-    margin-right: 0;
-    width: 290px;
-    float: left;
-  }
-  /* line 85, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a {
-    float: left;
-  }
-  /* line 87, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner {
-    max-width: 290px;
-    padding: 8px;
-    margin-bottom: 20px;
-  }
-  /* line 91, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .img-wrapper {
-    float: left;
-    width: 100px;
-  }
-  /* line 94, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .img-wrapper img {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #ebd8a9;
-  }
-  /* line 100, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .profs {
-    float: left;
-    line-height: 1;
-    margin-left: 10px;
-    text-align: left;
-  }
-  /* line 105, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .profs div {
-    font-size: 14px;
-    color: #333;
-  }
-  /* line 109, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .profs .coach-name,
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .profs .coach-univ,
-  #top-coaches .content-container .content .coach-card-wrapper .coach-card a .coach-card-inner .profs .coach-major {
-    margin-bottom: 14px;
-  }
-}
 @charset "UTF-8";
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
 body {
-  background: url(/assets/background-d3f7abc76e34279da2ac6f3aca805ec7f50cb7369bf9c27397a8d9bfed990470.jpg);
+  /* background: image-url("background.jpg"); */
 }
 
 /* ログイン（講師用） */
@@ -2337,11 +2693,6 @@ body {
 /* line 30, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
 .flash.alert {
   margin: 0;
-}
-
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-.back-to-coaches {
-  margin-top: 30px;
 }
 @charset "UTF-8";
 /* トップページへのリンク */
@@ -2486,7 +2837,7 @@ body {
  */
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
 body {
-  background: url(/assets/background-d3f7abc76e34279da2ac6f3aca805ec7f50cb7369bf9c27397a8d9bfed990470.jpg);
+  /* background: image-url("background.jpg"); */
 }
 
 /* ログイン（講師用） */
@@ -2514,11 +2865,6 @@ body {
 /* line 30, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
 .flash.alert {
   margin: 0;
-}
-
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-.back-to-coaches {
-  margin-top: 30px;
 }
 
 /*!

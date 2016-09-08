@@ -19,22 +19,16 @@
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
               <li>
-                <%= link_to notifications_index_path(current_coach) do %>
-                <% if @not_read_count > 0 %>
-                  <i class="fa fa-bell-o" id="red-bell"></i><span class="notification-count" id="some-counts"><%= @not_read_count %></span>
-                <% else %>
-                  <i class="fa fa-bell-o" id="bell"></i><span class="notification-count"><%= @not_read_count %></span>
-                <% end %>
+                <%= link_to :new_coaching_report, coach_id: current_coach.id do %>
+                  <i class="fa fa-edit"></i><span>レポート作成</span>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "レポートTL", :coaching_reports %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "レポート作成", :new_coaching_report %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "マイレポート", coach_coaching_reports_path(current_coach) %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "マイコメント", comments_path(current_coach) %></li>
+              <li>
+                <%= link_to :account do %>
+                <i class="fa fa-cog"></i><span>アカウント</span>
+                <% end %>
+              </li>
               <li role="separator" class="divider"></li>
             <% end %>
             <% unless logged_in? %>
@@ -68,17 +62,13 @@
                   <% if current_coach.administrator? %>
                     <li role="separator" class="divider"></li>
                     <li><%= link_to "管理トップ", :admin_root %></li>
-                    <li role="separator" class="divider"></li>
                   <% end %>
+                  <li role="separator" class="divider"></li>
                   <li>
                     <%= link_to logout_path, method: "delete" do  %>
-                      ログアウト | <%= current_coach.name %>
+                      ログアウト | <% if current_coach.name.present? %><%= current_coach.name %><% else %>名前が未入力です<% end %>
                     <% end %>
                   </li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "マイプロフィール", current_coach %></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "アカウント情報", :account %></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "講師一覧", :coaches %></li>
                 <% end %>

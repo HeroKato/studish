@@ -1,0 +1,19 @@
+<% @coaches.each_with_index do |coach, i| %>
+  <%= link_to coach do %>
+    <div class="coach-card clearfix" id="coach-card-<%= i+1 %>">
+      <div class="img-wrapper">
+        <% if coach.picture.present? %>
+          <%= image_tag coach.picture, oncontextmenu: "return false;", class: "grey3" %>
+        <% else %>
+          <%= image_tag("no_image.png") %>
+        <% end %>
+      </div>
+      <div class="profs">
+        <div class="prof coach-name"><span class="name"><%= coach.name %></span><span class="account_name">@<%= coach.account_name %></span></div>
+        <div class="prof coach-univ"><span><%= coach.university %></span></div>
+        <div class="prof coach-major"><span><%= coach.major %></span></div>
+        <div class="prof coach-school-year"><span><%= coach.school_year %></span></div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

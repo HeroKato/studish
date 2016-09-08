@@ -1,0 +1,38 @@
+<div class="report-header clearfix">
+  <div class="coach-img">
+    <%= link_to report.author do %>
+      <% if report.author.picture.present? %>
+        <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
+      <% else %>
+        <%= image_tag("no_image.png") %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="coach-info">
+    <span class="coach-name">
+      <%= link_to report.author do %>
+        <span class="name"><%= report.author.name %></span><span class="account_name"><%= report.author.account_name %></span>
+      <% end %>
+    </span>
+  </div>
+</div>
+<div class="report-abst">
+  <span class="report-title"><%= report.title %></span>
+  <% if (@template == "index") || (@template == "favorites") || (@template == "my-comments-index") %>
+    <p class="report-body"><%= truncate(report.body, length: 200) %></p>
+  <% else %>
+  <%= simple_format(report.body, class: "report-body") %>
+  <% end %>
+  <% unless @template == "show" %>
+    <div class="more clearfix">
+      <span class="more-link"><%= link_to "詳細", report %></span>
+    </div>
+  <% end %>
+  <div class="report-footer">
+    <% if @template.present? && ( (@template == "favorites") || (@template == "my-comments-index") ) %>
+      <%= render "coaching_reports/footer", report: report %>
+    <% else %>
+      <%= render "footer", report: report %>
+    <% end %>
+  </div>
+</div>

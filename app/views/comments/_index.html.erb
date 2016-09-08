@@ -1,5 +1,5 @@
 <div class="comments-wrapper">
-<% @report.comments.each do |comment| %>
+<% @comments.each do |comment| %>
   <% if comment.body.present? %>
   <div class="comment">
     <div class="comment-header clearfix">
@@ -13,17 +13,26 @@
         <% end %>
       </div>
       <div class="commenter-info">
-        <% if comment.read_flag == false %>
-        <span id="new">NEW!</span>
-        <% end %>
-        <span class="commenter-name"><%= link_to comment.coach.name, comment.coach %>さんのコメント</span>
+        <div class="info">
+          <% if @report.author == current_coach %>
+            <% if comment.read_flag == false %>
+              <span id="new">NEW!</span>
+            <% end %>
+          <% end %>
+          <%= link_to comment.coach do %><span class="name"><%= comment.coach.name %></span><span class="account_name">@<%= comment.coach.account_name %></span><% end %>さんのコメント
+          <div class="time clearfix">
+            <span><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="comment-content">
       <%= simple_format(comment.body, class: "comment-body") %>
-      <div class="comment-footer">
-        <%= link_to "削除", [comment.coaching_report, comment], method: :delete, data: { confirm: "Are you sure?" } %>
-      </div>
+      <% if comment.coach == current_coach %>
+        <div class="comment-footer">
+          <%= link_to "削除", [comment.coaching_report, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
     </div>
   </div>
   <hr class="horizontal-line clearfix">

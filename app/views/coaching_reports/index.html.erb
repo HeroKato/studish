@@ -7,15 +7,9 @@
 <div class="content-wrapper" id="coaching-reports">
   <div class="content-container">
     <% if @reports.present? %>
-      <div class="content-header">
-        <% if @coach %>
-          <h2><%= @coach.name %>さんのレポート</h2>
-        <% else %>
-          <h2>レポートタイムライン</h2>
-        <% end %>
-      </div>
-    
+      
       <div class="content">
+        <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
         <% if @coach %>
           <div class="coach-reports-info">
             <% if ( count = @reports.count ) > 0 %>
@@ -24,31 +18,8 @@
           </div>
         <% end %>
         <% @reports.each do |report| %>
-          <div class="report-card">
-            <div class="report-header clearfix">
-              <div class="coach-img">
-                <%= link_to report.author do %>
-                  <% if report.author.picture.present? %>
-                    <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
-                  <% else %>
-                    <%= image_tag("no_image.png") %>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="coach-info">
-                <span class="coach-name"><%= link_to report.author.name, report.author %></span>
-              </div>
-            </div>
-            <div class="report-abst">
-              <span class="report-title"><%= truncate(report.title, length: 50 ) %></span>
-              <p class="report-body">
-                <%= truncate(report.body, length: 400) %>
-              </p>
-              <%= link_to "もっと読む", report, class: "more" %>
-              <div class="report-footer">
-                <%= render "footer", report: report %>
-              </div>
-            </div>
+          <div class="report-card reports">
+            <%= render "report_card", report: report %>
           </div>
         <% end %>
         <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>

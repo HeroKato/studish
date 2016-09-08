@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
   
   get 'notifications/index'
-
   get 'coaching_reports/index'
-
   get 'coaching_reports/show'
-
   get 'coaching_reports/new'
-
   get 'coaching_reports/edit'
-
   get 'accounts/ahow'
-
   get 'accounts/edit'
 
   namespace :admin do
@@ -56,10 +50,13 @@ Rails.application.routes.draw do
   
   resources :coaches do
     resources :coaching_reports, only: [:index]
+    resources :comments, only: [:index]
+    get :favorites, on: :member
   end
   
   resources :coaching_reports do
     resources :comments
+    resources :favorites, only: [:create, :destroy]
   end
 
 

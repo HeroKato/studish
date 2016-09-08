@@ -6,12 +6,12 @@
 
 <div class="content-wrapper" id="coach-profile">
   <div class="content-container">
-    <div class="content">
-      <% if flash.notice %>
+    <% if flash.notice %>
+      <div class="content notice">
         <p class="notice"><%= flash.notice %></p>
-      <% end %>
-    </div>
-    <div class= "coach-prof-1 clearfix">
+      </div>
+    <% end %>
+    <div class= "content coach-prof-1 coach-card clearfix" id="show-coach-card">
       <div class="img-wrapper">
         <% if @coach.picture.present? %>
           <%= image_tag @coach.picture.url, oncontextmenu: "return false;" %>
@@ -20,34 +20,56 @@
         <% end %>
       </div>
       <div class="profs">
-        <div class="coach-name"><%= @coach.name %></div>
-        <div class="coach-univ"><%= @coach.university %></div>
-        <div class="coach-major"><%= @coach.major %></div>
-        <div class="coach-schlyr"><%= @coach.school_year %></div>
+        <div class="prof coach-name"><span class="name"><%= @coach.name %></span><span class="account_name">@<%= @coach.account_name %></span></div>
+        <div class="prof coach-univ"><%= @coach.university %></div>
+        <div class="prof coach-major"><%= @coach.major %></div>
+        <div class="prof coach-schlyr"><%= @coach.school_year %></div>
       </div>
     </div>
-    <div class="coach-prof-2">
-      <div class="prof-content self-introduction">
+    <% if logged_in? %>
+    <div class="features clearfix">
+      <span>
+        <%= link_to coach_coaching_reports_path(@coach), id: "feature1" do %>
+        <p class="p1">レポート</p>
+        <p class="p2"><i class="fa fa-book"></i><%= @reports_count %></p>
+        <% end %>
+      </span>
+      <span>
+        <%= link_to coach_comments_path(@coach), id: "feature2" do %>
+        <p class="p1">コメント</p>
+        <p class="p2"><i class="fa fa-commenting-o"></i><%= @comments_count %></p>
+        <% end %>
+      </span>
+      <span>
+        <%= link_to favorites_coach_path(@coach), id: "feature3" do %>
+        <p class="p1">いいね</p>
+        <p class="p2"><i class="fa fa-heart"></i><%= @favorites_count %></p>
+        <% end %>
+      </span>
+    </div>
+    <% end %>
+    <div class="content coach-prof-2">
+      <div class="prof2-content self-introduction">
         <div class="label-self-introduction"><%= label_tag :self_introduction, t('.self_introduction') %></div>
-        <p><%= simple_format(@coach.self_introduction) %></p>
+        <%= simple_format(@coach.self_introduction, class: "intro-body") %>
       </div>
-      <div class="prof-content subjects">
-        <div class="label-subjects"><%= label_tag :jr_subjects, t('.jr_subjects') %></div>
+      <div class="prof2-content subjects">
+          <%= label_tag :jr_subjects, t('.jr_subjects') %>
           <% @jr_subjects.each_value do |jr_subs| %>
             <% unless (jr_subs == nil) || (jr_subs == '0') %>
               <span class="subject-wrapper"><%= jr_subs %></span>
             <% end %>
           <% end %>
       </div>
-      <div class="prof-content subjects">
-        <div class="label-subjects"><%= label_tag :high_subjects, t('.high_subjects') %></div>
+      <div class="prof2-content subjects">
+          <%= label_tag :high_subjects, t('.high_subjects') %>
           <% @high_subjects.each_value do |high_subs| %>
             <% unless (high_subs == nil) || (high_subs == '0' ) %>
               <span class="subject-wrapper"><%= high_subs %></span>
             <% end %>
           <% end %>
       </div>
-      <div class="prof-content certifications clearfix">
+      <div class="prof2-content certifications clearfix">
         <div class="label-certifications"><%= label_tag :certifications, t('.certifications') %></div>
         <% if @certifications.present? %>
           <% @certifications.each do |key, certs| %>
@@ -66,23 +88,10 @@
         <%= @coach.administrator? ? "Yes" : "No" %>
       </div>
     <% end %>
-    <% if logged_in? %>
-    <div class="content link-to-reports">
-      <%= link_to coach_coaching_reports_path(@coach) do %>
-        <% unless current_coach %>
-          <%= @coach.name %>さんのレポートを見る
-        <% end %>
-        <span class="reports-count"><i class="fa fa-book"></i><%= @reports_count %></span>
-      <% end %>
-    </div>
-    <% end %>
     <% if current_coach == @coach %>
-      <div class="content">
-        <%= link_to "プロフィールを編集する", edit_coach_path(current_coach) %>
+      <div class="content edit-link">
+        <%= link_to "プロフィール編集", edit_coach_path(current_coach) %>
       </div>
     <% end %>
-    <div class="content back-to-coaches">
-      <%= link_to "講師一覧へ", coaches_path, class: "btn btn-primary" %>
-    </div>
   </div>
 </div>

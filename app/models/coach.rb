@@ -16,6 +16,9 @@ class Coach < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :commented_reports, through: :comments, source: :coaching_report
   
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_reports, through: :favorites, source: :coaching_report
+  
   validate :picture_size
   
   VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/

@@ -4,46 +4,21 @@
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div id="coach-list" class="content-wrapper">
+<div class="content-wrapper" id="coach-list">
   <div class="content-container">
-    <div class="content-header">
-      <h2>講師一覧</h2>
-    </div>
     <div class="content">
       <% if flash.notice %>
         <p class="notice"><%= flash.notice %></p>
       <% end %>
     </div>
-    <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
     <div class="content">
-      <div class="coach-card-wrapper clearfix">
-        <% if @coaches.present? %>
-          <% @coaches.each_with_index do |coach, i| %>
-            <div id="<%= i+1 %>" class="coach-card">
-              <%= link_to coach do %>
-                <div class="coach-card-inner">
-                  <div class="img-wrapper">
-                    <% if coach.picture.present? %>
-                      <%= image_tag coach.picture, oncontextmenu: "return false;" %>
-                    <% else %>
-                      <%= image_tag("no_image.png") %>
-                    <% end %>
-                  </div>
-                  <div class="profs">
-                    <div class="coach-name"><%= coach.name %></div>
-                    <div class="coach-univ"><%= coach.university %></div>
-                    <div class="coach-major"><%= coach.major %></div>
-                    <div class="coach-schlyr"><%= coach.school_year %></div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <P>講師が一人もいません</P>
-        <% end %>
-      </div>
+      <% if @coaches.present? %>
+        <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
+        <%= render "coaches/coaches" %>
+        <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
+      <% else %>
+        <P>講師が一人もいません</P>
+      <% end %>
     </div>
-    <%= will_paginate previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
   </div>
 </div>

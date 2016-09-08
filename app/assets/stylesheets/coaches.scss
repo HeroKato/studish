@@ -1,110 +1,27 @@
-#coach-list {
+$separator-grey: #e5e5e5;
+$grey3: #afafaf;
+$black1: #333;
+
+#top-coaches,
+#coach-list{
   padding-top: 15px;
   .content-container {
-    .pagination {
-      ul {
-        margin: 0;
-      }
-    }
+    padding: 0;
     .content-header {
       margin: 15px 0;
     }
     .content {
-      display: block;
-      .coach-card-wrapper {
-        margin-left: auto;
-        margin-right: auto;
-        width: 290px;
-        .coach-card {
-          .coach-card-inner {
-            float: left;
-            width: 290px;
-            padding: 8px;
-            margin-bottom: 15px;
-            background-color: #fff;
-            border: 1px solid #ebd8a9;
-            border-radius: 3px;
-            box-shadow: 1px 1px 1px 0px #cfc7b3;
-            -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-            -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
-            .img-wrapper {
-              float: left;
-              width: 100px;
-              img {
-                width: 100px;
-                height: 100px;
-                border: 1px solid #ebd8a9;
-              }
-            }
-            .profs {
-              float: left;
-              line-height: 1;
-              margin-left: 10px;
-              text-align: left;
-              div {
-                font-size: 14px;
-                color: #333;
-                width: 160px;
-                word-wrap: break-word;
-              }
-              .coach-name,
-              .coach-univ,
-              .coach-major {
-                margin-bottom: 10px;
-              }
-            }
-          }
-        }
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+      #coach-card-1 {
+        border-top: 1px solid;
+        border-color: $separator-grey;
       }
     }
-  }
-}
-
-
-@media (min-width: 768px) {
-  
-#coach-list {
-  padding-top: 45px;
-  .content-container {
-    .pagination {
-      margin-bottom: 30px;
-    }
-    .content-header {
-    }
-    .content {
-      .coach-card-wrapper {
-        width: 600px;
-        .coach-card:nth-child(odd){
-          margin-right: 20px;
-        }
-        .coach-card {
-          margin-left: 0;
-          margin-right: 0;
-          margin-bottom: 20px;
-          width: 290px;
-          float: left;
-          a {
-            float: left;
-            .coach-card-inner {
-              margin-bottom: 0;
-              .img-wrapper {
-                img {
-                }
-              }
-              .profs {
-                div {
-                }
-                .coach-name,
-                .coach-univ,
-                .coach-major {
-                }
-              }
-            }
-          }
-        }
-      }
+    .link {
+      margin-top: 30px;
+      text-align: center;
     }
   }
-}
-
 }

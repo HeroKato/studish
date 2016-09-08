@@ -1,0 +1,24 @@
+@import "color_set";
+
+#report-footer {
+  line-height: 1;
+  color: $light-grey;
+  text-align: right;
+  a {
+  display: inline-block;
+  color: $light-grey;
+    .favorites {
+      margin-right: 3px;
+      display: inline-block;
+      i {
+        margin-right: 2px;
+      }
+    }
+    .favorited {
+      color: $fav-pink;
+    }
+  }
+  .commented {
+    color: $comment-blue;
+  }
+}

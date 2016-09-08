@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901083554) do
+ActiveRecord::Schema.define(version: 20160905111207) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -116,5 +116,18 @@ ActiveRecord::Schema.define(version: 20160901083554) do
 
   add_index "comments", ["coach_id"], name: "index_comments_on_coach_id"
   add_index "comments", ["coaching_report_id"], name: "index_comments_on_coaching_report_id"
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "coach_id",                           null: false
+    t.integer  "coaching_report_id",                 null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "favorited_coach_id"
+    t.boolean  "check_flag",         default: false
+  end
+
+  add_index "favorites", ["coach_id"], name: "index_favorites_on_coach_id"
+  add_index "favorites", ["coaching_report_id"], name: "index_favorites_on_coaching_report_id"
+  add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
 
 end

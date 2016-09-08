@@ -1,3 +1,5 @@
+@import "color_set";
+
 #coaching-report {
   padding-top: 15px;
   .content-container {
@@ -14,64 +16,11 @@
       margin-right: auto;
       padding: 7px;
       background-color: #fff;
-      border: 1px solid #ebd8a9;
+      border: 1px solid $grey2;
       margin-bottom: 10px;
       box-shadow: 1px 1px 1px 0px #cfc7b3;
       -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
       -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
-      .report-card {
-        max-width: 450px;
-        .report-header {
-          width: 100%;
-          .coach-img {
-            float: left;
-            img {
-              width: 50px;
-              height: 50px;
-              border: 1px solid #ebd8a9;
-              border-radius: 3px;
-            }
-          }
-          .coach-info {
-            float: left;
-            text-align: left;
-            margin-left: 7px;
-            .coach-name {
-              display: block;
-              line-height: 1;
-              a {
-                color: #aaa;
-              }
-            }
-          }
-        }
-        .report-abst {
-          .report-title {
-            display: block;
-            text-align: left;
-            font-weight: 800;
-          }
-          .report-body {
-            text-align: left;
-            line-height: 1.4;
-          }
-          .more {
-            text-align: right;
-            display: block;
-            line-height: 1.4;
-          }
-          .report-footer {
-            text-align: right;
-            color: #aaa;
-            p {
-              margin-bottom: 0;
-            }
-            i.fa-commenting-o {
-              margin-right: 3px;
-            }
-          }
-        }
-      }
       .comment-form {
         .new_comment {
           .form-group {
@@ -79,6 +28,16 @@
           }
           .comment {
             width: 100%;
+            p {
+              line-height: 1.4;
+              span.name {
+                color: $black1;
+                margin-right: 5px;
+              }
+              span.account_name {
+                color: $light-grey;
+              }
+            }
             textarea {
             }
           }
@@ -90,23 +49,42 @@
       .comments-wrapper {
         .comment {
           .comment-header {
+            margin-bottom: 10px;
             .commenter-img {
               float: left;
               img {
                 width: 50px;
                 height: 50px;
-                border: 1px solid #ebd8a9;
+                border: 1px solid $grey2;
                 border-radius: 3px;
               }
             }
-            .commenter-info {
-              margin-left: 7px;
-              float: left;
-              .commenter-name {
-                text-align: left;
-                line-height: 1;
-                a {
-                  color: #aaa;
+            div.info {
+              margin-left: 57px;
+              line-height: 1;
+              text-align: left;
+              a {
+                display: inline;
+                color: $light-grey;
+                line-height: 1.4;
+                margin-bottom: 5px;
+                span {
+                  text-decoration: none;
+                  display: inline-block;
+                }
+                span.name {
+                  color: $black1;
+                  margin-right: 5px;
+                }
+                span.account_name {
+                  color: $light-grey;
+                }
+              }
+              div.time {
+                span {
+                  float: right;
+                  color: $light-grey;
+                  line-height: 1;
                 }
               }
             }
@@ -115,6 +93,8 @@
             margin-left: 5px;
             .comment-body {
               text-align: left;
+              line-height: 1.7;
+              word-wrap: break-word;
             }
             .comment-footer {
               text-align: right;

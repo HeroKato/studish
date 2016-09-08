@@ -3,7 +3,7 @@ class InquiryController < ApplicationController
   def index
     # 入力画面を表示
     @inquiry = Inquiry.new
-    @coach = Coach.find(params[:id])
+    
     render :action => 'index'
   end
 

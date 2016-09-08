@@ -4,6 +4,9 @@ class CoachingReport < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :commenters, through: :comments, source: :coach
   
+  has_many :favorites, dependent: :destroy
+  has_many :favoriters, through: :favorites, source: :coach
+  
   STATUS_VALUES = %w(draft public_for_coaches unpublic_for_coaches)
   
   validates :title, presence: true, length: { maximum: 100 }
@@ -31,5 +34,13 @@ class CoachingReport < ActiveRecord::Base
     end
     order_by << "end"
     order(order_by.join(" "))
+  end
+  
+  def favorited_by?(coach)
+    favorites.where(coach_id: coach.id).exists?
+  end
+  
+  def commented_by?(coach) 
+    comments.where(coach_id: coach.id).exists?
   end
 end

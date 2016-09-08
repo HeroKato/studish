@@ -1,62 +1,43 @@
 <% content_for :head do %>
-<title>新着通知 | Studish</title>
-<meta name="description" content="Studishの新着通知ページです。">
+<title>通知 | Studish</title>
+<meta name="description" content="Studishの通知ページです。">
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="new-notifications">
-  <div class="content-container">
-    <% if @comments.present? %>
-      <div class="content-header">
-          <h2><%= current_coach.name %>さんの通知</h2>
-      </div>
+<div class="content-wrapper" id="notifications">
+    <% if @notifications.present? %>
     
-      <% @reports.each do |report| %>
-        <div class="content">
-          <div class="commented-report">
-            <span class="report-title"><%= truncate(report.title, length: 50 ) %></span>
-            <p class="report-body">
-              <%= truncate(report.body, length: 400) %>
-            </p>
-            <%= link_to "もっと読む", report, class: "more" %>
-            <div class="report-footer">
-              <%= report.created_at.strftime("%Y/%m/%d %H:%M") %>
+      <% @notifications.each do |n| %>
+        <div class="content-container">
+          <div class="content clearfix">
+            <div class="coach-img">
+              <%= link_to n.coach do %>
+                <%= image_tag n.coach.picture.url, oncontextmenu: "return false;" %>
+              <% end %>
+            </div>
+            <div class="infos-wrapper clearfix">
+              <div class="info">
+              <% if n.has_attribute?(:favorited_coach_id) %>
+                  <i class="fa fa-heart fav-pink"></i><%= link_to n.coach do %><span class="name"><%= n.coach.name %></span><span class="account_name">@<%= n.coach.account_name %></span><% end %>さんがいいねしました。
+              <% elsif n.has_attribute?(:commented_coach_id) %>
+                  <i class="fa fa-commenting-o comment-blue"></i><%= link_to n.coach do %><span class="name"><%= n.coach.name %></span><span class="account_name">@<%= n.coach.account_name %></span><% end %>さんがコメントしました。
+              <% end %>
+                <div class="time">
+                  <%= n.coaching_report.created_at.strftime("%Y/%m/%d %H:%M") %>
+                </div>
+              </div>
+              <p class="report-title"><%= truncate(n.coaching_report.title, length: 50) %></p>
+              <p class="report-body"><%= truncate(n.coaching_report.body, length: 200) %></p>
+              <span class="more clearfix">
+                <%= link_to "詳細", n.coaching_report, class: "more" %>
+              </span>
             </div>
           </div>
-          <hr class="horizontal-line">
-          <% report.comments.each do |comment| %>
-          <div class="new-comment-card">
-            <div class="new-comment-header clearfix">
-              <div class="coach-img">
-                <%= link_to comment.coach do %>
-                  <% if comment.coach.picture.present? %>
-                    <%= image_tag comment.coach.picture.url, oncontextmenu: "return false;" %>
-                  <% else %>
-                    <%= image_tag("no_image.png") %>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="new-comment-info">
-                <% if comment.read_flag == false %>
-                <span class="new" id="new">NEW!</span>
-                <% end %>
-                <span class="notice-sentence"><%= link_to comment.coach.name, comment.coach %>さんがコメントしました。</span>
-              </div>
-            </div>
-            <div class="new-comment">
-              <%= simple_format(comment.body, class: "new-comment-body") %>
-              <div class="new-comment-footer">
-                <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
-              </div>
-            </div>
-          </div>
-          <hr class="horizontal-line">
-          <% end %>
         </div>
+        <hr class="horizontal-line">
       <% end %>
       
     <% else %>
-    <P>通知はありません。</P>
+      <P>通知はありません。</P>
     <% end %>
-  </div>
 </div>

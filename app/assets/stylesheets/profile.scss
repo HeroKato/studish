@@ -1,53 +1,61 @@
+@import "color_set";
+
 #coach-new,
 #coach-edit {
+  padding-top: 15px;
   .content-container {
     .content {
-      p.info {
-        margin-bottom: 60px;
-      }
-      p.caution {
-        margin: 0;
-        padding: 0;
-        color: #ff3434;
-      }
-      .coach-picture {
-        margin-bottom: 60px;
-        text-align: center;
-        img {
-          margin-bottom: 30px;
-          width: 200px;
-          height: 200px;
-          border: 1px solid #333;
-          border-radius: 100px;
+      form {
+        p.caution {
+          margin: 0;
+          padding: 0;
+          color: $caution-red;
         }
-        input {
-          width: 220px;
-          margin-left: auto;
-          margin-right: auto;
+        p.info {
           margin-bottom: 20px;
-          line-height: 1;
         }
-      }
-      .coach-profile {
-        text-align: left;
-        label {
-          width: 30%;
+        .coach-picture {
+          margin-bottom: 20px;
+          text-align: center;
+          img {
+            margin-bottom: 30px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid $grey2;
+          }
+          input {
+            width: 220px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            line-height: 1;
+          }
         }
-        label.public:after {
-          content: " *";
-          color: #ff3434;
+        .form-group {
+          text-align: left;
+          div {
+            margin-bottom: 15px;
+            label {
+              display: block;
+              margin-bottom: 5px;
+              line-height: 1;
+            }
+            label.public:after {
+              content: " *";
+              color: $caution-red;
+            }
+            span {
+              margin-right: 5px;
+            }
+            p {
+              padding-left: 15px;
+            }
+          }
         }
-        p {
-          padding-left: 15px;
+        .self_introduction {
+          margin-bottom: 30px;
         }
-      }
-      .self_introduction {
-        margin-bottom: 30px;
       }
     }
   }
-}
-
-
-@media (min-width: 768px) {
 }

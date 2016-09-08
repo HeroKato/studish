@@ -22,6 +22,8 @@ body =
     coach_id = coach.id
     if (idx == 1) || (idx == 2)
       %w(example4 example5 example6 example7 example8 example9 example10).each do |name2|
+        favoriters = Coach.find_by(name: name2)
+        favoriters.favorited_reports << report
         commenter = Coach.find_by(name: name2)
         Comment.create(
           coach: commenter,

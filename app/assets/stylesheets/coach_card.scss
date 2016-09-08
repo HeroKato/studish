@@ -1,0 +1,44 @@
+@import "color_set";
+
+.coach-card {
+  padding: 8px;
+  background-color: #fff;
+  border-bottom: 1px solid;
+  border-color: $separator-grey;
+  max-width: 450px;
+  .img-wrapper {
+    float: left;
+    img {
+      width: 100px;
+      height: 100px;
+      border: 1px solid $grey3;
+    }
+  }
+  .profs {
+    line-height: 1;
+    margin-left: 110px;
+    text-align: left;
+    div.prof {
+      font-size: 14px;
+      color: $black1;
+      margin-bottom: 5px;
+      word-wrap: break-word;
+      text-decoration: none;
+      span {
+        display: inline-block;
+        text-decoration: none;
+      }
+      span.name {
+        margin-right: 5px;
+      }
+      span.account_name {
+        color: $grey3;
+      }
+    }
+  }
+}
+
+#show-coach-card {
+  padding: 0;
+  border-bottom: 0;
+}

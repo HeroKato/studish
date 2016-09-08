@@ -1,4 +1,7 @@
-#coaching-reports {
+@import "color_set";
+
+#coaching-reports,
+#favorites {
   padding-top: 15px;
   .content-container {
     .content-header {
@@ -17,67 +20,19 @@
         .reports-count {
           i.fa-book {
             margin-right: 3px;
+            color: $book-green;
           }
         }
       }
-      .report-card {
+      .report-card.reports {
         max-width: 450px;
         padding: 10px;
         background-color: #fff;
-        border: 1px solid #ebd8a9;
+        border: 1px solid $grey2;
         margin-bottom: 10px;
         box-shadow: 1px 1px 1px 0px #cfc7b3;
         -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
         -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
-        .report-header {
-          .coach-img {
-            float: left;
-            img {
-              width: 50px;
-              height: 50px;
-              border: 1px solid #ebd8a9;
-              border-radius: 3px;
-            }
-          }
-          .coach-info {
-            float: left;
-            margin-left: 10px;
-            .coach-name {
-              display: block;
-              text-align: left;
-              line-height: 1;
-              a {
-                color: #aaa;
-              }
-            }
-          }
-        }
-        .report-abst {
-          .report-title {
-            display: block;
-            text-align: left;
-            font-weight: 800;
-          }
-          .report-body {
-            text-align: left;
-            line-height: 1.4;
-          }
-          .more {
-            text-align: right;
-            display: block;
-            line-height: 1.4;
-          }
-          .report-footer {
-            text-align: right;
-            color: #aaa;
-            p {
-              margin-bottom: 0;
-            }
-            i.fa-commenting-o {
-              margin-right: 3px;
-            }
-          }
-        }
       }
     }
   }
@@ -120,10 +75,6 @@
           }
           .more {
             font-size: 16px;
-          }
-          .report-footer {
-            p {
-            }
           }
         }
       }

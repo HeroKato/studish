@@ -1,63 +1,44 @@
+@import "color_set";
+
 #coach-profile {
   padding: 0;
   .content-container {
     padding: 15px 10px;
-    .coach-prof-1 {
+    .content.coach-prof-1 {
       margin-bottom: 15px;
-      .img-wrapper {
-        width: 120px;
-        height: 120px;
-        border: solid 1px #ebd8a9;
-        box-shadow: 1px 1px 1px 0px #cfc7b3;
-        -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-        -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
-        float: left;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      .profs {
-        margin-left: 10px;
-        float: left;
-        div {
-          font-size: 16px;
-          font-weight: 900;
+    }
+    .content.coach-prof-2 {
+      text-align: left;
+      .prof2-content {
+        margin-bottom: 15px;
+        label {
+          display: block;
           line-height: 1;
-          margin-bottom: 10px;
-          width: 160px;
+          margin-bottom: 7px;
+        }
+        p {
+          line-height: 1.7;
           word-wrap: break-word;
         }
       }
-    }
-    .content.link-to-reports {
-      .reports-count {
-        i.fa-book {
-          margin-right: 3px;
-        }
-      }
-    }
-    .coach-prof-2 {
-      .prof-content {
-        margin-bottom: 15px;
-      }
-      .subjects {
+      .prof2-content.subjects {
         .subject-wrapper {
           display: inline-block;
           background-color: #fff;
-          border: solid 2px #ebd8a9;
+          border: solid 2px $grey2;
           border-radius: 2px;
           padding: 4px;
           margin-bottom: 4px;
           line-height: 1;
+          color: $grey2;
         }
       }
-      .certifications {
+      .prof2-content.certifications {
         .label-certifications {
         }
         .certification {
           background-color: #fff;
-          border: solid 2px #ebd8a9;
+          border: solid 2px $grey2;
           border-radius: 2px;
           padding: 4px;
           margin-right: 4px;
@@ -65,89 +46,30 @@
           display: inline;
           float: left;
           line-height: 1;
+          color: $grey2;
         }
       }
     }
-  }
-}
-
-@media (min-width: 375px) {
-  
-#coach-profile {
-  .content-container {
-    .coach-prof-1 {
-      .img-wrapper {
-        img {
-        }
+    .content.edit-link {
+      a {
+        display: inline-block;
+        border: 1px solid $grey2;
+        border-radius: 3px;
+        background-color: #fff;
+        line-height: 1;
+        padding: 5px;
+        color: $grey2;
+        text-decoration: none;
       }
-      .profs {
-        div {
-          width: 200px;
-          word-wrap: break-word;
-        }
+      a:hover {
+        background-color: $grey2;
+        color: #fff;
       }
     }
   }
-}  
-  
-}
-
-@media (min-width: 450px) {
-  
-#coach-profile {
-  .content-container {
-    .coach-prof-1 {
-      .img-wrapper {
-        img {
-        }
-      }
-      .profs {
-        div {
-          width: auto;
-          word-wrap: break-word;
-        }
-      }
-    }
-  }
-}  
-  
 }
 
 
 @media (min-width: 768px) {
-  
-#coach-profile {
-  padding-top: 45px;
-  .content-container {
-    max-width: 600px;
-    .coach-prof-1 {
-      margin-bottom: 30px;
-      .img-wrapper {
-        img {
-        }
-      }
-      .profs {
-        margin-left: 20px;
-        div {
-        }
-      }
-    }
-    .coach-prof-2 {
-      .prof-content {
-        margin-bottom: 30px;
-      }
-      .subjects {
-        .subject-wrapper {
-        }
-      }
-      .certifications {
-        .label-certifications {
-        }
-        .certification {
-        }
-      }
-    }
-  }
-}
 
 }

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   before_action :basic_auth if Rails.env.staging?
-  before_action :set_not_read_count
+  before_action :set_notifications_count
   
   private
   # ログインしている講師かどうか確認
@@ -32,24 +32,28 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def set_not_read_count
+  def set_notifications_count
     if logged_in?
       current_coach_id = current_coach.id
-      @not_read_count = Comment.where(commented_coach_id: current_coach_id, read_flag: false).count
+      @not_read_comments = Comment.where(commented_coach_id: current_coach_id, read_flag: false).count
+      @not_checked_favorites = Favorite.where(favorited_coach_id: current_coach_id, check_flag: false).count
+      @notificaitions_count = @not_read_comments+@not_checked_favorites
     end
   end
   
-  def save_read_flag
-    if @comments.present?
-      @comments.each do |comment|
-        comment.read_flag = true
-        comment.save
+  def save_flags
+    if @notifications.present?
+      @notifications.each do |n|
+        if n["read_flag"] == false
+          n["read_flag"] = true
+          n.save
+        end
+        if n["check_flag"] == false
+          n["check_flag"] = true
+          n.save
+        end
       end
     end
-  end
-  
-  def profile_checker
-    
   end
   
 end

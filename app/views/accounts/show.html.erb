@@ -1,12 +1,9 @@
 <div class="content-wrapper" id="coach-account">
   <div class="content-container">
-    <div class="content-header">
-      <h2><%= @coach.name %>さんのアカウント情報</h2>
-    </div>
     <table class="content">
       <tr>
         <th><%= t('.account_name') %></th>
-        <td><%= @coach.account_name %></td>
+        <td>@<%= @coach.account_name %></td>
       </tr>
       <tr>
         <th><%= t('.email') %></th>
@@ -27,10 +24,10 @@
     </table>
       <% if current_coach == @coach %>
         <div class="content">
-          <%= link_to "アカウントを編集する", :edit_account %>
+          <%= link_to "アカウント編集", :edit_account %>
         </div>
         <div class="content">
-          <%= link_to "アカウントを削除する", @coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+          <%= link_to "アカウント削除", @coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
         </div>
       <% end %>
     </div>

@@ -1,0 +1,15 @@
+<div class="content-wrapper" id="top-coaches">
+  <div class="content-container">
+    <div class="content-header">
+      <h2>講師</h2>
+    </div>
+    <div class="content">
+      <% if @coaches.present? %>
+        <%= render "coaches/coaches" %>
+      <% end %>
+    </div>
+    <div class="link">
+      <%= link_to "講師一覧", :coaches, class: "btn btn-primary", id: "btn-other-coaches" %>
+    </div>
+  </div>
+</div>

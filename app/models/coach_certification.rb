@@ -7,7 +7,7 @@ class CoachCertification < ActiveRecord::Base
   VALID_TOEFL = /\A([1-9]|[1-9][0-9]|1[01][0-9]|120)\z/
   validates :toefl, format: { with: VALID_TOEFL, message: :invalid_toefl }, allow_blank: true
   
-  VALID_IELTS = /\A(0\.[5]|1\.[05]|2\.[05]|3\.[05]|4\.[05]|5\.[05]|6\.[05]|7\.[05]|8\.[05]|9)\z/
+  VALID_IELTS = /\A(0\.[5]|1\.[05]|2\.[05]|3\.[05]|4\.[05]|5\.[05]|6\.[05]|7\.[05]|8\.[05]|9.[0])\z/
   validates :ielts, format: { with: VALID_IELTS, message: :invalid_ielts }, allow_blank: true
   
   VALID_KANKEN = /\A(5[級]|4[級]|3[級]|[準]2[級]|2[級]|[準]1[級]|1[級])\z/

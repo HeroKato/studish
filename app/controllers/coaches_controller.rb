@@ -16,7 +16,10 @@ class CoachesController < ApplicationController
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
     @certifications = @coach.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
-    @reports_count = @coach.coaching_reports.count
+    @reports_count = @coach.coaching_reports.readable_for(current_coach).count
+    @comments_count = @coach.comments.count
+    @favorites_count = @coach.favorites.count
+    @template = "show"
   end
   
   def new
@@ -63,6 +66,12 @@ class CoachesController < ApplicationController
   
   def account
     @coach = Coach.find(params[:id])
+  end
+  
+  def favorites
+    @coach = Coach.find(params[:id])
+    @reports = @coach.favorited_reports.order("favorites.created_at DESC").paginate(page: params[:page])
+    @template = "favorites"
   end
   
   private

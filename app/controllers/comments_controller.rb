@@ -3,10 +3,12 @@ class CommentsController < ApplicationController
   before_action :correct_comment_coach?, only: [:destroy]
   
   def index
-    current_coach_id = current_coach.id
-    @comments = Comment.where(coach_id: current_coach_id).order("created_at DESC")
+    @coach = Coach.find(params[:coach_id])
+    coach_id = @coach.id
+    @comments = Comment.where(coach_id: coach_id).order("created_at DESC")
     comment_ids = @comments.map{ |comment| comment.coaching_report_id }.uniq
-    @reports = CoachingReport.where(id: comment_ids).order_by_ids(comment_ids)
+    @reports = CoachingReport.where(id: comment_ids, status: "public_for_coaches").order_by_ids(comment_ids)
+    @template = "my-comments-index"
   end
   
   def new

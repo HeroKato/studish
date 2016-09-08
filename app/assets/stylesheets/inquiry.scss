@@ -1,10 +1,11 @@
 #inquiry {
-  padding: 90px 0;
+  padding: 15px 0;
   .content-container {
     max-width: 600px;
     margin: auto;
     .content-header {
-      margin-bottom: 40px;
+      margin-top: 45px;
+      margin-bottom: 20px;
       p {
         margin: 30px;
       }
@@ -44,6 +45,7 @@
 
 #inquiry-confirm,
 #inquiry-thanks {
+  padding-top: 15px;
   #inquiry-confirm-content-container,
   #inquiry-thanks-content-container {
     max-width: 600px;
@@ -54,10 +56,11 @@
         tbody {
           tr {
             th {
-              width: 150px;
+              width: 60px;
             }
             #inquiry-content-header {
               width: 100%;
+              text-align: left;
             }
             td {
               word-break: break-all;

@@ -1,8 +1,5 @@
 <%= render "shared/errors", obj: @coach %>
-<% if action_name == "edit" %>
-<p class="caution">パスワード以外は入力必須項目です。</p>
-<% end %>
-<p class="info"><span class="public"></span>印がついている項目以外は公開されません。</p>
+<p class="info"><span class="public"></span>印がついている項目は他のユーザーに公開されます。</p>
 
 
 <% if logged_in? %>
@@ -51,46 +48,46 @@
 
   <div class="form-group">
     <%= form.fields_for :subjects do |subsf| %>
-      <div class="">
+      <div class="subjects">
         <%= subsf.label  t(".jr_subjects"), class: "public" %>
-        <%= subsf.check_box :jr_english, {}, '英語' %><%= t(".jr_english") %>
-        <%= subsf.check_box :jr_japanese, {}, '国語' %><%= t(".jr_japanese") %>
-        <%= subsf.check_box :jr_math, {}, '数学' %><%= t(".jr_math") %>
-        <%= subsf.check_box :jr_science, {}, '理科' %><%= t(".jr_science") %>
-        <%= subsf.check_box :jr_social, {}, '社会' %><%= t(".jr_social") %>
+        <span><%= subsf.check_box :jr_english, {}, '英語' %><%= t(".jr_english") %></span>
+        <span><%= subsf.check_box :jr_japanese, {}, '国語' %><%= t(".jr_japanese") %></span>
+        <span><%= subsf.check_box :jr_math, {}, '数学' %><%= t(".jr_math") %></span>
+        <span><%= subsf.check_box :jr_science, {}, '理科' %><%= t(".jr_science") %></span>
+        <span><%= subsf.check_box :jr_social, {}, '社会' %><%= t(".jr_social") %></span>
       </div>
-      <div class="">
+      <div class="subjects">
         <%= subsf.label t(".high_subjects"), class: "public" %>
-        <%= subsf.check_box :high_english, {}, '英語' %><%= t(".high_english") %>
-        <%= subsf.check_box :modern_japanese, {}, '現代文' %> <%= t(".modern_japanese") %>
-        <%= subsf.check_box :classical_japanese, {}, '古文' %><%= t(".classical_japanese") %>
-        <%= subsf.check_box :classical_chinese, {}, '漢文' %><%= t(".classical_chinese") %>
-        <%= subsf.check_box :world_history_a, {}, '世界史A' %><%= t(".world_history_a") %>
-        <%= subsf.check_box :world_history_b, {}, '世界史B' %><%= t(".world_history_b") %>
-        <%= subsf.check_box :japanese_history_a, {}, '日本史A' %><%= t(".japanese_history_a") %>
-        <%= subsf.check_box :japanese_history_b, {}, '日本史B' %><%= t(".japanese_history_b") %>
-        <%= subsf.check_box :geography_a, {}, '地理A' %><%= t(".geography_a") %>
-        <%= subsf.check_box :geography_b, {}, '地理B' %><%= t(".geography_b") %>
-        <%= subsf.check_box :contemporary_society, {}, '現代社会' %><%= t(".contemporary_society") %>
-        <%= subsf.check_box :ethics, {}, '倫理' %><%= t(".ethics") %>
-        <%= subsf.check_box :politics_economics, {}, '政治経済' %><%= t(".politics_economics") %>
-        <%= subsf.check_box :math_1a, {}, '数学ⅠA' %><%= t(".math_1a") %>
-        <%= subsf.check_box :math_2b, {}, '数学ⅡB' %><%= t(".math_2b") %>
-        <%= subsf.check_box :math_3, {}, '数学Ⅲ' %><%= t(".math_3") %>
-        <%= subsf.check_box :basic_physics, {}, '物理基礎' %><%= t(".basic_physics") %>
-        <%= subsf.check_box :physics, {}, '物理' %><%= t(".physics") %>
-        <%= subsf.check_box :basic_chemistry, {}, '化学基礎' %><%= t(".basic_chemistry") %>
-        <%= subsf.check_box :chemistry, {}, '化学' %><%= t(".chemistry") %>
-        <%= subsf.check_box :basic_biology, {}, '生物基礎' %><%= t(".basic_biology") %>
-        <%= subsf.check_box :biology, {}, '生物' %><%= t(".biology") %>
-        <%= subsf.check_box :basic_earth_science, {}, '地学基礎' %><%= t(".basic_earth_science") %>
-        <%= subsf.check_box :earth_science, {}, '地学' %><%= t(".earth_science") %>
+        <span><%= subsf.check_box :high_english, {}, '英語' %><%= t(".high_english") %></span>
+        <span><%= subsf.check_box :modern_japanese, {}, '現代文' %><%= t(".modern_japanese") %></span>
+        <span><%= subsf.check_box :classical_japanese, {}, '古文' %><%= t(".classical_japanese") %></span>
+        <span><%= subsf.check_box :classical_chinese, {}, '漢文' %><%= t(".classical_chinese") %></span>
+        <span><%= subsf.check_box :world_history_a, {}, '世界史A' %><%= t(".world_history_a") %></span>
+        <span><%= subsf.check_box :world_history_b, {}, '世界史B' %><%= t(".world_history_b") %></span>
+        <span><%= subsf.check_box :japanese_history_a, {}, '日本史A' %><%= t(".japanese_history_a") %></span>
+        <span><%= subsf.check_box :japanese_history_b, {}, '日本史B' %><%= t(".japanese_history_b") %></span>
+        <span><%= subsf.check_box :geography_a, {}, '地理A' %><%= t(".geography_a") %></span>
+        <span><%= subsf.check_box :geography_b, {}, '地理B' %><%= t(".geography_b") %></span>
+        <span><%= subsf.check_box :contemporary_society, {}, '現代社会' %><%= t(".contemporary_society") %></span>
+        <span><%= subsf.check_box :ethics, {}, '倫理' %><%= t(".ethics") %></span>
+        <span><%= subsf.check_box :politics_economics, {}, '政治経済' %><%= t(".politics_economics") %></span>
+        <span><%= subsf.check_box :math_1a, {}, '数学ⅠA' %><%= t(".math_1a") %></span>
+        <span><%= subsf.check_box :math_2b, {}, '数学ⅡB' %><%= t(".math_2b") %></span>
+        <span><%= subsf.check_box :math_3, {}, '数学Ⅲ' %><%= t(".math_3") %></span>
+        <span><%= subsf.check_box :basic_physics, {}, '物理基礎' %><%= t(".basic_physics") %></span>
+        <span><%= subsf.check_box :physics, {}, '物理' %><%= t(".physics") %></span>
+        <span><%= subsf.check_box :basic_chemistry, {}, '化学基礎' %><%= t(".basic_chemistry") %></span>
+        <span><%= subsf.check_box :chemistry, {}, '化学' %><%= t(".chemistry") %></span>
+        <span><%= subsf.check_box :basic_biology, {}, '生物基礎' %><%= t(".basic_biology") %></span>
+        <span><%= subsf.check_box :biology, {}, '生物' %><%= t(".biology") %></span>
+        <span><%= subsf.check_box :basic_earth_science, {}, '地学基礎' %><%= t(".basic_earth_science") %></span>
+        <span><%= subsf.check_box :earth_science, {}, '地学' %><%= t(".earth_science") %></span>
       </div>
     <% end %>
   </div>
   <div class="form-group">
     <%= form.fields_for :certifications do |certf| %>
-      <div class="">
+      <div class="certifications">
         <%= certf.label t(".certifications"), class: "public" %>
         <table>
           <tr>
@@ -123,6 +120,7 @@
   </div>
 <% end %>
 
+<% if action_name == "new" %>
 <div class="form-group">
   <%= form.label :password, class: "no-public" %>
   <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
@@ -131,6 +129,7 @@
   <%= form.label :password_confirmation, class: "no-public" %>
   <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
 </div>
+<% end %>
 
 <div class="submit-group">
   <% if logged_in? %>

@@ -45,6 +45,11 @@
       br {
         display: none;
       }
+      form {
+        .form-group {
+          text-align: left;
+        }
+      }
     }
     .about-text,
     .fit-text,

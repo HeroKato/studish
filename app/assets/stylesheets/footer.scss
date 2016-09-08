@@ -1,8 +1,63 @@
+@import "color_set";
+
 footer {
-  padding: 40px 0;
-  font-size: 13px;
-  .copyright {
-    text-align: center;
-    color: #aaa;
+  z-index: 9999;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  .footer-inner {
+    border-top: solid 1px $grey2;
+    height: 40px;
+    background-color: #fff;
+    span.footer-content {
+      float: left;
+      width: 33.3333%;
+      text-align: center;
+      a {
+        display: inline-block;
+        color: $grey2;
+        width: 100%;
+        line-height: 1;
+        padding: 5px;
+        .bell-red {
+          color: $bell-red;
+        }
+        i.fa-home,
+        i.fa-user {
+          margin-right: 0;
+          display: inline-block;
+          width: 100%;
+        }
+        p {
+          display: inline-block;
+          width: 100%;
+          margin-top: 6px;
+          margin-bottom: 0;
+          font-size: 8px;
+        }
+        span.notification {
+          display: inline-block;
+          width: 100%;
+          i {
+            margin-right: 0;
+          }
+        }
+      }
+      a:hover {
+        background-color: $grey2;
+        color: #fff;
+        .bell-red {
+          color: $bell-red-hover;
+        }
+      }
+      a:active {
+        background-color: $grey2;
+        color: #fff;
+        .bell-red {
+          color: $bell-red-hover;
+        }
+      }
+    }
   }
 }
