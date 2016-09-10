@@ -5,7 +5,7 @@
         <% if coach.picture.present? %>
           <%= image_tag coach.picture, oncontextmenu: "return false;", class: "grey3" %>
         <% else %>
-          <%= image_tag("no_image.png") %>
+          <%= image_tag "", class: "no-image" %>
         <% end %>
       </div>
       <div class="profs">

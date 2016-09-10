@@ -4,7 +4,7 @@
       <% if report.author.picture.present? %>
         <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
       <% else %>
-        <%= image_tag("no_image.png") %>
+        <%= image_tag "", class: "no-image" %>
       <% end %>
     <% end %>
   </div>

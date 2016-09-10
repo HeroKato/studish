@@ -11,8 +11,12 @@
         <div class="content-container">
           <div class="content clearfix">
             <div class="coach-img">
-              <%= link_to n.coach do %>
-                <%= image_tag n.coach.picture.url, oncontextmenu: "return false;" %>
+              <% if n.coach.picture.present? %>
+                <%= link_to n.coach do %>
+                  <%= image_tag n.coach.picture.url, oncontextmenu: "return false;" %>
+                <% end %>
+              <% else %>
+                <%= image_tag "", class: "no-image" %>
               <% end %>
             </div>
             <div class="infos-wrapper clearfix">

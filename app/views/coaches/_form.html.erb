@@ -5,7 +5,11 @@
 <% if logged_in? %>
   <div class="coach-picture">
   <div><%= form.label :picture, class: "public"%></div>
-  <%= image_tag @coach.picture.url if @coach.picture? %>
+  <% if @coach.picture.present? %>
+    <%= image_tag @coach.picture.url, oncontextmenu: "return false;" %>
+  <% else %>
+    <%= image_tag "", class: "no-image" %>
+  <% end %>
   <div class="file">
   <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
   <%= form.hidden_field :picture_cache %>

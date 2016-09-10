@@ -8,7 +8,7 @@
           <% if comment.coach.picture.present? %>
             <%= image_tag comment.coach.picture.url, oncontextmenu: "return false;" %>
           <% else %>
-            <%= image_tag("no_image.png") %>
+            <%= image_tag "", class: "no-image" %>
           <% end %>
         <% end %>
       </div>
