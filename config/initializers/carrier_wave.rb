@@ -1,4 +1,4 @@
-if Rails.env.production?
+if Rails.env.production? || Rails.env.staging?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       # Amazon S3用の設定
