@@ -38,7 +38,7 @@ class PasswordResetsController < ApplicationController
   private
   
     def coach_params
-      params.require(:coach).permit(:password, :password_confirmation)
+      params.require(:coach).permit(:password, :password_confirmation, :name, :university, :mojor, :school_year, :self_introduction)
     end
   
     def get_coach
