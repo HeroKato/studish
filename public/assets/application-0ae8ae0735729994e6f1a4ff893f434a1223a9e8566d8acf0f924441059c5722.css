@@ -216,31 +216,32 @@ table.list td {
 /* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container {
   padding: 15px 10px;
+  padding-bottom: 55px;
 }
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-1 {
   margin-bottom: 15px;
 }
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-2 {
   text-align: left;
 }
-/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-2 .prof2-content {
   margin-bottom: 15px;
 }
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-2 .prof2-content label {
   display: block;
   line-height: 1;
   margin-bottom: 7px;
 }
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-2 .prof2-content p {
   line-height: 1.7;
   word-wrap: break-word;
 }
-/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-2 .prof2-content.subjects .subject-wrapper {
   display: inline-block;
   background-color: #fff;
@@ -251,7 +252,7 @@ table.list td {
   line-height: 1;
   color: #898989;
 }
-/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.coach-prof-2 .prof2-content.certifications .certification {
   background-color: #fff;
   border: solid 2px #898989;
@@ -264,7 +265,7 @@ table.list td {
   line-height: 1;
   color: #898989;
 }
-/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.edit-link a {
   display: inline-block;
   border: 1px solid #898989;
@@ -275,7 +276,7 @@ table.list td {
   color: #898989;
   text-decoration: none;
 }
-/* line 64, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
+/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/coach_show.scss */
 #coach-profile .content-container .content.edit-link a:hover {
   background-color: #898989;
   color: #fff;
@@ -675,7 +676,8 @@ span.comments i {
   clear: both;
   float: left;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 0;
+  margin-bottom: 40px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1047,80 +1049,6 @@ p.notice {
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer {
-  z-index: 9999;
-  height: 40px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner {
-  border-top: solid 1px #898989;
-  height: 40px;
-  background-color: #fff;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content {
-  float: left;
-  width: 33.3333%;
-  text-align: center;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a {
-  display: inline-block;
-  color: #898989;
-  width: 100%;
-  line-height: 1;
-  padding: 5px;
-}
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a .bell-red {
-  color: #ff3b3b;
-}
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a i.fa-home,
-footer .footer-inner span.footer-content a i.fa-user {
-  margin-right: 0;
-  display: inline-block;
-  width: 100%;
-}
-/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a p {
-  display: inline-block;
-  width: 100%;
-  margin-top: 6px;
-  margin-bottom: 0;
-  font-size: 8px;
-}
-/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a span.notification {
-  display: inline-block;
-  width: 100%;
-}
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a span.notification i {
-  margin-right: 0;
-}
-/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a:hover {
-  background-color: #898989;
-  color: #fff;
-}
-/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a:hover .bell-red {
-  color: #ffd8d8;
-}
-/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a:active {
-  background-color: #898989;
-  color: #fff;
-}
-/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/footer.scss */
-footer .footer-inner span.footer-content a:active .bell-red {
-  color: #ffd8d8;
-}
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
@@ -1189,37 +1117,40 @@ footer .footer-inner span.footer-content a:active .bell-red {
 textarea {
   resize: vertical;
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header {
   z-index: 9999;
   height: 40px;
 }
-/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar {
   width: 100%;
   margin: 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar.navbar-default {
   background-color: #fff !important;
 }
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .container-fluid {
   margin: 0 !important;
   padding: 0 !important;
 }
-/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner {
   max-width: 1200px;
   margin: 0;
 }
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-header h1 {
   margin: 0 !important;
   /* padding: 10px 0 0 0 !important; */
 }
-/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-header h1 a {
   width: 120px;
   height: 30px !important;
@@ -1230,98 +1161,110 @@ header .navbar .navbar-inner .navbar-header h1 a {
   white-space: nowrap;
   text-indent: 99999px;
 }
-/* line 33, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-header button.navbar-toggle {
   margin: 0;
   padding: 13px 10px;
   border: none;
   background-color: #fff;
 }
-/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-collapse.collapse,
 header .navbar .navbar-inner .navbar-collapse.collapsing {
   margin-top: 0;
   max-height: 470px;
 }
-/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-collapse.collapse ul li a,
 header .navbar .navbar-inner .navbar-collapse.collapsing ul li a {
   padding: 10px;
 }
-/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-collapse.collapse ul .dropdown .dropdown-toggle,
 header .navbar .navbar-inner .navbar-collapse.collapsing ul .dropdown .dropdown-toggle {
   padding: 10px 20px 10px 10px;
 }
-/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 61, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a {
   padding: 10px;
 }
-/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a i {
   margin-right: 5px;
 }
 /* line 68, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav li a i.fa-bell-o {
+  margin-right: 3px;
+}
+/* line 71, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav li a span.notification {
+  margin-right: 5px;
+}
+/* line 74, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav li a span.notification.bell-red {
+  color: #ff3b3b;
+}
+/* line 79, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .divider {
   height: 1px;
   background-color: #e5e5e5;
 }
-/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 84, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle {
   padding: 10px;
   color: #777;
 }
-/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 87, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle span {
   font-size: 8px;
 }
-/* line 80, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 91, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:hover,
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:focus {
   color: #333;
 }
-/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 96, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu {
   padding: 0;
 }
-/* line 88, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li.divider {
   margin: 0;
 }
-/* line 91, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 102, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   padding: 10px 20px;
 }
 
 @media (min-width: 768px) {
-  /* line 108, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 119, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav .dropdown .dropdown-toggle {
     padding: 20px;
     color: #777;
   }
-  /* line 114, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 125, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav li a {
     padding: 20px;
   }
 }
 @media (max-width: 768px) {
-  /* line 126, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 137, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-toggle {
     margin-top: 11px;
   }
 
-  /* line 129, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 140, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-collapse {
     margin-top: 10px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 137, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 148, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner {
     margin: 0 auto;
   }
@@ -1877,6 +1820,11 @@ a.more {
   #new-notifications .content-container .content .commented-report .report-title {
     font-size: 18px;
   }
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/no_image.scss */
+.no-image {
+  background: url(/assets/no_image-56dc13dfc9cf7b9eae38e78dfe7da97026b9e162e5a7ae56749baa9a86e843a4.png) no-repeat center;
+  background-size: cover;
 }
 /* body.color */
 /* subjects.color subjects.border-color */
