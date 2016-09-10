@@ -26,11 +26,11 @@ class Coach < ActiveRecord::Base
             format: { with: VALID_NAME_REGEX, message: :invalid_name },
             length: { minimum: 2, maximum: 30 },
             uniqueness: { case_sensitive: true }
-  validates :name, presence: true, on: :update
+  validates :name, presence: true, on: :normal_update
             
   VALID_FULLNAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
   validates :account_name, presence: true,
-            format: { with: VALID_FULLNAME_REGEX, allow_blank: false, message: :invalid_full_name },
+            format: { with: VALID_FULLNAME_REGEX, allow_blank: false, message: :invalid_account_name },
             length: { minimum: 6, maximum: 30 },
             uniqueness: { case_sensitive: true }
   
@@ -47,19 +47,19 @@ class Coach < ActiveRecord::Base
   VALID_UNIV = /\A(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :university, format: { with: VALID_UNIV },
                          length: { minimum: 2, maximum: 30 }, allow_blank: true
-  validates :university, presence: true, on: :update
+  validates :university, presence: true, on: :normal_update
                          
   VALID_MAJOR = /\A(?:[\w]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :major, format: { with: VALID_MAJOR },
                     length: { minimum: 2, maximum: 50 }, allow_blank: true
-  validates :major, presence: true, on: :update
+  validates :major, presence: true, on: :normal_update
                     
   VALID_SCHOOL_YEAR = /\A([院]|[M]|[m])[0-9\d][年]\z/
   validates :school_year, length: { minimum: 1, maximum: 20 }, allow_blank: true
-  validates :school_year, presence: true, on: :update
+  validates :school_year, presence: true, on: :normal_update
   
   validates :self_introduction, length: { minimum: 1, maximum: 1200 }, allow_blank: true
-  validates :self_introduction, presence: true, on: :update
+  validates :self_introduction, presence: true, on: :normal_update
   
   VALID_SKYPE_REGEX = /\A[a-z\d]+[\w+\-.,]+\z/i
   validates :skype, format: { with: VALID_SKYPE_REGEX, message: :invalid_skype },

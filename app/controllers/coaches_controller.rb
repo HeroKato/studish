@@ -51,7 +51,8 @@ class CoachesController < ApplicationController
   end
   
   def update
-    if @coach.update_attributes(coach_params)
+    @coach.assign_attributes(coach_params)
+    if  @coach.save(context: :normal_update)
       flash[:success] = "Profile Edit Success!"
       redirect_to @coach
     else
