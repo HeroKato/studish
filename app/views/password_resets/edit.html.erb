@@ -12,7 +12,7 @@
     
     <div class="content">
       <%= form_for(@coach, url: password_reset_path(params[:id])) do |f| %>
-        <%= render 'shared/errors' %>
+        <%= render 'shared/errors', obj: @coach %>
         
         <%= hidden_field_tag :email, @coach.email %>
         
