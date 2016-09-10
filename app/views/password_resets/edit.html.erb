@@ -15,6 +15,11 @@
         <%= render 'shared/errors', obj: @coach %>
         
         <%= hidden_field_tag :email, @coach.email %>
+        <%= hidden_field_tag :email, @coach.name %>
+        <%= hidden_field_tag :email, @coach.university %>
+        <%= hidden_field_tag :email, @coach.mojor %>
+        <%= hidden_field_tag :email, @coach.school_year %>
+        <%= hidden_field_tag :email, @coach.self_introduction %>
         
         <div class="form-group">
           <%= f.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
