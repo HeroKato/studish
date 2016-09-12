@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :logged_in?
+  before_action :logged_in_as_coach?
   before_action :correct_comment_coach?, only: [:destroy]
   
   def index

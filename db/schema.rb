@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905111207) do
+ActiveRecord::Schema.define(version: 20160911212814) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -129,5 +129,25 @@ ActiveRecord::Schema.define(version: 20160905111207) do
   add_index "favorites", ["coach_id"], name: "index_favorites_on_coach_id"
   add_index "favorites", ["coaching_report_id"], name: "index_favorites_on_coaching_report_id"
   add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.string   "account_name",      null: false
+    t.string   "email",             null: false
+    t.text     "self_introduction"
+    t.string   "password_digest",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "remember_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated"
+    t.datetime "activated_at"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
+  end
+
+  add_index "students", ["account_name"], name: "index_students_on_account_name"
+  add_index "students", ["email"], name: "index_students_on_email"
+  add_index "students", ["name"], name: "index_students_on_name"
 
 end

@@ -28,9 +28,9 @@ class Coach < ActiveRecord::Base
             uniqueness: { case_sensitive: true }
   validates :name, presence: true, on: :normal_update
             
-  VALID_FULLNAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
+  VALID_ACCOUNT_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
   validates :account_name, presence: true,
-            format: { with: VALID_FULLNAME_REGEX, allow_blank: false, message: :invalid_account_name },
+            format: { with: VALID_ACCOUNT_NAME_REGEX, allow_blank: false, message: :invalid_account_name },
             length: { minimum: 6, maximum: 30 },
             uniqueness: { case_sensitive: true }
   

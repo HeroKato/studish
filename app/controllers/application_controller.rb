@@ -10,9 +10,17 @@ class ApplicationController < ActionController::Base
   private
   # ログインしている講師かどうか確認
   def logged_in_coach
-    unless logged_in?
+    unless logged_in_as_coach?
       store_location
       flash[:denger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+  
+  def logged_in_student
+    unless logged_in_as_student?
+      store_location
+      flash[:danger] = "Please log in"
       redirect_to login_url
     end
   end
@@ -21,8 +29,16 @@ class ApplicationController < ActionController::Base
   def correct_coach
     @coach = Coach.find(params[:id])
     unless current_coach?(@coach)
-      redirect_to(login_url)
       flash[:danger] = "Please log in as correct user."
+      redirect_to(login_url)
+    end
+  end
+  
+  def correct_student
+    @student = Student.find(params[:id])
+    unless current_student?(@student)
+      flash[:danger] = "Please log in as correct user."
+      redirect_to(login_url)
     end
   end
   
@@ -33,11 +49,13 @@ class ApplicationController < ActionController::Base
   end
   
   def set_notifications_count
-    if logged_in?
-      current_coach_id = current_coach.id
-      @not_read_comments = Comment.where(commented_coach_id: current_coach_id, read_flag: false).count
-      @not_checked_favorites = Favorite.where(favorited_coach_id: current_coach_id, check_flag: false).count
-      @notificaitions_count = @not_read_comments+@not_checked_favorites
+    unless student?
+      if logged_in_as_coach?
+        current_coach_id = current_coach.id
+        @not_read_comments = Comment.where(commented_coach_id: current_coach_id, read_flag: false).count
+        @not_checked_favorites = Favorite.where(favorited_coach_id: current_coach_id, check_flag: false).count
+        @notificaitions_count = @not_read_comments+@not_checked_favorites
+      end
     end
   end
   
@@ -53,6 +71,13 @@ class ApplicationController < ActionController::Base
           n.save
         end
       end
+    end
+  end
+  
+  def student?
+    if params[:student_id]
+    else
+      return false
     end
   end
   

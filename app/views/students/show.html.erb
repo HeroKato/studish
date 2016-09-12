@@ -1,0 +1,45 @@
+<% content_for :head do %>
+<title><%= @student.account_name %>さんのプロフィール | Studish</title>
+<meta name="description" content="Studish生徒のプロフィールページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="content-wrapper" id="student-profile">
+  <div class="content-container">
+    <% if flash.notice %>
+      <div class="content notice">
+        <p class="notice"><%= flash.notice %></p>
+      </div>
+    <% end %>
+    <div class= "content student-card clearfix">
+      <div class="img-wrapper">
+        <%= image_tag "", class: "no-image" %>
+      </div>
+      <ul class="stats clearfix">
+        <li class="stat clearfix" id="stat1"><span class="count">999</span><span class="item">投稿</span></li>
+        <li class="stat clearfix" id="stat2"><span class="count">999</span><span class="item">クエスチョン</span></li>
+        <li class="stat clearfix" id="stat3"><span class="count">999</span><span class="item">アンサー</span></li>
+        <li class="stat clearfix" id="stat4"><span class="count">999</span><span class="item">フォロワー</span></li>
+        <li class="stat clearfix" id="stat5"><span class="count">999</span><span class="item">フォロー中</span></li>
+        <li class="stat clearfix" id="stat6"><span class="count">999</span><span class="item">何かしら</span></li>
+      </ul>
+      <% if current_student %>
+        <div class="content edit-link">
+          <%= link_to "プロフィール編集", edit_student_path(current_student) %>
+        </div>
+      <% else %>
+        <div class="content follow-check">
+          <span><i class="fa fa-check"></i><span class="item">follow</span></span>
+        </div>
+      <% end %>
+    </div>
+    <div class="content profile">
+      <span class="prof account_name"><%= @student.account_name %></span>
+      <span class="prof name"><%= @student.name %></span>
+      <%= simple_format(@student.self_introduction, class: "self-introduction") %>
+    </div>
+    <div class="content posts">
+      <span>投稿画像一覧</span>
+    </div>
+  </div>
+</div>

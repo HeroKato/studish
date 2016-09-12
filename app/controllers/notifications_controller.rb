@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-  before_action :logged_in?
+  before_action :logged_in_as_coach?
   after_action :save_flags, only: [:index]
   
   def index

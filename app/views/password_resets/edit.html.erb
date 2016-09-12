@@ -11,20 +11,36 @@
     </div>
     
     <div class="content">
-      <%= form_for(@coach, url: password_reset_path(params[:id])) do |f| %>
-        <%= render 'shared/errors', obj: @coach %>
-        
-        <%= hidden_field_tag :email, @coach.email %>
-        
-        <div class="form-group">
-          <%= f.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
-        </div>
-        <div class="form-group">
-          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワードの確認" %>
-        </div>
-        <div class="submit-group">
-          <%= f.submit "Update password", class: "btn btn-primary", method: "patch" %>
-        </div>
+      <% if @coach %>
+        <%= form_for(@coach, url: password_reset_path(params[:id])) do |f| %>
+          <%= render 'shared/errors', obj: @coach %>
+          <%= hidden_field_tag :email, @coach.email %>
+          
+          <div class="form-group">
+            <%= f.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワードの確認" %>
+          </div>
+          <div class="submit-group">
+            <%= f.submit "Update password", class: "btn btn-primary", method: "patch" %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= form_for(@student, url: password_reset_path(params[:id])) do |f| %>
+          <%= render 'shared/errors', obj: @student %>
+          <%= hidden_field_tag :email, @student.email %>
+          
+          <div class="form-group">
+            <%= f.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワードの確認" %>
+          </div>
+          <div class="submit-group">
+            <%= f.submit "Update password", class: "btn btn-primary", method: "patch" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

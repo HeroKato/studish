@@ -26,7 +26,7 @@
         <div class="prof coach-schlyr"><%= @coach.school_year %></div>
       </div>
     </div>
-    <% if logged_in? %>
+    <% if logged_in_as_coach? %>
     <div class="features clearfix">
       <span>
         <%= link_to coach_coaching_reports_path(@coach), id: "feature1" do %>

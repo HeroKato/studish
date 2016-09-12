@@ -27,7 +27,7 @@
   <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
 </div>
 <div class="submit-group">
-  <% if logged_in? %>
+  <% if logged_in_as_coach? %>
     <%= form.submit "更新する", class: "btn btn-primary" %>
   <% else %>
     <%= form.submit "Create my account", class: "btn btn-primary" %>

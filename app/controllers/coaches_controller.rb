@@ -16,7 +16,7 @@ class CoachesController < ApplicationController
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
     @certifications = @coach.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
-    if logged_in?
+    if logged_in_as_coach?
       @reports_count = @coach.coaching_reports.readable_for(current_coach).count
       @comments_count = @coach.comments.count
       @favorites_count = @coach.favorites.count
@@ -25,7 +25,7 @@ class CoachesController < ApplicationController
   end
   
   def new
-    unless logged_in?
+    unless logged_in_as_coach?
       @coach = Coach.new(birthday: Date.new(1997, 1, 1))
     else
       flash[:danger] = "Please log out before creating a new coach account."
@@ -119,7 +119,7 @@ class CoachesController < ApplicationController
   
   # ログイン済みユーザーかどうか確認
   def logged_in_coach
-    unless logged_in?
+    unless logged_in_as_coach?
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url

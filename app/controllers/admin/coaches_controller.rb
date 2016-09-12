@@ -12,7 +12,7 @@ class Admin::CoachesController < Admin::Base
   end
   
   def new
-    unless logged_in?
+    unless logged_in_as_coach?
       @coach = Coach.new(birthday: Date.new(1997, 1, 1))
     else
       flash[:danger] = "Please log out before creating a new coach account."
@@ -73,9 +73,9 @@ class Admin::CoachesController < Admin::Base
     end
   end
   
-  # ログイン済みユーザーかどうか確認
+  # ログイン済みユーザー（講師）かどうかチェックする
   def logged_in_coach
-    unless logged_in?
+    unless logged_in_as_coach?
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url

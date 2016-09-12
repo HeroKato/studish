@@ -1,0 +1,9 @@
+<h1>Studish</h1>
+
+<p>Hi <%= @student.account_name %>,</p>
+
+<p>
+Welcome to the Studish! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activation", edit_account_activation_url(@student.activation_token, email: @student.email) %>

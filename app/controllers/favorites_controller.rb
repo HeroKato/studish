@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :logged_in?
+  before_action :logged_in_as_coach?
   
   def create
     @report = CoachingReport.find(params[:coaching_report_id])
