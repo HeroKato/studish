@@ -1,0 +1,30 @@
+<li id="post-<%= post.id %>">
+  <div class="post-header clearfix">
+    <%= link_to post.student do %>
+      <div class="student-img">
+        <%= image_tag post.student.profile_picture.medium.url, oncontextmenu: "return false;" %>
+      </div>
+    <% end %>
+    <div class="student-info">
+      <%= link_to post.student do %>
+        <span class="account_name"><%= post.student.account_name %></span><span class="name">@<%= post.student.name %></span>
+      <% end %>
+    </div>
+    <div class="function">
+      <% if current_student == post.student %>
+        <%= link_to "編集", [:edit, post] %>
+        <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
+    </div>
+  </div>
+  <span class="post-pictures">
+    <% post.post_pictures.each do |pic| %>
+      <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;" %>
+    <% end %>
+  </span>
+  <span class="timestamp"><%= time_ago_in_words(post.created_at) %>前</span>
+  <div class="caption">
+  <%= simple_format(post.caption, class: "caption") %>
+  </div>
+</li>
+<hr class="horizontal-line">

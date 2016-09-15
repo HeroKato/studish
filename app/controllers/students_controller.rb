@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   
   def show
     @student = Student.find(params[:id])
+    @posts = @student.posts
   end
   
   def new
@@ -39,7 +40,7 @@ class StudentsController < ApplicationController
   private
   
   def student_params
-    params.require(:student).permit(:account_name, :name, :email, :self_introduction, :password, :password_confirmation)
+    params.require(:student).permit(:account_name, :name, :email, :self_introduction, :profile_picture, :profile_picture_cache, :password, :password_confirmation)
   end
   
   # 有効化トークンとダイジェストを作成および代入する

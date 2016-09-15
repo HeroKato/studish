@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911212814) do
+ActiveRecord::Schema.define(version: 20160913163803) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -130,6 +130,30 @@ ActiveRecord::Schema.define(version: 20160911212814) do
   add_index "favorites", ["coaching_report_id"], name: "index_favorites_on_coaching_report_id"
   add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
 
+  create_table "post_pictures", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "post_id"
+    t.string   "pictures"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "post_pictures", ["post_id", "created_at"], name: "index_post_pictures_on_post_id_and_created_at"
+  add_index "post_pictures", ["post_id"], name: "index_post_pictures_on_post_id"
+  add_index "post_pictures", ["student_id", "created_at"], name: "index_post_pictures_on_student_id_and_created_at"
+  add_index "post_pictures", ["student_id"], name: "index_post_pictures_on_student_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "student_id"
+    t.text     "caption"
+    t.string   "status",     default: "public", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "posts", ["student_id", "created_at"], name: "index_posts_on_student_id_and_created_at"
+  add_index "posts", ["student_id"], name: "index_posts_on_student_id"
+
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.string   "account_name",      null: false
@@ -144,6 +168,7 @@ ActiveRecord::Schema.define(version: 20160911212814) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "profile_picture"
   end
 
   add_index "students", ["account_name"], name: "index_students_on_account_name"

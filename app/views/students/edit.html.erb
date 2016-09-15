@@ -4,10 +4,10 @@
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="studish-edit">
+<div class="content-wrapper" id="student-edit">
   <div class="content-container">
     <div class="content">
-      <%= form_for @student do |form| %>
+      <%= form_for(@student, html: {multipart: true}) do |form| %>
         <%= render "form", form: form %>
       <% end %>
     </div>

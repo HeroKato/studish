@@ -67,6 +67,11 @@
             
             <% if logged_in_as_student? %>
               <li><%= link_to "プロフィール", student_path(current_student) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "投稿", new_post_path(current_student) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "タイムライン", posts_path(current_student) %></li>
+              <li role="separator" class="divider"></li>
             <% end %>
             
             <li class="dropdown">
@@ -117,6 +122,7 @@
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "講師一覧", :coaches %></li>
                 <% elsif logged_in_as_student? %>
+                  <li role="separator" class="divider"></li>
                   <li>
                     <%= link_to logout_path, method: "delete" do  %>
                       ログアウト | <% if current_student.name.present? %><%= current_student.name %><% else %>名前が未入力です<% end %>

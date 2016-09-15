@@ -61,6 +61,16 @@ Rails.application.routes.draw do
   
   
   resources :students
+  resources :posts
+  
+  resources :students do
+    resources :posts
+    resources :post_pictures
+  end
+  
+  resources :posts do
+    resources :post_pictures
+  end
 
   
   # The priority is based upon order of creation: first created -> highest priority.

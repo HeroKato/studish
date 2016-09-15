@@ -1,21 +1,22 @@
 # encoding: utf-8
 
-class PictureUploader < CarrierWave::Uploader::Base
+class PostPictureUploader < CarrierWave::Uploader::Base
+  # Include RMagick or MiniMagick support:
+  # include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
   include CarrierWave::MiniMagick
   include CarrierWave::RMagick
   
   version :small do
-    process :resize_to_fit => [38, 38]
+    process :resize_to_fit => [210, 297]
   end
   
   version :medium do
-    process :resize_to_fit => [48, 48]
+    process :resize_to_fit => [420, 595]
   end
   
-  version :large do
-    process :resize_to_fit => [98, 98]
-  end
-  
+  process :fix_rotate
+ 
   def fix_rotate
     manipulate! do |img|
       img = img.auto_orient

@@ -2,6 +2,11 @@ class Student < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
+  mount_uploader :profile_picture, PictureUploader
+  validate :picture_size
+  
+  has_many :posts, dependent: :destroy
+  has_many :posted_pictures, through: :posts, source: :post_pictures
   
   VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :name, allow_blank: true,
@@ -99,7 +104,7 @@ class Student < ActiveRecord::Base
   end
   
   def picture_size
-    if picture.size > 5.megabytes
+    if profile_picture.size > 5.megabytes
       errors.add(:picture, "should be less than 5MB")
     end
   end

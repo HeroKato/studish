@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def correct_student
-    @student = Student.find(params[:id])
+    @student = Student.find_by(params[:student_id])
     unless current_student?(@student)
       flash[:danger] = "Please log in as correct user."
       redirect_to(login_url)

@@ -13,7 +13,11 @@
     <% end %>
     <div class= "content student-card clearfix">
       <div class="img-wrapper">
-        <%= image_tag "", class: "no-image" %>
+        <% if @student.profile_picture.present? %>
+          <%= image_tag @student.profile_picture.large.url, oncontextmenu: "return false;" %>
+        <% else %>
+          <%= image_tag "", class: "no-image" %>
+        <% end %>
       </div>
       <ul class="stats clearfix">
         <li class="stat clearfix" id="stat1"><span class="count">999</span><span class="item">投稿</span></li>
@@ -21,7 +25,7 @@
         <li class="stat clearfix" id="stat3"><span class="count">999</span><span class="item">アンサー</span></li>
         <li class="stat clearfix" id="stat4"><span class="count">999</span><span class="item">フォロワー</span></li>
         <li class="stat clearfix" id="stat5"><span class="count">999</span><span class="item">フォロー中</span></li>
-        <li class="stat clearfix" id="stat6"><span class="count">999</span><span class="item">何かしら</span></li>
+        <li class="stat clearfix" id="stat6"><span class="count">999</span><span class="item">いいね</span></li>
       </ul>
       <% if current_student %>
         <div class="content edit-link">
@@ -35,11 +39,15 @@
     </div>
     <div class="content profile">
       <span class="prof account_name"><%= @student.account_name %></span>
-      <span class="prof name"><%= @student.name %></span>
+      <span class="prof name">@<%= @student.name %></span>
       <%= simple_format(@student.self_introduction, class: "self-introduction") %>
     </div>
     <div class="content posts">
-      <span>投稿画像一覧</span>
+      <% if @student.posts.any? %>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+      <% end %>
     </div>
   </div>
 </div>
