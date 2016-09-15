@@ -1,0 +1,33 @@
+@import "color_set";
+
+#student-edit {
+  .content-container {
+    .content {
+      .profile-picture {
+        margin-bottom: 15px;
+        img {
+          width: 100px;
+          height: 100px;
+          border: solid 1px $grey2;
+        }
+      }
+      label.new-picture {
+        
+      }
+      p#preview {
+        img {
+          width: 100px;
+          height: 100px;
+          border: solid 1px $grey2;
+        }
+      }
+      p.upload {
+        label {
+          input {
+            
+          }
+        }
+      }
+    }
+  }
+}

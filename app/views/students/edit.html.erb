@@ -7,7 +7,7 @@
 <div class="content-wrapper" id="student-edit">
   <div class="content-container">
     <div class="content">
-      <%= form_for(@student, html: {multipart: true}) do |form| %>
+      <%= form_for(@student, html: {multipart: true}, action: "#", enctype: "multipart/form-data") do |form| %>
         <%= render "form", form: form %>
       <% end %>
     </div>

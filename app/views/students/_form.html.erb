@@ -1,42 +1,41 @@
 <%= render "shared/errors", obj: @student %>
-<p class="info"><span class="public"></span>印がついている項目は他のユーザーに公開されます。</p>
 
-<div class="student-profile_picture">
-  <div><%= form.label :profile_picture, class: "public"%></div>
+<div class="profile-picture">
+  <div><%= form.label :present_picture %></div>
   <% if @student.profile_picture.present? %>
-    <%= image_tag @student.profile_picture.url, oncontextmenu: "return false;" %>
+    <%= image_tag @student.profile_picture.large.url, oncontextmenu: "return false;" %>
   <% else %>
     <%= image_tag "", class: "no-image" %>
   <% end %>
-  <div class="file">
-  <%= form.file_field :profile_picture, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
-  <%= form.hidden_field :profile_picture_cache %>
-  </div>
 </div>
-<script type="text/javascript">
-  $('#student_profile_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('Maximum file size is 5MB. Please choose a smaller file.');
-    }
-  });
-</script>
+
+<%= form.label :new_picture, class: "new-picture" %>
+<p id="preview"></p>
+<p class="upload">
+  <label>
+    <input type="file" name="images[]" multiple="multiple" accept="image/*"
+        title="画像をアップロードする" />
+    <%= form.file_field :profile_picture, type: "file", accept: 'image/jpeg,image/gif,image/png'  %>
+    <img src="/assets/button.png" class="button" alt="" />
+    <%= form.hidden_field :profile_picture_cache %>
+  </label>
+</p>
 
 <div class="form-group">
-  <%= form.label :name, class: "public" %>
+  <%= form.label :name %>
   <%= form.text_field :name, class: "form-control", placeholder: "変更可能" %>
 </div>
 <div class="form-group self_introduction">
-  <%= form.label :self_introduction, class: "public" %>
+  <%= form.label :self_introduction %>
   <%= form.text_area :self_introduction, rows: "10", class: "form-control", placeholder: "最大1000字" %>
 </div>
 <p>パスワードは変更したい場合のみ入力</p>
 <div class="form-group">
-  <%= form.label :password, class: "no-public" %>
+  <%= form.label :password  %>
   <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
 </div>
 <div class="form-group">
-  <%= form.label :password_confirmation, class: "no-public" %>
+  <%= form.label :password_confirmation %>
   <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
 </div>
 <div class="submit-group">

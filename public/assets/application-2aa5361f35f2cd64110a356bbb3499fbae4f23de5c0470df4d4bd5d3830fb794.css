@@ -1890,6 +1890,36 @@ div.pagination {
 ul.pagination {
   margin: 0;
 }
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/picture_upload.scss */
+form img.thumb {
+  vertical-align: bottom;
+}
+
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/picture_upload.scss */
+form .upload label {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/picture_upload.scss */
+form .upload label input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  font-size: 100px;
+  opacity: 0.01;
+  -ms-filter: "alpha(opacity=1)";
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/picture_upload.scss */
+form .upload .alt {
+  padding: 4px;
+  border: 1px solid #999;
+  vertical-align: middle;
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/plan.scss */
 #plan {
   background-color: #aab8b9;
@@ -2145,6 +2175,134 @@ ul.pagination {
   .share-btn {
     border-radius: 30px;
   }
+}
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/post_new.scss */
+.content-wrapper#new-post {
+  padding: 15px 0;
+}
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+#posts {
+  padding: 0;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+#posts .content-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts {
+  padding: 0;
+}
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li {
+  list-style: none;
+  margin-bottom: 15px;
+}
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header {
+  padding: 10px;
+}
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-img {
+  float: left;
+}
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #898989;
+  border-radius: 3px;
+}
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-info {
+  margin-left: 60px;
+  text-align: left;
+  line-height: 1;
+}
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-info a {
+  display: inline-block;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-info a span {
+  display: inline-block;
+}
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-info a span.account_name {
+  margin-right: 5px;
+}
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .student-info a span.name {
+  color: #d3d3d3;
+}
+/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .function {
+  text-align: right;
+  line-height: 1;
+}
+/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li .post-header .function a {
+  display: inline-block;
+  color: #afafaf;
+  line-height: 1;
+  text-decoration: none;
+}
+/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li span.post-pictures img {
+  max-width: 100%;
+  height: auto;
+}
+/* line 67, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li span.timestamp {
+  display: block;
+  text-align: left;
+  color: #d3d3d3;
+  padding-left: 10px;
+  font-size: 8px;
+}
+/* line 74, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li div.caption {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
+.content.posts ol.posts li div.caption p {
+  text-align: left;
+  line-height: 1.4;
+}
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/student/student_edit.scss */
+#student-edit .content-container .content .profile-picture {
+  margin-bottom: 15px;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/student_edit.scss */
+#student-edit .content-container .content .profile-picture img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px #898989;
+}
+/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/student/student_edit.scss */
+#student-edit .content-container .content p#preview img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px #898989;
 }
 /* body.color */
 /* subjects.color subjects.border-color */
