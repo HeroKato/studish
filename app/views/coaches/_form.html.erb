@@ -3,26 +3,19 @@
 
 
 <% if logged_in_as_coach? %>
-  <div class="coach-picture">
-    <div><%= form.label :picture, class: "public"%></div>
-    <% if @coach.picture.present? %>
-      <%= image_tag @coach.picture.url, oncontextmenu: "return false;" %>
+  <div class="present-avatar clearfix">
+    <div><%= form.label :avatar, class: "public"%></div>
+    <% if @coach.avatar.present? %>
+      <%= image_tag @coach.avatar.url, oncontextmenu: "return false;", class: "avatar avatar-large" %>
     <% else %>
-      <%= image_tag "", class: "no-image" %>
+      <%= image_tag "", class: "avatar avatar-large no-image" %>
     <% end %>
-    <div class="file">
-    <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
-    <%= form.hidden_field :picture_cache %>
-    </div>
   </div>
-  <script type="text/javascript">
-    $('#coach_picture').bind('change', function() {
-      var size_in_megabytes = this.files[0].size/1024/1024;
-      if (size_in_megabytes > 5) {
-        alert('Maximum file size is 5MB. Please choose a smaller file.');
-      }
-    });
-  </script>
+  <div class="form-group file-field">
+  <%= form.label :new_avatar, class: "new-avatar" %>
+  <%= form.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
+  <%= form.hidden_field :avatar_cache %>
+  </div>
 
   <div class="form-group">
     <%= form.label :name, class: "public" %>
@@ -47,7 +40,7 @@
 
   <div class="form-group">
     <%= form.fields_for :subjects do |subsf| %>
-      <div class="subjects">
+      <div class="subjects edit">
         <%= subsf.label  t(".jr_subjects"), class: "public" %>
         <span><%= subsf.check_box :jr_english, {}, '英語' %><%= t(".jr_english") %></span>
         <span><%= subsf.check_box :jr_japanese, {}, '国語' %><%= t(".jr_japanese") %></span>
@@ -55,7 +48,7 @@
         <span><%= subsf.check_box :jr_science, {}, '理科' %><%= t(".jr_science") %></span>
         <span><%= subsf.check_box :jr_social, {}, '社会' %><%= t(".jr_social") %></span>
       </div>
-      <div class="subjects">
+      <div class="subjects edit">
         <%= subsf.label t(".high_subjects"), class: "public" %>
         <span><%= subsf.check_box :high_english, {}, '英語' %><%= t(".high_english") %></span>
         <span><%= subsf.check_box :modern_japanese, {}, '現代文' %><%= t(".modern_japanese") %></span>
@@ -86,7 +79,7 @@
   </div>
   <div class="form-group">
     <%= form.fields_for :certifications do |certf| %>
-      <div class="certifications">
+      <div class="certifications edit">
         <%= certf.label t(".certifications"), class: "public" %>
         <table>
           <tr>

@@ -14,7 +14,6 @@ body =
   coach = Coach.find_by(name: name)
   0.upto(100) do |idx|
     CoachingReport.create(
-      author: coach,
       title: "coaching_report#{idx}",
       body: body,
       status: %w(draft public_for_coaches unpublic_for_coaches)[idx % 3])

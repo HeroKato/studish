@@ -1,0 +1,18 @@
+<% @coaches.each_with_index do |coach, i| %>
+  <%= link_to coach, class: "coach-card-link" do %>
+    <div class="coach-card clearfix coach-stream-item" id="coach-card-<%= i+1 %>">
+      <% if coach.avatar.present? %>
+        <%= image_tag coach.avatar, oncontextmenu: "return false;", class: "avatar avatar-large" %>
+      <% else %>
+        <%= image_tag "", class: "avatar no-image" %>
+      <% end %>
+      <ul class="user-info coach-info">
+        <li class="info-item"><span class="user-name coach-name"><%= coach.name %></span><br><span class="user-account-name coach-account-name"><%= coach.account_name %></span></li>
+        <li class="info-item"><span class="university"><%= coach.university %></span></li>
+        <li class="item"><span class="major"><%= coach.major %></span></li>
+        <li class="item"><span class="school-year"><%= coach.school_year %></span></li>
+      </ul>
+    </div>
+    <hr class="hr-bottom">
+  <% end %>
+<% end %>

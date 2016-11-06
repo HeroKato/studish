@@ -1,12 +1,16 @@
-@import  "color_set";
+@import  "variables";
 
-div.features {
+ul.coach-stats {
   padding: 0;
-  margin-bottom: 15px;
-  span {
+  margin: $margin-m;
+  li {
     float: left;
     text-align: center;
     width: 33.3333%;
+    background-color: #fff;
+    border-top: 1px solid $grey2;
+    border-bottom: 1px solid $grey2;
+    border-left: 1px solid $grey2;
     a {
       width: 100%;
       display: inline-block;
@@ -14,29 +18,12 @@ div.features {
       line-height: 1;
       padding: 5px;
       text-align: center;
-      background-color: #fff;
-      border-top: 1px solid $grey2;
-      border-bottom: 1px solid $grey2;
-      border-left: 1px solid $grey2;
       color: $grey2;
-      p {
+      span {
         i {
           margin-right: 5px;
         }
       }
-      .p1 {
-        margin-bottom: 5px;
-      }
-      .p2 {
-        margin: 0;
-      }
-    }
-    #feature3 {
-      border-right: 1px solid $grey2;
-      border-radius: 0 3px 3px 0;
-    }
-    #feature1 {
-      border-radius: 3px 0 0 3px;
     }
     a:hover {
       background-color: $grey2;
@@ -46,5 +33,12 @@ div.features {
       background-color: $grey2;
       color: #fff;
     }
+  }
+  #stats-item-1 {
+    border-radius: 3px 0 0 3px;
+  }
+  #stats-item-3 {
+    border-right: 1px solid $grey2;
+    border-radius: 0 3px 3px 0;
   }
 }

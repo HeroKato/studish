@@ -1,0 +1,118 @@
+<% @post_comments.each do |post_comment| %>
+<li class="post-comment coach-post-comments-stream-item" id="post-comment-<%= post_comment.id %>">
+  <div class="commented_post" id="post-<%= post_comment.post.id %>">
+    <div class="profile clearfix">
+      <%= link_to post_comment.post.student, class: "avatar-link" do %>
+        <%= image_tag post_comment.post.student.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+      <% end %>
+      <div class="user-info student-info">
+        <%= link_to post_comment.post.student, class: "name-link" do %>
+          <span class="user-name student-name"><%= post_comment.post.student.name %></span><br><span class="user-account-name student-account-name"><%= post_comment.post.student.account_name %></span>
+        <% end %>
+      </div>
+    </div>
+    <% if post_comment.post.post_pictures.present? %>
+      <div class="post-picture-wrapper">
+        <% post_comment.post.post_pictures.each do |pic| %>
+          <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+        <% end %>
+      </div>
+    <% end %>
+    <span class="status"><%= post_comment.post.status %></span>
+    <span class="time"><%= time_ago_in_words(post_comment.post.created_at) %>前</span>
+    <div class="caption">
+    <%= simple_format(post_comment.post.caption, class: "caption-text") %>
+    </div>
+    <div class="action-buttons">
+      <% if logged_in_as_student? %>
+        <% if post_comment.post.favorites.where(student_id: current_student.id).present? %>
+          <%= link_to post_favorite_path(post_id: post_comment.post.id), method: :delete, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post_comment.post.favorites.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to post_favorites_path(post_id: post_comment.post.id), method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post_comment.post.favorites.count %></span>
+          <% end %>
+        <% end %>
+      <% elsif logged_in_as_coach? %>
+        <% if post_comment.favorites.where(coach_id: current_coach.id).present? %>
+          <%= link_to post_favorite_path(post_id: post_comment.post.id), method: :delete, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post_comment.post.favorites.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to post_favorites_path(post_id: post_comment.post.id), method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post_comment.post.favorites.count %></span>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
+      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post_comment.post.post_comments.count %></span>
+      <% end %>
+    </div>
+    <div class="edit_delete">
+      <% if current_student == post_comment.post.student %>
+        <%= link_to "編集", [:edit, post_comment.post], class: "edit" %>
+        <%= link_to "削除", post_comment.post, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
+      <% end %>
+    </div>
+  </div>
+  <hr class="hr-margin">
+  
+  <div class="post_comment" id="post-comment-<%= post_comment.id %>">
+    <div class="profile clearfix">
+      <%= link_to post_comment.coach, class: "avatar-link" do %>
+        <%= image_tag post_comment.coach.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+      <% end %>
+      <div class="user-info coach-info">
+        <%= link_to post_comment.coach, class: "name-link" do %>
+          <span class="user-name coach-name"><%= post_comment.coach.name %></span><br><span class="user-account-name coach-account-name"><%= post_comment.coach.account_name %></span>
+        <% end %>
+      </div>
+    </div>
+    <% if post_comment.comment_pictures.present? %>
+      <div class="picture-wrapper">
+        <% post_comment.comment_pictures.each do |pic| %>
+          <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+        <% end %>
+      </div>
+    <% end %>
+    <span class="status"><%= post_comment.status %></span>
+    <span class="time"><%= time_ago_in_words(post_comment.created_at) %>前</span>
+    <div class="caption">
+    <%= simple_format(post_comment.caption, class: "caption-text") %>
+    </div>
+    <div class="action-buttons">
+      <% if logged_in_as_student? %>
+        <% if post_comment.favorites.where(student_id: current_student.id).present? %>
+          <%= link_to post_comment_favorite_path(post_comment_id: post_comment.id), method: :delete, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post_comment.favorites.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to post_comment_favorites_path(post_comment_id: post_comment.id), method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post_comment.favorites.count %></span>
+          <% end %>
+        <% end %>
+      <% elsif logged_in_as_coach? %>
+        <% if post_comment.favorites.where(coach_id: current_coach.id).present? %>
+          <%= link_to post_comment_favorite_path(post_comment_id: post_comment.id), method: :delete, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post_comment.favorites.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to post_comment_favorites_path(post_comment_id: post_comment.id), method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post_comment.favorites.count %></span>
+          <% end %>
+        <% end %>
+      <% end %>
+      
+    </div>
+    
+    <div class="edit_delete">
+      <% if current_coach == post_comment.coach %>
+        <%= link_to "編集", [:edit, post_comment], class: "edit" %>
+        <%= link_to "削除", post_comment, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
+      <% end %>
+    </div>
+  </div>
+  <hr class="hr-bottom hr-bold">
+</li>
+<% end %>

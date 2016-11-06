@@ -1,0 +1,19 @@
+@import "variables";
+
+li.post {
+  padding: $padding-m;
+}
+
+.post-picture-wrapper,
+.picture-wrapper {
+  text-align: center;
+  margin: 0 -10px;
+}
+
+.pictures.post-pictures {
+  width: 100%;
+}
+
+li.comment {
+  padding: $padding-m;
+}

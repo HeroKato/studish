@@ -1,0 +1,14 @@
+<div class="page-outer notifications">
+  <div class="page-container">
+    <div class="notification-stream-container">
+      <% if @notifications.present? %>
+        <% @notifications.each do |n| %>
+          <%= render 'notifications', n: n %>
+        <% end %>
+        <%= paginate @notifications %>
+      <% else %>
+        <P class="nothing"><%= current_student.name %>さんのへの通知はありません。</P>
+      <% end %>
+    </div>
+  </div>
+</div>

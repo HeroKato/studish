@@ -1,44 +1,41 @@
-@import "color_set";
+@import "variables";
+@import "mixins";
 
 .coach-card {
-  padding: 8px;
-  background-color: #fff;
-  border-bottom: 1px solid;
-  border-color: $separator-grey;
-  max-width: 450px;
-  .img-wrapper {
-    float: left;
-    img {
-      width: 100px;
-      height: 100px;
-      border: 1px solid $grey3;
-    }
-  }
-  .profs {
-    line-height: 1;
-    margin-left: 110px;
+  padding: $padding-m;
+}
+
+ul.user-info.coach-info {
+  margin-left: 100px;
+  li {
     text-align: left;
-    div.prof {
-      font-size: 14px;
-      color: $black1;
-      margin-bottom: 5px;
-      word-wrap: break-word;
+    line-height: 1;
+    margin-bottom: $margin-s;
+    color: $grey3;
+    span {
+      line-height: 1;
       text-decoration: none;
-      span {
-        display: inline-block;
-        text-decoration: none;
-      }
-      span.name {
-        margin-right: 5px;
-      }
-      span.account_name {
-        color: $grey3;
-      }
+    }
+    span.coach-name {
+      color: $black1;
+      font-weight: 900;
+      margin-right: $margin-s;
+    }
+    span.coach-account-name:before {
+      content: "@";
     }
   }
 }
 
-#show-coach-card {
-  padding: 0;
-  border-bottom: 0;
+a.coach-card-link {
+  text-decoration: none;
+}
+
+a.coach-card-link:hover,
+a.coach-card-link:active {
+  text-decoration: none;
+  li {
+    
+    text-decoration: none;
+  }
 }

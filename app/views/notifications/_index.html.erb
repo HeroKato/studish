@@ -13,8 +13,8 @@
             <div class="report-header clearfix">
               <div class="coach-img">
                 <%= link_to report.author do %>
-                  <% if report.author.picture.present? %>
-                    <%= image_tag report.author.picture.url, oncontextmenu: "return false;" %>
+                  <% if report.author.avatar.present? %>
+                    <%= image_tag report.author.avatar.url, oncontextmenu: "return false;" %>
                   <% else %>
                     <%= image_tag("no_image.png") %>
                   <% end %>
@@ -39,8 +39,8 @@
             <div class="new-comment-header clearfix">
               <div class="coach-img">
                 <%= link_to comment.coach do %>
-                  <% if comment.coach.picture.present? %>
-                    <%= image_tag comment.coach.picture.url, oncontextmenu: "return false;" %>
+                  <% if comment.coach.avatar.present? %>
+                    <%= image_tag comment.coach.avatar.url, oncontextmenu: "return false;" %>
                   <% else %>
                     <%= image_tag("no_image.png") %>
                   <% end %>
@@ -66,7 +66,7 @@
       <% end %>
       
     <% else %>
-    <P>通知はありません。</P>
+    <P class="nothing">通知はありません。</P>
     <% end %>
   </div>
 </div>

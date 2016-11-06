@@ -1,9 +1,11 @@
 class Coach < ActiveRecord::Base
-  attr_accessor :remember_token, :activation_token, :picture, :reset_token
+  attr_accessor :remember_token, :activation_token, :avatar, :reset_token
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
   after_save :remove_picture_folder if Rails.env.test? #テスト時に生成される画像フォルダをsave後に消去
-  mount_uploader :picture, PictureUploader
+  mount_uploader :avatar, AvatarUploader
+  validate :account_name_uniqueness
+  validate :email_uniqueness
   
   has_one :subjects, class_name: "CoachingSubject", dependent: :destroy
   accepts_nested_attributes_for :subjects, allow_destroy: true
@@ -18,31 +20,41 @@ class Coach < ActiveRecord::Base
   
   has_many :favorites, dependent: :destroy
   has_many :favorited_reports, through: :favorites, source: :coaching_report
+  has_many :favorited_posts, through: :favorites, source: :post
   
-  validate :picture_size
+  has_many :post_comments
+  has_many :comment_pictures, through: :post_comments
+  has_many :favorited_post_comments, through: :favorites, source: :post_comment
+  has_many :posts, through: :post_comments
+  
+  has_many :post_favorites, through: :posts, source: :favorites
+  has_many :comment_favorites, through: :post_comments, source: :favorites
+  
+  validate :avatar_size
   
   VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :name, allow_blank: true,
-            format: { with: VALID_NAME_REGEX, message: :invalid_name },
+            format: { with: VALID_NAME_REGEX, message: :invalid_name},
             length: { minimum: 2, maximum: 30 },
-            uniqueness: { case_sensitive: true }
+            uniqueness: { case_sensitive: true, on: :normal_update }
   validates :name, presence: true, on: :normal_update
             
   VALID_ACCOUNT_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
   validates :account_name, presence: true,
             format: { with: VALID_ACCOUNT_NAME_REGEX, allow_blank: false, message: :invalid_account_name },
-            length: { minimum: 6, maximum: 30 },
+            length: { minimum: 4, maximum: 30 },
             uniqueness: { case_sensitive: true }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX, :allow_blank => false, message: :invalid_email },
-                    uniqueness: { case_sensitive: false }
+                    uniqueness: {email_uniqueness: true, case_sensitive: false }
   
   has_secure_password
-  validates :password, presence: true, allow_nil: true,
-    :length => { :minimum => 8, :if => :validate_password? },
-    :confirmation => { :if => :validate_password? }
+  validates :password, presence: true,
+                       allow_nil: true,
+                       :length => { :minimum => 8, :if => :validate_password? },
+                       :confirmation => { :if => :validate_password? }
   
   VALID_UNIV = /\A(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :university, format: { with: VALID_UNIV },
@@ -138,7 +150,7 @@ class Coach < ActiveRecord::Base
   end
   
   # プロフィール情報を入力済みのコーチのみを対象とするためのスコープ
-  scope :full_profile, -> { where("picture != ''").where("name != ''").where("university != ''").where("major != ''").where("school_year != ''").where("self_introduction != ''") }
+  scope :full_profile, -> { where("avatar != ''").where("name != 'no_name'").where("university != ''").where("major != ''").where("school_year != ''").where("self_introduction != ''") }
   
   private
   
@@ -146,9 +158,9 @@ class Coach < ActiveRecord::Base
     password.present? || password_confirmation.present?
   end
   
-  def picture_size
-    if picture.size > 5.megabytes
-      errors.add(:picture, "should be less than 5MB")
+  def avatar_size
+    if avatar.size > 5.megabytes
+      errors.add(:avatar, "should be less than 5MB")
     end
   end
   
@@ -156,5 +168,17 @@ class Coach < ActiveRecord::Base
   def create_activation_digest
     self.activation_token = Coach.new_token
     self.activation_digest = Coach.digest(activation_token)
+  end
+  
+  def email_uniqueness
+    if Student.find_by(email: email)
+      errors.add(:email, "はすでに存在します")
+    end
+  end
+  
+  def account_name_uniqueness
+    unless Student.find_by(account_name: account_name).nil?
+      errors.add(:account_name, "はすでに存在します")
+    end
   end
 end

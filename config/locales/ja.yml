@@ -8,7 +8,7 @@ ja:
   coaches:
     show:
       name: ユーザ名
-      full_name: 氏名
+      account_name: 氏名
       birthday: 生年月日
       email: メールアドレス
       university: 大学

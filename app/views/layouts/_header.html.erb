@@ -18,9 +18,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if !(logged_in_as_coach? || logged_in_as_student?) %>
-              <li><%= link_to "新規登録（生徒）", new_student_path %></li>
-              <li role="separator" class="divider"></li>
               <li><%= link_to "HOME", root_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "ログイン", login_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "新規登録（生徒）", new_student_path %></li>
               <li role="separator" class="divider"></li>
               <li>
                 <% if current_page?(root_path) %>
@@ -42,35 +44,63 @@
             
             <% if logged_in_as_coach? %>
               <li>
-                <%= link_to :new_coaching_report, coach_id: current_coach.id do %>
-                  <i class="fa fa-edit"></i><span>レポート作成</span>
-                <% end %>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <%= link_to :coaching_reports do %>
-                  <i class="fa fa-home"></i><span>タイムライン</span>
-                <% end %>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
                 <%= link_to notifications_index_path(current_coach) do %>
-                  <% if @notificaitions_count > 0 %>
-                    <span class="notification bell-red"><i class="fa fa-bell-o"></i><%= @notificaitions_count %></span><span class="bell-red">通知</span>
+                  <% if @notifications_count > 0 %>
+                    <i class="fa fa-bell-o bell-red"></i><span class="count bell-red"><%= @notifications_count %></span><span>通知</span>
                   <% else %>
-                    <span class="notification"><i class="fa fa-bell-o" id="bell"></i><%= @notificaitions_count %></span><span>通知</span>
+                    <i class="fa fa-bell-o" id="bell"></i><span class="count"><%= @notifications_count %></span><span>通知</span>
                   <% end %>
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to posts_path do %>
+                  <i class="fa qustions">Q</i><span>クエスチョンズ</span>
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to current_coach do %>
+                  <i class="fa fa-user"></i><span>プロフィール</span>
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to :account do %>
+                <i class="fa fa-cog"></i><span>アカウント</span>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
             <% end %>
             
             <% if logged_in_as_student? %>
-              <li><%= link_to "プロフィール", student_path(current_student) %></li>
+              <li>
+                <%= link_to notifications_student_path(current_student) do %>
+                  <% if @notifications_count > 0 %>
+                    <i class="fa fa-bell-o bell-red"></i><span class="count bell-red"><%= @notifications_count %></span><span>通知</span>
+                  <% else %>
+                    <i class="fa fa-bell-o" id="bell"></i><span class="count"><%= @notifications_count %></span><span>通知</span>
+                  <% end %>
+                <% end %>
+              </li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "投稿", new_post_path(current_student) %></li>
+              <li>
+                <%= link_to student_path(current_student) do %>
+                <i class="fa fa-user"></i><span>プロフィール</span>
+                <% end %>
+              </li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "タイムライン", posts_path(current_student) %></li>
+              <li>
+                <%= link_to new_post_path(current_student) do %>
+                <i class="fa fa-pencil-square-o"></i><span>投稿</span>
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to posts_path(current_student) do %>
+                <i class="fa qustions">Q</i><span>クエスチョンズ</span>
+                <% end %>
+              </li>
               <li role="separator" class="divider"></li>
             <% end %>
             
@@ -94,8 +124,6 @@
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "お問い合わせ", inquiry_path %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "ログイン", login_path %></li>
-                  <li role="separator" class="divider"></li>
                 <% elsif logged_in_as_coach? %>
                   <% if current_coach.administrator? %>
                     <li role="separator" class="divider"></li>
@@ -108,26 +136,26 @@
                     <% end %>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li>
-                    <%= link_to current_coach do %>
-                      <i class="fa fa-user"></i><span class="profile">プロフィール</span>
-                    <% end %>
-                  </li>
+                  <li><%= link_to "講師一覧", :coaches %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
+                <% elsif logged_in_as_student? %>
                   <li role="separator" class="divider"></li>
                   <li>
-                    <%= link_to :account do %>
+                    <%= link_to account_student_path(current_student) do %>
                     <i class="fa fa-cog"></i><span>アカウント</span>
                     <% end %>
                   </li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "講師一覧", :coaches %></li>
-                <% elsif logged_in_as_student? %>
                   <li role="separator" class="divider"></li>
                   <li>
                     <%= link_to logout_path, method: "delete" do  %>
                       ログアウト | <% if current_student.name.present? %><%= current_student.name %><% else %>名前が未入力です<% end %>
                     <% end %>
                   </li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "講師一覧", :coaches %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
                 <% end %>
               </ul>
             </li>

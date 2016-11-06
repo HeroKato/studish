@@ -1,4 +1,4 @@
-@import "color_set";
+@import "variables";
 
 header {
   z-index: 9999;
@@ -24,7 +24,7 @@ header {
           a {
             width: 120px;
             height: 30px !important;
-            margin: 5px 10px;
+            margin: $margin-s $margin-m;
             background: image-url("logo.png") no-repeat 0 0;
             background-size: contain;
             display: block;
@@ -46,12 +46,13 @@ header {
         ul {
           li {
             a {
-              padding: 10px;
+              padding: $padding-m;
             }
           }
           .dropdown {
             .dropdown-toggle {
-              padding: 10px 20px 10px 10px;
+              padding: $padding-m;
+              margin-left: $margin-m;
             }
           }
         }
@@ -61,18 +62,18 @@ header {
         margin-bottom: 0;
         li {
           a {
-            padding: 10px;
+            padding: $padding-m;
             i {
-              margin-right: 5px;
+              margin-right: $margin-m;
             }
             i.fa-bell-o {
-              margin-right: 3px;
+              margin-right: $margin-xs;
             }
-            span.notification {
-              margin-right: 5px;
-            }
-            span.notification.bell-red {
+            .bell-red {
               color: $bell-red;
+            }
+            .count {
+              margin-right: $margin-s;
             }
           }
         }
@@ -82,7 +83,7 @@ header {
         }
         .dropdown {
           .dropdown-toggle {
-            padding: 10px;
+            padding: $padding-m;
             color: #777;
             span {
               font-size: 8px;

@@ -1,0 +1,22 @@
+// _mixins.scss //
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+@mixin avatar-border($px: 1px, $style: solid, $color: $grey3, $radius: 3px ) {
+    border: $px $style $color;
+    border-radius: $radius;
+}
+
+@mixin name-link($line-height: 1, $text-decoration: none, $color: $grey3) {
+    line-height: $line-height;
+    text-decoration: $text-decoration;
+    color: $color;
+}
+
+@mixin name-link-hover($color: $grey1) {
+    color: $color;
+}

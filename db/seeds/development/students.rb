@@ -13,11 +13,13 @@ sentence =
     name: "student_name#{idx}",
     email: "student#{idx}@studish.org",
     self_introduction: sentence,
-    profile_picture: open("#{path1}"),
+    avatar: open("#{path1}"),
     password: "student#{idx}",
     password_confirmation: "student#{idx}",
     activated: true,
     activated_at: Time.zone.now,
+    deleted: false,
+    suspended: false
   )
 end
 students = Student.order(:created_at).take(6)

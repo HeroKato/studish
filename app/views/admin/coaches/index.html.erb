@@ -20,7 +20,7 @@
         <% if @coaches.present? %>
           <table class="list">
             <tr>
-              <th>picture</th>
+              <th>avatar</th>
               <th>id</th>
               <th>name</th>
               <th>account_name</th>
@@ -35,8 +35,8 @@
           <% @coaches.each do |coach| %>
             <tr>
               <td>
-                <% if coach.picture.present? %>
-                  <%= image_tag coach.picture.url, oncontextmenu: "return false;" %>
+                <% if coach.avatar.present? %>
+                  <%= image_tag coach.avatar.url, oncontextmenu: "return false;" %>
                 <% else %>
                   <%= image_tag "", class: "no-image" %>
                 <% end %>

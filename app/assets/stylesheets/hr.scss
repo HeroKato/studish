@@ -1,0 +1,18 @@
+@import "variables";
+
+hr {
+  border-top: 1px solid #eee;
+}
+
+hr.hr-margin {
+  margin-top: $margin-m;
+  margin-bottom: $margin-m;
+}
+
+hr.hr-bottom {
+  margin: 0;
+}
+
+hr.hr-bold {
+  border-top: 5px solid #eee;
+}

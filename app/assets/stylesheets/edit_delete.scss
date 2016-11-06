@@ -1,0 +1,14 @@
+@import "variables";
+
+.edit_delete {
+  margin: 0;
+  text-align: right;
+  a {
+    font-size: $font-size-m;
+    color: $grey3;
+  }
+  a:hover {
+    color: $grey1;
+    text-decoration: none, 
+  }
+}

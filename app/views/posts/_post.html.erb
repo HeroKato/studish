@@ -1,30 +1,60 @@
-<li id="post-<%= post.id %>">
-  <div class="post-header clearfix">
-    <%= link_to post.student do %>
-      <div class="student-img">
-        <%= image_tag post.student.profile_picture.medium.url, oncontextmenu: "return false;" %>
-      </div>
+<li class="post post-stream-item" id="post-<%= post.id %>">
+  <div class="profile clearfix">
+    <%= link_to post.student, class: "avatar-link" do %>
+      <%= image_tag post.student.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
     <% end %>
-    <div class="student-info">
-      <%= link_to post.student do %>
-        <span class="account_name"><%= post.student.account_name %></span><span class="name">@<%= post.student.name %></span>
-      <% end %>
-    </div>
-    <div class="function">
-      <% if current_student == post.student %>
-        <%= link_to "編集", [:edit, post] %>
-        <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <div class="user-info student-info">
+      <%= link_to post.student, class: "name-link" do %>
+        <span class="user-name student-name"><%= post.student.name %></span><br><span class="user-account-name student-account-name"><%= post.student.account_name %></span>
       <% end %>
     </div>
   </div>
-  <span class="post-pictures">
-    <% post.post_pictures.each do |pic| %>
-      <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;" %>
-    <% end %>
-  </span>
-  <span class="timestamp"><%= time_ago_in_words(post.created_at) %>前</span>
+  <% if post.post_pictures.present? %>
+    <div class="post-picture-wrapper">
+      <% post.post_pictures.each do |pic| %>
+        <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+      <% end %>
+    </div>
+  <% end %>
+  <span class="status"><%= post.status %></span>
+  <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
   <div class="caption">
-  <%= simple_format(post.caption, class: "caption") %>
+  <%= simple_format(post.caption, class: "caption-text") %>
+  </div>
+  <div class="action-buttons">
+    <% if logged_in_as_student? %>
+      <% if post.favorites.where(student_id: current_student.id).present? %>
+        <%= link_to post_favorite_path(post, current_student.id), method: :delete, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post.favorites.count %></span>
+        <% end %>
+      <% else %>
+        <%= link_to post_favorites_path(post), method: :post, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
+        <% end %>
+      <% end %>
+      <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
+      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
+      <% end %>
+    <% elsif logged_in_as_coach? %>
+      <% if post.favorites.where(coach_id: current_coach.id).present? %>
+        <%= link_to post_favorite_path(post, current_coach.id), method: :delete, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post.favorites.count %></span>
+        <% end %>
+      <% else %>
+        <%= link_to post_favorites_path(post), method: :post, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
+        <% end %>
+      <% end %>
+      <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
+      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="edit_delete">
+    <% if current_student == post.student %>
+      <%= link_to "編集", [:edit, post], class: "edit" %>
+      <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
+    <% end %>
   </div>
 </li>
-<hr class="horizontal-line">
+<hr class="hr-bottom">

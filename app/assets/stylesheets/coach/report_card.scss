@@ -1,43 +1,17 @@
-@import "color_set";
+@import "variables";
+@import "mixins";
+
+.report-card-wrapper {
+  padding: $padding-m;
+}
 
 .report-card {
-  .report-header {
-    .coach-img {
-      float: left;
-      img {
-        width: 50px;
-        height: 50px;
-        border: 1px solid $grey2;
-        border-radius: 3px;
-      }
-    }
-    .coach-info {
-      float: none;
-      margin-left: 57px;
-      .coach-name {
-        display: block;
-        text-align: left;
-        line-height: 1;
-        a {
-          display: inline-block;
-          color: $black1;
-          span.name {
-            display: inline-block;
-            margin-right: 5px;
-          }
-          span.account_name {
-            display: inline-block;
-            color: $light-grey;
-          }
-        }
-      }
-    }
-  }
-  .report-abst {
+  .report {
+    margin: $margin-m 0;
     .report-title {
       display: block;
       text-align: left;
-      font-weight: 800;
+      font-weight: 900;
     }
     p.report-body {
       text-align: left;
@@ -48,7 +22,7 @@
       span.more-link {
         float: right;
         line-height: 1;
-        margin-bottom: 10px;
+        margin-bottom: $margin-m;
       }
     }
   }

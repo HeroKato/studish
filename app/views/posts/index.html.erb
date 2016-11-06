@@ -1,19 +1,18 @@
 <% content_for :head do %>
-<title>タイムライン | Studish</title>
-<meta name="description" content="生徒向けのタイムラインページです。">
+<title>クエスチョンズ | Studish</title>
+<meta name="description" content="ユーザーからの質問の一覧ページです。">
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="posts">
-  <div class="content-container">
-    <div class="content posts">
-      <% if @posts.any? %>
-        <ol class="posts">
-          <%= render @posts %>
-        </ol>
-      <% else %>
-        <p>ポストが１つもありません</p>
-      <% end %>
-    </div>
+<div class="page-outer posts">
+  <div class="page-container" id="post-stream">
+    <% if @posts.any? %>
+      <ol class="posts post-stream-container">
+        <%= render @posts %>
+        <%= paginate @posts %>
+      </ol>
+    <% else %>
+      <p class="nothing"><%= current_student.name %>さんのクエスチョンは１つもありません</p>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,41 @@
+<div class="comments-wrapper comment-stream-item">
+
+  <div class="report-card-wrapper my-comments">
+    <%= render "coaching_reports/report_card", report: report %>
+  </div>
+  <hr class="hr-bottom">
+  
+  <% report.comments.order("created_at DESC").each do |comment| %>
+    <% if comment.coach == @coach %>
+      <div class="comment-container">
+        <div class="comment-header clearfix">
+          <%= link_to comment.coach, class: "avatar-link" do %>
+            <% if comment.coach.avatar.present? %>
+              <%= image_tag comment.coach.avatar.url, oncontextmenu: "return false;", class: "avatar" %>
+            <% else %>
+              <%= image_tag "", class: "avatar no-image" %>
+            <% end %>
+          <% end %>
+          <div class="user-info coach-info">
+            <% if comment.coach == current_coach %>
+              <% if comment.read_flag == false %>
+              <span id="notice-new">NEW!</span>
+              <% end %>
+              <%= link_to comment.coach, class: "name-link" do %><span class="user-name coach-name">あなた</span><span class="user-account-name coach-account-name"><%= comment.coach.account_name %></span><% end %>がコメントしました
+            <% else %>
+              <%= link_to comment.coach, class: "name-link" do %><span class="user-name coach-name"><%= comment.coach.name %></span><span class="user-account-name coach-account-name"><%= comment.coach.account_name %></span><% end %>がコメントしました
+            <% end %>
+          </div>
+        </div>
+        <div class="time clearfix">
+          <span class="time"><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+        </div>
+        <div class="comment-body">
+          <%= simple_format(comment.body, class: "comment-body") %>
+        </div>
+      </div>
+      <hr class="hr-bottom">
+    <% end %>
+  <% end %>
+<hr class="hr-bottom hr-bold">
+</div>

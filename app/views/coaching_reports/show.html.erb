@@ -2,22 +2,19 @@
 
 <% content_for :head do %>
 <title><%= report.title %> | Studish</title>
-<meta name="description" content="<%= report.author.name %>さんのレポートページです。">
+<meta name="description" content="<%= report.coach.name %>さんのレポートページです。">
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="coaching-report">
-  <div class="content-container">
+<div class="page-outer report">
+  <div class="page-container">
     <%= render "shared/errors", obj: report %>
-    
-    <div class="content">
-      <div class="report-card">
-        <%= render "report_card", report: report %>
-      </div>
-      <hr class="horizontal-line">
-      <%= render "comments/form" %>
-      <hr class="horizontal-line">
-      <%= render "comments/index" %>
+    <div class="report-card-wrapper">
+      <%= render "report_card", report: report %>
     </div>
+    <hr class="hr-bottom">
+    <%= render "comments/form" %>
+    <hr class="hr-bottom">
+    <%= render "comments/index" %>
   </div>
 </div>

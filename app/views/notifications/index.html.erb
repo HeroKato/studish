@@ -4,44 +4,17 @@
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="notifications">
-    <% if @notifications.present? %>
-    
-      <% @notifications.each do |n| %>
-        <div class="content-container">
-          <div class="content clearfix">
-            <div class="coach-img">
-              <% if n.coach.picture.present? %>
-                <%= link_to n.coach do %>
-                  <%= image_tag n.coach.picture.url, oncontextmenu: "return false;" %>
-                <% end %>
-              <% else %>
-                <%= image_tag "", class: "no-image" %>
-              <% end %>
-            </div>
-            <div class="infos-wrapper clearfix">
-              <div class="info">
-              <% if n.has_attribute?(:favorited_coach_id) %>
-                  <i class="fa fa-heart fav-pink"></i><%= link_to n.coach do %><span class="name"><%= n.coach.name %></span><span class="account_name">@<%= n.coach.account_name %></span><% end %>さんがいいねしました。
-              <% elsif n.has_attribute?(:commented_coach_id) %>
-                  <i class="fa fa-commenting-o comment-blue"></i><%= link_to n.coach do %><span class="name"><%= n.coach.name %></span><span class="account_name">@<%= n.coach.account_name %></span><% end %>さんがコメントしました。
-              <% end %>
-                <div class="time">
-                  <%= n.coaching_report.created_at.strftime("%Y/%m/%d %H:%M") %>
-                </div>
-              </div>
-              <p class="report-title"><%= truncate(n.coaching_report.title, length: 50) %></p>
-              <p class="report-body"><%= truncate(n.coaching_report.body, length: 200) %></p>
-              <span class="more clearfix">
-                <%= link_to "詳細", n.coaching_report, class: "more" %>
-              </span>
-            </div>
-          </div>
-        </div>
-        <hr class="horizontal-line">
+<div class="page-outer notifications">
+  <div class="page-container" id="notification-stream">
+    <div class="notification-stream-container">
+      <% if @notifications.present? %>
+        <% @notifications.each do |n| %>
+          <%= render 'notifications', n: n %>
+        <% end %>
+        <%= paginate @notifications %>
+      <% else %>
+          <P class="nothing">通知はありません。</P>
       <% end %>
-      
-    <% else %>
-      <P>通知はありません。</P>
-    <% end %>
+    </div>
+  </div>
 </div>

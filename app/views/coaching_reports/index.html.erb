@@ -4,35 +4,20 @@
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
-<div class="content-wrapper" id="coaching-reports">
-  <div class="content-container">
-    <% if @reports.present? %>
-      
-      <div class="content">
-        <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
-        <% if @coach %>
-          <div class="coach-reports-info">
-            <% if ( count = @reports.count ) > 0 %>
-            <span class="reports-count"><i class="fa fa-book"></i><%= @reports.count %></span>
-            <% end %>
-          </div>
-        <% end %>
+<div class="page-outer reports">
+  <div class="page-container reports" id="report-stream">
+    <div class="report-stream-container">
+      <% if @reports.present? %>
         <% @reports.each do |report| %>
-          <div class="report-card reports">
+          <div class="report-card-wrapper report-stream-item">
             <%= render "report_card", report: report %>
           </div>
+          <hr class="hr-bottom">
         <% end %>
-        <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
-      </div>
-    <% else %>
-      <div class="content">
-        <% if params[:coach_id] %>
-        <p><%= @coach.name %>さんのレポートはまだありません。</p>
-        <% else %>
-        <p>まだレポートはありません。</p>
-        <% end %>
-      </div>
-    <% end %>
-    
+        <%= paginate @reports %>
+      <% else %>
+        <p class="nothing"><%= @coach.name %>さんのレポートはまだありません。</p>
+      <% end %>
+    </div>
   </div>
 </div>

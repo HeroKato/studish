@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913163803) do
+ActiveRecord::Schema.define(version: 20161003063311) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -28,40 +28,48 @@ ActiveRecord::Schema.define(version: 20160913163803) do
   add_index "coach_certifications", ["coach_id"], name: "index_coach_certifications_on_coach_id"
 
   create_table "coaches", force: :cascade do |t|
-    t.string   "name"
-    t.string   "account_name",                      null: false
-    t.string   "email",                             null: false
+    t.string   "name",              default: "no_name"
+    t.string   "account_name",                          null: false
+    t.string   "email",                                 null: false
+    t.string   "avatar"
     t.date     "birthday"
     t.string   "university"
     t.string   "major"
     t.string   "school_year"
     t.text     "self_introduction"
-    t.boolean  "administrator",     default: false, null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "password_digest",                   null: false
+    t.string   "skype"
+    t.string   "phone"
+    t.boolean  "administrator",     default: false,     null: false
+    t.string   "password_digest",                       null: false
     t.string   "remember_digest"
-    t.string   "picture"
     t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.boolean  "activated",         default: false,     null: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.string   "skype"
-    t.string   "phone"
+    t.boolean  "deleted",           default: false,     null: false
+    t.datetime "deleted_at"
+    t.boolean  "suspended",         default: false,     null: false
+    t.datetime "susupended_at"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
-  add_index "coaches", ["email"], name: "index_coaches_on_email", unique: true
+  add_index "coaches", ["account_name", "created_at"], name: "index_coaches_on_account_name_and_created_at"
+  add_index "coaches", ["account_name"], name: "index_coaches_on_account_name"
+  add_index "coaches", ["major"], name: "index_coaches_on_major"
+  add_index "coaches", ["name", "created_at"], name: "index_coaches_on_name_and_created_at"
+  add_index "coaches", ["name"], name: "index_coaches_on_name"
+  add_index "coaches", ["school_year"], name: "index_coaches_on_school_year"
+  add_index "coaches", ["university"], name: "index_coaches_on_university"
 
   create_table "coaching_reports", force: :cascade do |t|
-    t.integer  "coach_id",                       null: false
-    t.string   "title",                          null: false
-    t.string   "student_name"
-    t.string   "subject"
+    t.integer  "coach_id",                     null: false
+    t.string   "title",                        null: false
     t.text     "body"
-    t.string   "status",       default: "draft", null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "status",     default: "draft", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "coaching_reports", ["coach_id"], name: "index_coaching_reports_on_coach_id"
@@ -103,32 +111,73 @@ ActiveRecord::Schema.define(version: 20160913163803) do
 
   add_index "coaching_subjects", ["coach_id"], name: "index_coaching_subjects_on_coach_id"
 
+  create_table "comment_pictures", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "coach_id"
+    t.integer  "post_comment_id"
+    t.string   "pictures"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "comment_pictures", ["coach_id", "created_at"], name: "index_comment_pictures_on_coach_id_and_created_at"
+  add_index "comment_pictures", ["post_comment_id", "created_at"], name: "index_comment_pictures_on_post_comment_id_and_created_at"
+  add_index "comment_pictures", ["post_comment_id"], name: "index_comment_pictures_on_post_comment_id"
+  add_index "comment_pictures", ["student_id", "created_at"], name: "index_comment_pictures_on_student_id_and_created_at"
+
   create_table "comments", force: :cascade do |t|
     t.integer  "coaching_report_id",                 null: false
     t.integer  "coach_id",                           null: false
-    t.string   "commenter"
+    t.integer  "commented_coach_id"
     t.text     "body"
+    t.boolean  "read_flag",          default: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.boolean  "read_flag",          default: false
-    t.integer  "commented_coach_id"
   end
 
   add_index "comments", ["coach_id"], name: "index_comments_on_coach_id"
   add_index "comments", ["coaching_report_id"], name: "index_comments_on_coaching_report_id"
 
   create_table "favorites", force: :cascade do |t|
-    t.integer  "coach_id",                           null: false
-    t.integer  "coaching_report_id",                 null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "student_id"
+    t.integer  "coach_id"
+    t.integer  "favorited_student_id"
     t.integer  "favorited_coach_id"
-    t.boolean  "check_flag",         default: false
+    t.integer  "post_id"
+    t.integer  "post_comment_id"
+    t.integer  "coaching_report_id"
+    t.boolean  "check_flag",           default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
+  add_index "favorites", ["check_flag"], name: "index_favorites_on_check_flag"
   add_index "favorites", ["coach_id"], name: "index_favorites_on_coach_id"
   add_index "favorites", ["coaching_report_id"], name: "index_favorites_on_coaching_report_id"
   add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
+  add_index "favorites", ["favorited_coach_id"], name: "index_favorites_on_favorited_coach_id"
+  add_index "favorites", ["favorited_student_id"], name: "index_favorites_on_favorited_student_id"
+  add_index "favorites", ["post_comment_id"], name: "index_favorites_on_post_comment_id"
+  add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
+  add_index "favorites", ["student_id"], name: "index_favorites_on_student_id"
+
+  create_table "post_comments", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "coach_id"
+    t.integer  "post_id"
+    t.integer  "commented_student_id"
+    t.integer  "commented_coach_id"
+    t.text     "caption"
+    t.string   "status",               default: "answer"
+    t.boolean  "check_flag",           default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "post_comments", ["coach_id", "created_at"], name: "index_post_comments_on_coach_id_and_created_at"
+  add_index "post_comments", ["post_id", "created_at"], name: "index_post_comments_on_post_id_and_created_at"
+  add_index "post_comments", ["post_id"], name: "index_post_comments_on_post_id"
+  add_index "post_comments", ["student_id", "created_at"], name: "index_post_comments_on_student_id_and_created_at"
 
   create_table "post_pictures", force: :cascade do |t|
     t.integer  "student_id"
@@ -139,40 +188,53 @@ ActiveRecord::Schema.define(version: 20160913163803) do
   end
 
   add_index "post_pictures", ["post_id", "created_at"], name: "index_post_pictures_on_post_id_and_created_at"
-  add_index "post_pictures", ["post_id"], name: "index_post_pictures_on_post_id"
   add_index "post_pictures", ["student_id", "created_at"], name: "index_post_pictures_on_student_id_and_created_at"
-  add_index "post_pictures", ["student_id"], name: "index_post_pictures_on_student_id"
 
   create_table "posts", force: :cascade do |t|
     t.integer  "student_id"
+    t.integer  "coach_id"
+    t.integer  "commented_student_id"
+    t.integer  "commented_coach_id"
     t.text     "caption"
-    t.string   "status",     default: "public", null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "status",               default: "question", null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
+  add_index "posts", ["coach_id", "created_at"], name: "index_posts_on_coach_id_and_created_at"
   add_index "posts", ["student_id", "created_at"], name: "index_posts_on_student_id_and_created_at"
-  add_index "posts", ["student_id"], name: "index_posts_on_student_id"
 
   create_table "students", force: :cascade do |t|
-    t.string   "name"
-    t.string   "account_name",      null: false
-    t.string   "email",             null: false
+    t.string   "name",              default: "no_name"
+    t.string   "account_name",                          null: false
+    t.string   "email",                                 null: false
+    t.string   "avatar"
     t.text     "self_introduction"
-    t.string   "password_digest",   null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "password_digest",                       null: false
     t.string   "remember_digest"
     t.string   "activation_digest"
-    t.boolean  "activated"
+    t.boolean  "activated",         default: false,     null: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.string   "profile_picture"
+    t.boolean  "deleted",           default: false,     null: false
+    t.datetime "deleted_at"
+    t.boolean  "suspended",         default: false,     null: false
+    t.datetime "suspended_at"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
+  add_index "students", ["account_name", "created_at"], name: "index_students_on_account_name_and_created_at"
   add_index "students", ["account_name"], name: "index_students_on_account_name"
+  add_index "students", ["activated", "created_at"], name: "index_students_on_activated_and_created_at"
+  add_index "students", ["activated"], name: "index_students_on_activated"
+  add_index "students", ["deleted", "created_at"], name: "index_students_on_deleted_and_created_at"
+  add_index "students", ["deleted"], name: "index_students_on_deleted"
   add_index "students", ["email"], name: "index_students_on_email"
+  add_index "students", ["name", "created_at"], name: "index_students_on_name_and_created_at"
   add_index "students", ["name"], name: "index_students_on_name"
+  add_index "students", ["suspended", "created_at"], name: "index_students_on_suspended_and_created_at"
+  add_index "students", ["suspended"], name: "index_students_on_suspended"
 
 end

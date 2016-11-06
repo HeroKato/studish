@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+  <div class="favorites favorite-stream-item">
+    <%= render "posts/post", post: post %>
+  </div>
+<% end %>

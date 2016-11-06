@@ -1,0 +1,28 @@
+<div class="page-outer post-edit">
+  <div class="page-container">
+    <div class="holder">
+      <div class="profile clearfix">
+        <%= link_to @post.student, class: "avatar-link" do %>
+          <%= image_tag @post.student.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+        <% end %>
+        <div class="user-info student-info">
+          <%= link_to @post.student, class: "name-link" do %>
+            <span class="user-name student-name"><%= @post.student.name %></span><br><span class="user-account-name student-account-name"><%= @post.student.account_name %></span>
+          <% end %>
+        </div>
+      </div>
+      <% if @post.post_pictures.exists? %>
+        <% @post.post_pictures.each do |pic| %>
+          <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+        <% end %>
+      <% end %>
+      <span class="status"><%= @post.status %></span>
+      <span class="time"><%= time_ago_in_words(@post.created_at) %>前</span>
+      <div class="caption">
+      <%= simple_format(@post.caption, class: "caption-text") %>
+      </div>
+    </div>
+    <hr class="he-bottom" >
+    <%= render "form" %>
+  </div>
+</div>

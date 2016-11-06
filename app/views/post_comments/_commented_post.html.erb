@@ -1,0 +1,27 @@
+<div class="content commented-post" id="post-id-<%= @post.id %>" >
+  <div class="profile clearfix">
+    <%= link_to @post.student, class: "avatar-link" do %>
+      <%= image_tag @post.student.avatar.medium.url, class: "avatar", oncontextmenu: "return false;" %>
+    <% end %>
+    <div class="user-info student-info">
+      <%= link_to @post.student, class: "name-link" do %>
+        <span class="user-name student-name"><%= @post.student.name %></span><br><span class="user-account-name student-account-name"><%= @post.student.account_name %></span>
+      <% end %>
+    </div>
+  </div>
+  <% if @post.post_pictures.exists? %>
+    <% @post.post_pictures.each do |pic| %>
+      <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+    <% end %>
+  <% end %>
+  <span class="time"><%= time_ago_in_words(@post.created_at) %>前</span>
+  <div class="caption">
+  <%= simple_format(@post.caption, class: "caption-text") %>
+  </div>
+  <div class="edit_delete">
+    <% if current_student == @post.student %>
+      <%= link_to "編集", [:edit, @post], class: "edit" %>
+      <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
+    <% end %>
+  </div>
+</div>

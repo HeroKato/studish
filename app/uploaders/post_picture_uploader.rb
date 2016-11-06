@@ -15,6 +15,10 @@ class PostPictureUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [420, 595]
   end
   
+  version :large do
+    process :resize_to_fit => [840, 1190]
+  end
+  
   process :fix_rotate
  
   def fix_rotate

@@ -26,7 +26,7 @@ module SessionsHelper
     #@current_coach = nil
   end
   
-  # 現在ログイン中のコーチを返す（いる場合）
+  # 現在ログイン中のコーチ@coachを返す（いる場合）
   def current_coach
     if (coach_id = session[:coach_id])
       @current_coach ||= Coach.find_by(id: coach_id)
@@ -52,7 +52,7 @@ module SessionsHelper
     end
   end
   
-   # ユーザーがログインしていればtrue、その他ならfalseを返す
+  # 現在のコーチとしてログインしていればtrue、その他ならfalseを返す
   def logged_in_as_coach?
     !!current_coach
   end

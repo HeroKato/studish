@@ -1,0 +1,12 @@
+<div class="page-outer favorites">
+  <div class="page-container" id="favorite-stream">
+    <div class="favorite-stream-container">
+      <% if @favorites.present? %>
+        <%= render 'favorites' %>
+        <%= paginate @favorites %>
+      <% else %>
+        <p class="nothing"><%= @student.name %>さんのいいねはまだありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>

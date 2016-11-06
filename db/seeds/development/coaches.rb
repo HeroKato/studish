@@ -1,22 +1,24 @@
 1.upto(100) do |idx|
   path = Rails.root.join("db/seeds/development/coach#{idx % 5 + 1}.jpg")
   coach = Coach.create!(
-    name: "example#{idx}",
-    account_name: "example_account#{idx}",
-    email: "example#{idx}@studish.org",
+    name: "coach#{idx}",
+    account_name: "coach_account#{idx}",
+    email: "coach#{idx}@studish.org",
+    avatar: open("#{path}"),
     birthday: "2016-7-9",
     university: "バカ田大学",
     major: "アホ学部マヌケ学科",
     school_year: "1年",
     self_introduction: "Hi, I'm a idiot. Killing it!",
-    administrator: (idx == 1),
-    password: "password#{idx}",
-    password_confirmation: "password#{idx}",
-    activated: true,
-    activated_at: Time.zone.now,
-    picture: open("#{path}"),
     skype: "skype#{idx}",
     phone: "080-#{idx + 1000}-#{idx + 1000}",
+    administrator: (idx == 1),
+    password: "coachpass#{idx}",
+    password_confirmation: "coachpass#{idx}",
+    activated: true,
+    activated_at: Time.zone.now,
+    deleted: false,
+    suspended: false
   )
   CoachingSubject.create!(
     coach: coach,

@@ -1,41 +1,35 @@
-<div class="comments-wrapper">
 <% @comments.each do |comment| %>
   <% if comment.body.present? %>
-  <div class="comment">
+  <div class="comment-container">
     <div class="comment-header clearfix">
-      <div class="commenter-img">
-        <%= link_to comment.coach do %>
-          <% if comment.coach.picture.present? %>
-            <%= image_tag comment.coach.picture.url, oncontextmenu: "return false;" %>
-          <% else %>
-            <%= image_tag "", class: "no-image" %>
+      <%= link_to comment.coach, class: "avatar-link" do %>
+        <% if comment.coach.avatar.present? %>
+          <%= image_tag comment.coach.avatar.url, oncontextmenu: "return false;", class: "avatar" %>
+        <% else %>
+          <%= image_tag "", class: "avatar no-image" %>
+        <% end %>
+      <% end %>
+      <div class="user-info coach-info">
+        <% if @report.coach == current_coach %>
+          <% if comment.read_flag == false %>
+            <span id="notice-new">NEW!</span>
           <% end %>
         <% end %>
+        <%= link_to comment.coach, class: "name-link" do %><span class="user-name coach-name"><%= comment.coach.name %></span><span class="user-account-name coach-account-name"><%= comment.coach.account_name %></span><% end %>さんのコメント
       </div>
-      <div class="commenter-info">
-        <div class="info">
-          <% if @report.author == current_coach %>
-            <% if comment.read_flag == false %>
-              <span id="new">NEW!</span>
-            <% end %>
-          <% end %>
-          <%= link_to comment.coach do %><span class="name"><%= comment.coach.name %></span><span class="account_name">@<%= comment.coach.account_name %></span><% end %>さんのコメント
-          <div class="time clearfix">
-            <span><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="time clearfix">
+      <span class="time"><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
     </div>
     <div class="comment-content">
       <%= simple_format(comment.body, class: "comment-body") %>
-      <% if comment.coach == current_coach %>
-        <div class="comment-footer">
-          <%= link_to "削除", [comment.coaching_report, comment], method: :delete, data: { confirm: "Are you sure?" } %>
-        </div>
-      <% end %>
     </div>
+    <% if comment.coach == current_coach %>
+      <div class="edit_delete">
+        <%= link_to "削除", [comment.coaching_report, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
   </div>
-  <hr class="horizontal-line clearfix">
+  <hr class="hr-bottom">
   <% end %>
 <% end %>
-</div>

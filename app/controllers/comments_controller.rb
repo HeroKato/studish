@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     coach_id = @coach.id
     @comments = Comment.where(coach_id: coach_id).order("created_at DESC")
     comment_ids = @comments.map{ |comment| comment.coaching_report_id }.uniq
-    @reports = CoachingReport.where(id: comment_ids, status: "public_for_coaches").order_by_ids(comment_ids)
+    @reports = CoachingReport.where(id: comment_ids, status: "public_for_coaches").order_by_ids(comment_ids).page(params[:page]).per_page(5)
     @template = "my-comments-index"
   end
   

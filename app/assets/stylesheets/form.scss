@@ -1,28 +1,7 @@
-#coach-new,
-#coach-edit {
-  .content-container {
-    .content {
-        .coach_image_form, 
-        .form-group {
-          text-align: left;
-        }
-    }
-    .alert {
-      color: #ff3434;
-    }
-  }
-}
+@import "variables";
 
-.coach_image_form {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  img {
-    width: 200px;
-    height: 200px;
-    border: 1px solid #000;
-    border-radius: 100px;
-    margin-bottom: 15px;
-  }
+form {
+  padding: $margin-m;
 }
 
 .public:after {

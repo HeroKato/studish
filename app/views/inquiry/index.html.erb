@@ -20,9 +20,7 @@
       </p>
     </div>
     <div class="content">
-
       <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-      
         <% if @inquiry.errors.any? %>
           <div class="alert alert-danger" role="alert">
             <strong>入力内容にエラーがあります</strong>
@@ -65,7 +63,6 @@
         <div class="submit-group">
           <%= f.submit "送信", class: "submit btn btn-primary" %>
         </div>
-          
       <% end %>
     </div>
   </div>

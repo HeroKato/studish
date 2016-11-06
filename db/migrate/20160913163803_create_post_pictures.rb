@@ -1,8 +1,8 @@
 class CreatePostPictures < ActiveRecord::Migration
   def change
     create_table :post_pictures do |t|
-      t.references :student, index: true, foreign_key: true
-      t.references :post, index: true, foreign_key: true
+      t.references :student
+      t.references :post, foreign_key: true
       t.string :pictures
 
       t.timestamps null: false

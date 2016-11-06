@@ -1,26 +1,19 @@
 <%= render "shared/errors", obj: @student %>
 
-<div class="profile-picture">
-  <div><%= form.label :present_picture %></div>
-  <% if @student.profile_picture.present? %>
-    <%= image_tag @student.profile_picture.large.url, oncontextmenu: "return false;" %>
+<div class="present-avatar clearfix">
+  <div><%= form.label :present_avatar %></div>
+  <% if @student.avatar.present? %>
+    <%= image_tag @student.avatar.large.url, oncontextmenu: "return false;", class: "avatar avatar-large" %>
   <% else %>
-    <%= image_tag "", class: "no-image" %>
+    <%= image_tag "", class: "avatar avatar-large no-image" %>
   <% end %>
 </div>
 
-<%= form.label :new_picture, class: "new-picture" %>
-<p id="preview"></p>
-<p class="upload">
-  <label>
-    <input type="file" name="images[]" multiple="multiple" accept="image/*"
-        title="画像をアップロードする" />
-    <%= form.file_field :profile_picture, type: "file", accept: 'image/jpeg,image/gif,image/png'  %>
-    <img src="/assets/button.png" class="button" alt="" />
-    <%= form.hidden_field :profile_picture_cache %>
-  </label>
-</p>
-
+<div class"form-group file-field">
+  <%= form.label :new_avatar, class: "new-avatar" %>
+  <%= form.file_field :avatar, type: "file", accept: 'image/jpeg,image/gif,image/png'  %>
+  <%= form.hidden_field :avatar_cache %>
+</div>
 <div class="form-group">
   <%= form.label :name %>
   <%= form.text_field :name, class: "form-control", placeholder: "変更可能" %>
@@ -28,15 +21,6 @@
 <div class="form-group self_introduction">
   <%= form.label :self_introduction %>
   <%= form.text_area :self_introduction, rows: "10", class: "form-control", placeholder: "最大1000字" %>
-</div>
-<p>パスワードは変更したい場合のみ入力</p>
-<div class="form-group">
-  <%= form.label :password  %>
-  <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
-</div>
-<div class="form-group">
-  <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
 </div>
 <div class="submit-group">
     <%= form.submit "更新する", class: "btn btn-primary" %>

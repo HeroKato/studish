@@ -2,9 +2,11 @@ class AccountActivationsController < ApplicationController
   
   def edit
     user = Coach.find_by(email: params[:email])
-    if user.nil?
+    
+    if user == nil
       user = Student.find_by(email: params[:email])
     end
+    
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
       log_in user

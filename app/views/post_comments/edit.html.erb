@@ -1,0 +1,41 @@
+<div class="page-outer post-comment-edit">
+  <div class="page-container">
+    <div class="holder">
+      <div class="profile clearfix">
+        <% if @comment.student.present? %>
+          <%= link_to @comment.student, class: "avatar-link" do %>
+            <%= image_tag @comment.student.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+          <% end %>
+          <div class="user-info student-info">
+            <%= link_to @comment.student, class: "name-link" do %>
+              <span class="user-name student-name"><%= @comment.student.name %></span><br><span class="user-account-name student-account-name"><%= @comment.student.account_name %></span>
+            <% end %>
+          </div>
+        <% else %>
+          <%= link_to @comment.coach, class: "avatar-link" do %>
+            <%= image_tag @comment.coach.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+          <% end %>
+          <div class="user-info student-info">
+            <%= link_to @comment.student, class: "name-link" do %>
+              <span class="user-name coach-name"><%= @comment.coach.name %></span><br><span class="user-account-name coach-account-name"><%= @comment.coach.account_name %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <% if @comment.comment_pictures.exists? %>
+        <div class="picture-wrapper">
+        <% @comment.comment_pictures.each do |pic| %>
+          <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+        <% end %>
+        </div>
+      <% end %>
+      <span class="status"><%= @comment.status %></span>
+      <span class="time"><%= time_ago_in_words(@comment.created_at) %>前</span>
+      <div class="caption">
+      <%= simple_format(@comment.caption, class: "caption-text") %>
+      </div>
+    </div>
+    <hr class="margin-m" >
+    <%= render "form" %>
+  </div>
+</div>

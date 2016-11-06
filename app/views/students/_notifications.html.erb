@@ -1,0 +1,92 @@
+<div class="notification notification-stream-item">
+    <% if n.student %>
+      <%= link_to n.student, class: "avatar-link" do %>
+        <% if n.student.avatar.present? %>
+          <%= image_tag n.student.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+        <% else %>
+          <%= image_tag "", class: "avatar no-image" %>
+        <% end %>
+      <% end %>
+    <% elsif n.coach %>
+      <%= link_to n.coach, class: "avatar-link" do %>
+        <% if n.coach.avatar.present? %>
+          <%= image_tag n.coach.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+        <% else %>
+          <%= image_tag "", class: "avatar no-image" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% if n.class.name == "Favorite" %>
+    <div class="contents-wrapper clearfix">
+      <div class="notification-info">
+        <div class="time">
+          <span class="time"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+        </div>
+        <% if n.student_id %>
+          <i class="fa fa-heart fav-pink"></i><%= link_to n.student, class: "name-link" do %><span class="user-name student-name"><%= n.student.name %></span><span class="user-account-name student-account-name"><%= n.student.account_name %></span><% end %>さんがいいねしました。
+        <% elsif n.coach_id %>
+          <i class="fa fa-heart fav-pink"></i><%= link_to n.student, class: "name-link" do %><span class="user-name coach-name"><%= n.coach.name %></span><span class="user-account-name coach-account-name"><%= n.coach.account_name %></span><% end %>さんがいいねしました。
+        <% end %>
+      </div>
+      <% if n.post.present? %>
+        <span class="status"><%= n.post.status %></span>
+        <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
+        <div class="picture-wrapper">
+          <% if n.post.post_pictures.present? %>
+            <% n.post.post_pictures.each do |pic| %>
+              <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="caption">
+          <%= simple_format(n.post.caption, class: "caption-text") %>
+        </div>
+      <% elsif n.post_comment.present? %>
+        <span class="status"><%= n.post_comment.status %></span>
+        <span class="time"><%= time_ago_in_words(n.post_comment.created_at) %>前</span>
+        <div class="picture-wrapper">
+          <% if n.post_comment.comment_pictures.present? %>
+            <% n.post_comment.comment_pictures.each do |pic| %>
+              <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="caption">
+          <%= simple_format(n.post_comment.caption, class: "caption-text") %>
+        </div>
+      <% end %>
+    <% elsif n.class.name == "PostComment" %>
+      <div class="contents-wrapper clearfix">
+        <div class="notification-info">
+          <div class="time">
+            <span class="time"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+          </div>
+          <% if n.status == "comment" %>
+            <% if n.student_id %>
+              <i class="fa fa-commenting-o comment-blue"></i><%= link_to n.student, class: "name-link" do %><span class="user-name student-name"><%= n.student.name %></span><span class="user-account-name student-account-name"><%= n.student.account_name %></span><% end %>さんがコメントしました。
+            <% elsif n.coach_id %>
+              <i class="fa fa-commenting-o comment-blue"></i><%= link_to n.coach, class: "name-link" do %><span class="user-name coach-name"><%= n.coach.name %></span><span class="user-account-name coach-account-name"><%= n.coach.account_name %></span><% end %>さんがコメントしました。
+            <% end %>
+          <% elsif n.status == "answer" %>
+            <% if n.student_id %>
+              <i class="fa comment-blue">A</i><%= link_to n.student, class: "name-link" do %><span class="user-name student-name"><%= n.student.name %></span><span class="user-account-name student-account-name"><%= n.student.account_name %></span><% end %>さんがアンサーしました。
+            <% elsif n.coach_id %>
+              <i class="fa comment-blue">A</i><%= link_to n.coach, class: "name-link" do %><span class="user-name coach-name"><%= n.coach.name %></span><span class="user-account-name coach-account-name"><%= n.coach.account_name %></span><% end %>さんがアンサーしました。
+            <% end %>
+          <% end %>
+        </div>
+        <span class="status"><%= n.post.status %></span>
+        <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
+        <div class="picture-wrapper">
+          <% if n.post.post_pictures.present? %>
+            <% n.post.post_pictures.each do |pic| %>
+              <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="caption">
+          <%= simple_format(n.post.caption, class: "caption-text") %>
+        </div>
+    <% end %>
+  </div>
+</div>

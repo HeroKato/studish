@@ -1,0 +1,10 @@
+@import "variables";
+
+.page-outer.post-edit,
+.page-outer.post-comment-edit {
+  .page-container {
+    .holder {
+      padding: $padding-m;
+    }
+  }
+}

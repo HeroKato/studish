@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/app/controllers/posts_controller.rb @ line 35 PostsController#edit:
+
+    [1;34m30[0m:     @post = current_student.posts.find(params[[33m:id[0m])
+    [1;34m31[0m:     [32munless[0m @post.post_pictures.present?
+    [1;34m32[0m:       @post.post_pictures.build
+    [1;34m33[0m:     [32mend[0m
+    [1;34m34[0m:   [32mend[0m
+ => [1;34m35[0m:   
+    [1;34m36[0m:   [32mdef[0m [1;34mupdate[0m
+    [1;34m37[0m:     @post = current_student.posts.find(params[[33m:id[0m])
+    [1;34m38[0m:     [32mif[0m @post.update_attributes(update_post_params)
+    [1;34m39[0m:       flash[[33m:success[0m] = [31m[1;31m"[0m[31mポストを更新しました。[1;31m"[0m[31m[0m
+    [1;34m40[0m:       redirect_to [33m:posts[0m
+

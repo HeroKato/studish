@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
   get 'notifications/index'
-  get 'coaching_reports/index'
-  get 'coaching_reports/show'
-  get 'coaching_reports/new'
-  get 'coaching_reports/edit'
-  get 'accounts/ahow'
+  #get 'coaching_reports/index'
+  #get 'coaching_reports/show'
+  #get 'coaching_reports/new'
+  #get 'coaching_reports/edit'
+  get 'accounts/show'
   get 'accounts/edit'
 
   namespace :admin do
@@ -45,31 +45,44 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :coaching_reports
-  resources :comments
+  #resources :coaching_reports
+  #resources :comments
   
   resources :coaches do
-    resources :coaching_reports, only: [:index]
-    resources :comments, only: [:index]
+    #resources :coaching_reports, only: [:index]
+    #resources :comments, only: [:index]
     get :favorites, on: :member
   end
   
-  resources :coaching_reports do
-    resources :comments
-    resources :favorites, only: [:create, :destroy]
-  end
+  #resources :coaching_reports do
+  #  resources :comments
+  #  resources :favorites, only: [:create, :destroy]
+  #end
   
   
   resources :students
-  resources :posts
-  
   resources :students do
     resources :posts
     resources :post_pictures
+    resources :post_comments
+    resources :post_comment_pictures
+    get :favorites, on: :member
+    get :answers, on: :member
+    get :notifications, on: :member
+    get :account, on: :member
   end
   
+  resources :posts
   resources :posts do
     resources :post_pictures
+    resources :post_comments
+    resources :favorites, only: [:create, :destroy]
+  end
+  
+  resources :post_comments
+  resources :post_comments do
+    resources :post_comment_pictures
+    resources :favorites, only: [:create, :destroy]
   end
 
   

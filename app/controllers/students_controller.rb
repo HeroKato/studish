@@ -1,10 +1,13 @@
 class StudentsController < ApplicationController
   before_action :logged_in_student, only: [:edit, :update, :destroy]
-  before_action :correct_student, only: [:edit, :upddate, :destroy]
+  before_action :correct_student, only: [:edit, :upddate, :destroy, :account, :notifications]
+  before_action :logged_in_user, only: [:favorites]
+  before_action :student_profile_check, only: [:show, :favorites]
+  after_action :save_flags, only: [:notifications]
   
   def show
     @student = Student.find(params[:id])
-    @posts = @student.posts
+    @posts = @student.posts.page(params[:page]).per_page(10)
   end
   
   def new
@@ -30,17 +33,46 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.assign_attributes(student_params)
     if  @student.save(context: :normal_update)
-      flash[:success] = "Profile Edit Success!"
+      flash[:success] = "Edit Success!"
       redirect_to @student
     else
       render "edit"
     end
   end
   
+  def account
+    @student = Student.find(params[:id])
+  end
+  
+  def favorites
+    @student = Student.find(params[:id])
+    @favorites = @student.favorites.order("created_at DESC")
+    @favorites = Kaminari.paginate_array(@favorites).page(params[:page]).per(10)
+    #@reports = @coach.favorited_reports.order("favorites.created_at DESC")
+    #@reports = Kaminari.paginate_array(@reports).page(params[:page]).per(5)
+    @template = "favorites"
+  end
+  
+  def answers
+    @student = Student.find(params[:id])
+    @answers = @student.post_comments.where(status: "answer").order("created_at DESC")
+    @answers = Kaminari.paginate_array(@answers).page(params[:page]).per(10)
+  end
+    
+  def notifications
+    @favorited = Favorite.where(favorited_student_id: current_student.id)
+    @commented = PostComment.where(commented_student_id: current_student.id)
+    @notifications = @commented.push(@favorited)
+    @notifications.flatten!
+    @notifications = @notifications.sort_by{ |n| n.created_at }
+    @notifications = @notifications.reverse
+    @notifications = Kaminari.paginate_array(@notifications).page(params[:page]).per(5)
+  end  
+  
   private
   
   def student_params
-    params.require(:student).permit(:account_name, :name, :email, :self_introduction, :profile_picture, :profile_picture_cache, :password, :password_confirmation)
+    params.require(:student).permit(:account_name, :name, :email, :self_introduction, :avatar, :avatar_cache, :password, :password_confirmation)
   end
   
   # 有効化トークンとダイジェストを作成および代入する
@@ -54,6 +86,16 @@ class StudentsController < ApplicationController
     unless current_student?(@student)
       flash[:danger] = "Please log in as correct user."
       redirect_to(login_url)
+    end
+  end
+  
+  def student_profile_check
+    @student = Student.find(params[:id])
+    unless @student == current_student
+      if (@student.avatar.url == nil) || (@student.name == "no_name")
+        flash[:info] = "お探しのアカウントは非公開になっています"
+        redirect_to root_url
+      end
     end
   end
 end

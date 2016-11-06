@@ -1,0 +1,9 @@
+@import "variables";
+
+.page-outer.favorites {
+  .page-container {
+    li {
+      padding: $padding-m;
+    }
+  }
+}

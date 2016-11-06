@@ -1,5 +1,5 @@
 class CoachingReport < ActiveRecord::Base
-  belongs_to :author, class_name: "Coach", foreign_key: "coach_id"
+  belongs_to :coach, foreign_key: "coach_id"
   
   has_many :comments, dependent: :destroy
   has_many :commenters, through: :comments, source: :coach

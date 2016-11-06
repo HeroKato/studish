@@ -8,17 +8,28 @@ class ApplicationController < ActionController::Base
   before_action :set_notifications_count
   
   private
+  
   # ログインしている講師かどうか確認
   def logged_in_coach
     unless logged_in_as_coach?
       store_location
-      flash[:denger] = "Please log in."
+      flash[:denger] = "Please log-in as coach."
       redirect_to login_url
     end
   end
   
   def logged_in_student
     unless logged_in_as_student?
+      store_location
+      flash[:danger] = "Please log-in as student."
+      redirect_to login_url
+    end
+  end
+  
+  def logged_in_user
+    if logged_in_as_student?
+    elsif logged_in_as_coach?
+    else
       store_location
       flash[:danger] = "Please log in"
       redirect_to login_url
@@ -27,7 +38,11 @@ class ApplicationController < ActionController::Base
   
   # 正しいユーザーかどうか確認
   def correct_coach
-    @coach = Coach.find(params[:id])
+    if controller_name == "notifications"
+      @coach = Coach.find(params[:format])
+    else
+      @coach = Coach.find(params[:coach_id])
+    end
     unless current_coach?(@coach)
       flash[:danger] = "Please log in as correct user."
       redirect_to(login_url)
@@ -35,10 +50,22 @@ class ApplicationController < ActionController::Base
   end
   
   def correct_student
-    @student = Student.find_by(params[:student_id])
-    unless current_student?(@student)
+    student = Student.find_by(params[:student_id])
+    unless current_student?(student)
       flash[:danger] = "Please log in as correct user."
       redirect_to(login_url)
+    end
+  end
+  
+  def correct_user
+    @student = Student.find_by(params[:student_id])
+    if current_student?(@student)
+    else
+      @coach = Coach.find_by(params[:coach_id])
+      unless current_coach?(@coach)
+        flash[:danger] = "Please log in as correct user."
+        redirect_to(login_url)
+      end
     end
   end
   
@@ -49,13 +76,16 @@ class ApplicationController < ActionController::Base
   end
   
   def set_notifications_count
-    unless student?
-      if logged_in_as_coach?
-        current_coach_id = current_coach.id
-        @not_read_comments = Comment.where(commented_coach_id: current_coach_id, read_flag: false).count
-        @not_checked_favorites = Favorite.where(favorited_coach_id: current_coach_id, check_flag: false).count
-        @notificaitions_count = @not_read_comments+@not_checked_favorites
-      end
+    if logged_in_as_student?
+      current_student_id = current_student.id
+      @not_read_post_comments = PostComment.where(commented_student_id: current_student_id, check_flag: false).count
+      @not_checked_favorites = Favorite.where(favorited_student_id: current_student_id, check_flag: false).count
+      @notifications_count = @not_read_post_comments+@not_checked_favorites
+    elsif logged_in_as_coach?
+      current_coach_id = current_coach.id
+      @not_read_post_comments = PostComment.where(commented_coach_id: current_coach_id, check_flag: false).count
+      @not_checked_favorites = Favorite.where(favorited_coach_id: current_coach_id, check_flag: false).count
+      @notifications_count = @not_read_post_comments+@not_checked_favorites
     end
   end
   
@@ -80,5 +110,10 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+  
+  def favorited?(coach)
+    favorites.where(coach_id: coach.id).exists?
+  end
+
   
 end

@@ -192,8 +192,10 @@ $(function() {
 				}
 			});
 		};
-    $('form input:file').uploadThumbs({
-        position  : '#preview',    // any: arbitrarily jquery selector
-        alternate : '.alt'         // selecter for alternate view input file names
-    });
+		
+    //$('form input:file').uploadThumbs({
+      //  position  : '#preview',    // any: arbitrarily jquery selector
+      //  alternate : '.alt'         // selecter for alternate view input file names
+    //});
+  
 });

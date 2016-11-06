@@ -2,34 +2,44 @@ class Student < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
-  mount_uploader :profile_picture, PictureUploader
-  validate :picture_size
+  mount_uploader :avatar, AvatarUploader
+  validate :avatar_size
+  validate :email_uniqueness
+  validate :account_name_uniqueness
   
   has_many :posts, dependent: :destroy
   has_many :posted_pictures, through: :posts, source: :post_pictures
   
+  has_many :post_comments, dependent: :destroy
+  has_many :comment_pictures, through: :post_comments
+  has_many :favorited_post_comments, through: :favorites, source: :post_comments
+  
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_posts, through: :favorites, source: :posts
+  
   VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :name, allow_blank: true,
-            format: { with: VALID_NAME_REGEX, message: :invalid_name },
-            length: { minimum: 2, maximum: 30 },
-            uniqueness: { case_sensitive: true }
+                   format: { with: VALID_NAME_REGEX, message: :invalid_name },
+                   length: { minimum: 2, maximum: 30 },
+                   uniqueness: { case_sensitive: true, on: :normal_update }
   validates :name, presence: true, on: :normal_update
             
   VALID_ACCOUNT_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
   validates :account_name, presence: true,
-            format: { with: VALID_ACCOUNT_NAME_REGEX, allow_blank: false, message: :invalid_account_name },
-            length: { minimum: 6, maximum: 30 },
-            uniqueness: { case_sensitive: true }
+                           format: { with: VALID_ACCOUNT_NAME_REGEX, allow_blank: false, message: :invalid_account_name },
+                           length: { minimum: 6, maximum: 30 },
+                           uniqueness: true
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
+  validates :email, presence: true,
+                    length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX, :allow_blank => false, message: :invalid_email },
                     uniqueness: { case_sensitive: false }
   
   has_secure_password
   validates :password, presence: true, allow_nil: true,
-    :length => { :minimum => 8, :if => :validate_password? },
-    :confirmation => { :if => :validate_password? }
+                       :length => { :minimum => 8, :if => :validate_password? },
+                       :confirmation => { :if => :validate_password? }
   
   validates :self_introduction, length: { maximum: 1000 }, allow_blank: true
     
@@ -96,6 +106,8 @@ class Student < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
   
+  # プロフィール情報を入力済みの生徒のみを取得するためのスコープ
+  scope :full_profile, -> { where("avatar != ''").where("name != 'no_name'") }
   
   private
   
@@ -103,9 +115,9 @@ class Student < ActiveRecord::Base
     password.present? || password_confirmation.present?
   end
   
-  def picture_size
-    if profile_picture.size > 5.megabytes
-      errors.add(:picture, "should be less than 5MB")
+  def avatar_size
+    if avatar.size > 5.megabytes
+      errors.add(:avatar, "should be less than 5MB")
     end
   end
   
@@ -113,5 +125,17 @@ class Student < ActiveRecord::Base
   def create_activation_digest
     self.activation_token = Student.new_token
     self.activation_digest = Student.digest(activation_token)
+  end
+  
+  def email_uniqueness
+    if Coach.find_by(email: email)
+      errors.add(:email, "そのemailはすでに存在します")
+    end
+  end
+  
+  def account_name_uniqueness
+    if Coach.find_by(account_name: account_name)
+      errors.add(:account_name, "アカウント名はすでに存在します")
+    end
   end
 end

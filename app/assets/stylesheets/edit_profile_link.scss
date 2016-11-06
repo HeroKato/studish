@@ -1,0 +1,19 @@
+@import "variables";
+
+.edit-profile-link-wrapper {
+  margin: 0 $margin-m;
+  a.edit-profile-link {
+    float: right;
+    color: $grey3;
+    text-decoration: none;
+    font-size: $font-size-m;
+    padding: $padding-xs;
+    border: 1px solid $grey3;
+    border-radius: 3px;
+  }
+  a.edit-profile-link:hover {
+    color: #fff;
+    border-color: $grey1;
+    background-color: $grey1;
+  }
+}

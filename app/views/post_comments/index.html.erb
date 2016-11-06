@@ -1,0 +1,13 @@
+<div class="content-wrapper" id="comment-index">
+  <div class="content-container">
+    <div class="content comments">
+      <% if @comments.any? %>
+        <div class="comments">
+          <%= render @comments %>
+        </div>
+      <% else %>
+        <p class="nothing">コメントは１つもありません</p>
+      <% end %>
+    </div>
+  </div>
+</div>

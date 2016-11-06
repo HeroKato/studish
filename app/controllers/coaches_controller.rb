@@ -1,9 +1,11 @@
 class CoachesController < ApplicationController
   before_action :logged_in_coach, only: [:edit, :update, :destroy]
-  before_action :correct_coach, only:[:edit, :update, :destroy]
+  before_action :correct_coach, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, only: [:favorites]
+  before_action :coach_profile_check, only: [:show, :favorites]
   
   def index
-    @coaches = Coach.where(activated: true).full_profile.order("id").paginate(page: params[:page])
+    @coaches = Coach.where(activated: true).full_profile.order("id").page(params[:page]).per_page(10)
   end
   
   def show
@@ -16,6 +18,7 @@ class CoachesController < ApplicationController
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
     @certifications = @coach.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
+    @post_comments = @coach.post_comments.order(created_at: :desc).page(params[:page]).per_page(5)
     if logged_in_as_coach?
       @reports_count = @coach.coaching_reports.readable_for(current_coach).count
       @comments_count = @coach.comments.count
@@ -38,7 +41,7 @@ class CoachesController < ApplicationController
   end
   
   def create
-    @coach = Coach.new(coach_params)
+    @coach = Coach.new(create_coach_params)
     @coach.subjects = CoachingSubject.new(subjects_params)
     @coach.certifications = CoachCertification.new(certifications_params)
     if @coach.save
@@ -73,16 +76,23 @@ class CoachesController < ApplicationController
   
   def favorites
     @coach = Coach.find(params[:id])
-    @reports = @coach.favorited_reports.order("favorites.created_at DESC").paginate(page: params[:page])
+    @favorites = @coach.favorites.order("created_at DESC")
+    @favorites = Kaminari.paginate_array(@favorites).page(params[:page]).per(10)
+    #@reports = @coach.favorited_reports.order("favorites.created_at DESC")
+    #@reports = Kaminari.paginate_array(@reports).page(params[:page]).per(5)
     @template = "favorites"
   end
   
   private
   
+  def create_coach_params
+    params.require(:coach).permit(:account_name, :email, :password, :password_confirmation)
+  end
+  
   def coach_params
     attrs = [:name, :account_name, :email, :birthday,
               :university, :major, :school_year,:self_introduction,
-              :password, :password_confirmation, :picture, :picture_cache,
+              :password, :password_confirmation, :avatar, :avatar_cache,
               :skype, :phone ]
     attrs << { subjects_attributes: [:id, :jr_english, :jr_japanese, :jr_math, :jr_science, :jr_social,
                                      :high_english, :modern_japanese, :classical_japanese, :classical_chinese,
@@ -123,6 +133,16 @@ class CoachesController < ApplicationController
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url
+    end
+  end
+  
+  def coach_profile_check
+    coach = Coach.find(params[:id])
+    unless coach == current_coach
+      if (coach.avatar.url == nil ) || (coach.name == nil) || (coach.university == nil) || (coach.major == nil) || (coach.school_year == nil) || (coach.self_introduction == nil)
+        flash[:info] = "お探しのアカウントは非表示になっています。"
+        redirect_to root_url
+      end
     end
   end
   

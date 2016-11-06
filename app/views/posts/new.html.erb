@@ -1,34 +1,7 @@
-<script>
-$(function() {
-    // jQuery Upload Thumbs 
-    $('form input:file').uploadThumbs({
-        position  : '#preview',    // any: arbitrarily jquery selector
-        alternate : '.alt'         // selecter for alternate view input file names
-    });
-});
-</script>
-
 <% if logged_in_as_student? %>
-  <div class="content-wrapper" id="new-post">
-    <div class="content-container">
-      <div class="content">
-        <section class="form-group">
-          <%= form_for @post, :html => { multipart: true } do |f| %>
-            <%= render 'shared/errors', obj: f.object %>
-            <div class="form-group">
-              <%= f.fields_for :post_pictures do |pic| %>
-                <%= pic.label :pictures %>
-                <%= pic.file_field :pictures %>
-              <% end %>
-            </div>
-            <div class="form-group">
-              <%= f.label :caption %>
-              <%= f.text_area :caption, class: "form-control", placeholder: "caption..." %>
-            </div>
-            <%= f.submit "投稿", class: "btn btn-primary" %>
-          <% end %>
-        </section>
-      </div>
+  <div class="page-outer new-post">
+    <div class="page-container">
+      <%= render "form" %>
     </div>
   </div>
 <% end %>

@@ -1,0 +1,16 @@
+<div class="form-group post">
+  <%= form_for @post, :html => { multipart: true } do |f| %>
+    <%= render 'shared/errors', obj: f.object %>
+    <div class="form-group">
+      <%= f.fields_for :post_pictures do |pic| %>
+        <%= pic.label :pictures %>
+        <%= pic.file_field :pictures, accept: 'image/jpeg,image/gif,image/png' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :caption %>
+      <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "caption..." %>
+    </div>
+    <%= f.submit "投稿", class: "btn btn-primary" %>
+  <% end %>
+</div>

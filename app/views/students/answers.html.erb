@@ -1,0 +1,12 @@
+<div class="page-outer answers">
+  <div class="page-container" id="answers-stream">
+    <div class="answers-stream-container">
+      <% if @answers.present? %>
+        <%= render 'answers' %>
+        <%= paginate @answers %>
+      <% else %>
+        <p class="nothing"><%= @student.name %>さんのアンサーはまだありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>

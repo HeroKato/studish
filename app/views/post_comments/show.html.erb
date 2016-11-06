@@ -1,0 +1,15 @@
+<div class="page-outer">
+  <div class="page-container" id="post-comments-stream">
+    <ol class="comment-wrapper post-comments-stream-container">
+    <% if @comments.any? %>
+      <%= render "commented_post" %>
+      <hr class="hr-bottom">
+      <%= render "comments" %>
+      <%= paginate @comments %>
+    <% else %>
+      <p class="nothing">コメントは１つもありません</p>
+    <% end %>
+    </ol>
+    </div>
+  </div>
+</div>

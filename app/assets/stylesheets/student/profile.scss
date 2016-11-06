@@ -1,0 +1,14 @@
+@import "variables";
+@import "mixins";
+
+.profile {
+  margin-bottom: $margin-m;
+}
+
+.user-info,
+.student-info,
+.coach-info {
+  margin-left: 50px;
+  padding-left: $padding-m;
+  word-wrap: break-word;
+}

@@ -1,77 +1,57 @@
-@import "color_set";
+@import "variables";
 
-#notifications {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  .content-container {
-    .content {
-      .coach-img {
-        float: left;
-        img {
-          width: 50px;
-          height: 50px;
-          border: 1px solid $grey2;
-          border-radius: 3px;
+.notification {
+  padding: $padding-m;
+  .contents-wrapper {
+    margin-left: 50px;
+    padding-left: $padding-m;
+    .notification-info {
+      text-align: left;
+      line-height: 1.4;
+      margin-bottom: $margin-m;
+      i {
+        margin-right: 5px;
+      }
+      i.fav-pink {
+        color: $fav-pink;
+      }
+      i.comment-blue {
+        color: $comment-blue;
+      }
+      a {
+        display: inline;
+        span.name {
+          display: inline-block;
+          font-weight: 800;
+          margin-right: 5px;
+          color: $black1;
+          line-height: 1;
+        }
+        span.account_name {
+          display: inline-block;
+          color: $light-grey;
+          line-height: 1;
         }
       }
-      .infos-wrapper {
-        margin-left: 57px;
-        .info {
-          text-align: left;
-          line-height: 1.4;
-          margin-bottom: 0;
-          i {
-            margin-right: 5px;
-          }
-          i.fav-pink {
-            color: $fav-pink;
-          }
-          i.comment-blue {
-            color: $comment-blue;
-          }
-          a {
-            display: inline;
-            span.name {
-              display: inline-block;
-              font-weight: 800;
-              margin-right: 5px;
-              color: $black1;
-              line-height: 1;
-            }
-            span.account_name {
-              display: inline-block;
-              color: $light-grey;
-              line-height: 1;
-            }
-          }
-          div.time {
-            width: 100%;
-            text-align: right;
-            color: $light-grey;
-            line-height: 1;
-            margin-bottom: 10px;
-          }
-        }
-        p.report-title {
-          color: $grey3;
-          text-align: left;
-          font-weight: 800;
-          line-height: 1;
-          margin-bottom: 5px;
-        }
-        p.report-body {
-          color: $grey3;
-          text-align: left;
-          line-height: 1.4;
-          word-wrap: break-word;
-        }
-        span.more {
-          a.more-link {
-            display: inline-block;
-            float: right;
-            line-height: 1;
-          }
-        }
+    }
+    p.report-title {
+      color: $grey3;
+      text-align: left;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    p.report-body {
+      color: $grey3;
+      text-align: left;
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+    span.more {
+      a.more-link {
+        display: inline-block;
+        float: right;
+        line-height: 1;
       }
     }
   }

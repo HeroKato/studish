@@ -1,0 +1,31 @@
+$(function() {
+  $("#coach-stream").append("<div class='coach-stream-container'><%= escape_javascript(render :partial => 'coach_card')) %></div>");
+});
+
+$(function() {
+  $("#report-stream").append("<div class='report-stream-container'><%= escape_javascript(render :partial => 'report_card')) %></div>");
+});
+
+$(function() {
+  $("#post-stream").append("<ol class='post-stream-container'><%= escape_javascript(render :partial => 'post')) %></ol>");
+});
+
+$(function() {
+  $("#comment-stream").append("<div class='comment-stream-container'><%= escape_javascript(render :partial => 'comments')) %></ol>");
+});
+
+$(function() {
+  $("#notification-stream").append("<div class='notification-stream-container'><%= escape_javascript(render :partial => 'notifications')) %></ol>");
+});
+
+$(function() {
+  $("#favorite-stream").append("<div class='favorite-stream-container'><%= escape_javascript(render :partial => 'favorites')) %></div>");
+});
+
+$(function() {
+  $("#post-comments-stream").append("<div class='post-comments-stream-container'><%= escape_javascript(render :partial => 'comments')) %></ol>");
+});
+
+$(function() {
+  $("#answers-stream").append("<div class='answers-stream-container'><%= escape_javascript(render :partial => 'answers')) %></div>");
+});

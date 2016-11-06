@@ -1,22 +1,12 @@
-<div class="content-wrapper" id="favorites">
-  <% if @reports.present? %>
-    <% @reports.each do |report| %>
-    <div class="content-container">
-      <div class="content">
-        <div class="report-card favorites">
-          <%= render "coaching_reports/report_card", report: report %>
-        </div>
-      </div>
+<div class="page-outer favorites">
+  <div class="page-container" id="favorite-stream">
+    <div class="favorite-stream-container">
+      <% if @favorites.present? %>
+        <%= render 'favorites' %>
+        <%= paginate @favorites %>
+      <% else %>
+        <p class="nothing"><%= @coach.name %>さんのいいねはまだありません。</p>
+      <% end %>
     </div>
-    <hr class="horizontal-line">
-    <% end %>
-    <%= will_paginate @reports, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;' %>
-  
-  <% else %>
-    <div class="content-container">
-      <div class="content">
-        <p><%= @coach.name %>さんのいいねはまだありません。</p>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>

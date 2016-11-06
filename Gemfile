@@ -44,6 +44,8 @@ gem 'fog', '1.36.0'
 gem 'faker', '1.4.2'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'kaminari'
+gem 'jquery-turbolinks'
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
@@ -57,17 +59,17 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '1.7.1' #
+  gem 'spring', '1.7.1'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '8.2.5' #
-  gem 'pry-byebug', '3.3.0' #
+  gem 'byebug', '8.2.5'
+  gem 'pry-byebug', '3.3.0'
 end
   
 group :production, :staging do
-  gem 'puma', '3.4.0' #
-  gem 'pg', '0.18.4' #
-  gem 'rails_12factor', '0.0.3' #
+  gem 'puma', '3.4.0'
+  gem 'pg', '0.18.4'
+  gem 'rails_12factor', '0.0.3'
 end

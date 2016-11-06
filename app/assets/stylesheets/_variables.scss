@@ -1,0 +1,37 @@
+// _variables.scss //
+
+$navbar-height: 40px !important;
+
+/* margin, padding @media (max-width: 768px) */
+$margin-xs: 3px !default;
+$margin-s: 5px !default;
+$margin-m: 10px !default;
+$margin-l: 15px !default;
+$margin-xl: 20px !default;
+$padding-xs: 3px !default;
+$padding-s: 5px !default;
+$padding-m: 10px !default;
+$padding-l: 15px !default;
+$padding-xl: 20px !default;
+
+/* font-size */
+$font-size-xs: 10px !default;
+$font-size-s: 12px !default;
+$font-size-m: 14px !default;
+$font-size-l: 16px !default;
+$font-size-xl: 18px !default;
+
+/* colors */
+$black1: #333 !default; /* body.color */
+$black2: #3d3d3d !default;
+$grey1: #636363 !default; /* subjects.color subjects.border-color */
+$grey2: #898989 !default;
+$grey3: #afafaf !default;  /* img.border-color account_name */
+$light-grey: #d3d3d3 !default;
+$separator-grey: #e5e5e5 !default;
+$book-green: #32cd32 !default;
+$fav-pink: #ff4a6a !default;
+$comment-blue: #1e90ff !default;
+$bell-red: #ff3b3b !default;
+$bell-red-hover: #ffd8d8 !default;
+$caution-red: #ff3434 !default;

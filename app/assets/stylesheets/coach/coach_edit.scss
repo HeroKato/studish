@@ -1,0 +1,10 @@
+@import "variables";
+
+.subjects.edit {
+  span {
+    margin-right: $margin-s;
+    input[type=checkbox] {
+      margin: 0 $margin-xs 0 0;
+    }
+  }
+}
