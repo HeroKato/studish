@@ -138,7 +138,7 @@
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "講師一覧", :coaches %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
+                  <li><%= link_to "LINE", href="https://line.me/ti/p/%40vji2716s" %></li>
                 <% elsif logged_in_as_student? %>
                   <li role="separator" class="divider"></li>
                   <li>
@@ -149,13 +149,13 @@
                   <li role="separator" class="divider"></li>
                   <li>
                     <%= link_to logout_path, method: "delete" do  %>
-                      ログアウト | <% if current_student.name.present? %><%= current_student.name %><% else %>名前が未入力です<% end %>
+                      ログアウト | <%= current_student.name %>
                     <% end %>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "講師一覧", :coaches %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
+                  <li><%= link_to "LINE", href="https://line.me/ti/p/%40vji2716s" %></li>
                 <% end %>
               </ul>
             </li>
