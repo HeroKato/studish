@@ -7,6 +7,17 @@ class PostPictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include CarrierWave::RMagick
   
+  process :fix_rotate
+ 
+  def fix_rotate
+    manipulate! do |img|
+      img.tap(&:auto_orient)
+      #img = img.auto_orient
+      #img = yield(img) if block_given?
+      #img
+    end
+  end
+  
   version :small do
     process :resize_to_fit => [210, 297]
   end
@@ -17,16 +28,6 @@ class PostPictureUploader < CarrierWave::Uploader::Base
   
   version :large do
     process :resize_to_fit => [840, 1190]
-  end
-  
-  process :fix_rotate
- 
-  def fix_rotate
-    manipulate! do |img|
-      img = img.auto_orient
-      img = yield(img) if block_given?
-      img
-    end
   end
 
   # Choose what kind of storage to use for this uploader:
