@@ -11,9 +11,7 @@ class PostPictureUploader < CarrierWave::Uploader::Base
  
   def fix_rotate
     manipulate! do |img|
-      #img.tap(&:auto_orient)
-      img.auto_orient
-      img.orientation = Magick::OrientationType.values[1]
+      img = img.auto_orient
       img = yield(img) if block_given?
       img
     end

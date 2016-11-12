@@ -6,9 +6,21 @@
   box-sizing:         border-box;
 }
 
-@mixin avatar-border($px: 1px, $style: solid, $color: $grey3, $radius: 3px ) {
-    border: $px $style $color;
+@mixin avatar-border($border-px: 1px, $style: solid, $color: $grey3, $radius: 3px ) {
+    border: $border-px $style $color;
     border-radius: $radius;
+}
+
+@mixin tag-small($border-px: 1px, $style: solid, $color: $grey3, $radius: 2px,
+               $padding: $padding-xs, $margin-bottom: $margin-xs,
+               $font-px: $font-size-xs, $color: $grey3, $line-height: 1) {
+    display: inline-block;
+    border: $border-px $style $color;
+    border-radius: $radius;
+    padding: $padding;
+    margin-bottom: $margin-bottom;
+    line-height: $line-height;
+    color: $color;
 }
 
 @mixin name-link($line-height: 1, $text-decoration: none, $color: $grey3) {

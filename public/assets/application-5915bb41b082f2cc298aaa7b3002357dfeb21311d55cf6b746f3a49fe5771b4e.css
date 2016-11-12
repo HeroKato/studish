@@ -1,3 +1,9 @@
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/accounts.scss */
 #coach-account {
   padding: 15px 0;
@@ -10,6 +16,38 @@
 /* line 10, /home/ubuntu/workspace/app/assets/stylesheets/accounts.scss */
 #coach-account-edit {
   padding: 15px 0;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+.action-buttons {
+  margin: 0;
+  text-align: right;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+.action-buttons a.action-button-link {
+  text-decoration: none;
+  display: inline-block;
+  color: #afafaf;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+.action-buttons a.action-button-link i.action-button {
+  margin: 0;
+  font-size: 20px;
+  padding: 5px;
+  line-height: 1;
+}
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+.action-buttons a.action-button-link .favorited {
+  color: #ff4a6a;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+.action-buttons a.action-button-link:hover {
+  color: #636363;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/admin/table.scss */
 table.list {
@@ -55,771 +93,338 @@ table.list td {
 #coach-list .content-container {
   max-width: 1080px;
 }
+@charset "UTF-8";
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card {
-  padding: 8px;
-  background-color: #fff;
-  border-bottom: 1px solid;
-  border-color: #e5e5e5;
-  max-width: 450px;
-}
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .img-wrapper {
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/avatar.scss */
+img.avatar {
   float: left;
-}
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .img-wrapper img {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border: 1px solid #afafaf;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .profs {
-  line-height: 1;
-  margin-left: 110px;
-  text-align: left;
-}
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .profs div.prof {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 5px;
-  word-wrap: break-word;
-  text-decoration: none;
-}
-/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .profs div.prof span {
-  display: inline-block;
-  text-decoration: none;
-}
-/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .profs div.prof span.name {
-  margin-right: 5px;
-}
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-.coach-card .profs div.prof span.account_name {
-  color: #afafaf;
+  border-radius: 3px;
 }
 
-/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
-#show-coach-card {
-  padding: 0;
-  border-bottom: 0;
+/* img.avatarのwidthとheightを上書き。順番大事。 */
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/avatar.scss */
+img.avatar-large {
+  width: 100px;
+  height: 100px;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+.coach-card {
+  padding: 10px;
+}
+
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+ul.user-info.coach-info {
+  margin-left: 100px;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+ul.user-info.coach-info li {
+  text-align: left;
+  line-height: 1;
+  margin-bottom: 5px;
+  color: #afafaf;
+}
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+ul.user-info.coach-info li span {
+  line-height: 1;
+  text-decoration: none;
+}
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+ul.user-info.coach-info li span.coach-name {
+  color: #333;
+  font-weight: 900;
+  margin-right: 5px;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+ul.user-info.coach-info li span.coach-account-name:before {
+  content: "@";
+}
+
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+a.coach-card-link {
+  text-decoration: none;
+}
+
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+a.coach-card-link:hover,
+a.coach-card-link:active {
+  text-decoration: none;
+}
+/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
+a.coach-card-link:hover li,
+a.coach-card-link:active li {
+  text-decoration: none;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_edit.scss */
+.subjects.edit span {
+  margin-right: 5px;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_edit.scss */
+.subjects.edit span input[type=checkbox] {
+  margin: 0 3px 0 0;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile {
-  padding: 0;
+.self-introduction,
+.subjects,
+.certifications {
+  padding: 10px;
 }
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container {
-  padding: 15px 10px;
-  padding-bottom: 55px;
-}
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-1 {
-  margin-bottom: 15px;
-}
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-2 {
-  text-align: left;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-2 .prof2-content {
-  margin-bottom: 15px;
-}
-/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-2 .prof2-content label {
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
+.self-introduction label,
+.subjects label,
+.certifications label {
   display: block;
   line-height: 1;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
-/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-2 .prof2-content p {
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
+.self-introduction p,
+.subjects p,
+.certifications p {
   line-height: 1.7;
   word-wrap: break-word;
 }
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-2 .prof2-content.subjects .subject-wrapper {
+
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
+.subjects .subject {
   display: inline-block;
-  background-color: #fff;
   border: solid 2px #898989;
   border-radius: 2px;
-  padding: 4px;
-  margin-bottom: 4px;
+  padding: 3px;
+  margin-bottom: 5px;
   line-height: 1;
   color: #898989;
 }
-/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.coach-prof-2 .prof2-content.certifications .certification {
-  background-color: #fff;
+
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
+.certifications .certification {
+  display: inline-block;
   border: solid 2px #898989;
   border-radius: 2px;
-  padding: 4px;
-  margin-right: 4px;
-  margin-bottom: 4px;
-  display: inline;
+  padding: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
   float: left;
   line-height: 1;
   color: #898989;
 }
-/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.edit-link a {
-  display: inline-block;
-  border: 1px solid #898989;
-  border-radius: 3px;
-  background-color: #fff;
-  line-height: 1;
-  padding: 5px;
-  color: #898989;
-  text-decoration: none;
+
+/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
+.page-outer.coach-profile .post-comments li {
+  padding: 10px;
 }
-/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_show.scss */
-#coach-profile .content-container .content.edit-link a:hover {
-  background-color: #898989;
-  color: #fff;
-}
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
-#top-coaches,
-#coach-list {
-  padding-top: 15px;
-}
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
-#top-coaches .content-container,
-#coach-list .content-container {
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
+#top-coaches .content-container {
   padding: 0;
 }
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
-#top-coaches .content-container .content-header,
-#coach-list .content-container .content-header {
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
+#top-coaches .content-container .content-header {
   margin: 15px 0;
 }
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
-#top-coaches .content-container .content,
-#coach-list .content-container .content {
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
-#top-coaches .content-container .content #coach-card-1,
-#coach-list .content-container .content #coach-card-1 {
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
+#top-coaches .content-container .content #coach-card-1 {
   border-top: 1px solid;
   border-color: #e5e5e5;
 }
-/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
-#top-coaches .content-container .link,
-#coach-list .content-container .link {
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaches.scss */
+#top-coaches .content-container .link {
   margin-top: 30px;
   text-align: center;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report {
-  padding-top: 15px;
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/favorite.scss */
+.page-outer.favorites .page-container li {
+  padding: 10px;
 }
-/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content-header {
-  margin: 0;
-  padding: 20px 0;
-}
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content-header h2 {
-  font-size: 20px;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content {
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 7px;
-  background-color: #fff;
-  border: 1px solid #898989;
-  margin-bottom: 10px;
-  box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
-}
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comment-form .new_comment .form-group {
-  text-align: left;
-}
-/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comment-form .new_comment .comment {
-  width: 100%;
-}
-/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comment-form .new_comment .comment p {
-  line-height: 1.4;
-}
-/* line 33, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comment-form .new_comment .comment p span.name {
-  color: #333;
-  margin-right: 5px;
-}
-/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comment-form .new_comment .comment p span.account_name {
-  color: #d3d3d3;
-}
-/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comment-form .new_comment .submit {
-  text-align: center;
-}
-/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header {
-  margin-bottom: 10px;
-}
-/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-img {
-  float: left;
-}
-/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-img img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #898989;
-  border-radius: 3px;
-}
-/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header div.info {
-  margin-left: 57px;
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer {
   line-height: 1;
-  text-align: left;
-}
-/* line 66, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header div.info a {
-  display: inline;
   color: #d3d3d3;
-  line-height: 1.4;
-  margin-bottom: 5px;
+  text-align: right;
 }
-/* line 71, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header div.info a span {
-  text-decoration: none;
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer a {
+  display: inline-block;
+  color: #d3d3d3;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer a .favorites {
+  margin-right: 3px;
   display: inline-block;
 }
-/* line 75, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header div.info a span.name {
-  color: #333;
-  margin-right: 5px;
-}
-/* line 79, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header div.info a span.account_name {
-  color: #d3d3d3;
-}
-/* line 84, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-header div.info div.time span {
-  float: right;
-  color: #d3d3d3;
-  line-height: 1;
-}
-/* line 92, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-content {
-  margin-left: 5px;
-}
-/* line 94, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-body {
-  text-align: left;
-  line-height: 1.7;
-  word-wrap: break-word;
-}
-/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-#coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-footer {
-  text-align: right;
-}
-
-@media (min-width: 768px) {
-  /* line 117, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content {
-    max-width: 500px;
-    padding: 15px;
-  }
-  /* line 120, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .report-card {
-    max-width: 500px;
-  }
-  /* line 128, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .report-card .report-header .coach-info .coach-name {
-    font-size: 16px;
-  }
-  /* line 136, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .report-card .report-abst .report-title {
-    font-size: 16px;
-  }
-  /* line 139, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .report-card .report-abst .report-body {
-    font-size: 16px;
-  }
-  /* line 142, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .report-card .report-abst .more {
-    font-size: 16px;
-  }
-  /* line 153, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comment-form .new_comment .form-group {
-    text-align: left;
-  }
-  /* line 156, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comment-form .new_comment .comment {
-    width: 100%;
-  }
-  /* line 161, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comment-form .new_comment .submit {
-    text-align: center;
-  }
-  /* line 173, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info {
-    margin-left: 15px;
-  }
-  /* line 176, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comments-wrapper .comment .comment-header .commenter-info .commenter-name a {
-    font-size: 16px;
-  }
-  /* line 183, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-body {
-    font-size: 16px;
-  }
-  /* line 186, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report.scss */
-  #coaching-report .content-container .content .comments-wrapper .comment .comment-content .comment-footer {
-    font-size: 16px;
-  }
-}
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report_new.scss */
-#report-new {
-  padding-top: 20px;
-}
-
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_report_new.scss */
-.btn-primary {
-  margin-right: 15px;
-}
-/* body.color */
-/* subjects.color subjects.border-color */
-/* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports,
-#favorites {
-  padding-top: 15px;
-}
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports .content-container .content-header,
-#favorites .content-container .content-header {
-  margin: 0;
-  padding: 20px 0;
-}
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports .content-container .content-header h2,
-#favorites .content-container .content-header h2 {
-  font-size: 20px;
-}
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports .content-container .content,
-#favorites .content-container .content {
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .coach-reports-info,
-#favorites .content-container .content .coach-reports-info {
-  text-align: right;
-}
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .coach-reports-info .reports-count i.fa-book,
-#favorites .content-container .content .coach-reports-info .reports-count i.fa-book {
-  margin-right: 3px;
-  color: #32cd32;
-}
-/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-#coaching-reports .content-container .content .report-card.reports,
-#favorites .content-container .content .report-card.reports {
-  max-width: 450px;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #898989;
-  margin-bottom: 10px;
-  box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
-}
-
-@media (min-width: 768px) {
-  /* line 51, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-  #coaching-reports .content-container .content .report-card {
-    max-width: 500px;
-    padding: 15px;
-    margin-bottom: 15px;
-  }
-  /* line 60, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-  #coaching-reports .content-container .content .report-card .report-header .coach-info {
-    margin-left: 15px;
-  }
-  /* line 62, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-  #coaching-reports .content-container .content .report-card .report-header .coach-info .coach-name {
-    font-size: 16px;
-  }
-  /* line 70, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-  #coaching-reports .content-container .content .report-card .report-abst .report-title {
-    font-size: 16px;
-  }
-  /* line 73, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-  #coaching-reports .content-container .content .report-card .report-abst .report-body {
-    font-size: 16px;
-  }
-  /* line 76, /home/ubuntu/workspace/app/assets/stylesheets/coach/coaching_reports_tl.scss */
-  #coaching-reports .content-container .content .report-card .report-abst .more {
-    font-size: 16px;
-  }
-}
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/coach/comments.scss */
-#new {
-  color: #ff3b3b;
-}
-
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/comments.scss */
-span.comments {
-  margin-right: 3px;
-}
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach/comments.scss */
-span.comments i {
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer a .favorites i {
   margin-right: 2px;
 }
-/* body.color */
-/* subjects.color subjects.border-color */
-/* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications,
-#my-comments {
-  padding-top: 20px;
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer a .favorited {
+  color: #ff4a6a;
 }
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content,
-#my-comments .content-container .content {
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  padding: 7px;
-  background-color: #fff;
-  border: 1px solid #898989;
-  box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -moz-box-shadow: 1px 1px 1px 0px #cfc7b3;
-  -webkit-box-shadow: 1px 1px 1px 0px #cfc7b3;
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer .comments i {
+  margin-right: 2px;
 }
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report,
-#my-comments .content-container .content .commented-report {
-  margin-bottom: 20px;
+/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coach/footer_report_and_comment.scss */
+#report-footer .commented {
+  color: #1e90ff;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header,
-#my-comments .content-container .content .commented-report .report-header {
-  width: 100%;
-}
-/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-img,
-#my-comments .content-container .content .commented-report .report-header .coach-img {
-  float: left;
-}
-/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-img img,
-#my-comments .content-container .content .commented-report .report-header .coach-img img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #898989;
-  border-radius: 3px;
-}
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-info,
-#my-comments .content-container .content .commented-report .report-header .coach-info {
-  float: none;
-  text-align: left;
-  margin-left: 57px;
-}
-/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name,
-#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name {
-  display: block;
-  line-height: 1;
-}
-/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name a,
-#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name a {
-  display: inline-block;
-}
-/* line 43, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name a span.name,
-#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name a span.name {
-  display: inline-block;
-  color: #333;
-  font-weight: 800;
-}
-/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-header .coach-info .coach-name a span.account_name,
-#my-comments .content-container .content .commented-report .report-header .coach-info .coach-name a span.account_name {
-  display: inline-block;
-  color: #d3d3d3;
-  margin-left: 5px;
-}
-/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-title,
-#my-comments .content-container .content .commented-report .report-title {
-  width: 100%;
-  text-align: left;
-  display: block;
-  font-weight: 800;
-}
-/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-body,
-#my-comments .content-container .content .commented-report .report-body {
-  text-align: left;
-  line-height: 1.7;
-}
-/* line 67, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .commented-report .report-footer,
-#my-comments .content-container .content .commented-report .report-footer {
-  text-align: right;
-  color: #d3d3d3;
-}
-/* line 73, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header,
-#my-comments .content-container .content .new-comment-card .new-comment-header {
-  width: 100%;
-  margin-bottom: 7px;
-}
-/* line 76, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .coach-img,
-#my-comments .content-container .content .new-comment-card .new-comment-header .coach-img {
-  float: left;
-}
-/* line 78, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .coach-img img,
-#my-comments .content-container .content .new-comment-card .new-comment-header .coach-img img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #898989;
-  border-radius: 3px;
-}
-/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info,
-#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info {
-  float: none;
-  text-align: left;
-  margin-left: 57px;
-}
-/* line 89, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .new,
-#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .new {
-  display: block;
-  line-height: 1;
-  margin-bottom: 7px;
-}
-/* line 94, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence,
-#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence {
-  display: block;
-  line-height: 1;
-  margin-bottom: 7px;
-  word-wrap: break-word;
-}
-/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a,
-#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a {
-  display: inline-block;
-}
-/* line 101, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.name,
-#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.name {
-  display: inline-block;
-  color: #333;
-  font-weight: 800;
-}
-/* line 106, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.account_name,
-#my-comments .content-container .content .new-comment-card .new-comment-header .new-comment-info .notice-sentence a span.account_name {
-  display: inline-block;
-  margin-left: 5px;
-  color: #d3d3d3;
-}
-/* line 116, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment .new-comment-body,
-#my-comments .content-container .content .new-comment-card .new-comment .new-comment-body {
-  display: block;
-  width: 100%;
-  text-align: left;
-  line-height: 1.4;
-}
-/* line 122, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-#new-notifications .content-container .content .new-comment-card .new-comment .new-comment-footer,
-#my-comments .content-container .content .new-comment-card .new-comment .new-comment-footer {
-  display: block;
-  width: 100%;
-  text-align: right;
-  width: 100%;
-  color: #d3d3d3;
-}
-
-@media (min-width: 768px) {
-  /* line 144, /home/ubuntu/workspace/app/assets/stylesheets/coach/my_comments.scss */
-  #new-notifications .content-container .content .commented-report .report-title {
-    font-size: 18px;
-  }
-}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications {
-  padding-top: 15px;
-  padding-bottom: 15px;
+.notification {
+  padding: 10px;
 }
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .coach-img {
-  float: left;
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .contents-wrapper {
+  margin-left: 50px;
+  padding-left: 10px;
 }
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .coach-img img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #898989;
-  border-radius: 3px;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper {
-  margin-left: 57px;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info {
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info {
   text-align: left;
   line-height: 1.4;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info i {
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info i {
   margin-right: 5px;
 }
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info i.fav-pink {
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info i.fav-pink {
   color: #ff4a6a;
 }
-/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info i.comment-blue {
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info i.comment-blue {
   color: #1e90ff;
 }
-/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info a {
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info a {
   display: inline;
 }
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info a span.name {
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info a span.name {
   display: inline-block;
   font-weight: 800;
   margin-right: 5px;
   color: #333;
   line-height: 1;
 }
-/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info a span.account_name {
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info a span.account_name {
   display: inline-block;
   color: #d3d3d3;
   line-height: 1;
 }
-/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper .info div.time {
-  width: 100%;
-  text-align: right;
-  color: #d3d3d3;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper p.report-title {
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification p.report-title {
   color: #afafaf;
   text-align: left;
   font-weight: 800;
   line-height: 1;
   margin-bottom: 5px;
 }
-/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper p.report-body {
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification p.report-body {
   color: #afafaf;
   text-align: left;
   line-height: 1.4;
   word-wrap: break-word;
 }
-/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-#notifications .content-container .content .infos-wrapper span.more a.more-link {
+/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification span.more a.more-link {
   display: inline-block;
   float: right;
   line-height: 1;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-img {
-  float: left;
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
+.report-card-wrapper {
+  padding: 10px;
 }
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-img img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #898989;
-  border-radius: 3px;
+
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
+.report-card .report {
+  margin: 10px 0;
 }
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-info {
-  float: none;
-  margin-left: 57px;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-info .coach-name {
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
+.report-card .report .report-title {
   display: block;
   text-align: left;
-  line-height: 1;
+  font-weight: 900;
 }
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-info .coach-name a {
-  display: inline-block;
-  color: #333;
-}
-/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-info .coach-name a span.name {
-  display: inline-block;
-  margin-right: 5px;
-}
-/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-header .coach-info .coach-name a span.account_name {
-  display: inline-block;
-  color: #d3d3d3;
-}
-/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-abst .report-title {
-  display: block;
-  text-align: left;
-  font-weight: 800;
-}
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-abst p.report-body {
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
+.report-card .report p.report-body {
   text-align: left;
   line-height: 1.7;
   word-wrap: break-word;
 }
-/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
-.report-card .report-abst .more span.more-link {
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_card.scss */
+.report-card .report .more span.more-link {
   float: right;
   line-height: 1;
   margin-bottom: 10px;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/coach/report_show.scss */
+.comment-container {
+  padding: 10px;
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
 .copy {
   height: 250px;
@@ -897,7 +502,7 @@ span.comments i {
   }
 }
 /* miscellaneous */
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/debug.scss */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/debug.scss */
 .debug_dump {
   clear: both;
   float: left;
@@ -907,6 +512,53 @@ span.comments i {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/edit_delete.scss */
+.edit_delete {
+  margin: 0;
+  text-align: right;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/edit_delete.scss */
+.edit_delete a {
+  font-size: 14px;
+  color: #afafaf;
+}
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/edit_delete.scss */
+.edit_delete a:hover {
+  color: #636363;
+  text-decoration: none;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/edit_profile_link.scss */
+.edit-profile-link-wrapper {
+  margin: 0 10px;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/edit_profile_link.scss */
+.edit-profile-link-wrapper a.edit-profile-link {
+  float: right;
+  color: #afafaf;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 3px;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+}
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/edit_profile_link.scss */
+.edit-profile-link-wrapper a.edit-profile-link:hover {
+  color: #fff;
+  border-color: #636363;
+  background-color: #636363;
 }
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/environment.scss */
 #environment .content-container .environment-text {
@@ -971,64 +623,59 @@ div.field_with_errors {
   background-color: #fcc;
   padding: 2px;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features {
+ul.coach-stats {
   padding: 0;
-  margin-bottom: 15px;
+  margin: 10px;
 }
 /* line 6, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span {
+ul.coach-stats li {
   float: left;
   text-align: center;
   width: 33.3333%;
+  background-color: #fff;
+  border-top: 1px solid #898989;
+  border-bottom: 1px solid #898989;
+  border-left: 1px solid #898989;
 }
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span a {
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+ul.coach-stats li a {
   width: 100%;
   display: inline-block;
   text-decoration: none;
   line-height: 1;
   padding: 5px;
   text-align: center;
-  background-color: #fff;
-  border-top: 1px solid #898989;
-  border-bottom: 1px solid #898989;
-  border-left: 1px solid #898989;
   color: #898989;
 }
 /* line 23, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span a p i {
+ul.coach-stats li a span i {
   margin-right: 5px;
 }
-/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span a .p1 {
-  margin-bottom: 5px;
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+ul.coach-stats li a:hover {
+  background-color: #898989;
+  color: #fff;
 }
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span a .p2 {
-  margin: 0;
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+ul.coach-stats li a:active {
+  background-color: #898989;
+  color: #fff;
 }
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span #feature3 {
-  border-right: 1px solid #898989;
-  border-radius: 0 3px 3px 0;
-}
-/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span #feature1 {
+/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+ul.coach-stats #stats-item-1 {
   border-radius: 3px 0 0 3px;
 }
-/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span a:hover {
-  background-color: #898989;
-  color: #fff;
-}
-/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
-div.features span a:active {
-  background-color: #898989;
-  color: #fff;
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/features.scss */
+ul.coach-stats #stats-item-3 {
+  border-right: 1px solid #898989;
+  border-radius: 0 3px 3px 0;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/fit.scss */
 #fit {
@@ -1272,77 +919,36 @@ p.notice {
     margin-left: -60px;
   }
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* body.color */
-/* subjects.color subjects.border-color */
-/* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
-#report-footer {
-  line-height: 1;
-  color: #d3d3d3;
-  text-align: right;
-}
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
-#report-footer a {
-  display: inline-block;
-  color: #d3d3d3;
-}
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
-#report-footer a .favorites {
-  margin-right: 3px;
-  display: inline-block;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
-#report-footer a .favorites i {
-  margin-right: 2px;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
-#report-footer a .favorited {
-  color: #ff4a6a;
-}
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/footer_report_and_comment.scss */
-#report-footer .commented {
-  color: #1e90ff;
-}
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
-#coach-new .content-container .content .coach_image_form,
-#coach-new .content-container .content .form-group,
-#coach-edit .content-container .content .coach_image_form,
-#coach-edit .content-container .content .form-group {
-  text-align: left;
-}
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
-#coach-new .content-container .alert,
-#coach-edit .content-container .alert {
-  color: #ff3434;
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+form {
+  padding: 10px;
 }
 
-/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
-.coach_image_form {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
-.coach_image_form img {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #000;
-  border-radius: 100px;
-  margin-bottom: 15px;
-}
-
-/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
 .public:after {
   content: " *";
   color: #ff3434;
 }
 
-/* line 33, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
 textarea {
   resize: vertical;
 }
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+.required:after {
+  content: " *";
+  color: #ff3434;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
@@ -1408,92 +1014,119 @@ header .navbar .navbar-inner .navbar-collapse.collapsing ul li a {
 /* line 53, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-collapse.collapse ul .dropdown .dropdown-toggle,
 header .navbar .navbar-inner .navbar-collapse.collapsing ul .dropdown .dropdown-toggle {
-  padding: 10px 20px 10px 10px;
+  padding: 10px;
+  margin-left: 10px;
 }
-/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 60, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 64, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a {
   padding: 10px;
 }
-/* line 65, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 66, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a i {
-  margin-right: 5px;
+  margin-right: 10px;
 }
-/* line 68, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a i.fa-bell-o {
   margin-right: 3px;
 }
-/* line 71, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
-header .navbar .navbar-inner .navbar-nav li a span.notification {
-  margin-right: 5px;
-}
-/* line 74, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
-header .navbar .navbar-inner .navbar-nav li a span.notification.bell-red {
+/* line 72, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav li a .bell-red {
   color: #ff3b3b;
 }
-/* line 79, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 75, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+header .navbar .navbar-inner .navbar-nav li a .count {
+  margin-right: 5px;
+}
+/* line 80, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .divider {
   height: 1px;
   background-color: #e5e5e5;
 }
-/* line 84, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle {
   padding: 10px;
   color: #777;
 }
-/* line 87, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 88, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle span {
   font-size: 8px;
 }
-/* line 91, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 92, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:hover,
 header .navbar .navbar-inner .navbar-nav .dropdown .dropdown-toggle:focus {
   color: #333;
 }
-/* line 96, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 97, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu {
   padding: 0;
 }
-/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 100, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li.divider {
   margin: 0;
 }
-/* line 102, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+/* line 103, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
   padding: 10px 20px;
 }
 
 @media (min-width: 768px) {
-  /* line 119, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 120, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav .dropdown .dropdown-toggle {
     padding: 20px;
     color: #777;
   }
-  /* line 125, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 126, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav li a {
     padding: 20px;
   }
 }
 @media (max-width: 768px) {
-  /* line 137, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 138, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-toggle {
     margin-top: 11px;
   }
 
-  /* line 140, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 141, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-collapse {
     margin-top: 10px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 148, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 149, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner {
     margin: 0 auto;
   }
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/hr.scss */
+hr {
+  border-top: 1px solid #eee;
+}
+
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/hr.scss */
+hr.hr-margin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/hr.scss */
+hr.hr-bottom {
+  margin: 0;
+}
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/hr.scss */
+hr.hr-bold {
+  border-top: 5px solid #eee;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/inquiry.scss */
 #inquiry {
@@ -1860,6 +1493,76 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
     padding-top: 60px;
   }
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+.page-outer {
+  padding: 0;
+  word-wrap: break-word;
+}
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+.page-outer .page-container {
+  padding: 0;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+.page-outer .page-container.padding-m {
+  padding: 0 10px !important;
+}
+
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+ol {
+  padding: 0;
+}
+
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+.margin-right-m {
+  margin-right: 10px !important;
+}
+
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+.flash.alert {
+  margin: 0;
+}
+
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+#infscr-loading {
+  text-align: center;
+}
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+#infscr-loading img {
+  width: 30px;
+  height: 30px;
+}
+
+/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+h2.page-header {
+  padding: 10px;
+  margin: 0;
+}
+
+/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+p.nothing {
+  padding: 10px;
+}
+
+/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+.alert > ul {
+  padding: 0;
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/more.scss */
 a.more {
   float: right;
@@ -1871,24 +1574,15 @@ a.more {
   background: url(/assets/no_image-56dc13dfc9cf7b9eae38e78dfe7da97026b9e162e5a7ae56749baa9a86e843a4.png) no-repeat center;
   background-size: cover;
 }
-/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/paginate.scss */
-.content-container > div.pagination {
-  text-align: center;
-  width: 100%;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/paginate.scss */
-div.pagination {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  line-height: 1;
-}
-
-/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/paginate.scss */
-ul.pagination {
-  margin: 0;
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/notice_new.scss */
+#notice-new {
+  color: #ff3b3b;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/picture_upload.scss */
 form img.thumb {
@@ -2000,86 +1694,16 @@ form .upload .alt {
     margin-left: -60px;
   }
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit,
-#student-edit {
-  padding-top: 15px;
-}
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form p.caution,
-#student-edit .content-container .content form p.caution {
-  margin: 0;
-  padding: 0;
-  color: #ff3434;
-}
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form p.info,
-#student-edit .content-container .content form p.info {
-  margin-bottom: 20px;
-}
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .coach-picture,
-#student-edit .content-container .content form .coach-picture {
-  margin-bottom: 20px;
-  text-align: center;
-}
-/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .coach-picture img,
-#student-edit .content-container .content form .coach-picture img {
-  margin-bottom: 30px;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #898989;
-}
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .coach-picture input,
-#student-edit .content-container .content form .coach-picture input {
-  width: 220px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  line-height: 1;
-}
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .form-group,
-#student-edit .content-container .content form .form-group {
-  text-align: left;
-}
-/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .form-group div,
-#student-edit .content-container .content form .form-group div {
-  margin-bottom: 15px;
-}
-/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .form-group div label,
-#student-edit .content-container .content form .form-group div label {
-  display: block;
-  margin-bottom: 5px;
-  line-height: 1;
-}
-/* line 43, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .form-group div label.public:after,
-#student-edit .content-container .content form .form-group div label.public:after {
-  content: " *";
-  color: #ff3434;
-}
-/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .form-group div span,
-#student-edit .content-container .content form .form-group div span {
-  margin-right: 5px;
-}
-/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .form-group div p,
-#student-edit .content-container .content form .form-group div p {
-  padding-left: 15px;
-}
-/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/profile_edit.scss */
-#coach-edit .content-container .content form .self_introduction,
-#student-edit .content-container .content form .self_introduction {
-  margin-bottom: 30px;
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/post_status.scss */
+span.status {
+  color: #d3d3d3;
+  font-size: 14px;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/share.scss */
 .share {
@@ -2176,228 +1800,164 @@ form .upload .alt {
     border-radius: 30px;
   }
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/post_new.scss */
-.content-wrapper#new-post {
-  padding: 15px 0;
-}
-/* body.color */
-/* subjects.color subjects.border-color */
-/* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-#posts {
-  padding: 0;
-}
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-#posts .content-container {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts {
-  padding: 0;
-}
-/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li {
-  list-style: none;
-  margin-bottom: 15px;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header {
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/student/answers.scss */
+.page-outer.answers .page-container li {
   padding: 10px;
 }
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-img {
-  float: left;
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/caption.scss */
+div.caption {
+  margin: 0;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-img img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #898989;
-  border-radius: 3px;
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/student/caption.scss */
+div.caption p.caption-text {
+  font-size: 14px;
 }
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-info {
-  margin-left: 60px;
-  text-align: left;
-  line-height: 1;
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification-header {
+  margin-bottom: 10px;
 }
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-info a {
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification-header .notification-info {
+  margin-left: 50px;
+  padding-left: 10px;
+  word-wrap: break-word;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+li.post {
+  padding: 10px;
+}
+
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+.post-picture-wrapper,
+.picture-wrapper {
+  text-align: center;
+  margin: 0 -10px;
+}
+
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+.pictures.post-pictures {
+  width: 100%;
+}
+
+/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+li.comment {
+  padding: 10px;
+}
+
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+.infomation {
+  margin-top: 5px;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+.infomation span {
   display: inline-block;
-  color: #333;
+  border: 1px solid #afafaf;
+  border-radius: 2px;
+  padding: 3px;
+  margin-bottom: 3px;
   line-height: 1;
-  margin-bottom: 5px;
-}
-/* line 39, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-info a span {
-  display: inline-block;
-}
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-info a span.account_name {
-  margin-right: 5px;
-}
-/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .student-info a span.name {
-  color: #d3d3d3;
-}
-/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .function {
-  text-align: right;
-  line-height: 1;
-}
-/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li .post-header .function a {
-  display: inline-block;
   color: #afafaf;
-  line-height: 1;
-  text-decoration: none;
 }
-/* line 62, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li span.post-pictures img {
-  max-width: 100%;
-  height: auto;
-}
-/* line 67, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li span.timestamp {
-  display: block;
-  text-align: left;
-  color: #d3d3d3;
-  padding-left: 10px;
-  font-size: 8px;
-}
-/* line 74, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li div.caption {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/student/posts.scss */
-.content.posts ol.posts li div.caption p {
-  text-align: left;
-  line-height: 1.4;
-}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/student/student_edit.scss */
-#student-edit .content-container .content .profile-picture {
-  margin-bottom: 15px;
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/student/post_edit.scss */
+.page-outer.post-edit .page-container .holder,
+.page-outer.post-comment-edit .page-container .holder {
+  padding: 10px;
 }
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/student_edit.scss */
-#student-edit .content-container .content .profile-picture img {
-  width: 100px;
-  height: 100px;
-  border: solid 1px #898989;
-}
-/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/student/student_edit.scss */
-#student-edit .content-container .content p#preview img {
-  width: 100px;
-  height: 100px;
-  border: solid 1px #898989;
-}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile {
-  padding: 15px 0;
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/student/profile.scss */
+.profile {
+  margin-bottom: 10px;
 }
-/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container {
-  padding: 0 10px;
+
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/profile.scss */
+.user-info,
+.student-info,
+.coach-info {
+  margin-left: 50px;
+  padding-left: 10px;
+  word-wrap: break-word;
 }
-/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card .img-wrapper {
-  float: left;
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+.profile-header {
+  padding: 10px;
 }
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card .img-wrapper img {
-  width: 100px;
-  height: 100px;
-  border: 1px solid #898989;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card ul.stats {
-  margin-left: 110px;
+
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats {
+  margin-left: 100px;
   margin-bottom: 0;
   padding: 0;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card ul.stats li.stat {
-  list-style: none;
-  float: left;
-  padding: 5px;
-  width: 33.3333%;
-  background-color: #fff;
-}
-/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card ul.stats li.stat span {
-  float: left;
-  width: 100%;
-  text-align: center;
-  color: #898989;
-  line-height: 1;
-}
-/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card ul.stats li.stat span.count {
-  padding: 5px;
-  color: #333;
-  font-size: 16px;
-  font-weight: 800;
-}
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card ul.stats li.stat span.item {
-  padding-bottom: 4px;
-  color: #d3d3d3;
-  font-size: 10px;
-}
-/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card .content.edit-link {
-  margin-top: 5px;
-}
-/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card .content.edit-link a {
-  display: inline-block;
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a {
   text-decoration: none;
-  float: right;
   color: #afafaf;
-  background-color: #fff;
-  border: solid 1px #afafaf;
-  border-radius: 2px;
+}
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a li.stats-item {
+  float: left;
+  width: 33.33333%;
+  height: 50px;
+  text-align: center;
+}
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a li.stats-item span.item {
   font-size: 12px;
-  line-height: 1;
-  padding: 7px;
 }
-/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.student-card .content.edit-link a:hover {
-  color: #fff;
-  background-color: #afafaf;
+/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a:hover {
+  color: #636363;
 }
-/* line 80, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.profile span.prof {
-  display: block;
-  text-align: left;
-  line-height: 1;
+
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+.user-info.student-info.margin-cancel {
+  margin: 0;
 }
-/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.profile span.prof.name {
-  color: #d3d3d3;
-}
-/* line 88, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-#student-profile .content-container .content.profile p.self-introduction {
-  margin-top: 10px;
-  text-align: left;
-  line-height: 1.3;
-  word-wrap: break-word;
+
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+p.self-introduction {
+  padding: 10px;
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/style.scss */
 #style {
@@ -2594,50 +2154,53 @@ table td {
   text-align: left;
   padding: 4px;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/user_signup.scss */
-#coach-new,
-#student-new {
-  padding-top: 15px;
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/time.scss */
+span.time {
+  margin: 0 5px;
+  color: #d3d3d3;
+  font-size: 12px;
 }
-/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/user_signup.scss */
-#coach-new .content-container,
-#student-new .content-container {
-  max-width: 600px;
-}
-@charset "UTF-8";
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-body {
-  /* background: image-url("background.jpg"); */
-}
-
-/* ログイン（講師用） */
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach .checkbox {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach .checkbox span {
-  margin-left: 20px;
-  font-weight: normal;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach #session_remember_me {
-  width: auto;
-  margin-top: 8px;
-  margin-left: 0;
-}
-/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach .submit-group {
-  margin: 20px 0;
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/user_name.scss */
+a.name-link {
+  line-height: 1;
+  text-decoration: none;
+  color: #afafaf;
+  display: inline-block;
 }
 
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-.flash.alert {
-  margin: 0;
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/user_name.scss */
+a.name-link:hover {
+  color: #636363;
+  text-decoration: none;
+}
+
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/user_name.scss */
+span.user-name {
+  font-weight: 900;
+  color: #333;
+  margin-right: 5px;
+}
+
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/user_name.scss */
+span.user-account-name {
+  color: #afafaf;
+}
+
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/user_name.scss */
+span.user-account-name:before {
+  content: "@";
 }
 @charset "UTF-8";
 /* トップページへのリンク */
@@ -2784,38 +2347,12 @@ body {
 
 
  */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-body {
-  /* background: image-url("background.jpg"); */
-}
-
-/* ログイン（講師用） */
-/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach .checkbox {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach .checkbox span {
-  margin-left: 20px;
-  font-weight: normal;
-}
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach #session_remember_me {
-  width: auto;
-  margin-top: 8px;
-  margin-left: 0;
-}
-/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-#login-coach .submit-group {
-  margin: 20px 0;
-}
-
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/variables.scss */
-.flash.alert {
-  margin: 0;
-}
-
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.

@@ -54,11 +54,13 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:caption, { post_pictures_attributes: [:pictures] })
+    params.require(:post).permit(:caption, :subject, :text_name, :chapter, :section,
+                                 :page, :number, :pattern, { post_pictures_attributes: [:pictures] })
   end
   
   def update_post_params
-    params.require(:post).permit(:caption, { post_pictures_attributes: [:id, :pictures] })
+    params.require(:post).permit(:caption,:subject, :text_name, :chapter, :section,
+                                 :page, :number, :pattern, { post_pictures_attributes: [:id, :pictures] })
   end
   
   def profile_check

@@ -6,8 +6,8 @@ sentence =
   "this is a test.this is a test.this is a test.\n"+
   "this is a test.this is a test.this is a test.\n"+
   "this is a test.this is a test.this is a test."
-1.upto(10) do |idx|
-  path1 = Rails.root.join("db/seeds/development/coach#{idx % 5 + 1}.jpg")
+1.upto(3) do |idx|
+  path1 = Rails.root.join("db/seeds/development/coach#{idx}.jpg")
   student = Student.create!(
     account_name: "student_account#{idx}",
     name: "student_name#{idx}",
@@ -22,13 +22,16 @@ sentence =
     suspended: false
   )
 end
-students = Student.order(:created_at).take(6)
+students = Student.order(:created_at).take(3)
 path2 = Rails.root.join("db/seeds/development/note.jpg")
-10.times do
+2.times do
   caption = Faker::Lorem.sentence(5)
   students.each { |student| 
     post = student.posts.create!(
-      caption: caption
+      caption: caption,
+      subject: "数1A",
+      text_name: "青チャ1A",
+      number: "基本例題100"
     )
     post.post_pictures.create!(
       pictures: open("#{path2}")

@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+.notification-header {
+  margin-bottom: $margin-m;
+  .notification-info {
+    margin-left: 50px;
+    padding-left: $padding-m;
+    word-wrap: break-word;
+  }
+}

@@ -6,9 +6,14 @@ form {
 
 .public:after {
   content: " *";
-  color: #ff3434;
+  color: $caution-red;
 }
 
 textarea {
   resize: vertical;
+}
+
+.required:after {
+  content: " *";
+  color: $caution-red;
 }

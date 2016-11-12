@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 li.post {
   padding: $padding-m;
@@ -16,4 +17,11 @@ li.post {
 
 li.comment {
   padding: $padding-m;
+}
+
+.infomation {
+  margin-top: 5px;
+  span {
+    @include tag-small;
+  }
 }

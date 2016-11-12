@@ -1,4 +1,4 @@
-1.upto(100) do |idx|
+1.upto(10) do |idx|
   path = Rails.root.join("db/seeds/development/coach#{idx % 5 + 1}.jpg")
   coach = Coach.create!(
     name: "coach#{idx}",

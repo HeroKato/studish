@@ -197,12 +197,24 @@ ActiveRecord::Schema.define(version: 20161003063311) do
     t.integer  "commented_coach_id"
     t.text     "caption"
     t.string   "status",               default: "question", null: false
+    t.string   "subject"
+    t.string   "text_name"
+    t.string   "chapter"
+    t.string   "section"
+    t.string   "page"
+    t.string   "number"
+    t.string   "pattern"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
   end
 
+  add_index "posts", ["chapter", "created_at"], name: "index_posts_on_chapter_and_created_at"
   add_index "posts", ["coach_id", "created_at"], name: "index_posts_on_coach_id_and_created_at"
+  add_index "posts", ["pattern", "created_at"], name: "index_posts_on_pattern_and_created_at"
+  add_index "posts", ["section", "created_at"], name: "index_posts_on_section_and_created_at"
   add_index "posts", ["student_id", "created_at"], name: "index_posts_on_student_id_and_created_at"
+  add_index "posts", ["subject", "created_at"], name: "index_posts_on_subject_and_created_at"
+  add_index "posts", ["text_name", "created_at"], name: "index_posts_on_text_name_and_created_at"
 
   create_table "students", force: :cascade do |t|
     t.string   "name",              default: "no_name"

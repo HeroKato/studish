@@ -16,6 +16,15 @@
       <% end %>
     </div>
   <% end %>
+  <div class="infomation clearfix">
+    <span><%= post.subject %></span>
+    <span><%= post.text_name %></span>
+    <% if post.chapter.present? %><span><%= post.chapter %></span><% end %>
+    <% if post.section.present? %><span><%= post.section %></span><% end %>
+    <% if post.page.present? %><span><%= post.page %></span><% end %>
+    <span><%= post.number %></span>
+    <% if post.pattern.present? %><span><%= post.pattern %></span><% end %>
+  </div>
   <span class="status"><%= post.status %></span>
   <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
   <div class="caption">
