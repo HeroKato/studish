@@ -64,7 +64,7 @@ header {
           a {
             padding: $padding-m;
             i {
-              margin-right: $margin-m;
+              margin-right: $margin-s;
             }
             i.fa-bell-o {
               margin-right: $margin-xs;
@@ -116,6 +116,7 @@ header {
       .navbar-inner {
         .navbar-collapse{
           .navbar-nav {
+            margin-right: 0;
             .dropdown {
               .dropdown-toggle {
                 padding: 20px;
