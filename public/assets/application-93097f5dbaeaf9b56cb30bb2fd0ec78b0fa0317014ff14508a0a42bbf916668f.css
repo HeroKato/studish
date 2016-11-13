@@ -112,8 +112,24 @@ img.avatar {
 /* img.avatarのwidthとheightを上書き。順番大事。 */
 /* line 12, /home/ubuntu/workspace/app/assets/stylesheets/avatar.scss */
 img.avatar-large {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
+ol.carousel-indicators {
+  bottom: 5px;
+}
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
+ol.carousel-indicators li.active {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
+ol.carousel-indicators li {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
 }
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
@@ -128,7 +144,7 @@ img.avatar-large {
 
 /* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
 ul.user-info.coach-info {
-  margin-left: 100px;
+  margin-left: 80px;
 }
 /* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
 ul.user-info.coach-info li {
@@ -325,59 +341,59 @@ a.coach-card-link:active li {
   margin-left: 50px;
   padding-left: 10px;
 }
-/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info {
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info {
   text-align: left;
   line-height: 1.4;
   margin-bottom: 10px;
 }
-/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info i {
+/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info i {
   margin-right: 5px;
 }
-/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info i.fav-pink {
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info i.fav-pink {
   color: #ff4a6a;
 }
-/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info i.comment-blue {
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info i.comment-blue {
   color: #1e90ff;
 }
-/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info a {
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info a {
   display: inline;
 }
-/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info a span.name {
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info a span.name {
   display: inline-block;
   font-weight: 800;
   margin-right: 5px;
   color: #333;
   line-height: 1;
 }
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper .notification-info a span.account_name {
+/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification .notification-info a span.account_name {
   display: inline-block;
   color: #d3d3d3;
   line-height: 1;
 }
-/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper p.report-title {
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification p.report-title {
   color: #afafaf;
   text-align: left;
   font-weight: 800;
   line-height: 1;
   margin-bottom: 5px;
 }
-/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper p.report-body {
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification p.report-body {
   color: #afafaf;
   text-align: left;
   line-height: 1.4;
   word-wrap: break-word;
 }
-/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
-.notification .contents-wrapper span.more a.more-link {
+/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+.notification span.more a.more-link {
   display: inline-block;
   float: right;
   line-height: 1;
@@ -939,6 +955,12 @@ form {
 /* line 12, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
 textarea {
   resize: vertical;
+}
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/form.scss */
+.required:after {
+  content: " *";
+  color: #ff3434;
 }
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
@@ -1824,26 +1846,57 @@ div.caption p.caption-text {
 /* body.color */
 /* subjects.color subjects.border-color */
 /* img.border-color account_name */
-/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification-header {
+  margin-bottom: 10px;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification-header .notification-info {
+  margin-left: 50px;
+  padding-left: 10px;
+  word-wrap: break-word;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 4, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
 li.post {
   padding: 10px;
 }
 
-/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
 .post-picture-wrapper,
 .picture-wrapper {
   text-align: center;
   margin: 0 -10px;
 }
 
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
 .pictures.post-pictures {
   width: 100%;
 }
 
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
 li.comment {
   padding: 10px;
+}
+
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+.infomation {
+  margin-top: 5px;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/student/post.scss */
+.infomation span {
+  display: inline-block;
+  border: 1px solid #afafaf;
+  border-radius: 2px;
+  padding: 3px;
+  margin-bottom: 3px;
+  line-height: 1;
+  color: #afafaf;
 }
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
@@ -1888,7 +1941,7 @@ li.comment {
 
 /* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
 ul.stats {
-  margin-left: 100px;
+  margin-left: 80px;
   margin-bottom: 0;
   padding: 0;
 }
