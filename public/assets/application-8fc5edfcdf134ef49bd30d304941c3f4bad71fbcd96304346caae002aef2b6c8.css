@@ -112,8 +112,24 @@ img.avatar {
 /* img.avatarのwidthとheightを上書き。順番大事。 */
 /* line 12, /home/ubuntu/workspace/app/assets/stylesheets/avatar.scss */
 img.avatar-large {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
+ol.carousel-indicators {
+  bottom: 0px;
+}
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
+ol.carousel-indicators li.active {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
+ol.carousel-indicators li {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 }
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
@@ -128,7 +144,7 @@ img.avatar-large {
 
 /* line 8, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
 ul.user-info.coach-info {
-  margin-left: 100px;
+  margin-left: 80px;
 }
 /* line 10, /home/ubuntu/workspace/app/assets/stylesheets/coach/coach_card.scss */
 ul.user-info.coach-info li {
@@ -1925,7 +1941,7 @@ li.comment {
 
 /* line 8, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
 ul.stats {
-  margin-left: 100px;
+  margin-left: 80px;
   margin-bottom: 0;
   padding: 0;
 }
