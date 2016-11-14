@@ -1860,6 +1860,17 @@ div.caption p.caption-text {
   padding-left: 10px;
   word-wrap: break-word;
 }
+
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification.notification-stream-item .more a {
+  text-decoration: none;
+  color: #afafaf;
+  float: right;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification.notification-stream-item .more a:hover {
+  color: #636363;
+}
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
 /* colors */
@@ -2186,6 +2197,10 @@ span.time {
   color: #d3d3d3;
   font-size: 12px;
 }
+/* line 2, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container {
+  max-width: 450px;
+}
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
 /* colors */
@@ -2324,28 +2339,23 @@ span.user-account-name:before {
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  /* line 103, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
-  p {
-    font-size: 18px;
-  }
-
   /* content 共通 */
-  /* line 109, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 104, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper {
     padding: 120px 0;
   }
-  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 108, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper .content-container .content-header h2 {
     font-size: 40px;
   }
-  /* line 118, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper .content-container .content h3 {
     font-size: 28px;
   }
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  /* line 130, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 125, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper {
     padding: 150px 0;
     margin: 0;
