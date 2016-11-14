@@ -40,6 +40,9 @@
       <div class="caption">
         <%= simple_format(n.post.caption, class: "caption-text") %>
       </div>
+      <div class="more clearfix">
+        <%= link_to "チェック", new_post_comment_path(post_id: n.post.id) %>
+      </div>
     <% elsif n.post_comment.present? %>
       <div class="picture-wrapper">
         <% if n.post_comment.comment_pictures.present? %>
@@ -52,6 +55,9 @@
       <span class="time"><%= time_ago_in_words(n.post_comment.created_at) %>前</span>
       <div class="caption">
         <%= simple_format(n.post_comment.caption, class: "caption-text") %>
+      </div>
+      <div class="more clearfix">
+        <%= link_to "チェック", new_post_comment_path(post_id: n.post_comment.post.id) %>
       </div>
     <% end %>
   <% elsif n.class.name == "PostComment" %>
@@ -79,10 +85,22 @@
         <% end %>
       <% end %>
     </div>
+    <div class="infomation clearfix">
+      <span><%= n.post.subject %></span>
+      <span><%= n.post.text_name %></span>
+      <% if n.post.chapter.present? %><span><%= n.post.chapter %></span><% end %>
+      <% if n.post.section.present? %><span><%= n.post.section %></span><% end %>
+      <% if n.post.page.present? %><span><%= n.post.page %></span><% end %>
+      <span><%= n.post.number %></span>
+      <% if n.post.pattern.present? %><span><%= n.post.pattern %></span><% end %>
+    </div>
     <span class="status"><%= n.post.status %></span>
     <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
     <div class="caption">
       <%= simple_format(n.post.caption, class: "caption-text") %>
+    </div>
+    <div class="more clearfix">
+      <%= link_to "チェック", new_post_comment_path(post_id: n.post.id) %>
     </div>
   <% end %>
 </div>

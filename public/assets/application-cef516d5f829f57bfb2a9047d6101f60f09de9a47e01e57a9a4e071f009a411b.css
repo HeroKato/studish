@@ -117,18 +117,18 @@ img.avatar-large {
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
 ol.carousel-indicators {
-  bottom: 5px;
+  bottom: 0px;
 }
 /* line 3, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
 ol.carousel-indicators li.active {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   margin-right: 10px;
 }
 /* line 8, /home/ubuntu/workspace/app/assets/stylesheets/carousel.scss */
 ol.carousel-indicators li {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   margin-right: 10px;
 }
 /* margin, padding @media (max-width: 768px) */
@@ -1044,7 +1044,7 @@ header .navbar .navbar-inner .navbar-nav li a {
 }
 /* line 66, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a i {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 /* line 69, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
 header .navbar .navbar-inner .navbar-nav li a i.fa-bell-o {
@@ -1091,29 +1091,33 @@ header .navbar .navbar-inner .navbar-nav ul.dropdown-menu li a {
 }
 
 @media (min-width: 768px) {
-  /* line 120, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 118, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  header .navbar .navbar-inner .navbar-collapse .navbar-nav {
+    margin-right: 0;
+  }
+  /* line 121, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav .dropdown .dropdown-toggle {
     padding: 20px;
     color: #777;
   }
-  /* line 126, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 127, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner .navbar-collapse .navbar-nav li a {
     padding: 20px;
   }
 }
 @media (max-width: 768px) {
-  /* line 138, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 139, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-toggle {
     margin-top: 11px;
   }
 
-  /* line 141, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 142, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   .navbar-collapse {
     margin-top: 10px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 149, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
+  /* line 150, /home/ubuntu/workspace/app/assets/stylesheets/header.scss */
   header .navbar .navbar-inner {
     margin: 0 auto;
   }
@@ -1856,6 +1860,17 @@ div.caption p.caption-text {
   padding-left: 10px;
   word-wrap: break-word;
 }
+
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification.notification-stream-item .more a {
+  text-decoration: none;
+  color: #afafaf;
+  float: right;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification.notification-stream-item .more a:hover {
+  color: #636363;
+}
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
 /* colors */
@@ -2181,6 +2196,10 @@ span.time {
   margin: 0 5px;
   color: #d3d3d3;
   font-size: 12px;
+}
+/* line 2, /home/ubuntu/workspace/app/assets/stylesheets/top_coaches.scss */
+#top-coaches .content-container {
+  max-width: 450px;
 }
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
