@@ -43,7 +43,7 @@
   <span class="status"><%= post.status %></span>
   <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
   <div class="caption">
-  <%= simple_format(post.caption, class: "caption-text") %>
+  <%= simple_format(h(post.caption), class: "caption-text") %>
   </div>
   <div class="action-buttons">
     <% if logged_in_as_student? %>
