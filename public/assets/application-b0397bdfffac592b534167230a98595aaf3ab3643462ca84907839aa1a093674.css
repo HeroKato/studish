@@ -345,25 +345,24 @@ a.coach-card-link:active li {
 .notification .notification-info {
   text-align: left;
   line-height: 1.4;
-  margin-bottom: 10px;
 }
-/* line 13, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification .notification-info i {
   margin-right: 5px;
 }
-/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification .notification-info i.fav-pink {
   color: #ff4a6a;
 }
-/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 18, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification .notification-info i.comment-blue {
   color: #1e90ff;
 }
-/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification .notification-info a {
   display: inline;
 }
-/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification .notification-info a span.name {
   display: inline-block;
   font-weight: 800;
@@ -371,13 +370,13 @@ a.coach-card-link:active li {
   color: #333;
   line-height: 1;
 }
-/* line 31, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification .notification-info a span.account_name {
   display: inline-block;
   color: #d3d3d3;
   line-height: 1;
 }
-/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 37, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification p.report-title {
   color: #afafaf;
   text-align: left;
@@ -385,14 +384,14 @@ a.coach-card-link:active li {
   line-height: 1;
   margin-bottom: 5px;
 }
-/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification p.report-body {
   color: #afafaf;
   text-align: left;
   line-height: 1.4;
   word-wrap: break-word;
 }
-/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
+/* line 51, /home/ubuntu/workspace/app/assets/stylesheets/coach/notifications.scss */
 .notification span.more a.more-link {
   display: inline-block;
   float: right;
@@ -1860,6 +1859,17 @@ div.caption p.caption-text {
   padding-left: 10px;
   word-wrap: break-word;
 }
+
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification.notification-stream-item .more a {
+  text-decoration: none;
+  color: #afafaf;
+  float: right;
+}
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/student/notifications.scss */
+.notification.notification-stream-item .more a:hover {
+  color: #636363;
+}
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
 /* colors */
@@ -2328,28 +2338,23 @@ span.user-account-name:before {
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  /* line 103, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
-  p {
-    font-size: 18px;
-  }
-
   /* content 共通 */
-  /* line 109, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 104, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper {
     padding: 120px 0;
   }
-  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 108, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper .content-container .content-header h2 {
     font-size: 40px;
   }
-  /* line 118, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 113, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper .content-container .content h3 {
     font-size: 28px;
   }
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  /* line 130, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
+  /* line 125, /home/ubuntu/workspace/app/assets/stylesheets/welcome.scss */
   .content-wrapper {
     padding: 150px 0;
     margin: 0;
