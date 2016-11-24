@@ -3,31 +3,33 @@
     <%= render 'shared/errors', obj: f.object %>
     <div class="form-group">
       <%= f.label :subject, class: "required" %>
-      <%= f.select :subject, [, ["英語"], ["現代文"], ["古文"], ["漢文"], ["日本史"], ["世界史"], ["地理"], ["現代社会"], ["政治経済"], ["倫理"], ["数Ⅰ"], ["数A"], ["数Ⅱ"], ["数B"], ["数Ⅲ"], ["物理基礎・物理"], ["化学基礎・化学"], ["生物基礎・生物"], ["地学基礎・地学"]], class: "form-control text-denger" %>
+      <%= f.select :subject, [["Grammar(英文法)"],["Reading"],["Writing"],["中1数学"],["中2数学"],["中3数学"],["数Ⅰ"],["数A"],["数Ⅱ"],["数B"],["数Ⅲ"]], class: "form-control text-denger" %>
     </div>
     <div class="form-group">
       <%= f.label :text_name, class: "required" %>
-      <%= f.text_field :text_name, class: "form-control", placeholder: "例:青チャ1A、青チャート1A" %>
+      <%= f.text_field :text_name, class: "form-control", placeholder: "例:NextStage / 青チャート1A" %>
     </div>
     <div class="form-group">
       <%= f.label :chapter %>
-      <%= f.text_field :chapter, class: "form-control", placeholder: "例:2章-2次関数、2-2次関数" %>
+      <%= f.text_field :chapter, class: "form-control", placeholder: "例:Part1-文法 / 2章-2次関数" %>
     </div>
     <div class="form-group">
       <%= f.label :section %>
-      <%= f.text_field :section, class: "form-control", placeholder: "例:8-関数とグラフ" %>
+      <%= f.text_field :section, class: "form-control", placeholder: "例:Point009 / 8-関数とグラフ" %>
     </div>
     <div class="form-group">
       <%= f.label :page %>
-      <%= f.text_field :page, class: "form-control", placeholder: "例:p97、p97-98" %>
+      <%= f.text_field :page, class: "form-control", placeholder: "例:p22 / p97" %>
     </div>
     <div class="form-group">
       <%= f.label :number, class: "required" %>
-      <%= f.text_field :number, class: "form-control", placeholder: "例:基本例題58、練習58" %>
+      <%= f.text_field :number, class: "form-control", placeholder: "例:21 / 基本例題58" %>
     </div>
     <div class="form-group">
       <%= f.label :pattern %>
-      <%= f.text_field :pattern, class: "form-control", placeholder: "関数f(a)の計算、座標平面と象限・点が属する象限の判定" %>
+      <%= f.text_area :pattern, rows: 4, class: "form-control", placeholder: "例:
+文中で用いられるwhen節
+関数f(a)の計算、座標平面と象限・点が属する象限の判定" %>
     </div>
     <div class="form-group">
       <%= f.fields_for :post_pictures do |pic| %>
@@ -37,7 +39,10 @@
     </div>
     <div class="form-group">
       <%= f.label :caption, class: "required" %>
-      <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "caption..." %>
+      <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "例:
+Point009の21と22の見分け方がわかりません。when節で現在時制を使う場合と未来時制を使う使う場合の違いは何でしょうか？
+
+指針で書かれていることがわかりません。「p<a<q, f(a)=0」という式（条件？）がどこから出てきたんでしょうか？" %>
     </div>
     <%= f.submit "投稿", class: "btn btn-primary" %>
   <% end %>
