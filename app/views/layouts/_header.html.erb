@@ -34,9 +34,9 @@
               <li role="separator" class="divider"></li>
               <li>
                 <% if current_page?(root_path) %>
-                  <%= link_to "LINE", "#line" %>
+                  <%= link_to "LINE@", "#line" %>
                 <% else %>
-                  <%= link_to "LINE", "/#line" %>
+                  <%= link_to "LINE@", "/#line" %>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
@@ -138,7 +138,7 @@
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "講師一覧", :coaches %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "LINE", href="https://line.me/ti/p/%40vji2716s" %></li>
+                  <li><%= link_to "LINE@", href="https://line.me/ti/p/%40vji2716s" %></li>
                 <% elsif logged_in_as_student? %>
                   <li role="separator" class="divider"></li>
                   <li>
@@ -155,7 +155,7 @@
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "講師一覧", :coaches %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "LINE", href="https://line.me/ti/p/%40vji2716s" %></li>
+                  <li><%= link_to "LINE@", href="https://line.me/ti/p/%40vji2716s" %></li>
                 <% end %>
               </ul>
             </li>

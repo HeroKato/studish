@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :favorited_posts, through: :favorites, source: :posts
   
-  VALID_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
+  VALID_NAME_REGEX = /\A(?:[\w\-.・･@]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :name, allow_blank: true,
                    format: { with: VALID_NAME_REGEX, message: :invalid_name },
                    length: { minimum: 2, maximum: 30 },
