@@ -57,6 +57,10 @@
           <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= comment.favorites.count %></span>
           <% end %>
         <% end %>
+      <% else %>
+        <%= link_to post_comment_favorites_path(comment), method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= comment.favorites.count %></span>
+        <% end %>
       <% end %>
     </div>
     
