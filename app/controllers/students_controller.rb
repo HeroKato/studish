@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :logged_in_student, only: [:edit, :update, :destroy]
   before_action :correct_student, only: [:edit, :upddate, :destroy, :account, :notifications]
-  before_action :logged_in_user, only: [:favorites]
+  before_action :logged_in_user, only: [:show, :favorites]
   before_action :student_profile_check, only: [:show, :favorites]
   after_action :save_flags, only: [:notifications]
   

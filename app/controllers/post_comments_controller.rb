@@ -1,6 +1,6 @@
 class PostCommentsController < ApplicationController
   attr_accessor :post_id
-  before_action :logged_in_user, only: [:new]
+  before_action :logged_in_user, only: [:create]
   before_action :correct_user2, only: [:edit, :update, :destroy]
   before_action :profile_check, only: [:new, :create]
   

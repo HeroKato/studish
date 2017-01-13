@@ -73,6 +73,9 @@
       <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
       <% end %>
     <% end %>
+    <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
+      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
+    <% end %>
   </div>
   <div class="edit_delete">
     <% if current_student == post.student %>
