@@ -87,11 +87,11 @@
     </div>
     <div class="infomation clearfix">
       <span><%= n.post.subject %></span>
-      <span><%= n.post.text_name %></span>
+      <% if n.post.text_name %><span><%= n.post.text_name %></span><% end %>
       <% if n.post.chapter.present? %><span><%= n.post.chapter %></span><% end %>
       <% if n.post.section.present? %><span><%= n.post.section %></span><% end %>
       <% if n.post.page.present? %><span><%= n.post.page %></span><% end %>
-      <span><%= n.post.number %></span>
+      <% if n.post.number %><span><%= n.post.number %></span><% end %>
       <% if n.post.pattern.present? %><span><%= n.post.pattern %></span><% end %>
     </div>
     <span class="status"><%= n.post.status %></span>
