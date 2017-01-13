@@ -56,9 +56,6 @@
         <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
         <% end %>
       <% end %>
-      <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
-      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
-      <% end %>
     <% elsif logged_in_as_coach? %>
       <% if post.favorites.where(coach_id: current_coach.id).present? %>
         <%= link_to post_favorite_path(post, current_coach.id), method: :delete, class: "action-button-link" do %>
@@ -68,9 +65,6 @@
         <%= link_to post_favorites_path(post), method: :post, class: "action-button-link" do %>
         <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
         <% end %>
-      <% end %>
-      <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
-      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
       <% end %>
     <% end %>
     <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
