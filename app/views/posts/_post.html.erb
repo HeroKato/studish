@@ -32,13 +32,13 @@
   </div>
   <% end %>
   <div class="infomation clearfix">
-    <span><%= post.subject %></span>
-    <span><%= post.text_name %></span>
-    <% if post.chapter.present? %><span><%= post.chapter %></span><% end %>
-    <% if post.section.present? %><span><%= post.section %></span><% end %>
-    <% if post.page.present? %><span><%= post.page %></span><% end %>
-    <span><%= post.number %></span>
-    <% if post.pattern.present? %><span><%= post.pattern %></span><% end %>
+    <span class="subject"><%= post.subject %></span>
+    <% if post.text_name.present? %><span class="text_name"><%= post.text_name %></span><% end %>
+    <% if post.chapter.present? %><span class="chapter"><%= post.chapter %></span><% end %>
+    <% if post.section.present? %><span class="section"><%= post.section %></span><% end %>
+    <% if post.page.present? %><span class="page"><%= post.page %></span><% end %>
+    <% if post.number.present? %><span class="number"><%= post.number %></span><% end %>
+    <% if post.pattern.present? %><span class="pattern"><%= post.pattern %></span><% end %>
   </div>
   <span class="status"><%= post.status %></span>
   <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>

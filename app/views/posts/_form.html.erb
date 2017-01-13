@@ -3,11 +3,11 @@
     <%= render 'shared/errors', obj: f.object %>
     <div class="form-group">
       <%= f.label "科目", class: "required" %>
-      <%= f.select :subject, [["Grammar(英文法)"],["Reading"],["Writing"],["中1英語"],["中2英語"],["中3英語"],["中1数学"],["中2数学"],["中3数学"],["数Ⅰ"],["数A"],["数Ⅱ"],["数B"],["数Ⅲ"]], class: "form-control text-denger" %>
+      <%= f.select :subject, [["勉強方法"],["Grammar(英文法)"],["Reading"],["Writing"],["中1英語"],["中2英語"],["中3英語"],["中1数学"],["中2数学"],["中3数学"],["数Ⅰ"],["数A"],["数Ⅱ"],["数B"],["数Ⅲ"]], class: "form-control text-denger" %>
     </div>
     <div class="form-group">
-      <%= f.label "テキスト名", class: "required" %>
-      <%= f.text_field :text_name, class: "form-control", placeholder: "例:NextStage/青チャート1A/学校プリント" %>
+      <%= f.label "テキスト名（勉強方法の場合は入力しなくてOK）", class: "required" %>
+      <%= f.text_field :text_name, class: "form-control", placeholder: "例:NextStage/学校プリント" %>
     </div>
     <div class="form-group">
       <%= f.label "章名" %>
@@ -19,19 +19,20 @@
     </div>
     <div class="form-group">
       <%= f.label "ページ数" %>
-      <%= f.text_field :page, class: "form-control", placeholder: "例:p22 / p97" %>
+      <%= f.text_field :page, class: "form-control", placeholder: "例:p22" %>
     </div>
     <div class="form-group">
-      <%= f.label "問題番号", class: "required" %>
+      <%= f.label "問題番号（勉強方法の場合は入力しなくてOK）", class: "required" %>
       <%= f.text_field :number, class: "form-control", placeholder: "例:21 / 基本例題58" %>
     </div>
     <div class="form-group">
       <%= f.label "問題パターン" %>
       <%= f.text_area :pattern, rows: 4, class: "form-control", placeholder: "例:\n文中で用いられるwhen節\n関数f(a)の計算、座標平面と象限・点が属する象限の判定" %>
     </div>
+    <p>画像は最大2つ選択できます</p>
     <div class="form-group">
       <%= f.fields_for :post_pictures do |pic| %>
-        <%= pic.label "質問画像", class: "required" %>
+        <%= pic.label "質問画像" %>
         <%= pic.file_field :pictures, accept: 'image/jpeg,image/gif,image/png' %>
       <% end %>
     </div>
