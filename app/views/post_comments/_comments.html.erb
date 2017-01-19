@@ -62,9 +62,6 @@
           <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= comment.favorites.count %></span>
         <% end %>
       <% end %>
-      <%= link_to new_post_comment_path(commented_post_comment_id: comment.id, post_id: comment.post.id), class: "action-button-link" do %>
-        <i class="fa fa-commenting-o action-button"></i><span class="count comment-count">カウント</span>
-      <% end %>
     </div>
     
     <div class="edit_delete">

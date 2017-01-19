@@ -46,9 +46,6 @@
   <%= simple_format(h(post.caption), class: "caption-text") %>
   </div>
   <div class="action-buttons">
-    <%= link_to "#", class: "action-button-link" do %>
-      <span class="comments-link">x件のコメントを見る</span>
-    <% end %>
     <% if logged_in_as_student? %>
       <% if post.favorites.where(student_id: current_student.id).present? %>
         <%= link_to post_favorite_path(post, current_student.id), method: :delete, class: "action-button-link" do %>

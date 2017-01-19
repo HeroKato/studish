@@ -49,6 +49,15 @@
           <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post_comment.post.favorites.count %></span>
           <% end %>
         <% end %>
+        <% if post_comment.post.find_by(student_id: current_student.id).present? %>
+          <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
+            <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= post_comment.post.post_comments.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
+            <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post_comment.post.post_comments.count %></span>
+          <% end %>
+        <% end %>
       <% elsif logged_in_as_coach? %>
         <% if post_comment.post.favorites.where(coach_id: current_coach.id).present? %>
           <%= link_to post_favorite_path(post_id: post_comment.post.id), method: :delete, class: "action-button-link" do %>
@@ -59,9 +68,19 @@
           <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post_comment.post.favorites.count %></span>
           <% end %>
         <% end %>
-      <% end %>
-      <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
-      <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post_comment.post.post_comments.count %></span>
+        <% if post_comment.post.post_comments.find_by(coach_id: current_coach.id).present? %>
+          <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
+            <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= post_comment.post.post_comments.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
+            <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post_comment.post.post_comments.count %></span>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to new_post_comment_path(post_id: post_comment.post.id), class: "action-button-link" do %>
+        <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post_comment.post.post_comments.count %></span>
+        <% end %>
       <% end %>
     </div>
     <div class="edit_delete">
