@@ -16,6 +16,9 @@
     .favorited {
       color: $fav-pink;
     }
+    .commented {
+      color: $comment-blue;
+    }
   }
   a.action-button-link:hover {
     color: $grey1;

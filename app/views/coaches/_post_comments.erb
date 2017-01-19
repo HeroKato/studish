@@ -13,9 +13,24 @@
     </div>
     <% if post_comment.post.post_pictures.present? %>
       <div class="post-picture-wrapper">
-        <% post_comment.post.post_pictures.each do |pic| %>
-          <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
-        <% end %>
+        <div id="post-picture-of-post-<%= post_comment.post.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#post-picture-of-post-<%= post_comment.post.id %>" data-slide-to="0" class="active"></li>
+            <% if post_comment.post.post_pictures.second.present? %>
+            <li data-target="#post-picture-of-post-<%= post_comment.post.id %>" data-slide-to="1"></li>
+            <% end %>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <%= image_tag post_comment.post.post_pictures.first.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% if post_comment.post.post_pictures.second.present? %>
+            <div class="item">
+              <%= image_tag post_comment.post.post_pictures.second.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
     <span class="status"><%= post_comment.post.status %></span>

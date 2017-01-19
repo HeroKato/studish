@@ -3,6 +3,7 @@ class PostCommentsController < ApplicationController
   before_action :logged_in_user, only: [:create]
   before_action :correct_user2, only: [:edit, :update, :destroy]
   before_action :profile_check, only: [:new, :create]
+  after_action :save_flags, only: [:new]
   
   def index
   end
@@ -17,6 +18,20 @@ class PostCommentsController < ApplicationController
     @comment.comment_pictures.build
     @post = Post.find(params[:post_id])
     @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(10)
+    
+    if logged_in_as_student?
+      if @post.student_id == current_student.id
+        @favorited = Favorite.where(favorited_student_id: current_student.id)
+        @commented = PostComment.where(commented_student_id: current_student.id)
+        @notifications = @commented.push(@favorited)
+        @notifications.flatten!
+      end
+    elsif logged_in_as_coach?
+      @favorited = Favorite.where(favorited_coach_id: current_coach.id)
+      @commented = PostComment.where(commented_coach_id: current_coach.id)
+      @notifications = @commented.push(@favorited)
+      @notifications.flatten!
+    end
   end
   
   def create
@@ -127,6 +142,5 @@ class PostCommentsController < ApplicationController
       redirect_to(login_url)
     end
   end
-
 
 end
