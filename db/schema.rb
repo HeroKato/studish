@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003063311) do
+ActiveRecord::Schema.define(version: 20170115094527) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -168,10 +168,12 @@ ActiveRecord::Schema.define(version: 20161003063311) do
     t.integer  "commented_student_id"
     t.integer  "commented_coach_id"
     t.text     "caption"
-    t.string   "status",               default: "answer"
-    t.boolean  "check_flag",           default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "status",                    default: "answer"
+    t.boolean  "check_flag",                default: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.integer  "commented_post_comment_id"
+    t.integer  "root_post_comment_id"
   end
 
   add_index "post_comments", ["coach_id", "created_at"], name: "index_post_comments_on_coach_id_and_created_at"

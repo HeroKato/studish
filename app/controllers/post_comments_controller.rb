@@ -20,6 +20,7 @@ class PostCommentsController < ApplicationController
   end
   
   def create
+    
     if logged_in_as_student?
       @comment = current_student.post_comments.build(comment_params)
     else
@@ -32,6 +33,14 @@ class PostCommentsController < ApplicationController
       @comment.status = "comment"
     elsif params[:answer]
       @comment.status = "answer"
+    end
+    
+    if params[:commented_post_comment_id]
+      @comment.commented_post_comment_id = params[:commented_post_comment_id]
+    end
+    
+    if params[:root_post_comment_id]
+      @comment.root_post_comment_id = params[:root_post_comment_id]
     end
     
     if @comment.save
@@ -80,7 +89,7 @@ class PostCommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:post_comment).permit(:caption, :post_id, :commit, { comment_pictures_attributes: [:pictures] })
+    params.require(:post_comment).permit(:caption, :post_id, :commit, :commented_post_comment_id, :root_post_comment_id, { comment_pictures_attributes: [:pictures] })
   end
   
   def update_comment_params

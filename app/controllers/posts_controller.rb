@@ -9,6 +9,10 @@ class PostsController < ApplicationController
   end
   
   def show
+    @post = Post.find(params[:id])
+    @post_comments = @post.post_comments
+    @root_post_comments = @post_comments.where(root_post_comment_id: '')
+    @branch_post_comments = @post_comments.where(root_post_comment_id.exists)
   end
   
   def new
