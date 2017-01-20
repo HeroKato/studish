@@ -20,7 +20,9 @@ class PostCommentsController < ApplicationController
     @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(10)
     @twitter_title = @post.subject
     @twitter_discription = @comments.first.caption
-    @twitter_image_url = @comments.first.comment_pictures.medium.url
+    @comment_for_twitter = @comments.first
+    @twitter_image_url = @comment_for_twitter.comment_pictures.pictures.url
+    binding.pry
     
     if logged_in_as_student?
       if @post.student_id == current_student.id
