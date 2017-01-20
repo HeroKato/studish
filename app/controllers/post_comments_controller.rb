@@ -20,8 +20,9 @@ class PostCommentsController < ApplicationController
     @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(10)
     @twitter_title = @post.subject
     @creator_coach = @comments.first.coach.account_name
+    @twitter_image_url_0 = @post.post_pictures.first.pictures.small.url
     if @comments.first.comment_pictures.present?
-      @twitter_image_url = @comments.first.comment_pictures.first.pictures.small.url
+      @twitter_image_url_1 = @comments.first.comment_pictures.first.pictures.small.url
     else
       @twitter_image_url = "http://studish-stg.herokuapp.com/assets/120_120-1ecfd341f0f9ab1f64ecf296d945f1717e5bbd708c5bae58bca9096d979eeff2.png"
     end
