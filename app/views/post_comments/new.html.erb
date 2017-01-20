@@ -1,13 +1,20 @@
+<% content_for :head do %>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@hirotutor" />
+<meta name="twitter:title" content="<% @twitter_title %>" />
+<meta name="twitter:description" content="<% @twitter_discription %>" />
+<meta name="twitter:image" content="<% @twitter_image_url %>" />
+<% end %>
 
-  <div class="page-outer" id="new-comment">
-    <div class="page-container" id="post-comments-stream">
-      <%= render @post %>
-      <hr class="hr-bottom hr-bold">
-      <%= render "form" %>
-      <hr class="hr-bottom">
-      <ol class="comments post-comments-stream-container">
-        <%= render "comments" %>
-        <%= paginate @comments %>
-      </ol>
-    </div>
+<div class="page-outer" id="new-comment">
+  <div class="page-container" id="post-comments-stream">
+    <%= render @post %>
+    <hr class="hr-bottom hr-bold">
+    <%= render "form" %>
+    <hr class="hr-bottom">
+    <ol class="comments post-comments-stream-container">
+      <%= render "comments" %>
+      <%= paginate @comments %>
+    </ol>
   </div>
+</div>
