@@ -45,10 +45,8 @@
     ga('create', 'UA-90694345-1', 'auto');
     ga('send', 'pageview');
     
-    <% if logged_in_as_student %>
-      ga('set', 'userId', {{<%= current_student.id %>}});
-    <% elsif logged_in_as_coach %>
-      ga('set', 'userId', {{<%= current_coach.id %>}});
+    <% if logged_in_user %>
+      ga('set', 'userId', {{<%= @user_id %>}});
     <% end %>
   
     </script>
