@@ -45,9 +45,7 @@
     ga('create', 'UA-90694345-1', 'auto');
     ga('send', 'pageview');
     
-    <% if logged_in_user %>
-      ga('set', 'userId', {{<%= @user_id %>}});
-    <% end %>
+    
   
     </script>
   <% end %>
