@@ -44,9 +44,10 @@
   
     ga('create', 'UA-90694345-1', 'auto');
     ga('send', 'pageview');
+    <% if ga_user_id.present? %>
+    ga('set', 'userId', {{ga_user_id}});
+    <% end %>
     
-    
-  
     </script>
   <% end %>
 </head>
