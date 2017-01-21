@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  
   before_action :logged_in_student, only: [:new, :create]
   before_action :correct_student2, only: [:edit, :update, :destroy]
   before_action :profile_check, only: [:new, :create]
