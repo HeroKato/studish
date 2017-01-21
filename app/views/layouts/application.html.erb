@@ -44,8 +44,8 @@
   
     ga('create', 'UA-90694345-1', 'auto');
     ga('send', 'pageview');
-    <% if ga_user_id.present? %>
-     ga('set', 'userId', {{<%= ga_user_id %>}});
+    <% if logged_in_as_coach? %>
+     ga('set', 'userId', <%= current_coach.id %>);
     <% end %>
     
     </script>
