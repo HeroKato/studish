@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   
   # before_action :basic_auth if Rails.env.staging?
   before_action :set_notifications_count
-  before_action :set_ga_user_id
   
   private
   
@@ -114,14 +113,6 @@ class ApplicationController < ActionController::Base
   
   def favorited?(coach)
     favorites.where(coach_id: coach.id).exists?
-  end
-  
-  def set_ga_user_id
-    if logged_in_as_student?
-      ga_user_id = current_student.id
-    else logged_in_as_coach?
-      ga_user_id = current_coach.id
-    end
   end
 
 end
