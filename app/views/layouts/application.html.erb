@@ -43,9 +43,9 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     
     <% if logged_in_as_coach? %>
-    ga('set', 'userId', '<%= current_coach.id %>');
+    ga('create', 'UA-90694345-1', {'userId': '<%= current_coach.id %>'});
     <% elsif logged_in_as_student? %>
-    ga('set', 'userId', '<%= current_student.id %>');
+    ga('create', 'UA-90694345-1', {'userId': '<%= current_student.id %>'});
     <% else %>
     ga('create', 'UA-90694345-1', 'auto');
     <% end %>
