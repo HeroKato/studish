@@ -1,7 +1,7 @@
 class CoachesController < ApplicationController
   before_action :logged_in_coach, only: [:edit, :update, :destroy]
   before_action :correct_coach, only: [:edit, :update, :destroy]
-  before_action :logged_in_user, only: [:show, :favorites]
+  before_action :logged_in_user, only: [:favorites]
   before_action :coach_profile_check, only: [:show, :favorites]
   
   def index
