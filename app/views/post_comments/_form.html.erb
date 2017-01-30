@@ -11,8 +11,6 @@
       <%= f.label :caption %>
       <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "caption...(up to 1000)" %>
       <%= f.hidden_field :post_id, value: params[:post_id] %>
-      <%= f.hidden_field :commented_post_comment_id, value: params[:commented_post_comment_id] %>
-      <%= f.hidden_field :root_post_comment_id, value: params[:root_post_comment_id] %>
     </div>
     <%= f.submit "comment", class: "btn btn-primary", name: "comment" %>
     <%= f.submit "answer", class: "btn btn-primary", name: "answer" %>

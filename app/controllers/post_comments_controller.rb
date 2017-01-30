@@ -112,7 +112,7 @@ class PostCommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:post_comment).permit(:caption, :post_id, :commit, :commented_post_comment_id, :root_post_comment_id, { comment_pictures_attributes: [:pictures] })
+    params.require(:post_comment).permit(:caption, :post_id, :comment, { comment_pictures_attributes: [:pictures] })
   end
   
   def update_comment_params
