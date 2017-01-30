@@ -21,11 +21,11 @@ class PostCommentsController < ApplicationController
     @twitter_title = @post.subject
     if @comments.present?
       @creator_coach = @comments.first.coach.account_name
-    end
-    if @comments.first.comment_pictures.present?
-      @twitter_image_url = @comments.first.comment_pictures.first.pictures.small.url
-    else
-      @twitter_image_url = "http://studish-stg.herokuapp.com/assets/120_120-1ecfd341f0f9ab1f64ecf296d945f1717e5bbd708c5bae58bca9096d979eeff2.png"
+      if @comments.first.comment_pictures.present?
+        @twitter_image_url = @comments.first.comment_pictures.first.pictures.small.url
+      else
+        @twitter_image_url = "http://studish-stg.herokuapp.com/assets/120_120-1ecfd341f0f9ab1f64ecf296d945f1717e5bbd708c5bae58bca9096d979eeff2.png"
+      end
     end
     if logged_in_as_student?
       if @post.student_id == current_student.id
