@@ -17,12 +17,19 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     2.times { @post.post_pictures.build }
+    if params[:post_type] == "note"
+      post_type = params[:post_type]
+    end
   end
   
   def create
     @post = current_student.posts.build(post_params)
     if @post.save
-      flash[:success] = "クエスチョンを投稿しました！"
+      if @post.subject == "投稿"
+       flash[:success] = "クエスチョンを投稿しました！"
+      elsif @post.subject == "Note"
+       flash[:success] = "Noteを投稿しました！"
+      end
       redirect_to :posts
     else
       @post.post_pictures.build
@@ -57,7 +64,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:caption, :subject, :text_name, :chapter, :section,
+    params.require(:post).permit(:status, :caption, :subject, :text_name, :chapter, :section,
                                  :page, :number, :pattern, { post_pictures_attributes: [:pictures] })
   end
   

@@ -20,7 +20,7 @@
             <% if !(logged_in_as_coach? || logged_in_as_student?) %>
               <li><%= link_to "HOME", root_path %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "クエスチョンズ", posts_path %></li>
+              <li><%= link_to "クエスチョンズ/Notes", posts_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "ログイン", login_path %></li>
               <li role="separator" class="divider"></li>
@@ -57,7 +57,7 @@
               <li role="separator" class="divider"></li>
               <li>
                 <%= link_to posts_path do %>
-                  <i class="fa qustions">Q</i><span>クエスチョンズ</span>
+                  <i class="fa qustions">Q&N</i><span>クエスチョンズ/Notes</span>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
@@ -94,13 +94,19 @@
               <li role="separator" class="divider"></li>
               <li>
                 <%= link_to new_post_path(current_student) do %>
-                <i class="fa fa-pencil-square-o"></i><span>投稿</span>
+                <i class="fa fa-question-circle-o"></i><span>Question</span>
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to new_post_path(current_student, post_type: "note")  do %>
+                <i class="fa fa-pencil-square-o"></i><span>Note</span>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
               <li>
                 <%= link_to posts_path(current_student) do %>
-                <i class="fa qustions">Q</i><span>クエスチョンズ</span>
+                <i class="fa qustions"></i><span>Q&N's</span>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>

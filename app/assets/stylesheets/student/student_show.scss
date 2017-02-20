@@ -15,12 +15,18 @@ ul.stats {
     li.stats-item {
       float: left;
       width: 33.33333%;
-      height: 50px;
+      height: 40px;
       text-align: center;
+      span {
+        display: inline-block;
+        line-height: 1;
+        font-size: $font-size-s;
+      }
       span.count {
+        width: 100%;
       }
       span.item {
-        font-size: $font-size-s;
+        width: 100%;
       }
     }
   }

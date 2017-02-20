@@ -1,0 +1,19 @@
+<div class="form-group post">
+  <%= form_for @post, :html => { multipart: true } do |f| %>
+    <%= render 'shared/errors', obj: f.object %>
+    <%= f.hidden_field :status, value: "note" %>
+    <%= f.hidden_field :subject, value: "Note" %>
+    <p>画像は最大2つ選択できます</p>
+    <div class="form-group">
+      <%= f.fields_for :post_pictures do |pic| %>
+        <%= pic.label "Note画像" %>
+        <%= pic.file_field :pictures, accept: 'image/jpeg,image/gif,image/png' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Note", class: "required" %>
+      <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "今日学んだことを他のユーザに説明しよう！" %>
+    </div>
+    <%= f.submit "Noteを投稿", class: "btn btn-primary" %>
+  <% end %>
+</div>

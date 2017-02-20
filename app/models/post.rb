@@ -10,13 +10,13 @@ class Post < ActiveRecord::Base
   validates :student_id, presence: true
   validates :caption, presence: true, length: { maximum: 1000 }
   validates :subject, presence: true, length: { maximum: 20 }
-  validates :text_name, presence: true, unless: :question_type_how_to_study?, length: { maximum: 100 }
-  validates :number, presence: true, unless: :question_type_how_to_study?, length: { maximum: 30 }
+  validates :text_name, presence: true, unless: :study_or_note?, length: { maximum: 100 }
+  validates :number, presence: true, unless: :study_or_note?, length: { maximum: 30 }
   validates :chapter, length: { maximum: 50 }
   validates :section, length: { maximum: 50 }
   validates :pattern, length: { maximum: 50 }
   
-  def question_type_how_to_study?
-    subject == "勉強方法"
+  def study_or_note?
+    subject == "勉強方法"||"note"
   end
 end
