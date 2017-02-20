@@ -45,7 +45,11 @@
 .action-buttons a.action-button-link .favorited {
   color: #ff4a6a;
 }
-/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
+.action-buttons a.action-button-link .commented {
+  color: #1e90ff;
+}
+/* line 23, /home/ubuntu/workspace/app/assets/stylesheets/action_button.scss */
 .action-buttons a.action-button-link:hover {
   color: #636363;
 }
@@ -130,6 +134,7 @@ ol.carousel-indicators li {
   width: 16px;
   height: 16px;
   margin-right: 10px;
+  padding: 0 !important;
 }
 /* margin, padding @media (max-width: 768px) */
 /* font-size */
@@ -1582,6 +1587,11 @@ p.nothing {
 .alert > ul {
   padding: 0;
 }
+
+/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/main.scss */
+#forgot-password {
+  margin-left: 10px;
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/more.scss */
 a.more {
   float: right;
@@ -1968,24 +1978,34 @@ ul.stats a {
 ul.stats a li.stats-item {
   float: left;
   width: 33.33333%;
-  height: 50px;
+  height: 40px;
   text-align: center;
 }
-/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
-ul.stats a li.stats-item span.item {
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a li.stats-item span {
+  display: inline-block;
+  line-height: 1;
   font-size: 12px;
 }
-/* line 27, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a li.stats-item span.count {
+  width: 100%;
+}
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+ul.stats a li.stats-item span.item {
+  width: 100%;
+}
+/* line 33, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
 ul.stats a:hover {
   color: #636363;
 }
 
-/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
 .user-info.student-info.margin-cancel {
   margin: 0;
 }
 
-/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/student/student_show.scss */
 p.self-introduction {
   padding: 10px;
 }
