@@ -1,5 +1,5 @@
 <div class="form-group post">
-  <%= form_for @post, :html => { multipart: true } do |f| %>
+  <%= form_for @post do |f| %>
     <%= render 'shared/errors', obj: f.object %>
     <div class="form-group">
       <%= f.label "科目", class: "required" %>
