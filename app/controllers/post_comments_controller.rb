@@ -20,7 +20,11 @@ class PostCommentsController < ApplicationController
     @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(10)
     @twitter_title = @post.subject
     if @comments.present?
-      @creator_coach = @comments.first.coach.account_name
+      if @comments.first.coach.present?
+        @creator = @comments.first.coach.account_name
+      else @comments.first.student.present?
+        @creator = @comments.first.student.account_name
+      end
       if @comments.first.comment_pictures.present?
         @twitter_image_url = @comments.first.comment_pictures.first.pictures.small.url
       else
