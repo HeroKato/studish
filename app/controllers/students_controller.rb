@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @posts = @student.posts.page(params[:page]).per_page(10)
+    @questions_count = @student.posts.where(status: "question").count
     @notes_count = @student.posts.where(status: "note").count
   end
   

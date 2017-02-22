@@ -16,7 +16,7 @@
         <%= image_tag "", class: "avatar avatar-large no-image" %>
       <% end %>
       <ul class="stats clearfix">
-        <%= link_to "", class: "question-link" do %><li class="stats-item clearfix" id="stats1"><span class="count"><%= @student.posts.count %></span><span class="item question">クエスチョン</span></li><% end %>
+        <%= link_to "", class: "question-link" do %><li class="stats-item clearfix" id="stats1"><span class="count"><%= @questions_count %></span><span class="item question">クエスチョン</span></li><% end %>
         <%= link_to answers_student_path(@student), class: "answers" do %><li class="stats-item clearfix" id="stats2"><span class="count"><%= @student.post_comments.where(status: "answer").count %></span><span class="item answer">アンサー</span></li><% end %>
         <%= link_to favorites_student_path(@student), class: "favorites" do %><li class="stats-item clearfix" id="stats3"><span class="count"><%= @student.favorites.count %></span><span class="item #">いいね</span></li><% end %>
         <%= link_to "", class: "notes-link" do %><li class="stats-item clearfix" id="stats4"><span class="count"><%= @notes_count %></span><span class="item notes">ノート</span></li><% end %>
