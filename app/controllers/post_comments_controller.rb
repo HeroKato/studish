@@ -18,7 +18,6 @@ class PostCommentsController < ApplicationController
     @comment.comment_pictures.build
     @post = Post.find(params[:post_id])
     @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(10)
-    @twitter_title = @post.subject
     if @comments.present?
       if @comments.first.coach.present?
         @creator = @comments.first.coach.account_name
@@ -30,6 +29,11 @@ class PostCommentsController < ApplicationController
       else
         @twitter_image_url = "http://studish-stg.herokuapp.com/assets/120_120-1ecfd341f0f9ab1f64ecf296d945f1717e5bbd708c5bae58bca9096d979eeff2.png"
       end
+    end
+    if @post.status == "note"
+      @twitter_sentence = "のnoteにコメントしました。"
+    else
+      @twitter_sentence = "の質問に回答しました。"
     end
     if logged_in_as_student?
       if @post.student_id == current_student.id
