@@ -24,16 +24,20 @@ class PostsController < ApplicationController
   
   def create
     @post = current_student.posts.build(post_params)
-    if @post.save
-      if @post.subject == "Note"
-       flash[:success] = "Noteを投稿しました！"
-      elsif
-       flash[:success] = "クエスチョンを投稿しました！"
+    if @post.post_pictures.length < 3
+      if @post.save
+        if @post.subject == "Note"
+         flash[:success] = "Noteを投稿しました！"
+        elsif
+         flash[:success] = "クエスチョンを投稿しました！"
+        end
+        redirect_to :posts
+      else
+        render 'new'
       end
-      redirect_to :posts
     else
-      @post.post_pictures.build
-      render 'new'
+      flash[:danger] = "画像は最大2つまでです。"
+      redirect_to :action => "new"
     end
     
   end
