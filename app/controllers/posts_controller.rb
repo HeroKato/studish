@@ -44,9 +44,6 @@ class PostsController < ApplicationController
   
   def edit
     @post = current_student.posts.find(params[:id])
-    unless @post.post_pictures.present?
-      @post_pictures = @post.post_pictures.build
-    end
   end
   
   def update
