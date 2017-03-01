@@ -26,7 +26,7 @@
     <% if comment.comment_pictures.present? %>
       <div class="picture-wrapper">
       <% comment.comment_pictures.each do |pic| %>
-        <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+        <%= image_tag pic.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
       <% end %>
       </div>
     <% end %>

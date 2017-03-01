@@ -22,11 +22,11 @@
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <%= image_tag @post.post_pictures.first.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+                <%= image_tag @post.post_pictures.first.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
               </div>
               <% if @post.post_pictures.second.present? %>
               <div class="item">
-                <%= image_tag @post.post_pictures.second.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+                <%= image_tag @post.post_pictures.second.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
               </div>
               <% end %>
             </div>
