@@ -14,6 +14,10 @@
       <%= f.label "Note", class: "required" %>
       <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "今日学んだことを他のユーザに説明してみよう！" %>
     </div>
-    <%= f.submit "Noteを投稿", class: "btn btn-primary" %>
+    <% if @post.created_at.present? %>
+      <%= f.submit "Noteを投稿", class: "btn btn-primary", method: "PATCH" %>
+    <% else %>
+      <%= f.submit "Noteを投稿", class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 </div>

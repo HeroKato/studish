@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     @post = current_student.posts.find(params[:id])
     if @post.update_attributes(update_post_params)
       flash[:success] = "ポストを更新しました。"
-      redirect_to :posts
+      redirect_to :action => "index"
     else
       render 'edit'
     end
@@ -67,12 +67,12 @@ class PostsController < ApplicationController
   
   def post_params
     params.require(:post).permit(:status, :caption, :subject, :text_name, :chapter, :section,
-                                 :page, :number, :pattern, { post_pictures_attributes: [:pictures] } )
+                                 :page, :number, :pattern, {post_pictures_attributes: [:pictures]} )
   end
   
   def update_post_params
     params.require(:post).permit(:caption,:subject, :text_name, :chapter, :section,
-                                 :page, :number, :pattern, { post_pictures_attributes: [:id, :pictures] })
+                                 :page, :number, :pattern, {post_pictures_attributes: [:id, :pictures]} )
   end
   
   def profile_check

@@ -40,6 +40,10 @@
       </div>
     </div>
     <hr class="he-bottom" >
-    <%= render "form" %>
+    <% if @post.status == "note" %>
+      <%= render "note_form" %>
+    <% else %>
+      <%= render "form" %>
+    <% end %>
   </div>
 </div>

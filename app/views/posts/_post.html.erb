@@ -95,7 +95,6 @@
   </div>
   <div class="edit_delete">
     <% if current_student == post.student %>
-      <%= link_to "編集", [:edit, post], class: "edit" %>
       <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
     <% end %>
   </div>

@@ -72,7 +72,6 @@
         <% end %>
       <% elsif current_coach.present? %>
         <% if current_coach == comment.coach %>
-          <%= link_to "編集", [:edit, comment], class: "edit" %>
           <%= link_to "削除", comment, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
         <% end %>
       <% end %>
