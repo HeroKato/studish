@@ -142,7 +142,6 @@
     
     <div class="edit_delete">
       <% if current_coach == post_comment.coach %>
-        <%= link_to "編集", [:edit, post_comment], class: "edit" %>
         <%= link_to "削除", post_comment, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
       <% end %>
     </div>
