@@ -60,7 +60,7 @@ class PostsController < ApplicationController
     @post = current_student.posts.find(params[:id])
     @post.destroy
     flash[:success] = "ポストを削除しました。"
-    redirect_to request.referrer || root_url
+    redirect_to :posts
   end
   
   private
