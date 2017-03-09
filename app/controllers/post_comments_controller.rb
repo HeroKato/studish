@@ -27,7 +27,7 @@ class PostCommentsController < ApplicationController
       if @comments.first.comment_pictures.present?
         @twitter_image_url = @comments.first.comment_pictures.first.pictures.large.url
       else
-        @twitter_image_url = "http://studish-stg.herokuapp.com/assets/copy-back_768-b48f180ff77ef4301521e95f8940212b2c74fc6d019e3e4ba71e8fab34df9205.jpg"
+        @twitter_image_url = "http://studish-stg.herokuapp.com/assets/twitter-card-20ff62444194c9ec2a666f02e076123069c03e4bb2183bfe1316cacb35985647.png"
       end
     end
     if @post.status == "note"
