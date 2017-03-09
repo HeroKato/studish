@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :profile_check, only: [:new, :create]
   
   def index
-    @posts = Post.all.page(params[:page]).per_page(10)
+    @posts = Post.all.page(params[:page]).per_page(5)
   end
   
   def show

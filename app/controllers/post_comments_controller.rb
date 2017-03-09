@@ -17,7 +17,7 @@ class PostCommentsController < ApplicationController
     @comment = PostComment.new
     @comment.comment_pictures.build
     @post = Post.find(params[:post_id])
-    @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(10)
+    @comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per_page(5)
     if @comments.present?
       if @comments.first.coach.present?
         @creator = @comments.first.coach.account_name
