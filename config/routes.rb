@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   #get 'coaching_reports/edit'
   get 'accounts/show'
   get 'accounts/edit'
+  
+  get 'statics/privacy'
+  get 'statics/terms'
 
   namespace :admin do
   get 'top/index'

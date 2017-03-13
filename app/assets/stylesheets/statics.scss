@@ -1,0 +1,22 @@
+#privacy-policy {
+  .page-container {
+    padding: 0 10px;
+    .content-header {
+      
+    }
+    .content {
+      p,
+      ol {
+        margin-bottom: 2em;
+      }
+      b,
+      span {
+        display: inline-block;
+        margin-bottom: 1em;
+      }
+      li {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+}

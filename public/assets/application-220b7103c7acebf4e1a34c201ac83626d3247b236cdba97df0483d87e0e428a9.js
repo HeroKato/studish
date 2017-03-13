@@ -11615,6 +11615,15 @@ $(function(){
     }
   });
 });
+
+$(function(){
+  $('#student_avatar').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+});
 (function() {
 
 
@@ -12021,13 +12030,18 @@ $(function(){
 
 }).call(this);
 $(function(){
-  $('#post_post_pictures_attributes_0_pictures').click(function() {
+  $('#post_post_pictures_attributes_0_pictures').bind('change', function() {
     var image_number = this.files.length;
     if (image_number > 2) {
       alert('画像は最大で2つまでです。');
+      return false;
     }
   });
 });
+(function() {
+
+
+}).call(this);
 (function() {
 
 
