@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+
+#how-to-feature {
+  .content-container {
+    .content {
+      margin-bottom: 50px;
+      .how-to-feature-header {
+        margin: 20px;
+        .icon {
+          font-size: 20px;
+          line-height: 1;
+          color: $grey1;
+        }
+        .title {
+          line-height: 1;
+          font-size: 20px;
+        }
+      }
+      img {
+        margin: 0 auto;
+      }
+      #question-image-1 {
+        margin-bottom: 15px;
+      }
+      p {
+      }
+    }
+  }
+}
+
+
+@media(min-width: 768px) {
+}
+
+
+@media(min-width: 992px) {
+}

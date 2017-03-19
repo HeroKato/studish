@@ -20,17 +20,9 @@
             <% if !(logged_in_as_coach? || logged_in_as_student?) %>
               <li><%= link_to "HOME", root_path %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "クエスチョンズ/Notes", posts_path %></li>
+              <li><%= link_to "Questions/Notes", posts_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "ログイン", login_path %></li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <% if current_page?(root_path) %>
-                  <%= link_to "無料体験", "#inquiry" %>
-                <% else %>
-                  <%= link_to "無料体験", "/#inquiry" %>
-                <% end %>
-              </li>
               <li role="separator" class="divider"></li>
               <li>
                 <% if current_page?(root_path) %>
@@ -55,7 +47,7 @@
               <li role="separator" class="divider"></li>
               <li>
                 <%= link_to posts_path do %>
-                  <i class="fa qustions">Q&N</i><span>クエスチョンズ/Notes</span>
+                  <i class="fa questions"></i><span>Q&N's</span>
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
@@ -126,8 +118,6 @@
                     <% end %>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "講師一覧", :coaches %></li>
-                  <li role="separator" class="divider"></li>
                   <li><%= link_to "お問い合わせ", inquiry_path %></li>
                   <li role="separator" class="divider"></li>
                 <% elsif logged_in_as_coach? %>
@@ -142,9 +132,9 @@
                     <% end %>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "講師一覧", :coaches %></li>
-                  <li role="separator" class="divider"></li>
                   <li><%= link_to "LINE@", href="https://line.me/ti/p/%40vji2716s" %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
                 <% elsif logged_in_as_student? %>
                   <li role="separator" class="divider"></li>
                   <li>
@@ -159,9 +149,9 @@
                     <% end %>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "講師一覧", :coaches %></li>
-                  <li role="separator" class="divider"></li>
                   <li><%= link_to "LINE@", href="https://line.me/ti/p/%40vji2716s" %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "お問い合わせ", inquiry_path %></li>
                 <% end %>
               </ul>
             </li>

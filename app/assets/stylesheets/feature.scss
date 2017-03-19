@@ -1,0 +1,47 @@
+@import "variables";
+@import "mixins";
+
+#feature {
+  background-color: $light-grey;
+  .content-container {
+    #feature-1,
+    #feature-2 {
+      margin-bottom: 30px;
+    }
+    .content {
+      padding: 15px;
+      .feature-header {
+        margin: 10px;
+        .icon {
+          font-size: 20px;
+          line-height: 1;
+          color: $grey1;
+        }
+        .title {
+          line-height: 1;
+          font-size: 20px;
+        }
+      }
+      p {
+      }
+    }
+  }
+}
+
+
+@media(min-width: 768px) {
+}
+
+
+@media(min-width: 992px) {
+  
+#feature{
+  .content-container {
+    max-width: 960px;
+    .content {
+      padding: 20px;
+    }
+  }
+}
+
+}

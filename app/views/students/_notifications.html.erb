@@ -29,11 +29,24 @@
   </div>
     <% if n.post.present? %>
       <div class="picture-wrapper">
-        <% if n.post.post_pictures.present? %>
-          <% n.post.post_pictures.each do |pic| %>
-            <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
-          <% end %>
-        <% end %>
+        <div id="post-picture-of-post-<%= n.post.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#post-picture-of-post-<%= n.post.id %>" data-slide-to="0" class="active"></li>
+            <% if n.post.post_pictures.second.present? %>
+            <li data-target="#post-picture-of-post-<%= n.post.id %>" data-slide-to="1"></li>
+            <% end %>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <%= image_tag n.post.post_pictures.first.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% if n.post.post_pictures.second.present? %>
+            <div class="item">
+              <%= image_tag n.post.post_pictures.second.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
       <span class="status"><%= n.post.status %></span>
       <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
