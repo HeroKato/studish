@@ -17,9 +17,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.post_pictures.new
-    if params[:post_type] == "note"
-      post_type = params[:post_type]
-    end
   end
   
   def create
@@ -33,6 +30,12 @@ class PostsController < ApplicationController
         end
         redirect_to :posts
       else
+        if @post.status == "note"
+          params[:post_type] = "note"
+        end
+        unless @post.post_pictures.present?
+          @post.post_pictures.build
+        end
         render 'new'
       end
     else
