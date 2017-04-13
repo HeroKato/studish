@@ -15,6 +15,7 @@
     <% end %>
   <% end %>
   <span class="time"><%= time_ago_in_words(@post.created_at) %>前</span>
+  <span class="comment-id">id:<%= @post.id %></span>
   <div class="caption">
   <%= simple_format(@post.caption, class: "caption-text") %>
   </div>

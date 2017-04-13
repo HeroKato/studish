@@ -8,8 +8,8 @@
   <div class="page-container" id="notification-stream">
     <div class="notification-stream-container">
       <% if @notifications.present? %>
-        <% @notifications.each do |n| %>
-          <%= render 'notifications', n: n %>
+        <% @notifications.each_with_index do |n, i| %>
+          <%= render 'notifications', {n: n, i: i} %>
         <% end %>
         <%= paginate @notifications %>
       <% else %>

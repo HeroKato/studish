@@ -1,0 +1,12 @@
+@import "variables";
+
+span.comment-id {
+  color: $grey3;
+  font-size: $font-size-m;
+  float:right;
+}
+
+span.reply-to {
+  color: $light-grey;
+  font-size: $font-size-m;
+}

@@ -48,6 +48,10 @@ class PostCommentsController < ApplicationController
       @notifications = @commented.push(@favorited)
       @notifications.flatten!
     end
+    if params[:commented_post_comment_id]
+      @commented_post_comment = PostComment.find_by(id: params[:commented_post_comment_id])
+      @comments = PostComment.where(commented_post_comment_id: params[:commented_post_comment_id]).order(created_at: :desc).page(params[:page]).per_page(5)
+    end
   end
   
   def create
@@ -58,20 +62,21 @@ class PostCommentsController < ApplicationController
       @comment = current_coach.post_comments.build(comment_params)
       @comment.coach_id = current_coach.id
     end
-    @comment.commented_student_id = @comment.post.student.id
+    
+    if @comment.commented_post_comment_id.present?
+      if PostComment.find_by(id: @comment.commented_post_comment_id).student_id.present?
+        @comment.commented_student_id = PostComment.find_by(id: @comment.commented_post_comment_id).student_id
+      elsif PostComment.find_by(id: @comment.commented_post_comment_id).coach_id.present?
+        @comment.commented_coach_id = PostComment.find_by(id: @comment.commented_post_comment_id).coach_id
+      end
+    else
+      @comment.commented_student_id = @comment.post.student.id
+    end
     
     if params[:comment]
       @comment.status = "comment"
     elsif params[:answer]
       @comment.status = "answer"
-    end
-    
-    if params[:commented_post_comment_id]
-      @comment.commented_post_comment_id = params[:commented_post_comment_id]
-    end
-    
-    if params[:root_post_comment_id]
-      @comment.root_post_comment_id = params[:root_post_comment_id]
     end
     
     if @comment.save
@@ -120,7 +125,7 @@ class PostCommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:post_comment).permit(:caption, :post_id, :comment, { comment_pictures_attributes: [:pictures] })
+    params.require(:post_comment).permit(:caption, :post_id, :comment, :commented_post_comment_id, { comment_pictures_attributes: [:pictures] })
   end
   
   def update_comment_params

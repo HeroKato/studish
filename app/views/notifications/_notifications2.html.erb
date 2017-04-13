@@ -1,0 +1,43 @@
+<div class="notification notification-stream-item">
+  <div class="notification-header clearfix">
+    <% if n.coach_id %>
+      <%= link_to n.coach, class: "avatar-link" do %>
+        <%= image_tag n.coach.avatar.url, oncontextmenu: "return false;", class: "avatar" %>
+      <% end %>
+    <% elsif n.student_id %>
+      <%= link_to n.student, class: "avatar-link" do %>
+        <%= image_tag n.student.avatar.url, oncontextmenu: "return false;", class: "avatar" %>
+      <% end %>
+    <% elsif %>
+      <%= image_tag "", class: "avatar no-image" %>
+    <% end %>
+    <div class="notification-info">
+      <span class="time"><%= time_ago_in_words(n.created_at) %>前</span>
+      <% if n.coach_id %>
+        <% if n.has_attribute?(:favorited_coach_id) %>
+            <i class="fa fa-heart fav-pink"></i><%= link_to n.coach, class: "name-link" do %><span class="user-name coach-name"><%= n.coach.name %></span><span class="user-account-name coach-account-name"><%= n.coach.account_name %></span><% end %>さんがいいねしました。
+        <% end %>
+      <% elsif n.student_id %>
+        <% if n.has_attribute?(:favorited_coach_id) %>
+            <i class="fa fa-heart fav-pink"></i><%= link_to n.student, class: "name-link" do %><span class="user-name coach-name"><%= n.student.name %></span><span class="user-account-name coach-account-name"><%= n.student.account_name %></span><% end %>さんがいいねしました。
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% if n.post_comment.comment_pictures.present? %>
+    <div class="picture-wrapper">
+    <% n.post_comment.comment_pictures.each do |pic| %>
+      <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+    <% end %>
+    </div>
+  <% end %>
+  <span class="status"><%= n.post_comment.status %></span>
+  <span class="time"><%= time_ago_in_words(n.post_comment.created_at) %>前</span>
+  <div class="caption">
+    <%= simple_format(n.post_comment.caption, class: "caption-text") %>
+  </div>
+  <div class="more clearfix">
+    <%= link_to "チェックする", new_post_comment_path(post_id: n.post_comment.post.id) %>
+  </div>
+</div>
+<hr class="hr-bottom">

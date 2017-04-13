@@ -445,6 +445,34 @@ a.coach-card-link:active li {
 .comment-container {
   padding: 10px;
 }
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/comment.scss */
+span.comment-id {
+  color: #afafaf;
+  font-size: 14px;
+  float: right;
+}
+
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/comment.scss */
+span.reply-to {
+  color: #d3d3d3;
+  font-size: 14px;
+}
+/* margin, padding @media (max-width: 768px) */
+/* font-size */
+/* colors */
+/* body.color */
+/* subjects.color subjects.border-color */
+/* img.border-color account_name */
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/commented_post_comment.scss */
+div.commented_post_comment {
+  padding: 10px;
+}
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/copy.scss */
 .copy {
   height: 250px;
@@ -1586,13 +1614,18 @@ hr.hr-bold {
 }
 /* line 1, /home/ubuntu/workspace/app/assets/stylesheets/line.scss */
 #line {
-  padding-top: 0;
+  padding-top: 60px;
+}
+/* line 3, /home/ubuntu/workspace/app/assets/stylesheets/line.scss */
+#line #line-qr-image {
+  width: 150px;
+  margin: 20px auto;
 }
 
 @media (min-width: 996px) {
-  /* line 6, /home/ubuntu/workspace/app/assets/stylesheets/line.scss */
+  /* line 10, /home/ubuntu/workspace/app/assets/stylesheets/line.scss */
   #line {
-    padding-top: 60px;
+    padding-top: 120px;
   }
 }
 /* margin, padding @media (max-width: 768px) */

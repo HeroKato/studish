@@ -1,4 +1,4 @@
-<% @comments.each do |comment| %>
+<% @commented_post_comment.post.post_comments.each do |comment| %>
   <li class="content comment post-comments-stream-item" id="post-comment-id-<%= comment.id %>">
     <% if comment.student.present? %>
     <div class="profile clearfix">
@@ -68,15 +68,6 @@
         <% else %>
           <%= link_to post_comment_favorites_path(comment), method: :post, class: "action-button-link" do %>
           <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= comment.favorites.count %></span>
-          <% end %>
-        <% end %>
-        <% if current_coach.post_comments.find_by(commented_post_comment_id: comment.id).present? %>
-          <%= link_to new_post_comment_path(post_id: comment.post.id, commented_post_comment_id: comment.id), class: "action-button-link" do %>
-            <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= comment.post.post_comments.where(commented_post_comment_id: comment.id).count %></span>
-          <% end %>
-        <% else %>
-          <%= link_to new_post_comment_path(post_id: comment.post.id, commented_post_comment_id: comment.id), class: "action-button-link" do %>
-            <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= comment.post.post_comments.where(commented_post_comment_id: comment.id).count %></span>
           <% end %>
         <% end %>
       <% else %>

@@ -42,6 +42,7 @@
   </div>
   <span class="status"><%= post.status %></span>
   <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
+  <span class="comment-id">id:<%= post.id %></span>
   <div class="caption">
   <%= simple_format(h(post.caption), class: "caption-text") %>
   </div>
