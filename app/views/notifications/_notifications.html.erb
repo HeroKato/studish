@@ -60,13 +60,11 @@
       </div>
     <% elsif n.post_comment.present? %>
       <% if n.post_comment.comment_pictures.present? %>
-      <div class="picture-wrapper">
-        <% if n.post_comment.comment_pictures.present? %>
+        <div class="picture-wrapper">
           <% n.post_comment.comment_pictures.each do |pic| %>
             <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
       <% end %>
       <span class="status"><%= n.post_comment.status %></span>
       <span class="time"><%= time_ago_in_words(n.post_comment.created_at) %>前</span>
