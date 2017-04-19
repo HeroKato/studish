@@ -18,6 +18,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if !(logged_in_as_coach? || logged_in_as_student?) %>
+              <li><%= link_to "講師新規登録", new_user_path(user_type: 'coach') %></li>
+              <li role="separator" class="divider"></li>
               <li><%= link_to "HOME", root_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Questions/Notes", posts_path %></li>

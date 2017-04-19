@@ -13,11 +13,6 @@ class Coach < ActiveRecord::Base
   has_one :certifications, class_name: "CoachCertification", dependent: :destroy
   accepts_nested_attributes_for :certifications, allow_destroy: true
   
-  has_many :coaching_reports, dependent: :destroy
-  
-  has_many :comments, dependent: :destroy
-  has_many :commented_reports, through: :comments, source: :coaching_report
-  
   has_many :favorites, dependent: :destroy
   has_many :favorited_reports, through: :favorites, source: :coaching_report
   has_many :favorited_posts, through: :favorites, source: :post

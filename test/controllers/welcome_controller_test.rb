@@ -5,7 +5,6 @@ class WelcomeControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_select "title", "Home | Studish"
   end
 
 end

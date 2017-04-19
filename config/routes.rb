@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
   get 'notifications/index'
-  #get 'coaching_reports/index'
-  #get 'coaching_reports/show'
-  #get 'coaching_reports/new'
-  #get 'coaching_reports/edit'
   get 'accounts/show'
   get 'accounts/edit'
   
@@ -40,6 +36,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resource :account, only: [:show, :edit, :update]
+  resources :users
   
   namespace :admin do
     root to: "top#index"
@@ -48,20 +45,9 @@ Rails.application.routes.draw do
     end
   end
   
-  #resources :coaching_reports
-  #resources :comments
-  
   resources :coaches do
-    #resources :coaching_reports, only: [:index]
-    #resources :comments, only: [:index]
     get :favorites, on: :member
   end
-  
-  #resources :coaching_reports do
-  #  resources :comments
-  #  resources :favorites, only: [:create, :destroy]
-  #end
-  
   
   resources :students
   resources :students do

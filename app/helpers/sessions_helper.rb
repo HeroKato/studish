@@ -39,6 +39,18 @@ module SessionsHelper
     end
   end
   
+  def current_user
+    if (user_id = session[:user_id])
+      @current_user ||= User.find_by(id: coach_id)
+    elsif (user_id = cookies.signed[:user_id])
+      user = User.find_by(id: user_id)
+      if user && user.authenticated?(:remember, cookies[:remember_token])
+        log_in user
+        @current_user = user
+      end
+    end
+  end
+  
   # 現在ログイン中の生徒を返す（いる場合）
   def current_student
     if (student_id = session[:student_id])
@@ -60,6 +72,7 @@ module SessionsHelper
   def logged_in_as_student?
     !!current_student
   end
+  
   
   #ユーザーを永続的セッションに記憶する
   def remember(coach)
@@ -104,4 +117,5 @@ module SessionsHelper
   def current_student?(student)
     student == current_student
   end
+
 end
