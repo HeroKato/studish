@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115094527) do
+ActiveRecord::Schema.define(version: 20170419061625) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20170115094527) do
     t.string   "suuken"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "coach_certifications", ["coach_id"], name: "index_coach_certifications_on_coach_id"
+  add_index "coach_certifications", ["user_id"], name: "index_coach_certifications_on_user_id"
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name",              default: "no_name"
@@ -137,6 +139,21 @@ ActiveRecord::Schema.define(version: 20170115094527) do
 
   add_index "comments", ["coach_id"], name: "index_comments_on_coach_id"
   add_index "comments", ["coaching_report_id"], name: "index_comments_on_coaching_report_id"
+
+  create_table "expanded_coach_profiles", force: :cascade do |t|
+    t.string   "university"
+    t.string   "major"
+    t.string   "school_year"
+    t.string   "skype"
+    t.boolean  "administrator", default: false, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "expanded_coach_profiles", ["major"], name: "index_expanded_coach_profiles_on_major"
+  add_index "expanded_coach_profiles", ["school_year"], name: "index_expanded_coach_profiles_on_school_year"
+  add_index "expanded_coach_profiles", ["skype"], name: "index_expanded_coach_profiles_on_skype"
+  add_index "expanded_coach_profiles", ["university"], name: "index_expanded_coach_profiles_on_university"
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "student_id"
@@ -250,5 +267,39 @@ ActiveRecord::Schema.define(version: 20170115094527) do
   add_index "students", ["name"], name: "index_students_on_name"
   add_index "students", ["suspended", "created_at"], name: "index_students_on_suspended_and_created_at"
   add_index "students", ["suspended"], name: "index_students_on_suspended"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "user_type",         default: "student", null: false
+    t.string   "name",              default: "no_name"
+    t.string   "account_name",                          null: false
+    t.string   "email",                                 null: false
+    t.string   "avatar"
+    t.text     "self_introduction"
+    t.string   "password_digest",                       null: false
+    t.string   "remember_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false,     null: false
+    t.datetime "activated_at"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
+    t.boolean  "deleted",           default: false,     null: false
+    t.datetime "deleted_at"
+    t.boolean  "suspended",         default: false,     null: false
+    t.datetime "suspended_at"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "users", ["account_name", "created_at"], name: "index_users_on_account_name_and_created_at"
+  add_index "users", ["account_name"], name: "index_users_on_account_name"
+  add_index "users", ["activated", "created_at"], name: "index_users_on_activated_and_created_at"
+  add_index "users", ["activated"], name: "index_users_on_activated"
+  add_index "users", ["deleted", "created_at"], name: "index_users_on_deleted_and_created_at"
+  add_index "users", ["deleted"], name: "index_users_on_deleted"
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["name", "created_at"], name: "index_users_on_name_and_created_at"
+  add_index "users", ["name"], name: "index_users_on_name"
+  add_index "users", ["suspended", "created_at"], name: "index_users_on_suspended_and_created_at"
+  add_index "users", ["suspended"], name: "index_users_on_suspended"
 
 end

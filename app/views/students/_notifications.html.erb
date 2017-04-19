@@ -29,6 +29,7 @@
   </div>
     <% if n.post.present? %>
       <div class="picture-wrapper">
+        <% if n.post.post_pictures.present? %>
         <div id="post-picture-of-post-<%= n.post.id %>-<%= i=i+1 %>" class="carousel slide" data-ride="carousel" data-interval="false">
           <ol class="carousel-indicators">
             <li data-target="#post-picture-of-post-<%= n.post.id %>-<%= i %>" data-slide-to="0" class="active"></li>
@@ -47,6 +48,7 @@
             <% end %>
           </div>
         </div>
+        <% end %>
       </div>
       <span class="status"><%= n.post.status %></span>
       <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
