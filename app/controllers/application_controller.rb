@@ -69,6 +69,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def correct_user_2
+    user = User.find_by(params[:user_id])
+    unless current_user?(user)
+      flash[:danger] = "Please log in as correct user."
+      redirect_to(login_url)
+    end
+  end
+  
   def basic_auth
     authenticate_or_request_with_http_basic do |coach, pass|
       coach == ENV['BASIC_AUTH_ADMINNAME'] && pass == ENV['BASIC_AUTH_PASSWORD']

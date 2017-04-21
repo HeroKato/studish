@@ -1,9 +1,24 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:show, :favorites]
+  before_action :correct_user_2, only: [:edit]
   
   def index
   end
   
   def show
+    @user = User.find(params[:id])
+    if @user.user_type == "student"
+      @questions_count = @user.posts.where(status: "question").count
+      @notes_count = @user.posts.where(status: "note").count
+      @answers_count = @user.post_comments.where(status: "answer").count
+      @favorites_count = @user.favorites.count
+      render "show_student"
+    elsif @user.user_type == "coach"
+      @answers_count = @user.post_comments.where(status: "answer").count
+      @favorites_count = @user.favorites.count
+      @reports_count = @user.posts.where(status: "report").count
+      render "show_coach"
+    end
   end
   
   def new

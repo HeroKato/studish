@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  root 'welcome#index'
+  get 'welcome/contact'
+  
   get 'notifications/index'
   get 'accounts/show'
   get 'accounts/edit'
@@ -7,20 +10,13 @@ Rails.application.routes.draw do
   get 'statics/privacy'
   get 'statics/terms'
 
-  namespace :admin do
-  get 'top/index'
-  end
-
   get 'password_resets/new'
   get 'password_resets/edit'
-
-  root 'welcome#index'
-  get 'welcome/contact'
   
   # お問い合わせフォーム
-  get  'inquiry'   => 'inquiry#index'
-  post 'inquiry/confirm' => 'inquiry#confirm'
-  post 'inquiry/thanks'  => 'inquiry#thanks'
+  get  'inquiry', to: 'inquiry#index'
+  post 'inquiry/confirm', to: 'inquiry#confirm'
+  post 'inquiry/thanks', to: 'inquiry#thanks'
   
   # ログイン/ログアウト
   get    'login' , to: 'sessions#new'
@@ -28,7 +24,8 @@ Rails.application.routes.draw do
   delete 'logout' , to: 'sessions#destroy'
   
   # 新規登録
-  get 'signup' => 'coaches#new'
+  # get 'signup', to: 'coaches#new'
+  get '/signup', to: 'users#new'
   
   
   resources :coaches
@@ -37,6 +34,10 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resource :account, only: [:show, :edit, :update]
   resources :users
+  
+  namespace :admin do
+    get 'top/index'
+  end
   
   namespace :admin do
     root to: "top#index"

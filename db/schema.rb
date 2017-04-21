@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419061625) do
+ActiveRecord::Schema.define(version: 20170420083222) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.integer  "coach_id",   null: false
@@ -138,21 +138,21 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.integer  "favorited_coach_id"
     t.integer  "post_id"
     t.integer  "post_comment_id"
-    t.integer  "coaching_report_id"
     t.boolean  "check_flag",           default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.integer  "user_id"
   end
 
   add_index "favorites", ["check_flag"], name: "index_favorites_on_check_flag"
   add_index "favorites", ["coach_id"], name: "index_favorites_on_coach_id"
-  add_index "favorites", ["coaching_report_id"], name: "index_favorites_on_coaching_report_id"
   add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
   add_index "favorites", ["favorited_coach_id"], name: "index_favorites_on_favorited_coach_id"
   add_index "favorites", ["favorited_student_id"], name: "index_favorites_on_favorited_student_id"
   add_index "favorites", ["post_comment_id"], name: "index_favorites_on_post_comment_id"
   add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
   add_index "favorites", ["student_id"], name: "index_favorites_on_student_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "post_comments", force: :cascade do |t|
     t.integer  "student_id"
@@ -167,12 +167,14 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.datetime "updated_at",                                   null: false
     t.integer  "commented_post_comment_id"
     t.integer  "root_post_comment_id"
+    t.integer  "user_id"
   end
 
   add_index "post_comments", ["coach_id", "created_at"], name: "index_post_comments_on_coach_id_and_created_at"
   add_index "post_comments", ["post_id", "created_at"], name: "index_post_comments_on_post_id_and_created_at"
   add_index "post_comments", ["post_id"], name: "index_post_comments_on_post_id"
   add_index "post_comments", ["student_id", "created_at"], name: "index_post_comments_on_student_id_and_created_at"
+  add_index "post_comments", ["user_id"], name: "index_post_comments_on_user_id"
 
   create_table "post_pictures", force: :cascade do |t|
     t.integer  "student_id"
@@ -201,6 +203,7 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.string   "pattern"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.integer  "user_id"
   end
 
   add_index "posts", ["chapter", "created_at"], name: "index_posts_on_chapter_and_created_at"
@@ -210,6 +213,7 @@ ActiveRecord::Schema.define(version: 20170419061625) do
   add_index "posts", ["student_id", "created_at"], name: "index_posts_on_student_id_and_created_at"
   add_index "posts", ["subject", "created_at"], name: "index_posts_on_subject_and_created_at"
   add_index "posts", ["text_name", "created_at"], name: "index_posts_on_text_name_and_created_at"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "name",              default: "no_name"
