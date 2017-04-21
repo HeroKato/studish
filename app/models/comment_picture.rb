@@ -1,5 +1,6 @@
 class CommentPicture < ActiveRecord::Base
   belongs_to :student
+  belongs_to :coach
   belongs_to :post_comment
   mount_uploader :pictures, CommentPictureUploader
   validate :picture_size

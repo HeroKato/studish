@@ -37,7 +37,7 @@ gem 'google-analytics-rails'
 gem 'rails-i18n', '4.0.9' #
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
-gem 'rmagick', '2.16.0'
+gem 'rmagick', '2.16.0', :require => 'RMagick'
 gem 'fog', '1.36.0'
 gem 'faker', '1.4.2'
 gem 'will_paginate', '3.0.7'

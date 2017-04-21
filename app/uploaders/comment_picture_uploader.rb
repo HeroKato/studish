@@ -18,10 +18,6 @@ class CommentPictureUploader < CarrierWave::Uploader::Base
     end
   end
   
-  version :small do
-    process :resize_to_fit => [210, 297]
-  end
-  
   version :medium do
     process :resize_to_fit => [420, 595]
   end
