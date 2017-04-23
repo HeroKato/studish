@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420083222) do
+ActiveRecord::Schema.define(version: 20170423090706) do
 
   create_table "coach_certifications", force: :cascade do |t|
-    t.integer  "coach_id",   null: false
     t.string   "eiken"
     t.integer  "toeic"
     t.integer  "toefl"
@@ -24,9 +23,9 @@ ActiveRecord::Schema.define(version: 20170420083222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "coach_id"
   end
 
-  add_index "coach_certifications", ["coach_id"], name: "index_coach_certifications_on_coach_id"
   add_index "coach_certifications", ["user_id"], name: "index_coach_certifications_on_user_id"
 
   create_table "coaches", force: :cascade do |t|
@@ -66,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170420083222) do
   add_index "coaches", ["university"], name: "index_coaches_on_university"
 
   create_table "coaching_subjects", force: :cascade do |t|
-    t.integer  "coach_id",             null: false
     t.string   "jr_english"
     t.string   "jr_japanese"
     t.string   "jr_math"
@@ -98,9 +96,11 @@ ActiveRecord::Schema.define(version: 20170420083222) do
     t.string   "earth_science"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "coach_id"
+    t.integer  "user_id"
   end
 
-  add_index "coaching_subjects", ["coach_id"], name: "index_coaching_subjects_on_coach_id"
+  add_index "coaching_subjects", ["user_id"], name: "index_coaching_subjects_on_user_id"
 
   create_table "comment_pictures", force: :cascade do |t|
     t.integer  "student_id"
@@ -124,12 +124,14 @@ ActiveRecord::Schema.define(version: 20170420083222) do
     t.boolean  "administrator", default: false, null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "user_id"
   end
 
   add_index "expanded_coach_profiles", ["major"], name: "index_expanded_coach_profiles_on_major"
   add_index "expanded_coach_profiles", ["school_year"], name: "index_expanded_coach_profiles_on_school_year"
   add_index "expanded_coach_profiles", ["skype"], name: "index_expanded_coach_profiles_on_skype"
   add_index "expanded_coach_profiles", ["university"], name: "index_expanded_coach_profiles_on_university"
+  add_index "expanded_coach_profiles", ["user_id"], name: "index_expanded_coach_profiles_on_user_id"
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "student_id"

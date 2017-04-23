@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resource :account, only: [:show, :edit, :update]
-  resources :users
   
   namespace :admin do
     get 'top/index'
@@ -60,6 +59,10 @@ Rails.application.routes.draw do
     get :answers, on: :member
     get :notifications, on: :member
     get :account, on: :member
+  end
+  
+  resources :users
+  resources :users do
   end
   
   resources :posts

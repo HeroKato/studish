@@ -7,10 +7,14 @@ class User < ActiveRecord::Base
   validate :email_uniqueness
   validate :account_name_uniqueness
   
-  has_one :expanded_coach_profile, -> { where(user_type: coach)}
-  has_one :certifications, -> { where(user_type: coach)}, class_name: "CoachCertification", dependent: :destroy
+  has_one :expanded_coach_profile, dependent: :destroy
+  accepts_nested_attributes_for :expanded_coach_profile, allow_destroy: true
+  
+  has_one :subjects, class_name: "CoachingSubject", dependent: :destroy
+  accepts_nested_attributes_for :subjects, allow_destroy: true
+  
+  has_one :certifications, class_name: "CoachCertification", dependent: :destroy
   accepts_nested_attributes_for :certifications, allow_destroy: true
-  has_many :coaching_subjects, -> { where(user_type: coach)}
   
   has_many :posts, dependent: :destroy
   has_many :post_pictures, through: :posts

@@ -1,11 +1,7 @@
 module SessionsHelper
   # 渡されたユーザーでログインする
   def log_in(user)
-    if user.model_name.name == "Coach"
-      session[:coach_id] = user.id
-    else
-      session[:student_id] = user.id
-    end
+    session[:user_id] = user.id
     #ここのsessionはRailsで定義済みのメソッドでsessions_controllerとは無関係
     #session[:coach_id] = coach.id
   end
@@ -39,18 +35,6 @@ module SessionsHelper
     end
   end
   
-  def current_user
-    if (user_id = session[:user_id])
-      @current_user ||= User.find_by(id: coach_id)
-    elsif (user_id = cookies.signed[:user_id])
-      user = User.find_by(id: user_id)
-      if user && user.authenticated?(:remember, cookies[:remember_token])
-        log_in user
-        @current_user = user
-      end
-    end
-  end
-  
   # 現在ログイン中の生徒を返す（いる場合）
   def current_student
     if (student_id = session[:student_id])
@@ -64,6 +48,20 @@ module SessionsHelper
     end
   end
   
+  # 現在ログイン中のuserがいればそのuserを返す
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+    #if (user_id = session[:user_id])
+    #  @current_user ||= User.find_by(id: session[:user_id])
+    #elsif (user_id = cookies.signed[:user_id])
+    #  user = User.find_by(id: user_id)
+    #  if user && user.authenticated?(:remember, cookies[:remember_token])
+    #    log_in user
+    #    @current_user = user
+    #  end
+    #end
+  end
+  
   # 現在のコーチとしてログインしていればtrue、その他ならfalseを返す
   def logged_in_as_coach?
     !!current_coach
@@ -71,6 +69,11 @@ module SessionsHelper
   
   def logged_in_as_student?
     !!current_student
+  end
+  
+  # ユーザーがログインしていればtrue、その他ならfalseを返す
+  def logged_in?
+    !current_user.nil?
   end
   
   

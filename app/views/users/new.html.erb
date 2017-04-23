@@ -28,11 +28,7 @@
       <div class="form-group">
         <p class="">ログインするためにメールアドレスとパスワードが必要なので忘れないようにしてください。</p>
       </div>
-      <% if params[:post_type] == 'coach' %>
-        <%= f.hidden_field :user_type, value: 'coach' %>
-      <% elsif params[:post_type] == 'student' %>
-        <%= f.hidden_field :user_type, value: 'student' %>
-      <% end %>
+      <%= f.hidden_field :user_type, value: @user.user_type %>
       <div class="submit-group">
         <%= f.submit "登録する", class: "btn btn-primary margin-right-m" %>
         <%= link_to "戻る", :back, class: "btn btn-success" %>
