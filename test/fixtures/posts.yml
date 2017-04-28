@@ -1,0 +1,46 @@
+question1:
+  status: "question"
+  caption: "This is a question"
+  created_at: <%= 10.minutes.ago %>
+  user: student_user
+  
+question2:
+  status: "question"
+  caption: "This is a question"
+  created_at: <%= 20.minutes.ago %>
+  user: student_user
+
+question3:
+  status: "question"
+  caption: "This is a question"
+  created_at: <%= 30.minutes.ago %>
+  user: student_user
+
+question4:
+  status: "question"
+  caption: "This is a question"
+  created_at: <%= 40.minutes.ago %>
+  user: student_user
+  
+question5:
+  status: "question"
+  caption: "This is a question"
+  created_at: <%= 50.minutes.ago %>
+  user: student_user
+
+most_recent:
+  caption: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: student_user
+
+note:
+  status: note
+  caption: "This is a note"
+  created_at: <%= 3.hours.ago %>
+  user: student_user
+  
+question6:
+  status: "question"
+  caption: "This is a question"
+  created_at: <%= 50.minutes.ago %>
+  user: student_user2

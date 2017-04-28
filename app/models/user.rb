@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save { self.email = email.downcase }
+  #before_save { self.email = email.downcase }
+  before_save :email_downcase
   before_create :create_activation_digest
   mount_uploader :avatar, AvatarUploader
   validate :avatar_size
-  validate :email_uniqueness
-  validate :account_name_uniqueness
+  #validate :email_uniqueness
+  #validate :account_name_uniqueness
   
   has_one :expanded_coach_profile, dependent: :destroy
   accepts_nested_attributes_for :expanded_coach_profile, allow_destroy: true
@@ -30,8 +31,7 @@ class User < ActiveRecord::Base
   validates :name, allow_blank: true,
                    format: { with: VALID_NAME_REGEX, message: :invalid_name },
                    length: { minimum: 2, maximum: 30 },
-                   uniqueness: { case_sensitive: true, on: :normal_update }
-  validates :name, presence: true, on: :normal_update
+                   presence: true
             
   VALID_ACCOUNT_NAME_REGEX = /\A(?:[\w\-.・･]|\p{Hiragana}|\p{Katakana}|[一-龠々])+(?:\p{blank}|[\w+\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])(?:[\w\-.]|\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/
   validates :account_name, presence: true,
@@ -84,8 +84,7 @@ class User < ActiveRecord::Base
   
   # アカウントを有効にする
   def activate
-    update_attribute(:activated, true)
-    update_attribute(:activated_at, Time.zone.now)
+    update_columns(activated: true, activated_at: Time.zone.now)
   end
   
   # アカウント有効化のためのメールを送信する
@@ -112,7 +111,7 @@ class User < ActiveRecord::Base
   
   # パスワード再設定の期限が切れている場合はtrueを返す
   def password_reset_expired?
-    reset_sent_at < 24.hours.ago
+    reset_sent_at < 2.hours.ago
   end
   
   # プロフィール情報を入力済みの生徒のみを取得するためのスコープ
@@ -147,4 +146,9 @@ class User < ActiveRecord::Base
       errors.add(:account_name, "アカウント名はすでに存在します")
     end
   end
+  
+  def email_downcase
+    self.email = email.downcase
+  end
+  
 end

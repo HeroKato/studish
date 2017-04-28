@@ -1,6 +1,38 @@
-michael:
+coach_user:
   id: 1
   user_type: coach
-  account_name: MichaelAccountExample
-  email: michael@example.com
+  name: coach_name
+  account_name: coach_account_example
+  email: coach@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
+coach_messi:
+  id: 2
+  user_type: coach
+  name: coach_messi
+  account_name: coach_messi_account
+  email: messi@example.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
+student_user:
+  user_type: student
+  name: student_name
+  account_name: student_account_example
+  email: student@example.com
+  avatar: avatar
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
+student_user2:
+  user_type: student
+  name: student2_name
+  account_name: student2_account_example
+  email: student2@example.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>

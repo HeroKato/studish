@@ -1,11 +1,7 @@
-<% if logged_in_as_student? %>
+<% if logged_in? %>
   <div class="page-outer new-post">
     <div class="page-container">
-      <% if params[:post_type] == "note" %>
-      <%= render "note_form" %>
-      <% else %>
       <%= render "form" %>
-      <% end %>
     </div>
   </div>
 <% end %>

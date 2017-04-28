@@ -1,0 +1,13 @@
+<% content_for :head do %>
+<title><%= @user.name %>さんのプロフィール編集 | Studish</title>
+<meta name="description" content="Studishのプロフィール編集ページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="page-outer student-edit">
+  <div class="page-container student-edit">
+    <%= form_for(@user, html: {multipart: true}, action: "#", enctype: "multipart/form-data") do |form| %>
+      <%= render "form", form: form %>
+    <% end %>
+  </div>
+</div>

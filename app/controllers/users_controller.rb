@@ -1,26 +1,27 @@
 class UsersController < ApplicationController
-  #before_action :logged_in_user, only: [:show, :favorites]
-  before_action :correct_user_2, only: [:edit]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :logged_in?, only: [:show, :favorites]
+  before_action :correct_user, only: [:edit, :update]
   
   def index
   end
   
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
+    @posts = @user.posts.page(params[:page]).per_page(5)
     @user_name = @user.name
     @user_account_name = @user.account_name
-    @university = @user.expanded_coach_profile.university
-    @major = @user.expanded_coach_profile.major
-    @school_year = @user.expanded_coach_profile.school_year
+    @favorites_count = @user.favorites.count
+    @answers_count = @user.post_comments.where(status: "answer").count
     if @user.user_type == "student"
       @questions_count = @user.posts.where(status: "question").count
       @notes_count = @user.posts.where(status: "note").count
-      @answers_count = @user.post_comments.where(status: "answer").count
-      @favorites_count = @user.favorites.count
-      render "show_student"
     elsif @user.user_type == "coach"
-      @answers_count = @user.post_comments.where(status: "answer").count
-      @favorites_count = @user.favorites.count
+      @logs_count = "0"
+      @university = @user.expanded_coach_profile.university
+      @major = @user.expanded_coach_profile.major
+      @school_year = @user.expanded_coach_profile.school_year
       @reports_count = @user.posts.where(status: "report").count
       @jr_subjects = @user.subjects.slice(:jr_english, :jr_japanese, :jr_math, :jr_science, :jr_social)
       @high_subjects = @user.subjects.slice(:high_english, :modern_japanese, :classical_japanese, :classical_chinese,
@@ -29,7 +30,6 @@ class UsersController < ApplicationController
                                            :math_1a, :math_2b, :math_3, :basic_physics, :physics, :basic_chemistry, :chemistry,
                                            :basic_biology, :biology, :basic_earth_science, :earth_science)
       @certifications = @user.certifications.slice(:eiken, :toeic, :toefl, :ielts, :kanken, :suuken)
-      render "show_coach"
     end
   end
   
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       @user.expanded_coach_profile = ExpandedCoachProfile.new(expanded_coach_profile_params)
     end
     if @user.save
-      #@user.send_activation_email
+      @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_path
     else
@@ -65,12 +65,23 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
   end
   
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile Updated!"
+      redirect_to @user
+    else
+      render "edit"
+    end
   end
   
   def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
   
   private
@@ -112,6 +123,15 @@ class UsersController < ApplicationController
   
   def logged_in_user?
     !!current_user
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+  
+  def activated?
+    @user.activated == "true"
   end
   
 end

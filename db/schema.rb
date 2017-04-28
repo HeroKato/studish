@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423090706) do
+ActiveRecord::Schema.define(version: 20170423155105) do
 
   create_table "coach_certifications", force: :cascade do |t|
     t.string   "eiken"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20170423090706) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "user_id"
+    t.integer  "favorited_user_id"
   end
 
   add_index "favorites", ["check_flag"], name: "index_favorites_on_check_flag"
@@ -170,6 +171,7 @@ ActiveRecord::Schema.define(version: 20170423090706) do
     t.integer  "commented_post_comment_id"
     t.integer  "root_post_comment_id"
     t.integer  "user_id"
+    t.integer  "commented_user_id"
   end
 
   add_index "post_comments", ["coach_id", "created_at"], name: "index_post_comments_on_coach_id_and_created_at"

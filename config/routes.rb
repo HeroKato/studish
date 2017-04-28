@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   
   
   resources :coaches
-  resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resource :account, only: [:show, :edit, :update]
@@ -62,8 +61,6 @@ Rails.application.routes.draw do
   end
   
   resources :users
-  resources :users do
-  end
   
   resources :posts
   resources :posts do

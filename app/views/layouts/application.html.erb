@@ -42,10 +42,8 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     
-    <% if logged_in_as_coach? %>
-    ga('create', 'UA-90694345-1', {'userId': '<%= current_coach.id %>'});
-    <% elsif logged_in_as_student? %>
-    ga('create', 'UA-90694345-1', {'userId': '<%= current_student.id %>'});
+    <% if logged_in? %>
+    ga('create', 'UA-90694345-1', {'userId': '<%= current_user.id %>'});
     <% else %>
     ga('create', 'UA-90694345-1', 'auto');
     <% end %>

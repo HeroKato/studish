@@ -1,11 +1,11 @@
-<li class="post post-stream-item" id="post-<%= post.id %>">
+<li class="post post-stream-item" id="post-<%= post.id %> <%= post.id %>">
   <div class="profile clearfix">
-    <%= link_to post.student, class: "avatar-link" do %>
-      <%= image_tag post.student.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+    <%= link_to post.user, class: "avatar-link" do %>
+      <%= image_tag post.user.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
     <% end %>
-    <div class="user-info student-info">
+    <div class="user-info">
       <%= link_to post.student, class: "name-link" do %>
-        <span class="user-name student-name"><%= post.student.name %></span><br><span class="user-account-name student-account-name"><%= post.student.account_name %></span>
+        <span class="user-name"><%= post.user.name %></span><br><span class="user-account-name"><%= post.user.account_name %></span>
       <% end %>
     </div>
   </div>
@@ -47,9 +47,9 @@
   <%= simple_format(h(post.caption), class: "caption-text") %>
   </div>
   <div class="action-buttons">
-    <% if logged_in_as_student? %>
-      <% if post.favorites.where(student_id: current_student.id).present? %>
-        <%= link_to post_favorite_path(post, current_student.id), method: :delete, class: "action-button-link" do %>
+    <% if logged_in? %>
+      <% if post.favorites.where(user_id: current_user.id).present? %>
+        <%= link_to post_favorite_path(post, current_user.id), method: :delete, class: "action-button-link" do %>
         <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post.favorites.count %></span>
         <% end %>
       <% else %>
@@ -57,26 +57,7 @@
         <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
         <% end %>
       <% end %>
-      <% if post.post_comments.find_by(student_id: current_student.id).present? %>
-        <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
-          <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= post.post_comments.count %></span>
-        <% end %>
-      <% else %>
-        <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
-          <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
-        <% end %>
-      <% end %>
-    <% elsif logged_in_as_coach? %>
-      <% if post.favorites.where(coach_id: current_coach.id).present? %>
-        <%= link_to post_favorite_path(post, current_coach.id), method: :delete, class: "action-button-link" do %>
-        <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post.favorites.count %></span>
-        <% end %>
-      <% else %>
-        <%= link_to post_favorites_path(post), method: :post, class: "action-button-link" do %>
-        <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
-        <% end %>
-      <% end %>
-      <% if post.post_comments.find_by(coach_id: current_coach.id).present? %>
+      <% if post.post_comments.find_by(user_id: current_user.id).present? %>
         <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
           <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= post.post_comments.count %></span>
         <% end %>
@@ -95,7 +76,7 @@
     <% end %>
   </div>
   <div class="edit_delete">
-    <% if current_student == post.student %>
+    <% if current_user == post.user %>
       <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
     <% end %>
   </div>
