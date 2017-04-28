@@ -74,13 +74,13 @@
                 <li role="separator" class="divider"></li>
               <% elsif current_user.user_type == "student" %>
                 <li>
-                  <%= link_to new_post_path(current_user, status: "question") do %>
+                  <%= link_to question_path(current_user, status: "question") do %>
                     <i class="fa fa-question-circle-o"></i><span>Question</span>
                   <% end %>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <%= link_to new_post_path(current_user, status: "note") do %>
+                  <%= link_to note_path(current_user, status: "note") do %>
                     <i class="fa fa-pencil-square-o"></i><span>Note</span>
                   <% end %>
                 </li>

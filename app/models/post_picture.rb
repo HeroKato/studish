@@ -11,5 +11,5 @@ class PostPicture < ActiveRecord::Base
       errors.add(:pictures, "should be less than 5MB")
     end
   end
-  
+
 end

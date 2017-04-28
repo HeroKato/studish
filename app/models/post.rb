@@ -17,7 +17,10 @@ class Post < ActiveRecord::Base
   validates :section, length: { maximum: 50 }
   validates :pattern, length: { maximum: 50 }
   
+  private
+  
   def study_or_note?
     subject == "勉強方法"||"note"
   end
+  
 end

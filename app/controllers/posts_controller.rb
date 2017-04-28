@@ -15,36 +15,40 @@ class PostsController < ApplicationController
   end
   
   def new
-    if params[:status]
-      if params[:status] == "question"
-        @post = Post.new(status: "question")
-      elsif params[:status] == "note"
-        @post = Post.new(status: "note")
-      end
-      @post.post_pictures.new
-    else
-      redirect_to root_path
-    end
   end
   
   def create
     @post = current_user.posts.build(post_params)
     if @post.post_pictures.length < 3
       if @post.save
-        if @post.subject == "Note"
-         flash[:success] = "Noteを投稿しました！"
-        elsif
+        if @post.status == "question"
          flash[:success] = "Questionを投稿しました！"
+        elsif @post.status == "note"
+         flash[:success] = "Noteを投稿しました！"
         end
         redirect_to :posts
       else
-        render "new"
+        unless @post.post_pictures.present?
+          @post.post_pictures.new
+        end
+        render "renew"
       end
     else
       flash[:danger] = "画像は最大2つまでです。"
-      redirect_to :action => "new"
+      @post.post_pictures.new
+      render "renew"
     end
     
+  end
+  
+  def question
+    @post = Post.new(status: "question")
+    @post.post_pictures.new
+  end
+  
+  def note
+    @post = Post.new(status: "note")
+    @post.post_pictures.new
   end
   
   def edit

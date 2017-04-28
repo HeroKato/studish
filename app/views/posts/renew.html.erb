@@ -1,0 +1,11 @@
+<% if logged_in? %>
+  <div class="page-outer new-post">
+    <div class="page-container">
+      <% if params[:post][:status] == "question" %>
+        <%= render "form_question" %>
+      <% elsif params[:post][:status] == "note" %>
+        <%= render "form_note" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

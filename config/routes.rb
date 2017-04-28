@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   # get 'signup', to: 'coaches#new'
   get '/signup', to: 'users#new'
   
+  get 'question', to: 'posts#question'
+  get 'note', to: 'posts#note'
+  
   
   resources :coaches
   resources :account_activations, only: [:edit]
