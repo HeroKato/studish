@@ -6,8 +6,16 @@ class ApplicationController < ActionController::Base
   
   # before_action :basic_auth if Rails.env.staging?
   before_action :set_notifications_count
+  before_action :set_default_meta
   
   private
+  
+  def set_default_meta
+    @description = "Studishはオンライン個別指導サービスです。科目指導＋コーチングで中高生の学習を強力にサポートします。"
+    @keywords = "Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキル向上,大学受験,高校受験"
+    @creator = "@hirotutor"
+    @twitter_image_url = "http://studish-stg.herokuapp.com/assets/twitter-card_top-be87008045ec07d9caba31566b10532a9cf58d02159124fa6467c2a7b06bd53e.png"
+  end
   
   # ログインしている講師かどうか確認
   #def logged_in_coach
@@ -33,6 +41,11 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "Please log in."
       redirect_to login_url
     end
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
   
   # 正しいユーザーかどうか確認
@@ -104,17 +117,6 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-  end
-  
-  #def student?
-  #  if params[:student_id]
-  #  else
-  #    return false
-  #  end
-  #end
-  
-  def favorited?(coach)
-    favorites.where(coach_id: coach.id).exists?
   end
 
 end

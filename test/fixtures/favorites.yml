@@ -1,0 +1,18 @@
+favorite1:
+  post: question6
+  user: student_user
+  user_id: '850439571'
+  favorited_user_id: '493858164'
+  created_at: <%= 5.minutes.ago %>
+  
+favorite2:
+  post: question1
+  user: student_user2
+  favorited_user_id: '850439571'
+  created_at: <%= 4.minutes.ago %>
+  
+favorite3:
+  post: question6
+  user: student_user2
+  favorited_user_id: '493858164'
+  created_at: <%= 3.minutes.ago %>

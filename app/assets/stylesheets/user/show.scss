@@ -35,6 +35,10 @@ ul.stats {
   }
 }
 
+ul.expanded-coach-profile {
+  padding: $padding-m;
+}
+
 p.self-introduction {
   padding: $padding-m;
 }
@@ -96,4 +100,8 @@ span.user-account-name {
 
 span.user-account-name:before {
   content: "@";
+}
+
+h2.header {
+  padding: $padding-m;
 }

@@ -10,7 +10,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get posts_path
     assert_select 'nav.pagination'
-    get question_path(status: "question")
+    get new_post_path(status: "question")
     assert_select 'input[type=file]'
     # 無効な送信
     #assert_no_difference 'Post.count' do

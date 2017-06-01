@@ -38,7 +38,7 @@
               <li role="separator" class="divider"></li>
             <% else %>
                 <li>
-                  <%= link_to "#" do %>
+                  <%= link_to notifications_user_path(current_user) do %>
                     <% if (@notifications_count > 0) %>
                       <i class="fa fa-bell-o bell-red"></i><span class="count bell-red"><%= @notifications_count %></span><span>通知</span>
                     <% else %>
@@ -67,20 +67,20 @@
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <%= link_to "#" do %>
-                  <i class="fa fa-cog"></i><span>アカウント</span>
+                  <%= link_to account_path(current_user) do %>
+                    <i class="fa fa-cog"></i><span>アカウント</span>
                   <% end %>
                 </li>
                 <li role="separator" class="divider"></li>
               <% elsif current_user.user_type == "student" %>
                 <li>
-                  <%= link_to question_path(current_user, status: "question") do %>
+                  <%= link_to new_post_path(current_user, status: "question") do %>
                     <i class="fa fa-question-circle-o"></i><span>Question</span>
                   <% end %>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <%= link_to note_path(current_user, status: "note") do %>
+                  <%= link_to new_post_path(current_user, status: "note") do %>
                     <i class="fa fa-pencil-square-o"></i><span>Note</span>
                   <% end %>
                 </li>
@@ -92,7 +92,7 @@
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <%= link_to "#" do %>
+                  <%= link_to account_path(current_user) do %>
                   <i class="fa fa-cog"></i><span>アカウント</span>
                   <% end %>
                 </li>

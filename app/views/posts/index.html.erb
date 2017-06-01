@@ -1,7 +1,6 @@
 <% content_for :head do %>
-<title>Q&N's | Studish</title>
-<meta name="description" content="ユーザーの質問・ノートの一覧ページです。">
-<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上">
+<%= render 'shared/fundamental_meta' %>
+<%= render 'shared/twitter_meta' %>
 <% end %>
 
 <div class="page-outer posts">
@@ -12,7 +11,7 @@
         <%= paginate @posts %>
       </ol>
     <% else %>
-      <p class="nothing">クエスチョン・ノートは１つもありません</p>
+      <p class="nothing">クエスチョン&ノートはまだ１つもありません。</p>
     <% end %>
   </div>
 </div>

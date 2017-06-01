@@ -4,7 +4,7 @@
       <%= image_tag post.user.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
     <% end %>
     <div class="user-info">
-      <%= link_to post.student, class: "name-link" do %>
+      <%= link_to post.user, class: "name-link" do %>
         <span class="user-name"><%= post.user.name %></span><br><span class="user-account-name"><%= post.user.account_name %></span>
       <% end %>
     </div>
@@ -49,25 +49,23 @@
   <div class="action-buttons">
     <% if logged_in? %>
       <% if post.favorites.where(user_id: current_user.id).present? %>
-        <%= link_to post_favorite_path(post, current_user.id), method: :delete, class: "action-button-link" do %>
-        <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post.favorites.count %></span>
+        <%= link_to user_post_favorite_path(current_user, post, post.favorites.find_by(user_id: current_user.id)), method: :delete, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= post.favorites.count %></span>
         <% end %>
       <% else %>
-        <%= link_to post_favorites_path(post), method: :post, class: "action-button-link" do %>
-        <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
+        <%= link_to user_post_favorites_path(current_user, post, favorited_user_id: post.user.id), method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
         <% end %>
       <% end %>
-      <% if post.post_comments.find_by(user_id: current_user.id).present? %>
-        <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
+      <%= link_to new_post_comment_path(post_id: post.id, user_id: current_user.id, commented_user_id: post.user.id), class: "action-button-link" do %>
+        <% if post.post_comments.find_by(user_id: current_user.id).present? %>
           <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= post.post_comments.count %></span>
-        <% end %>
-      <% else %>
-        <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>
+        <% else %>
           <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= post.post_comments.count %></span>
-        <% end %>
+          <% end %>
       <% end %>
     <% else %>
-      <%= link_to post_favorites_path(post_id: post.id), method: :post, class: "action-button-link" do %>
+      <%= link_to favorites_path, method: :post, class: "action-button-link" do %>
         <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= post.favorites.count %></span>
       <% end %>
       <%= link_to new_post_comment_path(post_id: post.id), class: "action-button-link" do %>

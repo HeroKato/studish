@@ -1,8 +1,8 @@
 <div class="page-outer new-post">
   <div class="page-container">
-    <% if params[:post][:status] == "question" %>
+    <% if @post.status == "question" %>
       <%= render "form_question" %>
-    <% elsif params[:post][:status] == "note" %>
+    <% else %>
       <%= render "form_note" %>
     <% end %>
   </div>

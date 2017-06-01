@@ -22,10 +22,10 @@ class User < ActiveRecord::Base
   
   has_many :post_comments, dependent: :destroy
   has_many :comment_pictures, through: :post_comments
-  has_many :favorited_post_comments, through: :favorites, source: :post_comments
   
   has_many :favorites, dependent: :destroy
-  has_many :favorited_posts, through: :favorites, source: :posts
+  #has_many :favorited_posts, through: :favorites, source: :posts
+  #has_many :favorited_post_comments, through: :favorites, source: :post_comments
   
   VALID_NAME_REGEX = /\A(?:[\w\-.・･@]|\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
   validates :name, allow_blank: true,

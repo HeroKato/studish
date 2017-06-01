@@ -1,0 +1,15 @@
+post_comment1:
+  status: 'answer'
+  post: question6
+  user: student_user
+  commented_user_id: '493858164'
+  caption: "this is post_comment1"
+  created_at: <%= 10.minutes.ago %>
+  
+post_comment2:
+  status: 'answer'
+  post: question2
+  user: student_user2
+  commented_user_id: '850439571'
+  caption: "this is post_comment2"
+  created_at: <%= 10.minutes.ago %>

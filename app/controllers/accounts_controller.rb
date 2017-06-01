@@ -1,17 +1,18 @@
 class AccountsController < ApplicationController
-  before_action :logged_in_coach
+  before_action :logged_in_user
+  before_action :correct_user
   
   def show
-    @coach = current_coach
+    @user = current_user
   end
 
   def edit
-    @coach = current_coach
+    @user = current_user
   end
   
   def update
-    @coach = current_coach
-    if @coach.update_attributes(account_params)
+    @user = current_user
+    if @user.update_attributes(account_params)
       flash[:success] = "Account Edit Success!"
       redirect_to :account
     else
@@ -22,7 +23,7 @@ class AccountsController < ApplicationController
   private
   
   def account_params
-    params.require(:account).permit(:full_name, :birthday, :email, :phone, :skype, :password, :password_confirmation)
+    params.require(:account).permit(:email, :password, :password_confirmation)
   end
   
 end

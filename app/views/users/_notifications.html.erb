@@ -1,0 +1,115 @@
+<div class="notification notification-stream-item">
+  <div class="notification-header clearfix">
+  <%= link_to n.user, class: "avatar-link" do %>
+    <% if n.user.avatar.present? %>
+      <%= image_tag n.user.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+    <% else %>
+      <%= image_tag "", class: "avatar no-image" %>
+    <% end %>
+  <% end %>
+  <% if n.class.name == "Favorite" %>
+    <div class="notification-info clearfix">
+      <span class="time"><%= time_ago_in_words(n.created_at) %>前</span>
+      <i class="fa fa-heart fav-pink"></i><%= link_to n.user, class: "name-link" do %><span class="user-name"><%= n.user.name %></span><span class="user-account-name"><%= n.user.account_name %></span><% end %>さんがいいねしました。
+    </div>
+  </div>
+    <% if n.post.present? %>
+      <% if n.post.post_pictures.present? %>
+      <div class="picture-wrapper">
+        <div id="post-picture-of-post-<%= n.post.id %>-<%= i=i+1 %>" class="carousel slide" data-ride="carousel" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#post-picture-of-post-<%= n.post.id %>-<%= i %>" data-slide-to="0" class="active"></li>
+            <% if n.post.post_pictures.second.present? %>
+            <li data-target="#post-picture-of-post-<%= n.post.id %>-<%= i %>" data-slide-to="1"></li>
+            <% end %>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <%= image_tag n.post.post_pictures.first.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% if n.post.post_pictures.second.present? %>
+            <div class="item">
+              <%= image_tag n.post.post_pictures.second.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <span class="status"><%= n.post.status %></span>
+      <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
+      <div class="caption">
+        <%= simple_format(n.post.caption, class: "caption-text") %>
+      </div>
+      <div class="more clearfix">
+        <%= link_to "チェックする", new_post_comment_path(post_id: n.post.id) %>
+      </div>
+    <% elsif n.post_comment.present? %>
+      <% if n.post_comment.comment_pictures.present? %>
+        <div class="picture-wrapper">
+          <% n.post_comment.comment_pictures.each do |pic| %>
+            <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+          <% end %>
+        </div>
+      <% end %>
+      <span class="status"><%= n.post_comment.status %></span>
+      <span class="time"><%= time_ago_in_words(n.post_comment.created_at) %>前</span>
+      <div class="caption">
+        <%= simple_format(n.post_comment.caption, class: "caption-text") %>
+      </div>
+      <div class="more clearfix">
+        <%= link_to "チェックする", new_post_comment_path(post_id: n.post_comment.post.id) %>
+      </div>
+    <% end %>
+  <% elsif n.class.name == "PostComment" %>
+    <div class="notification-info">
+      <span class="time"><%= time_ago_in_words(n.created_at) %>前</span>
+      <% if n.status == "comment" %>
+          <i class="fa fa-commenting-o comment-blue"></i><%= link_to n.user, class: "name-link" do %><span class="user-name"><%= n.user.name %></span><span class="user-account-name"><%= n.user.account_name %></span><% end %>さんがコメントしました。
+      <% elsif n.status == "answer" %>
+          <i class="fa comment-blue">A</i><%= link_to n.user, class: "name-link" do %><span class="user-name"><%= n.user.name %></span><span class="user-account-name"><%= n.user.account_name %></span><% end %>さんがアンサーしました。
+      <% end %>
+    </div>
+  </div>
+    <% if n.post.post_pictures.present? %>
+    <div class="post-picture-wrapper">
+      <div id="post-picture-of-post-<%= n.post.id %>-<%= i=i+1 %>" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
+          <li data-target="#post-picture-of-post-<%= n.post.id %>-<%= i %>" data-slide-to="0" class="active"></li>
+          <% if n.post.post_pictures.second.present? %>
+          <li data-target="#post-picture-of-post-<%= n.post.id %>-<%= i %>" data-slide-to="1"></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag n.post.post_pictures.first.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+          </div>
+          <% if n.post.post_pictures.second.present? %>
+          <div class="item">
+            <%= image_tag n.post.post_pictures.second.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <div class="infomation clearfix">
+      <span><%= n.post.subject %></span>
+      <% if n.post.text_name %><span><%= n.post.text_name %></span><% end %>
+      <% if n.post.chapter.present? %><span><%= n.post.chapter %></span><% end %>
+      <% if n.post.section.present? %><span><%= n.post.section %></span><% end %>
+      <% if n.post.page.present? %><span><%= n.post.page %></span><% end %>
+      <% if n.post.number %><span><%= n.post.number %></span><% end %>
+      <% if n.post.pattern.present? %><span><%= n.post.pattern %></span><% end %>
+    </div>
+    <span class="status"><%= n.post.status %></span>
+    <span class="time"><%= time_ago_in_words(n.post.created_at) %>前</span>
+    <div class="caption">
+      <%= simple_format(n.post.caption, class: "caption-text") %>
+    </div>
+    <div class="more clearfix">
+      <%= link_to "チェックする", new_post_comment_path(post_id: n.post.id) %>
+    </div>
+  <% end %>
+</div>
+<hr class="hr-bottom">

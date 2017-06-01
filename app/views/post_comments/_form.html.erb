@@ -1,21 +1,23 @@
-<div class="form-group">
-  <%= form_for @comment, post_id: params[:post_id], :html => { multipart: true } do |f| %>
+<div class="form-group"　id="comment-form">
+  <%= form_for @comment do |f| %>
     <%= render 'shared/errors', obj: f.object %>
     <div class="form-group">
-      <%= f.fields_for :comment_pictures do |pic| %>
+      <%= f.fields_for @comment.comment_pictures do |pic| %>
         <%= pic.label :pictures %>
-        <%= pic.file_field :pictures, accept: 'image/jpeg,image/gif,image/png' %>
+        <%= pic.file_field :pictures, name: "post_comment[comment_pictures_attributes][][pictures]", accept: 'image/jpeg,image/gif,image/png' %>
       <% end %>
     </div>
     <div class="form-group">
       <%= f.label :caption %>
       <%= f.text_area :caption, rows: 10, class: "form-control", placeholder: "caption...(up to 1000)" %>
-      <%= f.hidden_field :post_id, value: params[:post_id] %>
-      <%= f.hidden_field :commented_post_comment_id, value: params[:commented_post_comment_id] %>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :post_id %>
+      <%= f.hidden_field :commented_user_id %>
+      <%= f.hidden_field :commented_post_comment_id %>
     </div>
-    <%= f.submit "comment", class: "btn btn-primary", name: "comment" %>
-    <% unless params[:commented_post_comment_id] %>
-    <%= f.submit "answer", class: "btn btn-primary", name: "answer" %>
+    <% if @post.status == "question"%>
+      <%= f.submit "answer", class: "btn btn-primary", name: "status" %>
     <% end %>
+    <%= f.submit "comment", class: "btn btn-primary", name: "status" %>
   <% end %>
 </div>

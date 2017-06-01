@@ -1,12 +1,12 @@
 <% content_for :head do %>
-<title><%= @coach.name %>さんのアカウント編集 | Studish</title>
-<meta name="description" content="Studishの講師のアカウント編集ページです。">
+<title><%= @user.name %>さんのアカウント編集 | Studish</title>
+<meta name="description" content="ユーザーアカウントの編集ページです。">
 <meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
 <% end %>
 
 <div class="page-outer coach-account-edit">
   <div class="page-container">
-    <%= form_for @coach, as: "account", url: :account do |form| %>
+    <%= form_for @user, as: "account", url: :account do |form| %>
       <%= render "form", form: form %>
     <% end %>
   </div>

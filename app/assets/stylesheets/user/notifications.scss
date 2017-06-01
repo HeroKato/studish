@@ -1,0 +1,64 @@
+@import "variables";
+@import "mixins";
+
+.notification {
+  padding: $padding-m;
+  .notification-header {
+    margin-bottom: $margin-m;
+    .notification-info {
+      text-align: left;
+      line-height: 1.4;
+      margin-left: 50px;
+      padding-left: $padding-m;
+      word-wrap: break-word;
+      i {
+        margin: 0;
+      }
+      i.fav-pink {
+        color: $fav-pink;
+      }
+      i.comment-blue {
+        color: $comment-blue;
+      }
+      a {
+        display: inline;
+        span.name {
+          display: inline-block;
+          font-weight: 800;
+          margin-right: 5px;
+          color: $black1;
+          line-height: 1;
+        }
+        span.account_name {
+          display: inline-block;
+          color: $light-grey;
+          line-height: 1;
+        }
+      }
+    }
+  }
+  p.report-title {
+    color: $grey3;
+    text-align: left;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  p.report-body {
+    color: $grey3;
+    text-align: left;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  div.more {
+    a {
+      display: inline-block;
+      float: right;
+      line-height: 1;
+      color: $grey3;
+    }
+    a:hover {
+      color: $grey1;
+    }
+  }
+}

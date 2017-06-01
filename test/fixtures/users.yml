@@ -32,6 +32,7 @@ student_user2:
   user_type: student
   name: student2_name
   account_name: student2_account_example
+  avatar: avatar
   email: student2@example.com
   password_digest: <%= User.digest('password') %>
   activated: true

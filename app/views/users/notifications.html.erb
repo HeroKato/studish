@@ -1,0 +1,14 @@
+<div class="page-outer" id="notification-stream">
+  <div class="page-container">
+    <div class="notification-stream-container">
+      <% if @notifications.present? %>
+        <% @notifications.each_with_index do |n, i| %>
+          <%= render 'notifications', {n: n, i: i} %>
+        <% end %>
+        <%= paginate @notifications %>
+      <% else %>
+        <P class="nothing"><%= current_user.name %>さんのへの通知はありません。</P>
+      <% end %>
+    </div>
+  </div>
+</div>

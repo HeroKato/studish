@@ -2,8 +2,15 @@ class WelcomeController < ApplicationController
   
   def index
     @inquiry = Inquiry.new
-    #coach_ids = Coach.where(activated: true).full_profile.pluck(:id).sample(6).sample(6)
-    #@coaches = Coach.where(id: coach_ids)
+    set_meta_index
+  end
+  
+  private
+  
+  def set_meta_index
+    @title = "Top | Studish"
+    @twitter_title = "Studish = オンラインコーチ × Question機能 × Note機能"
+    @twitter_description = "Studishはオンライン個別指導サービスです。科目指導＋コーチングで中高生の勉強を強力にサポートします。"
   end
   
 end

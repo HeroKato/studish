@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/contact'
   
-  get 'notifications/index'
-  get 'accounts/show'
-  get 'accounts/edit'
-  
   get 'statics/privacy'
   get 'statics/terms'
 
@@ -27,55 +23,62 @@ Rails.application.routes.draw do
   # get 'signup', to: 'coaches#new'
   get '/signup', to: 'users#new'
   
-  get 'question', to: 'posts#question'
-  get 'note', to: 'posts#note'
-  
-  
-  resources :coaches
+  #resources :coaches
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resource :account, only: [:show, :edit, :update]
   
-  namespace :admin do
-    get 'top/index'
-  end
+  #namespace :admin do
+  #  get 'top/index'
+  #end
   
-  namespace :admin do
-    root to: "top#index"
-    resources :coaches do
-      collection { get "search" }
-    end
-  end
+  #namespace :admin do
+  #  root to: "top#index"
+  #  resources :coaches do
+  #    collection { get "search" }
+  #  end
+  #end
   
-  resources :coaches do
-    get :favorites, on: :member
-  end
+  #resources :coaches do
+  #  get :favorites, on: :member
+  #end
   
-  resources :students
-  resources :students do
-    resources :posts
-    resources :post_pictures
-    resources :post_comments
-    resources :post_comment_pictures
+  #resources :students
+  #resources :students do
+  #  resources :posts
+  #  resources :post_pictures
+  #  resources :post_comments
+  #  resources :post_comment_pictures
+  #  get :favorites, on: :member
+  #  get :answers, on: :member
+  #  get :notifications, on: :member
+  #  get :account, on: :member
+  #end
+  
+  resources :favorites, only: [:create]
+  resources :accounts, only: [:show, :edit, :update]
+  
+  resources :users
+  resources :users do
     get :favorites, on: :member
     get :answers, on: :member
     get :notifications, on: :member
-    get :account, on: :member
+    resources :posts do
+      resources :favorites, only: [:create, :destroy]
+    end
+    resources :post_comments do
+      resources :favorites, only: [:create, :destroy]
+    end
   end
-  
-  resources :users
   
   resources :posts
   resources :posts do
     resources :post_pictures
     resources :post_comments
-    resources :favorites, only: [:create, :destroy]
   end
   
   resources :post_comments
   resources :post_comments do
     resources :post_comment_pictures
-    resources :favorites, only: [:create, :destroy]
   end
 
   
