@@ -1,0 +1,114 @@
+<% @favorites.each do |favorite| %>
+<li class="favorite favorite-stream-item">
+  <div class="profile clearfix">
+    <%= link_to favorite.post.user, class: "avatar-link" do %>
+      <%= image_tag favorite.post.user.avatar.medium.url, oncontextmenu: "return false;", class: "avatar" %>
+    <% end %>
+    <div class="user-info user-info">
+      <%= link_to favorite.post.user, class: "name-link" do %>
+        <span class="user-name user-name"><%= favorite.post.user.name %></span><br><span class="user-account-name user-account-name"><%= favorite.post.user.account_name %></span>
+      <% end %>
+    </div>
+  </div>
+  <% if favorite.post %>
+    <% if favorite.post.post_pictures.present? %>
+      <div class="post-picture-wrapper">
+        <div id="post-picture-of-post-<%= favorite.post.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#post-picture-of-post-<%= favorite.post.id %>" data-slide-to="0" class="active"></li>
+            <% if favorite.post.post_pictures.second.present? %>
+            <li data-target="#post-picture-of-post-<%= favorite.post.id %>" data-slide-to="1"></li>
+            <% end %>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <%= image_tag favorite.post.post_pictures.first.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% if favorite.post.post_pictures.second.present? %>
+            <div class="item">
+              <%= image_tag favorite.post.post_pictures.second.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <span class="status"><%= favorite.post.status %></span>
+    <span class="time"><%= time_ago_in_words(favorite.post.created_at) %>前</span>
+    <span class="comment-id">id:<%= favorite.post.id %></span>
+    <div class="caption">
+      <%= simple_format(favorite.post.caption, class: "caption-text") %>
+    </div>
+    <div class="action-buttons">
+      <% if logged_in? %>
+        <% if favorite.post.favorites.find_by(user_id: current_user.id).present? %>
+          <%= link_to user_post_favorite_path(current_user, favorite.post, favorite.post.favorites.find_by(user_id: current_user.id).id), method: :delete, class: "action-button-link" do %>
+            <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= favorite.post.favorites.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to user_post_favorites_path(current_user, favorite.post, favorited_user_id: favorite.post.user.id), method: :post, class: "action-button-link" do %>
+            <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= favorite.post.favorites.count %></span>
+          <% end %>
+        <% end %>
+        <%= link_to new_post_comment_path(post_id: favorite.post.id, user_id: current_user.id, commented_user_id: favorite.post.user.id), class: "action-button-link" do %>
+          <% if PostComment.find_by(user_id: current_user.id, post_id: favorite.post.id).present? %>
+            <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= favorite.post.post_comments.count %></span>
+          <% else %>
+            <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= favorite.post.post_comments.count %></span>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to favorites_path, method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorites-count"><%= favorite.post.favorites.count %></span>
+        <% end %>
+        <%= link_to new_post_comment_path(post_id: favorite.post.id, commented_user_id: favorite.post.user.id), class: "action-button-link" do %>
+          <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= favorite.post.post_comments.count %></span>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <% if favorite.post_comment.comment_pictures.present? %>
+      <div class="post-picture-wrapper">
+        <% favorite.post_comment.comment_pictures.each do |pic| %>
+          <%= image_tag pic.pictures.medium.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+        <% end %>
+      </div>
+    <% end %>
+    <span class="status"><%= favorite.post_comment.status %></span>
+    <span class="reply-to">on id:<%= favorite.post_comment.commented_post_comment_id %></span>
+    <span class="time"><%= time_ago_in_words(favorite.post_comment.created_at) %>前</span>
+    <span class="comment-id">id:<%= favorite.post_comment.id %></span>
+    <div class="caption">
+      <%= simple_format(favorite.post_comment.caption, class: "caption-text") %>
+    </div>
+    <div class="action-buttons">
+      <% if logged_in? %>
+        <% if favorite.post_comment.favorites.where(user_id: current_user.id).present? %>
+          <%= link_to user_post_favorite_path(current_user, favorite.post_comment, favorite), method: :delete, class: "action-button-link" do %>
+            <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= favorite.post_comment.favorites.count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to user_post_favorites_path(current_user, favorite.post_comment, favorited_user_id: favorite.post_comment.user.id), method: :post, class: "action-button-link" do %>
+            <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= favorite.post_comment.favorites.count %></span>
+          <% end %>
+        <% end %>
+        <%= link_to new_post_comment_path(post_id: favorite.post_comment.id, user_id: current_user.id, commented_user_id: favorite.post_comment.user.id), class: "action-button-link" do %>
+          <% if PostComment.find_by(user_id: current_user.id, commented_post_comment_id: favorite.post_comment.id).present? %>
+            <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= PostComment.where(commented_post_comment_id: favorite.post_comment.id).count %></span>
+          <% else %>
+            <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= PostComment.where(commented_post_comment_id: favorite.post_comment.id).count %></span>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to favorites_path, method: :post, class: "action-button-link" do %>
+          <i class="fa fa-heart action-button"></i><span class="count favorites-count"><%= favorite.post_comment.favorites.count %></span>
+        <% end %>
+        <%= link_to new_post_comment_path(post_id: answer.post.id, commented_user_id: answer.post.user.id), class: "action-button-link" do %>
+          <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= PostComment.where(commented_post_comment_id: favorite.post_comment.id).count %></span>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</li>
+<hr class="hr-bottom hr-bold">
+<% end %>

@@ -1,0 +1,107 @@
+@import "variables";
+@import "mixins";
+
+.profile-header {
+  padding: $padding-m;
+}
+
+ul.stats {
+  margin-left: 80px;
+  margin-bottom: 0;
+  padding: 0;
+  a {
+    text-decoration: none;
+    color: $grey3;
+    li.stats-item {
+      float: left;
+      width: 33.33333%;
+      height: 40px;
+      text-align: center;
+      span {
+        display: inline-block;
+        line-height: 1;
+        font-size: $font-size-s;
+      }
+      span.count {
+        width: 100%;
+      }
+      span.item {
+        width: 100%;
+      }
+    }
+  }
+  a:hover {
+    color: $grey1;
+  }
+}
+
+ul.expanded-coach-profile {
+  padding: $padding-m;
+}
+
+p.self-introduction {
+  padding: $padding-m;
+}
+
+.subjects,
+.certifications {
+  padding: $padding-m;
+  label {
+    display: block;
+    line-height: 1;
+    margin-bottom: $margin-s;
+  }
+}
+
+.subjects {
+  .subject {
+    display: inline-block;
+    border: solid 2px $grey2;
+    border-radius: 2px;
+    padding: $padding-xs;
+    margin-bottom: $margin-s;
+    line-height: 1;
+    color: $grey2;
+  }
+}
+
+.certifications {
+  .certification {
+    display: inline-block;
+    border: solid 2px $grey2;
+    border-radius: 2px;
+    padding: $padding-xs;
+    margin-bottom: $margin-s;
+    margin-right: $margin-s;
+    float: left;
+    line-height: 1;
+    color: $grey2;
+  }
+}
+
+a.name-link {
+  @include name-link;
+}
+
+a.name-link:hover {
+  @include name-link-hover;
+  text-decoration: none;
+}
+
+span.user-name {
+  font-weight: 900;
+  color: $black1;
+  margin-right: $margin-s;
+}
+
+span.user-account-name {
+  color: $grey3;
+}
+
+span.user-account-name:before {
+  content: "@";
+}
+
+h2.header {
+  padding: $padding-m;
+}

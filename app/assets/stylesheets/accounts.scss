@@ -1,12 +1,20 @@
-#coach-account {
-  padding: 15px 0;
-  .content-container {
-    .content {
-      margin: 0;
+@import "variables";
+@import "mixins";
+
+div.user-account {
+  div.page-container {
+    h3 {
+      margin: $margin-m;
+    }
+    table {
+      margin: $margin-m;
+    }
+    span {
+      width: 100%;
+      display: inline-block;
+      margin-left: $margin-m;
+      margin-right: $margin-m;
+      margin-bottom: $margin-m;
     }
   }
-}
-
-#coach-account-edit {
-  padding: 15px 0;
 }

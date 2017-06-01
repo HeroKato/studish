@@ -1,0 +1,36 @@
+<% content_for :head do %>
+<%= render 'shared/fundamental_meta' %>
+<% end %>
+
+<div class="page-outer student-new">
+  <div class="page-container">
+    <h2 class="page-header">新規登録</h2>
+    <%= render "shared/errors", obj: @user %>
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :account_name, t('.account_name'), class: "no-public" %>
+        <%= f.text_field :account_name, class: "form-control", placeholder: "6文字以上(半角英数字/ひカ/変更不可)" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, t('.email'), class: "no-public" %>
+        <%= f.text_field :email, class: "form-control", placeholder: "このアドレスにアカウント有効化メールが届きます" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, t(".password"), class: "no-public" %>
+        <%= f.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, t(".password_confirmation"), class: "no-public" %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
+      </div>
+      <div class="form-group">
+        <p class="">ログインするためにメールアドレスとパスワードが必要なので忘れないようにしてください。</p>
+      </div>
+      <%= f.hidden_field :user_type, value: @user.user_type %>
+      <div class="submit-group">
+        <%= f.submit t('.signup'), class: "btn btn-primary margin-right-m" %>
+        <%= link_to t('.back'), :back, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

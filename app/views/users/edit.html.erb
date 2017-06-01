@@ -1,0 +1,11 @@
+<% content_for :head do %>
+<%= render 'shared/fundamental_meta' %>
+<% end %>
+
+<div class="page-outer student-edit">
+  <div class="page-container student-edit">
+    <%= form_for(@user, html: {multipart: true}, action: "#", enctype: "multipart/form-data") do |form| %>
+      <%= render "form", form: form %>
+    <% end %>
+  </div>
+</div>

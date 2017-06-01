@@ -1,0 +1,11 @@
+<% content_for :head do %>
+<%= render 'shared/fundamental_meta' %>
+<% end %>
+
+<% if logged_in? %>
+  <div class="page-outer new-post">
+    <div class="page-container">
+      <%= render "form_question" %>
+    </div>
+  </div>
+<% end %>

@@ -1,30 +1,18 @@
 Rails.application.routes.draw do
   
-  get 'notifications/index'
-  #get 'coaching_reports/index'
-  #get 'coaching_reports/show'
-  #get 'coaching_reports/new'
-  #get 'coaching_reports/edit'
-  get 'accounts/show'
-  get 'accounts/edit'
+  root 'welcome#index'
+  get 'welcome/contact'
   
   get 'statics/privacy'
   get 'statics/terms'
 
-  namespace :admin do
-  get 'top/index'
-  end
-
   get 'password_resets/new'
   get 'password_resets/edit'
-
-  root 'welcome#index'
-  get 'welcome/contact'
   
   # お問い合わせフォーム
-  get  'inquiry'   => 'inquiry#index'
-  post 'inquiry/confirm' => 'inquiry#confirm'
-  post 'inquiry/thanks'  => 'inquiry#thanks'
+  get  'inquiry', to: 'inquiry#index'
+  post 'inquiry/confirm', to: 'inquiry#confirm'
+  post 'inquiry/thanks', to: 'inquiry#thanks'
   
   # ログイン/ログアウト
   get    'login' , to: 'sessions#new'
@@ -32,60 +20,65 @@ Rails.application.routes.draw do
   delete 'logout' , to: 'sessions#destroy'
   
   # 新規登録
-  get 'signup' => 'coaches#new'
+  # get 'signup', to: 'coaches#new'
+  get '/signup', to: 'users#new'
   
-  
-  resources :coaches
-  resources :sessions, only: [:new, :create, :destroy]
+  #resources :coaches
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resource :account, only: [:show, :edit, :update]
   
-  namespace :admin do
-    root to: "top#index"
-    resources :coaches do
-      collection { get "search" }
-    end
-  end
-  
-  #resources :coaching_reports
-  #resources :comments
-  
-  resources :coaches do
-    #resources :coaching_reports, only: [:index]
-    #resources :comments, only: [:index]
-    get :favorites, on: :member
-  end
-  
-  #resources :coaching_reports do
-  #  resources :comments
-  #  resources :favorites, only: [:create, :destroy]
+  #namespace :admin do
+  #  get 'top/index'
   #end
   
+  #namespace :admin do
+  #  root to: "top#index"
+  #  resources :coaches do
+  #    collection { get "search" }
+  #  end
+  #end
   
-  resources :students
-  resources :students do
-    resources :posts
-    resources :post_pictures
-    resources :post_comments
-    resources :post_comment_pictures
+  #resources :coaches do
+  #  get :favorites, on: :member
+  #end
+  
+  #resources :students
+  #resources :students do
+  #  resources :posts
+  #  resources :post_pictures
+  #  resources :post_comments
+  #  resources :post_comment_pictures
+  #  get :favorites, on: :member
+  #  get :answers, on: :member
+  #  get :notifications, on: :member
+  #  get :account, on: :member
+  #end
+  
+  resources :favorites, only: [:create]
+  resources :accounts, only: [:show, :edit, :update]
+  
+  resources :users
+  resources :users do
     get :favorites, on: :member
     get :answers, on: :member
     get :notifications, on: :member
-    get :account, on: :member
+    resources :posts do
+      resources :favorites, only: [:create, :destroy]
+    end
+    resources :post_comments do
+      resources :favorites, only: [:create, :destroy]
+    end
   end
   
   resources :posts
   resources :posts do
     resources :post_pictures
     resources :post_comments
-    resources :favorites, only: [:create, :destroy]
   end
   
   resources :post_comments
   resources :post_comments do
     resources :post_comment_pictures
-    resources :favorites, only: [:create, :destroy]
   end
 
   

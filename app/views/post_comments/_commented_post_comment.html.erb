@@ -1,0 +1,65 @@
+<div class="commented_post_comment" id="post-comment-id-<%= @commented_post_comment.id %>">
+  <div class="profile clearfix">
+    <%= link_to @commented_post_comment.user, class: "avatar-link" do %>
+      <%= image_tag @commented_post_comment.user.avatar.medium.url, class: "avatar", oncontextmenu: "return false;" %>
+    <% end %>
+    <div class="user-info">
+      <%= link_to @commented_post_comment.user, class: "name-link" do %>
+        <span class="user-name"><%= @commented_post_comment.user.name %></span><br><span class="user-account-name"><%= @commented_post_comment.user.account_name %></span>
+      <% end %>
+    </div>
+  </div>
+  <% if @commented_post_comment.comment_pictures.present? %>
+    <div class="picture-wrapper">
+    <% @commented_post_comment.comment_pictures.each do |pic| %>
+      <%= image_tag pic.pictures.large.url, oncontextmenu: "return false;", class: "pictures post-pictures" %>
+    <% end %>
+    </div>
+  <% end %>
+  <span class="status"><%= @commented_post_comment.status %></span>
+  <% if @commented_post_comment.commented_post_comment_id.present? %>
+  <span class="reply-to">on id:<%= @commented_post_comment.commented_post_comment_id %></span>
+  <% end %>
+  <span class="time"><%= time_ago_in_words(@commented_post_comment.created_at) %>前</span>
+  <span class="comment-id">id:<%= @commented_post_comment.id %></span>
+  <div class="caption">
+  <%= simple_format(@commented_post_comment.caption, class: "caption-text") %>
+  </div>
+      
+  <div class="action-buttons">
+    <% if logged_in? %>
+      <% if @commented_post_comment.favorites.where(user_id: current_user.id).present? %>
+        <%= link_to user_post_comment_favorite_path(current_user, @commented_post_comment, @commented_post_comment.favorites.find_by(user_id: current_user.id)), method: :delete, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button favorited"></i><span class="count favorite-count favorited"><%= @commented_post_comment.favorites.count %></span>
+        <% end %>
+      <% else %>
+        <%= link_to user_post_comment_favorites_path(current_user, @commented_post_comment, favorited_user_id: @commented_post_comment.user.id), method: :post, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= @commented_post_comment.favorites.count %></span>
+        <% end %>
+      <% end %>
+      <%= link_to new_post_comment_path(post_id: @commented_post_comment.post.id, user_id: current_user.id, commented_user_id: @commented_post_comment.user_id, commented_post_comment_id: @commented_post_comment.id), class: "action-button-link" do %>
+        <% if current_user.post_comments.find_by(commented_post_comment_id: @commented_post_comment.id).present? %>
+          <i class="fa fa-commenting-o action-button commented"></i><span class="count comment-count commented"><%= @commented_post_comment.post.post_comments.where(commented_post_comment_id: @commented_post_comment.id).count %></span>
+        <% else %>
+          <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= @commented_post_comment.post.post_comments.where(commented_post_comment_id: @commented_post_comment.id).count %></span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to user_post_comment_favorites_path(@commented_post_comment), method: :post, class: "action-button-link" do %>
+        <i class="fa fa-heart action-button"></i><span class="count favorite-count"><%= @commented_post_comment.favorites.count %></span>
+      <% end %>
+      <%= link_to new_post_comment_path(post_id: @commented_post_comment.post.id, commented_post_comment_id: @commented_post_comment.id), class: "action-button-link" do %>
+        <i class="fa fa-commenting-o action-button"></i><span class="count comment-count"><%= @commented_post_comment.post.post_comments.where(commented_post_comment_id: @commented_post_comment.id).count %></span>
+      <% end %>
+    <% end %>
+  </div>
+     
+  <% if logged_in? %> 
+    <div class="edit_delete">
+      <% if current_user == @commented_post_comment.user %>
+        <%= link_to "編集", [:edit, @commented_post_comment], class: "edit" %>
+        <%= link_to "削除", @commented_post_comment, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

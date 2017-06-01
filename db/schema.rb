@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419061625) do
+ActiveRecord::Schema.define(version: 20170423155105) do
 
   create_table "coach_certifications", force: :cascade do |t|
-    t.integer  "coach_id",   null: false
     t.string   "eiken"
     t.integer  "toeic"
     t.integer  "toefl"
@@ -24,9 +23,9 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "coach_id"
   end
 
-  add_index "coach_certifications", ["coach_id"], name: "index_coach_certifications_on_coach_id"
   add_index "coach_certifications", ["user_id"], name: "index_coach_certifications_on_user_id"
 
   create_table "coaches", force: :cascade do |t|
@@ -65,19 +64,7 @@ ActiveRecord::Schema.define(version: 20170419061625) do
   add_index "coaches", ["school_year"], name: "index_coaches_on_school_year"
   add_index "coaches", ["university"], name: "index_coaches_on_university"
 
-  create_table "coaching_reports", force: :cascade do |t|
-    t.integer  "coach_id",                     null: false
-    t.string   "title",                        null: false
-    t.text     "body"
-    t.string   "status",     default: "draft", null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  add_index "coaching_reports", ["coach_id"], name: "index_coaching_reports_on_coach_id"
-
   create_table "coaching_subjects", force: :cascade do |t|
-    t.integer  "coach_id",             null: false
     t.string   "jr_english"
     t.string   "jr_japanese"
     t.string   "jr_math"
@@ -109,9 +96,11 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.string   "earth_science"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "coach_id"
+    t.integer  "user_id"
   end
 
-  add_index "coaching_subjects", ["coach_id"], name: "index_coaching_subjects_on_coach_id"
+  add_index "coaching_subjects", ["user_id"], name: "index_coaching_subjects_on_user_id"
 
   create_table "comment_pictures", force: :cascade do |t|
     t.integer  "student_id"
@@ -127,18 +116,22 @@ ActiveRecord::Schema.define(version: 20170419061625) do
   add_index "comment_pictures", ["post_comment_id"], name: "index_comment_pictures_on_post_comment_id"
   add_index "comment_pictures", ["student_id", "created_at"], name: "index_comment_pictures_on_student_id_and_created_at"
 
-  create_table "comments", force: :cascade do |t|
-    t.integer  "coaching_report_id",                 null: false
-    t.integer  "coach_id",                           null: false
-    t.integer  "commented_coach_id"
-    t.text     "body"
-    t.boolean  "read_flag",          default: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+  create_table "expanded_coach_profiles", force: :cascade do |t|
+    t.string   "university"
+    t.string   "major"
+    t.string   "school_year"
+    t.string   "skype"
+    t.boolean  "administrator", default: false, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "user_id"
   end
 
-  add_index "comments", ["coach_id"], name: "index_comments_on_coach_id"
-  add_index "comments", ["coaching_report_id"], name: "index_comments_on_coaching_report_id"
+  add_index "expanded_coach_profiles", ["major"], name: "index_expanded_coach_profiles_on_major"
+  add_index "expanded_coach_profiles", ["school_year"], name: "index_expanded_coach_profiles_on_school_year"
+  add_index "expanded_coach_profiles", ["skype"], name: "index_expanded_coach_profiles_on_skype"
+  add_index "expanded_coach_profiles", ["university"], name: "index_expanded_coach_profiles_on_university"
+  add_index "expanded_coach_profiles", ["user_id"], name: "index_expanded_coach_profiles_on_user_id"
 
   create_table "expanded_coach_profiles", force: :cascade do |t|
     t.string   "university"
@@ -162,21 +155,22 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.integer  "favorited_coach_id"
     t.integer  "post_id"
     t.integer  "post_comment_id"
-    t.integer  "coaching_report_id"
     t.boolean  "check_flag",           default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.integer  "user_id"
+    t.integer  "favorited_user_id"
   end
 
   add_index "favorites", ["check_flag"], name: "index_favorites_on_check_flag"
   add_index "favorites", ["coach_id"], name: "index_favorites_on_coach_id"
-  add_index "favorites", ["coaching_report_id"], name: "index_favorites_on_coaching_report_id"
   add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
   add_index "favorites", ["favorited_coach_id"], name: "index_favorites_on_favorited_coach_id"
   add_index "favorites", ["favorited_student_id"], name: "index_favorites_on_favorited_student_id"
   add_index "favorites", ["post_comment_id"], name: "index_favorites_on_post_comment_id"
   add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
   add_index "favorites", ["student_id"], name: "index_favorites_on_student_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "post_comments", force: :cascade do |t|
     t.integer  "student_id"
@@ -191,12 +185,15 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.datetime "updated_at",                                   null: false
     t.integer  "commented_post_comment_id"
     t.integer  "root_post_comment_id"
+    t.integer  "user_id"
+    t.integer  "commented_user_id"
   end
 
   add_index "post_comments", ["coach_id", "created_at"], name: "index_post_comments_on_coach_id_and_created_at"
   add_index "post_comments", ["post_id", "created_at"], name: "index_post_comments_on_post_id_and_created_at"
   add_index "post_comments", ["post_id"], name: "index_post_comments_on_post_id"
   add_index "post_comments", ["student_id", "created_at"], name: "index_post_comments_on_student_id_and_created_at"
+  add_index "post_comments", ["user_id"], name: "index_post_comments_on_user_id"
 
   create_table "post_pictures", force: :cascade do |t|
     t.integer  "student_id"
@@ -225,6 +222,7 @@ ActiveRecord::Schema.define(version: 20170419061625) do
     t.string   "pattern"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.integer  "user_id"
   end
 
   add_index "posts", ["chapter", "created_at"], name: "index_posts_on_chapter_and_created_at"
@@ -234,6 +232,7 @@ ActiveRecord::Schema.define(version: 20170419061625) do
   add_index "posts", ["student_id", "created_at"], name: "index_posts_on_student_id_and_created_at"
   add_index "posts", ["subject", "created_at"], name: "index_posts_on_subject_and_created_at"
   add_index "posts", ["text_name", "created_at"], name: "index_posts_on_text_name_and_created_at"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "name",              default: "no_name"

@@ -1,0 +1,97 @@
+<% content_for :head do %>
+<%= render 'shared/fundamental_meta' %>
+<%= render 'shared/twitter_meta' %>
+<% end %>
+
+<div class="page-outer user-profile">
+  <div class="page-container" id="post-stream">
+    
+    <% if flash.notice %>
+      <p class="notice"><%= flash.notice %></p>
+    <% end %>
+    
+    <div class= "profile-header clearfix">
+      <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar.large.url, oncontextmenu: "return false;", class: "avatar avatar-large" %>
+      <% else %>
+        <%= image_tag "", class: "avatar avatar-large no-image" %>
+      <% end %>
+      <ul class="stats clearfix">
+        <% if @user.user_type == "student" %>
+          <%= link_to "", class: "questions" do %><li class="stats-item clearfix" id="stats1"><span class="count"><%= @questions_count %></span><span class="item question">クエスチョン</span></li><% end %>
+        <% else %>
+          <%= link_to "", class: "posts" do %><li class="stats-item clearfix" id="stats1"><span class="count"><%= @logs_count %></span><span class="item question">ログ(仮)</span></li><% end %>
+        <% end %>
+        <%= link_to answers_user_path(@user), class: "answers" do %><li class="stats-item clearfix" id="stats2"><span class="count"><%= @answers_count %></span><span class="item answer">アンサー</span></li><% end %>
+        <%= link_to favorites_user_path(@user), class: "favorites" do %><li class="stats-item clearfix" id="stats3"><span class="count"><%= @favorites_count %></span><span class="item #">いいね</span></li><% end %>
+        <% if @user.user_type == "student" %>
+          <%= link_to "", class: "notes" do %><li class="stats-item clearfix" id="stats4"><span class="count"><%= @notes_count %></span><span class="item notes">ノート</span></li><% end %>
+        <% end %>
+      </ul>
+    </div>
+    
+    <% if @user == current_user %>
+      <div class="edit-profile-link-wrapper clearfix">
+        <%= link_to "プロフィール編集", edit_user_path(@user), class: "edit-profile-link" %>
+      </div>
+    <% end %>
+    
+    <div class="user-info">
+      <%= link_to @user, class: "name-link" do %>
+      <span class="user-name"><%= @user.name %></span><br><span class="user-account-name"><%= @user.account_name %></span>
+      <% end %>
+    </div>
+    
+    <% if @user.user_type == "coach" %>
+      <ul class="user-info expanded-coach-profile">
+        <li class="info-item"><span class="university"><%= @university %></span></li>
+        <li class="info-item"><span class="major"><%= @major %></span></li>
+        <li class="info-item"><span class="school_year"></span><%= @school_year %></span></li>
+      </ul>
+    <% end %>
+    
+    <%= simple_format(@user.self_introduction, class: "self-introduction") %>
+    
+    <% if @user.user_type == "coach" %>
+      <div class="subjects jr-subjects">
+        <%= label_tag :jr_subjects, t('.jr_subjects') %>
+        <% @jr_subjects.each_value do |jr_subs| %>
+          <% unless (jr_subs == nil) || (jr_subs == '0') %>
+            <span class="subject"><%= jr_subs %></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="subjects high-subjects">
+          <%= label_tag :high_subjects, t('.high_subjects') %>
+          <% @high_subjects.each_value do |high_subs| %>
+            <% unless (high_subs == nil) || (high_subs == '0' ) %>
+              <span class="subject"><%= high_subs %></span>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="certifications clearfix">
+        <%= label_tag :certifications, t('.certifications') %>
+        <% if @certifications.present? %>
+          <% @certifications.each do |key, certs| %>
+              <% unless (certs ==  nil) || (certs == "" ) %>
+                <div class="certification">
+                  <span><%= t(key) %></span>
+                  <span><%= certs %></span>
+                </div>
+              <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    
+    <hr class="hr-bottom">
+    
+    <% if @user.posts.any? %>
+      <ol class="posts post-stream-container">
+        <%= render @posts %>
+        <%= paginate @posts %>
+      </ol>
+    <% end %>
+    
+  </div>
+</div>

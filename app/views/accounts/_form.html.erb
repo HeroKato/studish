@@ -1,21 +1,9 @@
 <div class="form-group">
-  <label class="account-name">アカウント名:</label><span>@<%= @coach.account_name %></span>
+  <label class="account-name">アカウント名:</label><span>@<%= @user.account_name %></span>
 </div>
 <div class="form-group">
   <%= form.label :email, class: "no-public" %>
   <%= form.email_field :email, class: "form-control", placeholder: "メールアドレスを入力してください。非公開。" %>
-</div>
-<div class="form-group">
-  <%= form.label :skype, class: "no-public" %>
-  <%= form.text_field :skype, class: "form-control", placeholder: "非公開" %>
-</div>
-<div class="form-group">
-  <%= form.label :phone, class: "no-public" %>
-  <%= form.telephone_field :phone, class: "form-control", placeholder: "非公開" %>
-</div>
-<div class="form-group">
-  <%= form.label :birthday, class: "no-public" %>
-  <%= form.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "form-control" %>
 </div>
 <p class="caution">パスワードは変更したい場合のみ入力してください。</p>
 <div class="form-group">
@@ -27,9 +15,5 @@
   <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
 </div>
 <div class="submit-group">
-  <% if logged_in_as_coach? %>
-    <%= form.submit "更新する", class: "btn btn-primary" %>
-  <% else %>
-    <%= form.submit "Create my account", class: "btn btn-primary" %>
-  <% end %>
+  <%= form.submit "更新する", class: "btn btn-primary" %>
 </div>

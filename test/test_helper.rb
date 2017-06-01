@@ -9,23 +9,24 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include ApplicationHelper
   
-  # テストコーチがログインしていればtrueを返す
+  # テストユーザがログインしていればtrueを返す
   def is_logged_in?
-    !session[:coach_id].nil?
+    !session[:user_id].nil?
   end
   
-  # テストコーチとしてログインする
-  def log_in_as(coach, options = {})
-    password = options[:password]||'password'
-    remember_me = options[:remember_me]||'1'
-    if integration_test?
-      post login_path, session: { email: coach.email,
-                                  password: password,
-                                  remember_me: remember_me }
-    else
-      session[:coach_id] = coach.id
-    end
+  # テストユーザーとしてログインする
+  def log_in_as(user)
+    #password = options[:password]||'password'
+    #remember_me = options[:remember_me]||'1'
+    #if integration_test?
+    #  post login_path, session: { email: user.email,
+    #                              password: password,
+    #                              remember_me: remember_me }
+    #else
+      session[:user_id] = user.id
+    #end
   end
   
   
@@ -34,6 +35,17 @@ class ActiveSupport::TestCase
   # 統合テスト内ではtrueを返す
   def integration_test?
     defined?(post_via_redirect)
+  end
+  
+  class ActionDispatch::IntegrationTest
+
+  # テストユーザーとしてログインする
+  def log_in_as(user, password: 'password', remember_me: '1')
+    post login_path, session: { email: user.email,
+                                password: password,
+                                remember_me: remember_me }
+  end
+  
   end
   
 end

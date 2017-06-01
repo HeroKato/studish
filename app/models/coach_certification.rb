@@ -1,5 +1,6 @@
 class CoachCertification < ActiveRecord::Base
   belongs_to :coach
+  belongs_to :user, -> { where(user_type: coach)}
   
   VALID_TOEIC = /\A([5]|[1-9][05]|[1-9][0-8][05]|990)\z/
   validates :toeic, format: { with: VALID_TOEIC, message: :invalid_toeic }, allow_blank: true

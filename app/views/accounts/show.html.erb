@@ -1,35 +1,17 @@
-<div class="content-wrapper" id="coach-account">
-  <div class="content-container">
-    <table class="content">
-      <tr>
-        <th><%= t('.account_name') %></th>
-        <td>@<%= @coach.account_name %></td>
-      </tr>
-      <tr>
-        <th><%= t('.email') %></th>
-        <td><%= @coach.email %></td>
-      </tr>
-      <tr>
-        <th><%= t('.skype') %></th>
-        <td><%= @coach.skype %></td>
-      </tr>
-      <tr>
-        <th><%= t('.phone') %></th>
-        <td><%= @coach.phone %></td>
-      </tr>
-      <tr>
-        <th><%= t('.birthday') %></th>
-        <td><%= @coach.birthday %></td>
-      </tr>
+<% content_for :head do %>
+<title><%= @user.name %>さんのアカウント情報 | Studish</title>
+<meta name="description" content="ユーザーアカウントページです。">
+<meta name="keywords" content="Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上,ディスカッション,discussion">
+<% end %>
+
+<div class="page-outer user-account">
+  <div class="page-container">
+    <h3><%= @user.account_name %>さんのアカウント情報</h3>
+    <table id="account-info">
+      <tr><th>アカウント名</th><td><%= @user.account_name %></td></tr>
+      <tr><th>メールアドレス</th><td><%= @user.email %></td></tr>
     </table>
-      <% if current_coach == @coach %>
-        <div class="content">
-          <%= link_to "アカウント編集", :edit_account %>
-        </div>
-        <div class="content">
-          <%= link_to "アカウント削除", @coach, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-        </div>
-      <% end %>
-    </div>
+    <span><%= link_to "メールアドレス/パスワードの変更", edit_account_path(@user) %></span>
+    <span><%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当に削除しますか？" } %></span>
   </div>
 </div>

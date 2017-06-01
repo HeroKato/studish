@@ -5,6 +5,106 @@ ja:
   ielts: IELTS
   kanken: 漢検
   suuken: 数検
+  sessions:
+    new:
+      description_login: Studishのログインページです。
+      keywords_login: Studish,スタディッシュ,オンライン指導,コーチング,Coaching,自学スキルの向上
+      email: メールアドレス
+      password: パスワード
+      forget-password: パスワードを忘れた
+      login: ログイン
+      remember_me: メルアドとパスワードを記憶させる
+      remember_me_message: (チェックを入れると次回からログインが簡単になります。)
+      signup_message: アカウントをお持ちでない方はこちらから新規登録してください。
+      signup_coach: 新規登録(講師)
+      signup_student: 新規登録(生徒)
+  users:
+    new:
+      account_name: アカウント名
+      email: メールアドレス
+      password: パスワード
+      password_confirmation: パスワードの確認
+      signup: 登録
+      back: 戻る
+    show:
+      jr_subjects: 指導科目(中学)
+      high_subjects: 指導科目(高校)
+      certifications: 資格・検定
+      jr_english: 英語
+      jr_japanese: 国語
+      jr_math: 数学
+      jr_science: 理科
+      jr_social: 社会
+      high_english: 英語
+      modern_japanese: 現代文
+      classical_japanese: 古文
+      classical_chinese: 漢文
+      world_history_a: 世界史A
+      world_history_b: 世界史B
+      japanese_history_a: 日本史A
+      japanese_history_b: 日本史B
+      geography_a: 地理A
+      geography_b: 地理B
+      contemporary_society: 現代社会
+      ethics: 倫理
+      politics_economics: 政治経済
+      math_1a: 数学ⅠA
+      math_2b: 数学ⅡB
+      math_3: 数学Ⅲ
+      basic_physics: 物理基礎
+      physics: 物理
+      basic_chemistry: 化学基礎
+      chemistry: 化学
+      basic_biology: 生物基礎
+      biology: 生物
+      basic_earth_science: 地学基礎
+      earth_science: 地学
+    form:
+      present-avatar: 現在のアバター
+      new-avatar: 新しいアバター
+      name: 名前
+      university: 大学
+      major: 学部学科
+      school_year: 学年
+      skype: スカイプ
+      jr_subjects: 指導科目(中学)
+      high_subjects: 指導科目(高校)
+      certifications: 資格・検定
+      eiken: 英検
+      toeic: TOEIC
+      toefl: TOEFL
+      ielts: IELTS
+      kanken: 漢検
+      suuken: 数検
+      jr_english: 英語
+      jr_japanese: 国語
+      jr_math: 数学
+      jr_science: 理科
+      jr_social: 社会
+      high_english: 英語
+      modern_japanese: 現代文
+      classical_japanese: 古文
+      classical_chinese: 漢文
+      world_history_a: 世界史A
+      world_history_b: 世界史B
+      japanese_history_a: 日本史A
+      japanese_history_b: 日本史B
+      geography_a: 地理A
+      geography_b: 地理B
+      contemporary_society: 現代社会
+      ethics: 倫理
+      politics_economics: 政治経済
+      math_1a: 数学ⅠA
+      math_2b: 数学ⅡB
+      math_3: 数学Ⅲ
+      basic_physics: 物理基礎
+      physics: 物理
+      basic_chemistry: 化学基礎
+      chemistry: 化学
+      basic_biology: 生物基礎
+      biology: 生物
+      basic_earth_science: 地学基礎
+      earth_science: 地学
   coaches:
     show:
       name: ユーザ名
@@ -64,7 +164,6 @@ ja:
   activerecord:
     models:
       coach: 講師情報
-      coaching_report: レポート
     attributes:
       coach:
         name: ユーザ名
@@ -82,14 +181,6 @@ ja:
         password_confirmation: パスワードの確認
         skype: スカイプ
         phone: 電話番号
-      coaching_report:
-        title: タイトル
-        body: 本文
-        posted_at: 投稿日
-        status: 状態
-        status_draft: 下書き
-        status_public_for_coaches: 公開
-        status_unpublic_for_coaches: 非公開
       certifications:
         toeic: TOEIC
         toefl: TOEFL

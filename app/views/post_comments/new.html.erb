@@ -1,26 +1,24 @@
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@hirotutor">
-<meta name="twitter:creator" content="<%= @creator %>">
-<meta name="twitter:title" content="<%= @creator %>さんが<%= @post.student.account_name %>さん<%= @twitter_sentence %>">
-<meta name="twitter:description" content="<%= @creator %>さんが<%= @post.student.account_name %>さん<%= @twitter_sentence %>">
-<meta name="twitter:image" content="<%= @twitter_image_url %>">
+<% content_for :head do %>
+<%= render 'shared/fundamental_meta' %>
+<%= render 'shared/twitter_meta' %>
+<% end %>
 
 <div class="page-outer" id="new-comment">
   <div class="page-container" id="post-comments-stream">
-    <% if params[:commented_post_comment_id] %>
-      <%= render "commented_post_comment" %>
+    <% if @commented_post_comment.present? %>
+      <%= render 'commented_post_comment' %>
       <hr class="hr-bottom hr-bold">
-      <span class="reply-to">reply to id:<%= params[:commented_post_comment_id] %></span>
+      <span class="reply-to">reply to id:<%= @commented_post_comment.id %></span>
     <% else %>
       <%= render @post %>
       <hr class="hr-bottom hr-bold">
       <span class="reply-to">reply to id:<%= @post.id %></span>
     <% end %>
-      <%= render "form" %>
-      <hr class="hr-bottom">
-      <ol class="comments post-comments-stream-container">
-        <%= render "comments" %>
-        <%= paginate @comments %>
-      </ol>
+    <%= render "form" %>
+    <hr class="hr-bottom">
+    <ol class="comments post-comments-stream-container">
+      <%= render "comments" %>
+      <%= paginate @comments %>
+    </ol>
   </div>
 </div>

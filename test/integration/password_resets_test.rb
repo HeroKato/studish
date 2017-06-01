@@ -4,7 +4,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
   
   def setup
     ActionMailer::Base.deliveries.clear
-    @coach = coaches(:axwell)
+    @user = users(:coach_user)
   end
   
   test "password resets" do
@@ -15,46 +15,46 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_template 'password_resets/new'
     # メールアドレスが有効
-    post password_resets_path, password_reset: { email: @coach.email }
-    assert_not_equal @coach.reset_digest, @coach.reload.reset_digest
+    post password_resets_path, password_reset: { email: @user.email }
+    assert_not_equal @user.reset_digest, @user.reload.reset_digest
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
     assert_redirected_to root_url
     # パスワード再設定用フォーム
-    coach = assigns(:coach)
+    user = assigns(:user)
     # メールアドレスが無効
-    get edit_password_reset_path(coach.reset_token, email: "")
+    get edit_password_reset_path(user.reset_token, email: "")
     assert_redirected_to root_url
     # 無効なコーチ
-    coach.toggle!(:activated)
-    get edit_password_reset_path(coach.reset_token, email: coach.email)
+    user.toggle!(:activated)
+    get edit_password_reset_path(user.reset_token, email: user.email)
     assert_redirected_to root_url
-    coach.toggle!(:activated)
+    user.toggle!(:activated)
     # メールアドレスが正しく、トークンが無効
-    get edit_password_reset_path('wrong token', email: coach.email)
+    get edit_password_reset_path('wrong token', email: user.email)
     assert_redirected_to root_url
     # メールアドレスもトークンも有効
-    get edit_password_reset_path(coach.reset_token, email: coach.email)
+    get edit_password_reset_path(user.reset_token, email: user.email)
     assert_template 'password_resets/edit'
-    assert_select "input[name=email][type=hidden][value=?]", coach.email
+    assert_select "input[name=email][type=hidden][value=?]", user.email
     # 無効な新しいパスワードと新しいパスワードの確認
-    patch password_reset_path(coach.reset_token),
-      email: coach.email,
-      coach: { password: "foobaz", password_confirmation: "foobbb" }
+    patch password_reset_path(user.reset_token),
+      email: user.email,
+      user: { password: "foobaz", password_confirmation: "foobbb" }
     assert_select 'div#error_explanation'
     assert_template 'password_resets/edit'
     # 新しいパスワードが空
-    patch password_reset_path(coach.reset_token),
-      email: coach.email,
-      coach: { password: "", password_confirmation: "" }
+    patch password_reset_path(user.reset_token),
+      email: user.email,
+      user: { password: "", password_confirmation: "" }
     assert_select 'div#error_explanation'
     assert_template 'password_resets/edit'
     # 有効な新しいパスワードと新しいパスワードの確認
-    patch password_reset_path(coach.reset_token),
-      email: coach.email,
-      coach: { password: "newtestpass", password_confirmation: "newtestpass" }
+    patch password_reset_path(user.reset_token),
+      email: user.email,
+      user: { password: "newtestpass", password_confirmation: "newtestpass" }
     assert is_logged_in? # なぞのfailuer
     assert_not flash.empty? # なぞのfailuer
-    assert_redirected_to coach # なぞのfailuer
+    assert_redirected_to user # なぞのfailuer
   end
 end

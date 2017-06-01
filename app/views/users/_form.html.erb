@@ -1,0 +1,135 @@
+<%= render "shared/errors", obj: @user %>
+
+<p class="info"><span class="public"></span>印がついている項目は他のユーザーに公開されます。</p>
+
+  <div class="present-avatar clearfix" id= "present-avatar" >
+    <div><%= form.label :avatar, t('.present-avatar'), class: "public" %></div>
+    <% if @user.avatar.present? %>
+      <%= image_tag @user.avatar.url, oncontextmenu: "return false;", class: "avatar avatar-large" %>
+    <% else %>
+      <%= image_tag "", class: "avatar avatar-large no-image" %>
+    <% end %>
+  </div>
+  <div class="form-group file-field new-avatar">
+  <%= form.label :new_avatar, t('.new-avatar'), class: "new-avatar" %>
+  <%= form.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', title: "test"  %>
+  <%= form.hidden_field :avatar_cache %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :name, t('.name'), class: "public" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "公開されるユーザ名です。" %>
+  </div>
+  <div class="form-group self_introduction">
+    <%= form.label :self_introduction, value: "自己紹介", class: "public" %>
+    <%= form.text_area :self_introduction, rows: "10", class: "form-control", placeholder: "生徒に向けたメッセージを書こう！（最大1200字）。" %>
+  </div>
+  
+<% if @user.user_type == "coach" %>
+  <%= form.fields_for :expanded_coach_profile do |ecp| %>
+  <div class="form-group">
+    <%= ecp.label :university, t('.university'), class: "public" %>
+    <%= ecp.text_field :university, class: "form-control", placeholder: "例：〇〇大学(大学院)" %>
+  </div>
+  <div class="form-group">
+    <%= ecp.label :major, t('.major'), class: "public" %>
+    <%= ecp.text_field :major, class: "form-control", placeholder: "例：〇〇学部〇〇学科" %>
+  </div>
+  <div class="form-group">
+    <%= ecp.label :school_year, t('.school_year'), class: "public" %>
+    <%= ecp.text_field :school_year, class: "form-control", placeholder: "例：B1/M1/既卒" %>
+  </div>
+  <div class="form-group">
+    <%= ecp.label :skype, t('.skype'), class: "no-public" %>
+    <%= ecp.text_field :skype, class: "form-control", placeholder: "例：skype名" %>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.fields_for :subjects do |subsf| %>
+      <div class="subjects edit">
+        <%= subsf.label t(".jr_subjects"), class: "public" %>
+        <span><%= subsf.check_box :jr_english, {}, '英語' %><%= t(".jr_english") %></span>
+        <span><%= subsf.check_box :jr_japanese, {}, '国語' %><%= t(".jr_japanese") %></span>
+        <span><%= subsf.check_box :jr_math, {}, '数学' %><%= t(".jr_math") %></span>
+        <span><%= subsf.check_box :jr_science, {}, '理科' %><%= t(".jr_science") %></span>
+        <span><%= subsf.check_box :jr_social, {}, '社会' %><%= t(".jr_social") %></span>
+      </div>
+      <div class="subjects edit">
+        <%= subsf.label t(".high_subjects"), class: "public" %>
+        <span><%= subsf.check_box :high_english, {}, '英語' %><%= t(".high_english") %></span>
+        <span><%= subsf.check_box :modern_japanese, {}, '現代文' %><%= t(".modern_japanese") %></span>
+        <span><%= subsf.check_box :classical_japanese, {}, '古文' %><%= t(".classical_japanese") %></span>
+        <span><%= subsf.check_box :classical_chinese, {}, '漢文' %><%= t(".classical_chinese") %></span>
+        <span><%= subsf.check_box :world_history_a, {}, '世界史A' %><%= t(".world_history_a") %></span>
+        <span><%= subsf.check_box :world_history_b, {}, '世界史B' %><%= t(".world_history_b") %></span>
+        <span><%= subsf.check_box :japanese_history_a, {}, '日本史A' %><%= t(".japanese_history_a") %></span>
+        <span><%= subsf.check_box :japanese_history_b, {}, '日本史B' %><%= t(".japanese_history_b") %></span>
+        <span><%= subsf.check_box :geography_a, {}, '地理A' %><%= t(".geography_a") %></span>
+        <span><%= subsf.check_box :geography_b, {}, '地理B' %><%= t(".geography_b") %></span>
+        <span><%= subsf.check_box :contemporary_society, {}, '現代社会' %><%= t(".contemporary_society") %></span>
+        <span><%= subsf.check_box :ethics, {}, '倫理' %><%= t(".ethics") %></span>
+        <span><%= subsf.check_box :politics_economics, {}, '政治経済' %><%= t(".politics_economics") %></span>
+        <span><%= subsf.check_box :math_1a, {}, '数学ⅠA' %><%= t(".math_1a") %></span>
+        <span><%= subsf.check_box :math_2b, {}, '数学ⅡB' %><%= t(".math_2b") %></span>
+        <span><%= subsf.check_box :math_3, {}, '数学Ⅲ' %><%= t(".math_3") %></span>
+        <span><%= subsf.check_box :basic_physics, {}, '物理基礎' %><%= t(".basic_physics") %></span>
+        <span><%= subsf.check_box :physics, {}, '物理' %><%= t(".physics") %></span>
+        <span><%= subsf.check_box :basic_chemistry, {}, '化学基礎' %><%= t(".basic_chemistry") %></span>
+        <span><%= subsf.check_box :chemistry, {}, '化学' %><%= t(".chemistry") %></span>
+        <span><%= subsf.check_box :basic_biology, {}, '生物基礎' %><%= t(".basic_biology") %></span>
+        <span><%= subsf.check_box :biology, {}, '生物' %><%= t(".biology") %></span>
+        <span><%= subsf.check_box :basic_earth_science, {}, '地学基礎' %><%= t(".basic_earth_science") %></span>
+        <span><%= subsf.check_box :earth_science, {}, '地学' %><%= t(".earth_science") %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= form.fields_for :certifications do |certf| %>
+      <div class="certifications edit">
+        <%= certf.label t(".certifications"), class: "public" %>
+        <table>
+          <tr>
+            <th><%= t(".toeic") %></th>
+            <td><%= certf.text_field :toeic, placeholder: "数値のみ入力" %></td>
+          </tr>
+          <tr>
+            <th><%= t(".toefl") %></th>
+            <td><%= certf.text_field :toefl, placeholder: "数値のみ入力" %></td>
+          </tr>
+          <tr>
+            <th><%= t(".ielts") %></th>
+            <td><%= certf.text_field :ielts, placeholder: "数値のみ入力" %></td>
+          </tr>
+          <tr>
+            <th><%= t(".eiken") %></th>
+            <td><%= certf.text_field :eiken, placeholder: "例:2級" %></td>
+          </tr>
+          <tr>
+            <th><%= t(".kanken") %></th>
+            <td><%= certf.text_field :kanken, placeholder: "例:2級" %></td>
+          </tr>
+          <tr>
+            <th><%= t(".suuken") %></th>
+            <td><%= certf.text_field :suuken, placeholder: "例:2級" %></td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if action_name == "new" %>
+<div class="form-group">
+  <%= form.label :password, class: "no-public" %>
+  <%= form.password_field :password, class: "form-control", placeholder: "英数字8文字以上" %>
+</div>
+<div class="form-group">
+  <%= form.label :password_confirmation, class: "no-public" %>
+  <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワードの確認" %>
+</div>
+<% end %>
+
+<div class="submit-group">
+    <%= form.submit "更新する", class: "btn btn-primary" %>
+</div>

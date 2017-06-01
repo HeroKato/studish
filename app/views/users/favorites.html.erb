@@ -1,0 +1,18 @@
+<% content_for :head do %>
+<%= render 'shared/fundamental_meta' %>
+<%= render 'shared/twitter_meta' %>
+<% end %>
+
+<div class="page-outer favorites">
+  <div class="page-container" id="favorite-stream">
+    <h2 class= "header favorites"><%= @user.account_name %>さんのFavorites</h2>
+    <div class="favorite-stream-container">
+      <% if @favorites.present? %>
+        <%= render 'favorites' %>
+        <%= paginate @favorites %>
+      <% else %>
+        <p class="nothing"><%= @user.name %>さんのいいねはまだありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>
